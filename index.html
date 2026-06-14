@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a051b" />
+    <meta name="theme-color" content="#06030d" />
     <title>FIFA 2026 | SAWARID سواريد</title>
     
-    <!-- Google Fonts (Inter for UI, Cairo for Arabic typography) -->
+    <!-- Google Fonts (Inter for UI, Cairo for clean Arabic aesthetics) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -20,7 +20,6 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Config for Gradient Integration -->
     <script>
       tailwind.config = {
         theme: {
@@ -30,8 +29,7 @@
                 dark: '#06030d',
                 card: '#0e081f',
                 element: '#160d30',
-                border: '#2e1b5b',
-                accent: '#ff512f'
+                border: '#2e1b5b'
               }
             },
             fontFamily: {
@@ -44,12 +42,11 @@
     </script>
 
     <style>
-      /* Smooth transitions */
       .transition-all {
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
-      /* Vibrant mixing gradient resembling the user's uploaded image */
+      /* Vibrant custom gradient matching your background gradient image */
       .bg-mix-gradient {
         background: linear-gradient(135deg, #ff512f 0%, #dd2476 35%, #8a2be2 70%, #00c6ff 100%);
       }
@@ -60,11 +57,7 @@
         -webkit-text-fill-color: transparent;
       }
 
-      .border-mix-gradient {
-        border-image: linear-gradient(135deg, #ff512f 0%, #dd2476 35%, #8a2be2 70%, #00c6ff 100%) 1;
-      }
-
-      /* Custom scrollbar matching the gradient theme */
+      /* Custom scrollbar matching theme style */
       ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -80,7 +73,6 @@
         background: #dd2476;
       }
 
-      /* Fullscreen & Orientation adjustments */
       #playerCard:fullscreen,
       #playerCard:-webkit-full-screen,
       #playerCard.fullscreen-mode {
@@ -124,23 +116,20 @@
         }
       }
 
-      /* Internal Overlay Controls for Video Player */
       .player-controls-overlay {
-        background: linear-gradient(to top, rgba(6, 3, 13, 0.95) 0%, rgba(6, 3, 13, 0.4) 70%, transparent 100%);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        background: linear-gradient(to top, rgba(6, 3, 13, 0.95) 0%, rgba(6, 3, 13, 0.3) 70%, transparent 100%);
+        transition: opacity 0.3s ease;
       }
     </style>
   </head>
   <body class="bg-[#06030d] text-[#edf5ff] min-h-screen flex flex-col font-sans select-none relative" oncontextmenu="return false;">
     
-    <!-- Background subtle radial gradient -->
     <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-[#dd2476]/10 via-transparent to-transparent pointer-events-none -z-10"></div>
 
     <!-- Header Section -->
     <header class="border-b border-[#2e1b5b]/60 bg-[#0e081f]/90 backdrop-blur-md sticky top-0 z-40 px-4 py-3">
       <div class="w-full max-w-7xl mx-auto flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <!-- FIFA Logo Icon Wrapper -->
           <div class="h-11 w-11 rounded-xl overflow-hidden border border-[#2e1b5b] bg-white shadow-lg flex items-center justify-center p-1">
             <img 
               src="https://i.postimg.cc/2SPC4wwN/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png" 
@@ -159,10 +148,10 @@
       </div>
     </header>
 
-    <!-- Main Content Area -->
+    <!-- Main Workspace Area -->
     <main class="w-full max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1 space-y-6">
       
-      <!-- Video Player Component Card -->
+      <!-- Video Player Card Container -->
       <div 
         id="playerCard" 
         class="bg-[#0e081f] border border-[#2e1b5b] rounded-2xl overflow-hidden shadow-2xl relative group"
@@ -171,7 +160,6 @@
       >
         <div class="player-inner-wrapper relative">
 
-          <!-- Aspect Ratio Box for HTML Video Player -->
           <div class="w-full aspect-video bg-black relative flex items-center justify-center overflow-hidden">
             <video 
               id="liveVideo" 
@@ -180,17 +168,17 @@
               onclick="togglePlay()"
             ></video>
 
-            <!-- Custom OSD Controls Overlay inside the player -->
+            <!-- Custom OSD Control Panel Overlay (All Buttons are placed here cleanly) -->
             <div id="playerControls" class="player-controls-overlay absolute inset-0 flex flex-col justify-between p-3 sm:p-4 z-20 opacity-100 transition-opacity duration-300">
               
-              <!-- Upper OSD: Status -->
+              <!-- Upper OSD Metadata -->
               <div class="flex justify-between items-start w-full">
                 <div class="flex items-center gap-1.5">
                   <span class="px-2.5 py-1 rounded-md bg-red-600 text-[10px] font-black tracking-widest text-white uppercase animate-pulse">
                     LIVE
                   </span>
-                  <span id="player-channel-display" class="px-2.5 py-1 rounded-md bg-black/60 text-[10px] font-bold text-white border border-[#2e1b5b]">
-                    Loading...
+                  <span id="player-channel-display" class="px-2.5 py-1 rounded-md bg-black/60 text-[10px] font-bold text-white border border-[#2e1b5b] max-w-[180px] truncate">
+                    Loading Playlist...
                   </span>
                 </div>
                 <span id="player-quality-badge" class="px-2.5 py-1 rounded-md bg-black/60 text-[10px] font-bold text-white border border-[#2e1b5b]">
@@ -198,68 +186,53 @@
                 </span>
               </div>
 
-              <!-- Center Big Play Button (shows briefly/when paused) -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <button id="centerPlayBtn" class="h-14 w-14 rounded-full bg-mix-gradient flex items-center justify-center text-white shadow-xl opacity-0 scale-90 transition-all duration-350">
-                  <i data-lucide="play" class="h-6 w-6 fill-white ml-0.5"></i>
-                </button>
-              </div>
-
-              <!-- Bottom OSD: Interactive Bar -->
+              <!-- Playback Toggle Action Panel -->
               <div class="w-full flex items-center justify-between gap-2 pt-2 border-t border-white/10">
-                
-                <!-- Left Hand OSD Controls -->
                 <div class="flex items-center gap-2">
                   <button onclick="togglePlay()" class="h-8 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center gap-1 text-xs font-bold">
                     <i data-lucide="pause" class="h-4.5 w-4.5 fill-white" id="play-btn-icon"></i>
                   </button>
-
                   <button onclick="toggleMute()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center">
                     <i data-lucide="volume-2" class="h-4.5 w-4.5" id="mute-btn-icon"></i>
                   </button>
                 </div>
 
-                <!-- Right Hand OSD Controls -->
                 <div class="flex items-center gap-2">
-                  <!-- Dynamic Quality Selection inside OSD -->
                   <select 
                     id="qualitySelect"
                     onchange="handleQualitySelection(this.value)"
                     class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1b5b] font-bold text-white outline-none cursor-pointer transition-all"
                   >
-                    <option value="auto">Auto</option>
+                    <option value="auto">Auto Quality</option>
                   </select>
-
-                  <button onclick="togglePiP()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center" title="Picture in Picture">
+                  <button onclick="togglePiP()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center">
                     <i data-lucide="picture-in-picture" class="h-4.5 w-4.5"></i>
                   </button>
-
-                  <button onclick="toggleFullscreen()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center" title="Fullscreen">
+                  <button onclick="toggleFullscreen()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center">
                     <i data-lucide="maximize" class="h-4.5 w-4.5"></i>
                   </button>
                 </div>
-
               </div>
+
             </div>
 
-            <!-- Loading Spinner State overlay -->
+            <!-- Loading overlay state -->
             <div id="buffering-overlay" class="absolute inset-0 bg-[#06030d]/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 z-10">
               <div class="relative mb-4 flex items-center justify-center">
-                <!-- Outer Spin circle with mixed color gradient -->
                 <div class="w-14 h-14 rounded-full border-4 border-[#2e1b5b] border-t-[#dd2476] animate-spin"></div>
               </div>
-              <h3 class="text-white text-sm font-bold tracking-wider uppercase font-arabic">Connecting Live Server</h3>
-              <p id="buffering-detail" class="text-[10px] text-gray-400 mt-1 font-semibold">Synchronizing video layers...</p>
+              <h3 class="text-white text-sm font-bold tracking-wider uppercase font-arabic">Syncing Stream</h3>
+              <p id="buffering-detail" class="text-[10px] text-gray-400 mt-1 font-semibold">Parsing Playlist Resources...</p>
             </div>
 
-            <!-- Error State overlay -->
+            <!-- Error state overlay -->
             <div id="error-overlay" class="hidden absolute inset-0 bg-[#06030d]/95 flex flex-col items-center justify-center text-center p-6 z-10">
               <i data-lucide="alert-triangle" class="text-red-500 h-12 w-12 mb-3"></i>
               <h4 class="text-white text-sm font-bold uppercase">Stream Offline</h4>
-              <p id="error-detail" class="text-[11px] text-gray-400 mt-1 max-w-xs">Failed to fetch the resource.</p>
+              <p id="error-detail" class="text-[11px] text-gray-400 mt-1 max-w-xs">Connecting issues.</p>
               <button 
                 onclick="retryCurrentChannel()"
-                class="mt-4 px-4 py-2 bg-mix-gradient hover:opacity-90 transition-all rounded-lg text-white font-extrabold text-xs shadow-lg"
+                class="mt-4 px-4 py-2 bg-mix-gradient hover:opacity-90 transition-all rounded-lg text-white font-extrabold text-xs shadow-lg animate-pulse"
               >
                 Retry Stream
               </button>
@@ -269,26 +242,22 @@
         </div>
       </div>
 
-      <!-- Center Logo / Banner Branding Section (Image 2 representation) -->
+      <!-- Center Logo Branding Segment -->
       <div class="flex flex-col items-center justify-center py-4 text-center">
         <div class="relative w-28 h-28 flex items-center justify-center">
-          <!-- 
-             আপনার ২য় লোগো (ফ্রেমযুক্ত) ইমেজটি নিচে পরিবর্তন করুন:
-             src এর ভেতরের লিংকটি পরিবর্তন করে আপনার ছবির লিংক বসিয়ে দিন।
-          -->
           <img 
             src="https://i.postimg.cc/mD8N1bL6/square-frame-logo.png" 
-            alt="SAWARID Ribbon Logo" 
+            alt="SAWARID Logo Frame" 
             class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(221,36,118,0.4)]"
-            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/DSports.png'; this.style.opacity='0.2';"
+            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/DSports.png';"
           />
         </div>
         <h2 class="text-sm font-black text-white tracking-widest uppercase mt-3 font-arabic">SAWARID NETWORK</h2>
         <div class="h-[2px] w-12 bg-mix-gradient mt-1 rounded-full"></div>
       </div>
 
-      <!-- Channel Selector Grid Container -->
-      <section class="bg-[#0e081f] border border-[#2e1b5b]/60 rounded-2xl p-5 shadow-2xl space-y-4">
+      <!-- Dynamic Channels Grid Section (3 Columns Layout with Logo Top + Text Bottom inside button) -->
+      <section class="bg-[#0e081f] border border-[#2e1b5b]/60 rounded-2xl p-4 shadow-2xl space-y-4">
         <div class="flex items-center gap-2 border-b border-[#2e1b5b]/50 pb-3">
           <i data-lucide="tv" class="h-5 w-5 text-[#dd2476] shrink-0"></i>
           <h3 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-arabic">
@@ -296,8 +265,8 @@
           </h3>
         </div>
 
-        <!-- Populated via Javascript -->
-        <div id="channels-grid" class="grid grid-cols-2 gap-3 sm:gap-4"></div>
+        <!-- 3-Column Grid Layout Area -->
+        <div id="channels-grid" class="grid grid-cols-3 gap-2 sm:gap-4"></div>
       </section>
 
     </main>
@@ -317,82 +286,30 @@
       </p>
     </footer>
 
-    <!-- Toast Notification Overlay -->
+    <!-- Toast Notification -->
     <div 
       id="toast" 
-      class="hidden fixed bottom-6 right-6 z-50 bg-[#0e081f] border border-[#dd2476]/30 px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-2.5 transition-all transform animate-bounce"
+      class="hidden fixed bottom-6 right-6 z-50 bg-[#0e081f] border border-[#dd2476]/30 px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-2.5 transition-all"
     >
       <i data-lucide="info" class="h-4.5 w-4.5 text-[#00c6ff]"></i>
       <span id="toast-text" class="text-xs font-bold text-white font-arabic"></span>
     </div>
 
-    <!-- Active Runtime Player Engine Script -->
+    <!-- Active Runtime Parser and Playback Control Script -->
     <script>
       /* 
          ========================================================================
-         চ্যানেল ডেটাবেজ কনফিগারেশন এরিয়া (বাংলায় নির্দেশনাবলী):
+         এম৩ইউ (M3U) প্লেলিস্ট কনফিগারেশন এরিয়া (বাংলায় নির্দেশনাবলী):
          ========================================================================
-         আপনি এখানে খুব সহজেই যেকোনো ts বা m3u8 লিংক যুক্ত করতে পারেন। 
-         নতুন কোনো চ্যানেল বসাতে বা লিংক পরিবর্তন করতে নিচের ফিল্ডগুলো এডিট করুন:
-         
-         - "key": প্রতিটি চ্যানেলের জন্য একটি আলাদা ইউনিক নাম (ইংরেজি ছোট হাতের)।
-         - "name": চ্যানেলের নাম (যা স্ক্রিনে প্রদর্শিত হবে)।
-         - "image": চ্যানেলের লোগো ইমেজ লিংক।
-         - "url": m3u8, mpd অথবা ts স্ট্রিমিং ফাইলের লিংক।
-         - "type": যদি HLS (m3u8/ts) হয় তবে টাইপ দিবেন "hls", যদি DASH (mpd) হয় তবে দিবেন "dash"।
-         - "drm", "key_id", "key_value" (অপশনাল): যদি চ্যানেলটি DRM প্রোটেক্টেড বা কি-লক করা থাকে, তবে ব্যবহার করবেন, অন্যথায় খালি বা বাদ রাখবেন।
+         নিচে আপনার দেওয়া m3u প্লেলিস্টের লিংকটি ডিফাইন করা রয়েছে। 
+         আপনি চাইলে যেকোনো সময় নিচের 'm3uPlaylistUrl' এর ভেতরের লিংক পরিবর্তন করতে পারবেন।
+         আমাদের স্ক্রিপ্টটি ডাইনামিকালি এক্সটেনশন যাচাই করে .mpd, .m3u8 এবং .ts ফাইল লোড করবে।
       */
-      
-      const channelData = [
-        {
-          key: "dsports",
-          name: "D Sports HD",
-          image: "https://upload.wikimedia.org/wikipedia/commons/5/5a/DSports.png",
-          quality: "HD Auto",
-          url: "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ubehitlwzo/out/v1/8e09c381a51f4366a19e979418112e8f/cenc.mpd",
-          type: "dash",
-          drm: "clearkey",
-          key_id: "a7d11d37a1f7611ee88d4db880171f32",
-          key_value: "68f96d618b0b956b008c445896a25a79"
-        },
-        {
-          key: "tudn",
-          name: "TUDN Sports",
-          image: "https://i.imgur.com/oT5CAvd.png",
-          quality: "HD Live",
-          url: "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/8u9cregwlt/out/v1/687f6b2a559943549be271504a948ffd/cenc.mpd",
-          type: "dash",
-          drm: "clearkey",
-          key_id: "1710ac2bbfcd3032d0f6533850968f47",
-          key_value: "d2548dacc8efcd1cd0af0373060c82dc"
-        },
-        {
-          key: "telemundo",
-          name: "Telemundo Deportes",
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Telemundo_logo_2018.svg/960px-Telemundo_logo_2018.svg.png",
-          quality: "SD Stream",
-          url: "https://live-oneapp-prd-news.akamaized.net/Content/CMAF_OL2-CTR-4s-v2/Live/channel(kvea)/master.mpd",
-          type: "dash",
-          drm: "clearkey",
-          key_id: "ce7ab3022e753307997f58afe001bac4",
-          key_value: "72d631a66e635c60829a0fe7705516c1"
-        },
-        {
-          key: "m6direct",
-          name: "M6 Direct TV",
-          image: "https://i.imgur.com/7GVp3fW.png",
-          quality: "Mobile Live",
-          url: "https://origin-m6web.live.6cloud.fr/out/v1/6play/6play-m6/cmaf_cenc00/dash-short-hd.mpd",
-          type: "dash",
-          drm: "clearkey",
-          key_id: "433ffba670963e70857859a9dff4be04",
-          key_value: "51ede3a821229fe81e71282c8eff80e3"
-        }
-      ];
+      const m3uPlaylistUrl = "https://raw.githubusercontent.com/siksa40/xPola-Player/main/bein-max.m3u";
 
-      // Dynamic Application Runtime Variables
+      let parsedChannels = [];
       let shakaPlayerInstance = null;
-      let activeChannel = channelData[0];
+      let activeChannel = null;
       let isMuted = false;
       let isPlaying = false;
       let availableTracks = [];
@@ -406,7 +323,6 @@
       const qualityBadge = document.getElementById('player-quality-badge');
       const playIcon = document.getElementById('play-btn-icon');
       const muteIcon = document.getElementById('mute-btn-icon');
-      const centerPlayBtn = document.getElementById('centerPlayBtn');
       const playerControls = document.getElementById('playerControls');
       const chDisplay = document.getElementById('player-channel-display');
 
@@ -415,18 +331,14 @@
         const textNode = document.getElementById('toast-text');
         textNode.innerText = message;
         toast.classList.remove('hidden');
-        setTimeout(() => {
-          toast.classList.add('hidden');
-        }, 3000);
+        setTimeout(() => { toast.classList.add('hidden'); }, 3000);
       }
 
       function handleUserInteraction() {
         playerControls.classList.remove('opacity-0');
         playerControls.classList.add('opacity-100');
         
-        if (controlsTimeout) {
-          clearTimeout(controlsTimeout);
-        }
+        if (controlsTimeout) clearTimeout(controlsTimeout);
         
         controlsTimeout = setTimeout(() => {
           if (isPlaying) {
@@ -436,33 +348,119 @@
         }, 3500);
       }
 
+      /* 
+         ========================================================================
+         M3U প্লেলিস্ট পার্সার ইঞ্জিন:
+         ========================================================================
+         এই ফাংশনটি স্বয়ংক্রিয়ভাবে প্লেলিস্টের #EXTINF মেটাডাটা এবং তার ঠিক নিচের 
+         #KODIPROP ক্লিয়ার-কি লাইসেন্স প্যারামিটারগুলো রিড করে ডাটাবেজ তৈরি করে।
+      */
+      async function fetchAndParseM3U(url) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('Failed to load playlist from server.');
+          const text = await response.text();
+          const lines = text.split('\n');
+          
+          const channels = [];
+          let currentChannel = null;
+
+          for (let i = 0; i < lines.length; i++) {
+            let line = lines[i].trim();
+            if (!line) continue;
+
+            if (line.startsWith('#EXTINF:')) {
+              currentChannel = {
+                name: 'Unnamed Channel',
+                logo: '',
+                url: '',
+                isDrm: false,
+                drmKeys: null
+              };
+
+              // Extract tvg-logo
+              const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+              if (logoMatch) currentChannel.logo = logoMatch[1];
+
+              // Extract channel name (located after the last comma)
+              const commaIndex = line.lastIndexOf(',');
+              if (commaIndex !== -1) {
+                currentChannel.name = line.substring(commaIndex + 1).trim();
+              }
+            } else if (line.startsWith('#KODIPROP:')) {
+              if (!currentChannel) continue;
+              if (line.includes('license_type=clearkey')) {
+                currentChannel.isDrm = true;
+              } else if (line.includes('license_key=')) {
+                currentChannel.isDrm = true;
+                const valueStr = line.split('license_key=')[1].trim();
+                try {
+                  if (valueStr.startsWith('{')) {
+                    // JSON Format: {"kid":"key"}
+                    const parsedKeys = JSON.parse(valueStr);
+                    const normalized = {};
+                    for (let k in parsedKeys) {
+                      normalized[k.toLowerCase().replace(/[^a-f0-9]/gi, '')] = parsedKeys[k].toLowerCase().replace(/[^a-f0-9]/gi, '');
+                    }
+                    currentChannel.drmKeys = normalized;
+                  } else {
+                    // Hex Format: kid:key
+                    const parts = valueStr.split(':');
+                    if (parts.length === 2) {
+                      const kid = parts[0].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+                      const kval = parts[1].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+                      currentChannel.drmKeys = { [kid]: kval };
+                    }
+                  }
+                } catch (e) {
+                  console.error("Error parsing DRM clear keys:", e);
+                }
+              }
+            } else if (line.startsWith('http://') || line.startsWith('https://')) {
+              if (currentChannel) {
+                currentChannel.url = line;
+                channels.push(currentChannel);
+                currentChannel = null; 
+              }
+            }
+          }
+          return channels;
+        } catch (err) {
+          console.error("M3U Parser error:", err);
+          return [];
+        }
+      }
+
+      /* 
+         ========================================================================
+         ৩-কলাম গ্রিড রেন্ডার ফাংশন (লগো ওপরে, নাম নিচে):
+         ========================================================================
+      */
       function renderChannelsGrid() {
         const grid = document.getElementById('channels-grid');
         grid.innerHTML = '';
 
-        channelData.forEach((ch) => {
-          const isActive = ch.key === activeChannel.key;
+        parsedChannels.forEach((ch, idx) => {
+          const isActive = activeChannel && ch.url === activeChannel.url;
           const card = document.createElement('button');
-          card.className = `p-3 rounded-xl border flex items-center gap-3 w-full transition-all text-left outline-none relative group ${
+          
+          // Vertically aligned flex layout (logo top, text bottom)
+          card.className = `p-2.5 rounded-xl border flex flex-col items-center justify-center text-center w-full transition-all outline-none group ${
             isActive 
-              ? 'bg-[#160d30] border-[#dd2476] shadow-lg' 
-              : 'bg-[#0e081f]/90 border-[#2e1b5b]/50 hover:border-white/20'
+              ? 'bg-[#160d30] border-[#dd2476] shadow-md shadow-[#dd2476]/10' 
+              : 'bg-[#0e081f]/95 border-[#2e1b5b]/50 hover:border-white/10'
           }`;
           
-          card.onclick = () => selectChannel(ch.key);
+          card.onclick = () => selectChannel(idx);
 
+          // Content of the vertical tile button
           card.innerHTML = `
-            <div class="w-11 h-11 bg-white rounded-lg p-1.5 flex-shrink-0 flex items-center justify-center overflow-hidden">
-              <img src="${ch.image}" alt="${ch.name}" class="max-h-full max-w-full object-contain" />
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden mb-2 shadow-inner group-hover:scale-105 transition-all">
+              <img src="${ch.logo}" alt="" class="max-h-full max-w-full object-contain" onerror="this.src='https://i.postimg.cc/2SPC4wwN/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png';" />
             </div>
-            <div class="text-left overflow-hidden flex-1 leading-normal">
-              <h4 class="text-xs sm:text-sm font-bold truncate ${isActive ? 'text-[#00c6ff]' : 'text-white'}">
-                ${ch.name}
-              </h4>
-              <p class="text-[9px] text-gray-400 font-semibold tracking-wider mt-0.5 uppercase">
-                ${ch.quality}
-              </p>
-            </div>
+            <span class="text-[10px] sm:text-xs font-bold truncate w-full tracking-wide ${isActive ? 'text-[#00c6ff]' : 'text-gray-300 group-hover:text-white'}">
+              ${ch.name}
+            </span>
           `;
           grid.appendChild(card);
         });
@@ -471,14 +469,29 @@
       async function initApp() {
         shaka.polyfill.installAll();
         if (!shaka.Player.isBrowserSupported()) {
-          console.error('Browser does not support Shaka Player.');
-          return;
+          console.error('Browser does not support secure DRM stream playback.');
         }
 
-        renderChannelsGrid();
-        await loadChannelStream(activeChannel);
+        // Fetch and dynamically load the parsed database
+        document.getElementById('buffering-detail').innerText = "Loading remote playlist...";
+        parsedChannels = await fetchAndParseM3U(m3uPlaylistUrl);
+
+        if (parsedChannels.length > 0) {
+          activeChannel = parsedChannels[0];
+          renderChannelsGrid();
+          await loadChannelStream(activeChannel);
+        } else {
+          bufOverlay.classList.add('hidden');
+          errOverlay.classList.remove('hidden');
+          errDetail.innerText = "Error: Could not load or parse the remote M3U file.";
+        }
       }
 
+      /* 
+         ========================================================================
+         ডাইনামিক স্ট্রিম প্লে ব্যাক ইঞ্জিন:
+         ========================================================================
+      */
       async function loadChannelStream(channel) {
         bufOverlay.classList.remove('hidden');
         errOverlay.classList.add('hidden');
@@ -487,6 +500,7 @@
         qualSelect.innerHTML = '<option value="auto">Auto Quality</option>';
         qualSelect.value = 'auto';
 
+        // Reset older player states
         if (shakaPlayerInstance) {
           try {
             await shakaPlayerInstance.destroy();
@@ -496,6 +510,32 @@
           shakaPlayerInstance = null;
         }
 
+        const isTsStream = channel.url.toLowerCase().endsWith('.ts') || channel.url.includes('extension=ts');
+
+        /* 
+           ১. যদি সাধারণ সরাসরি TS স্ট্রিম হয়, তবে ব্রাউজারের নেটিভ প্লেয়ার বা ডিরেক্ট HTML সোর্স দিয়ে চালানো হবে, 
+           কারণ সরাসরি TS ফাইল Shaka Media Engine অনেক সময় ব্লক করতে পারে।
+        */
+        if (isTsStream) {
+          try {
+            videoElement.removeAttribute('src');
+            videoElement.src = channel.url;
+            
+            videoElement.onwaiting = () => { bufOverlay.classList.remove('hidden'); };
+            videoElement.onplaying = () => { bufOverlay.classList.add('hidden'); };
+
+            videoElement.muted = isMuted;
+            await videoElement.play();
+            isPlaying = true;
+            updatePlayUI(true);
+            bufOverlay.classList.add('hidden');
+            return;
+          } catch (err) {
+            console.warn("Native TS load fallback error, trying Shaka Engine...", err);
+          }
+        }
+
+        // ২. DASH (.mpd) এবং HLS (.m3u8) স্ট্রিমের জন্য Shaka Player রান করা হবে
         try {
           const player = new shaka.Player();
           await player.attach(videoElement);
@@ -505,30 +545,22 @@
             handleStreamFailure(e.detail);
           });
 
-          // Standard Optimization Config with robust buffer controls for smooth playback
           player.configure({
             streaming: {
-              bufferingGoal: 20,       // Pre-buffers 20 seconds ahead for smooth & buffer-free playback
-              rebufferingGoal: 4,      // 4 seconds rebuffering to secure playback in weak connections
+              bufferingGoal: 20, 
+              rebufferingGoal: 4,
               bufferBehind: 30,
-              lowLatencyMode: false,
               stallEnabled: true,
               stallThreshold: 1.5,
               stallSkip: 0.2
             },
-            abr: {
-              enabled: true,
-              defaultBandwidthEstimate: 1200000,
-              switchInterval: 3
-            }
+            abr: { enabled: true }
           });
 
-          // Decrypt Clearkey token if DRM properties exist
-          if (channel.drm === 'clearkey' && channel.key_id && channel.key_value) {
-            const keys = {};
-            keys[channel.key_id.toLowerCase()] = channel.key_value.toLowerCase();
+          // স্বয়ংক্রিয়ভাবে M3U প্লেলিস্ট থেকে পার্স করা ClearKey জোড়াগুলো এখানে লোড করা হচ্ছে
+          if (channel.isDrm && channel.drmKeys) {
             player.configure({
-              drm: { clearKeys: keys }
+              drm: { clearKeys: channel.drmKeys }
             });
           }
 
@@ -566,21 +598,20 @@
       function handleStreamFailure(err) {
         bufOverlay.classList.add('hidden');
         errOverlay.classList.remove('hidden');
-        errDetail.innerText = `Decoder error code: ${err.code || 'Network Disconnection'}`;
+        errDetail.innerText = `Decoder error code: ${err.code || 'Decoding or Connection Timeout'}`;
       }
 
-      function selectChannel(key) {
-        const found = channelData.find(c => c.key === key);
-        if (found) {
-          activeChannel = found;
+      function selectChannel(index) {
+        if (parsedChannels[index]) {
+          activeChannel = parsedChannels[index];
           renderChannelsGrid();
-          loadChannelStream(found);
-          showToast(`Switched to ${found.name}`);
+          loadChannelStream(activeChannel);
+          showToast(`Swapped: ${activeChannel.name}`);
         }
       }
 
       function retryCurrentChannel() {
-        loadChannelStream(activeChannel);
+        if (activeChannel) loadChannelStream(activeChannel);
       }
 
       function togglePlay() {
@@ -599,11 +630,8 @@
       function updatePlayUI(playing) {
         if (playing) {
           playIcon.setAttribute('data-lucide', 'pause');
-          centerPlayBtn.classList.add('opacity-0', 'scale-90');
         } else {
           playIcon.setAttribute('data-lucide', 'play');
-          centerPlayBtn.classList.remove('opacity-0', 'scale-90');
-          centerPlayBtn.classList.add('opacity-100', 'scale-100');
         }
         lucide.createIcons();
       }
@@ -626,7 +654,7 @@
         if (val === 'auto') {
           shakaPlayerInstance.configure({ abr: { enabled: true } });
           qualityBadge.innerText = "AUTO";
-          showToast('Smart resolution enabled.');
+          showToast('Smart Auto Quality enabled.');
         } else if (val.startsWith('track:')) {
           const trackId = parseInt(val.split(':')[1], 10);
           const track = availableTracks.find(t => t.id === trackId);
@@ -634,7 +662,7 @@
             shakaPlayerInstance.configure({ abr: { enabled: false } });
             shakaPlayerInstance.selectVariantTrack(track, true);
             qualityBadge.innerText = `${track.height}p`;
-            showToast(`Manual Quality set to ${track.height}p`);
+            showToast(`Forced set: ${track.height}p`);
           }
         }
       }
@@ -667,19 +695,15 @@
       document.addEventListener('fullscreenchange', () => {
         const pcard = document.getElementById('playerCard');
         if (pcard) {
-          if (document.fullscreenElement) {
-            pcard.classList.add('fullscreen-mode');
-          } else {
-            pcard.classList.remove('fullscreen-mode');
-          }
+          if (document.fullscreenElement) pcard.classList.add('fullscreen-mode');
+          else pcard.classList.remove('fullscreen-mode');
         }
       });
 
-      // Simple anti-inspect tool safety measure (right click disabled & F12 warning)
       document.addEventListener('keydown', (e) => {
         if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74))) {
           e.preventDefault();
-          showToast('Inspection locked.');
+          showToast('Debugging locked.');
         }
       });
 
