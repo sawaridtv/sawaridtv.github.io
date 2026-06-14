@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#06020f" />
-    <title>FIFA 2026 | SAWARID سواريد</title>
+    <title>FIFA 2026 | SAWARID سوারيد</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -206,7 +206,7 @@
             src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
             alt="Right Logo" 
             class="max-h-full max-w-full object-contain" 
-          />
+            />
         </div>
 
       </div>
@@ -265,7 +265,7 @@
                   <select 
                     id="qualitySelect"
                     onchange="handleQualitySelection(this.value)"
-                    class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1b5b] font-bold text-white outline-none cursor-pointer transition-all"
+                    class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1256] font-bold text-white outline-none cursor-pointer transition-all"
                   >
                     <option value="auto">Auto Quality</option>
                   </select>
@@ -360,17 +360,11 @@
          ====================================================================================
          প্লেলিস্ট পরিবর্তন নির্দেশনাবলী (How to Change Playlist URL):
          ====================================================================================
-         আপনার M3U প্লেলিস্টের মূল সিকিউরিটি প্রোটেকশন বাড়ানোর জন্য ইউআরএল লিংকটিকে সরাসরি না লিখে 
-         Base64 এনকোড করে রাখা হয়েছে। 
-         
-         ভবিষ্যতে প্লেলিস্ট ইউআরএল পরিবর্তন করতে চাইলে:
-         ১. প্রথমে আপনার নতুন M3U লিংকটি কপি করুন।
-         ২. যেকোনো Base64 Encoder ওয়েবসাইটে (যেমন: https://www.base64encode.org) গিয়ে লিংকটি এনকোড করুন।
-         ৩. নিচের 'ePlaylist' ভেরিয়েবলের ডাবল কোটেশন চিহ্নের (" ") ভেতর নতুন জেনারেট হওয়া কোডটি পেস্ট করে দিন।
+         ভবিষ্যতে প্লেলিস্ট ইউআরএল পরিবর্তন করতে চাইলে নিচের ডাবল কোটেশন চিহ্নের (" ") ভেতর 
+         আপনার কাঙ্ক্ষিত M3U প্লেলিস্টের মূল লিংকটি সরাসরি পেস্ট করে দিন।
          ====================================================================================
       */
-      const ePlaylist = "aHR0cHM6Ly9yYXcuZ2l0aHViY29udGVudC5jb20vc2lrc2E0MC94UG9sYS1QbGF5ZXIvbWFpbi9iZWluLW1heC5tM3U=";
-      const m3uPlaylistUrl = atob(ePlaylist);
+      const m3uPlaylistUrl = "https://raw.githubusercontent.com/siksa40/xPola-Player/main/bein-max.m3u";
 
       let parsedChannels = [];
       let shakaPlayerInstance = null;
@@ -612,7 +606,7 @@
 
       /* 
          ====================================================================================
-         এডাপটিভ প্লেব্যাক ইঞ্জিন (ABR out of the box কনফিগারেশন):
+         এডাপティブ প্লেব্যাক ইঞ্জিন (ABR out of the box কনফিগারেশন):
          ====================================================================================
       */
       async function loadChannelStream(channel) {
