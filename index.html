@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <title>FIFA World Cup 2026 LiveTV - Standalone Player</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Shaka Player CDN -->
+    <script src="https://unpkg.com/shaka-player@5.0.0/dist/shaka-player.compiled.js"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Pairings -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: '#07111f',
+                card: '#0f1b2e',
+                element: '#13243d',
+                border: '#22324d',
+                accent: '#0b84ff',
+                cyan: '#00d4ff',
+                red: '#ef4444',
+                green: '#22c55e'
+              }
+            },
+            fontFamily: {
+              sans: ['Nunito', 'sans-serif'],
+              fancy: ['Dancing Script', 'cursive'],
+              bangla: ['Hind Siliguri', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      .transition-all {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @keyframes pulse-glow {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(11, 132, 255, 0.4);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 10px 4px rgba(11, 132, 255, 0.2);
+        }
+      }
+      .animate-pulse-glow {
+        animation: pulse-glow 2s infinite;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #07111f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #22324d;
+        border-radius: 9px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0b84ff;
+      }
+
+      #playerCard:fullscreen,
+      #playerCard:-webkit-full-screen,
+      #playerCard.fullscreen-mode {
+        background-color: #000000 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+      }
+
+      .player-inner-wrapper {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        transition: transform 0.3s ease-out;
+      }
+
+      #playerCard:fullscreen .aspect-video,
+      #playerCard.fullscreen-mode .aspect-video {
+        flex: 1 !important;
+        aspect-ratio: auto !important;
+        height: auto !important;
+      }
+
+      @media (orientation: portrait) {
+        #playerCard:fullscreen .player-inner-wrapper,
+        #playerCard:-webkit-full-screen .player-inner-wrapper,
+        #playerCard.fullscreen-mode .player-inner-wrapper {
+          width: 100vh !important;
+          height: 100vw !important;
+          transform: translate(-50%, -50%) rotate(90deg) !important;
+          transform-origin: center center !important;
+          position: absolute !important;
+          top: 50% !important;
+          left: 50% !important;
+        }
+      }
+
+      #playerCard:fullscreen #controlBar,
+      #playerCard:-webkit-full-screen #controlBar,
+      #playerCard.fullscreen-mode #controlBar {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 50 !important;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 70%, transparent 100%) !important;
+        border-top: none !important;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out !important;
+      }
+
+      #playerCard:fullscreen #controlBar.controls-hidden,
+      #playerCard:-webkit-full-screen #controlBar.controls-hidden,
+      #playerCard.fullscreen-mode #controlBar.controls-hidden {
+        transform: translateY(100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#07111f] text-[#edf5ff] min-h-screen flex flex-col font-sans select-none relative" oncontextmenu="return false;">
+    
+    <div class="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-[#0b84ff]/5 via-transparent to-transparent pointer-events-none -z-10"></div>
+
+    <!-- Live Header -->
+    <header class="border-b border-[#22324d] bg-[#0f1b2e]/90 backdrop-blur-md sticky top-0 z-40 px-3.5 sm:px-4 py-3 sm:py-4">
+      <div class="w-full max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <div class="h-10 w-10 sm:h-11 sm:w-11 rounded-xl overflow-hidden border border-[#22324d] flex-shrink-0 bg-white shadow-lg flex items-center justify-center p-1">
+            <img 
+              src="https://i.postimg.cc/2SPC4wwN/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png" 
+              alt="FIFA Logo" 
+              class="max-h-full max-w-full object-contain" 
+            />
+          </div>
+          <div>
+            <h1 class="text-base sm:text-lg font-black tracking-tight text-white leading-none">FIFA WORLD CUP LiveTV</h1>
+            <div class="flex items-center gap-1 mt-1 leading-none">
+              <span class="text-[8px] sm:text-[9px] text-[#9dacbf]/70 uppercase font-black tracking-widest">by</span>
+              <a 
+                href="https://www.facebook.com/jovanalmamun" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="font-fancy text-xs sm:text-sm font-bold bg-gradient-to-r from-[#00d4ff] via-white to-[#00d4ff] bg-clip-text text-transparent hover:scale-105 transition-transform inline-block"
+              >
+                Jovan Al Mamun
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sub-header Bangla Notice Section -->
+    <div class="bg-[#0b1628]/95 border-b border-[#22324d]/50 px-3.5 py-2.5 shadow-lg relative z-10">
+      <div class="w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full justify-center sm:justify-start">
+          <span class="font-bangla text-xs sm:text-sm font-semibold text-[#edf5ff]/75 border-b sm:border-b-0 sm:border-r border-[#22324d]/60 pb-1 sm:pb-0 pr-0 sm:pr-4">
+            হৃদয়ে বাংলাদেশ, সমর্থনে আর্জেন্টিনা🩵
+          </span>
+          <div class="flex items-center gap-1.5 justify-center">
+            <span class="animate-pulse bg-gradient-to-r from-red-500 to-[#0b84ff] text-white text-[9px] sm:text-[10px] font-black leading-none px-2 py-1 rounded shadow-md uppercase tracking-wider">NOTICE</span>
+            <span class="font-bangla text-xs sm:text-sm font-bold tracking-wide text-brand-cyan">
+              Mpd বা m3u8 লিংক লাগলে ইনবক্স করতে পারেন, পেইড।
+            </span>
+          </div>
+        </div>
+        <a 
+          href="https://www.facebook.com/jovanalmamun" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex items-center gap-1.5 px-3.5 py-1 bg-[#0b84ff]/20 hover:bg-[#0b84ff]/35 border border-[#0b84ff]/40 rounded-full text-[11px] font-extrabold text-white transition-all shadow-lg shrink-0 hover:scale-105"
+        >
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-brand-cyan"></i>
+          <span>Inbox Admin (Paid Link)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Workspace Area -->
+    <main class="w-full max-w-4xl mx-auto px-2.5 sm:px-4 py-4 sm:py-6 flex-1 space-y-5 sm:space-y-6">
+      
+      <!-- Video Player Card Container -->
+      <div 
+        id="playerCard" 
+        class="bg-[#0f1b2e] border border-[#22324d] rounded-2xl overflow-hidden shadow-2xl relative group"
+        onmousemove="handleUserInteraction()"
+        ontouchstart="handleUserInteraction()"
+      >
+        <div class="player-inner-wrapper">
+
+        <!-- Interactive Screen Area -->
+        <div class="w-full aspect-video bg-black relative flex items-center justify-center overflow-hidden">
+          <video 
+            id="liveVideo" 
+            class="w-full h-full object-contain cursor-pointer" 
+            playsinline
+            onclick="togglePlay()"
+          ></video>
+
+          <!-- Absolute Live Overlay Badges -->
+          <div id="player-badges" class="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-20 flex items-center gap-1.5 pointer-events-none transition-all duration-500 ease-in-out opacity-100 transform translate-y-0 scale-100">
+            <span class="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#ef4444]/90 text-[9px] sm:text-[11px] font-black text-white uppercase animate-pulse-glow shadow-md">
+              LIVE
+            </span>
+            <span id="player-quality-badge" class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md text-[9px] sm:text-[11px] font-extrabold text-[#00d4ff] border border-[#22324d]">
+              HD AUTO
+            </span>
+          </div>
+
+          <!-- Autoplay Tap Stream Overlay -->
+          <div 
+            id="autoplay-banner" 
+            onclick="enableMutedSound()"
+            class="hidden absolute inset-x-0 bottom-4 mx-auto w-fit z-15 bg-[#0b84ff]/95 px-4 py-2.5 rounded-full text-xs font-black text-white flex items-center gap-2 cursor-pointer animate-pulse shadow-xl shadow-[#0b84ff]/25 border border-white/20"
+          >
+            <i data-lucide="volume-x" class="w-4 h-4 mr-1 text-[#ef4444]"></i>
+            <span>TAP STREAM TO ENABLE SOUND</span>
+          </div>
+
+          <!-- Loading stream cover -->
+          <div id="buffering-overlay" class="absolute inset-0 bg-[#07111f]/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 z-10">
+            <div class="relative mb-4">
+              <div class="w-14 h-14 rounded-full border-4 border-[#22324d] border-t-[#0b84ff] animate-spin"></div>
+            </div>
+            <h3 class="text-white text-base font-black">Syncing live feed...</h3>
+            <p id="buffering-detail" class="text-xs text-[#9dacbf] mt-1 font-bold">Connecting stream node</p>
+          </div>
+
+          <!-- Offline / Connection Issue overlay -->
+          <div id="error-overlay" class="hidden absolute inset-0 bg-[#07111f]/95 flex flex-col items-center justify-center text-center p-6 z-10">
+            <i data-lucide="alert-triangle" class="text-[#ef4444] h-14 w-14 mb-3"></i>
+            <h4 class="text-white text-base font-extrabold">Stream Connection Failed</h4>
+            <p id="error-detail" class="text-xs text-[#9dacbf] mt-1 max-w-sm">Failed to connect. The stream might be offline or blocked by CORS restrictions.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-3 mt-4">
+              <button 
+                onclick="retryWithProxy()"
+                class="px-4 py-2 bg-brand-cyan text-brand-dark hover:bg-white transition-all rounded-lg font-black text-xs shadow-lg"
+              >
+                Enable CORS Proxy & Retry
+              </button>
+              <button 
+                onclick="retryCurrentChannel()"
+                class="px-4 py-2 bg-[#13243d] hover:bg-[#22324d] transition-all rounded-lg text-white font-extrabold text-xs border border-[#22324d]"
+              >
+                Standard Retry
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Player Control Utility Bar -->
+        <div id="controlBar" class="bg-[#07111f]/95 border-t border-[#22324d] px-3 sm:px-5 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          
+          <!-- Sync / Broadcasting info node -->
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-[#0b84ff]/10 flex items-center justify-center border border-[#0b84ff]/30 animate-pulse shrink-0">
+              <i data-lucide="tv" class="h-4.5 w-4.5 sm:h-5 sm:w-5 text-[#0b84ff]"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[9px] sm:text-[10px] uppercase font-black text-[#00d4ff] tracking-widest leading-none">Now Broadcasting</p>
+              <h3 id="player-channel-name" class="text-xs sm:text-sm font-black text-white truncate mt-1">D Sports</h3>
+            </div>
+          </div>
+
+          <!-- Dynamic technical sync parameters readout -->
+          <div class="hidden lg:flex items-center gap-5 text-[11px] font-bold text-[#9dacbf] bg-[#0f1b2e] border border-[#22324d]/45 rounded-lg py-1.5 px-4 font-mono">
+            <div class="flex flex-col leading-tight">
+              <span>RESO</span>
+              <span id="stat-resolution" class="text-[#edf5ff]">Auto</span>
+            </div>
+            <div class="h-6 w-px bg-[#22324d]/50"></div>
+            <div class="flex flex-col leading-tight">
+              <span>CORS PROXY</span>
+              <span id="stat-cors" class="text-[#ef4444]">OFF</span>
+            </div>
+            <div class="h-6 w-px bg-[#22324d]/50"></div>
+            <div class="flex flex-col leading-tight">
+              <span>BITRATE</span>
+              <span id="stat-bitrate" class="text-[#edf5ff]">Auto</span>
+            </div>
+          </div>
+
+          <!-- Control bar actions button grid -->
+          <div class="flex items-center w-full sm:w-auto justify-between sm:justify-end gap-1.5 sm:gap-2">
+            <!-- CORS Toggle -->
+            <button 
+              id="btn-cors" 
+              onclick="toggleCorsProxy()"
+              class="h-9 px-2.5 sm:px-3 rounded-xl flex items-center gap-1.5 text-[10px] sm:text-xs font-black text-[#9dacbf] bg-[#13243d] border border-[#22324d] hover:text-white transition-all"
+              title="Toggle CORS Proxy if stream fails to load"
+            >
+              <i data-lucide="shield-alert" class="h-3.5 w-3.5"></i>
+              <span id="cors-btn-text">CORS: OFF</span>
+            </button>
+
+            <!-- Quality Dropdown -->
+            <select 
+              id="qualitySelect"
+              onchange="handleQualitySelection(this.value)"
+              class="h-9 sm:h-10 pb-0.5 px-2.5 sm:px-3 text-[11px] sm:text-xs rounded-xl bg-[#13243d] border border-[#22324d] font-bold text-white outline-none cursor-pointer disabled:opacity-50 transition-all max-w-[90px]"
+            >
+              <option value="auto">Auto</option>
+            </select>
+
+            <!-- Play/Pause Control -->
+            <button 
+              id="btn-play-pause" 
+              onclick="togglePlay()"
+              class="h-9 sm:h-10 px-3 sm:px-4 rounded-xl flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-white bg-[#0b84ff] shadow-lg shadow-[#0b84ff]/25 hover:bg-[#0074e8] transition-all"
+            >
+              <i data-lucide="pause" class="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-white shrink-0" id="play-pause-icon"></i>
+              <span id="play-pause-text" class="hidden sm:inline">Pause</span>
+            </button>
+
+            <!-- Mute / Unmute audio button -->
+            <button 
+              id="btn-mute"
+              onclick="toggleMute()"
+              class="h-9 w-9 sm:h-10 sm:w-10 bg-[#13243d] border border-[#22324d] rounded-xl flex items-center justify-center text-[#9dacbf] hover:text-white transition-all shrink-0 relative"
+              title="Mute/Unmute"
+            >
+              <i data-lucide="volume-2" class="h-4 w-4 sm:h-5 sm:w-5 transition-opacity" id="mute-icon"></i>
+              <div id="mute-cross" class="hidden absolute inset-0 items-center justify-center pointer-events-none">
+                <div class="absolute w-[1.5px] sm:w-[2px] h-[14px] sm:h-[18px] bg-[#ef4444] rotate-45 rounded-full shadow-sm"></div>
+                <div class="absolute w-[1.5px] sm:w-[2px] h-[14px] sm:h-[18px] bg-[#ef4444] -rotate-45 rounded-full shadow-sm"></div>
+              </div>
+            </button>
+
+            <!-- Hard refresh active stream -->
+            <button 
+              onclick="retryCurrentChannel()"
+              title="Refresh Stream" 
+              class="h-9 w-9 sm:h-10 sm:w-10 bg-[#13243d] border border-[#22324d] rounded-xl flex items-center justify-center text-[#9dacbf] hover:text-white transition-colors shrink-0"
+            >
+              <i data-lucide="refresh-cw" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+            </button>
+
+            <!-- Toggle Pip screen layout -->
+            <button 
+              onclick="togglePiP()"
+              title="Picture in Picture Mode" 
+              class="h-9 w-9 sm:h-10 sm:w-10 bg-[#13243d] border border-[#22324d] rounded-xl flex items-center justify-center text-[#9dacbf] hover:text-white transition-colors shrink-0"
+            >
+              <i data-lucide="picture-in-picture" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+            </button>
+
+            <!-- Full Screen expansion -->
+            <button 
+              onclick="toggleFullscreen()"
+              title="Fullscreen" 
+              class="h-9 w-9 sm:h-10 sm:w-10 bg-[#13243d] border border-[#22324d] rounded-xl flex items-center justify-center text-[#9dacbf] hover:text-white transition-colors shrink-0"
+            >
+              <i data-lucide="maximize" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Channel Grid Selection Modules -->
+      <section class="bg-[#091223] border border-[#1e2d42] rounded-3xl p-5 sm:p-6 shadow-2xl space-y-5">
+        <div class="flex items-center gap-3 border-b border-[#1e2d42]/65 pb-4">
+          <i data-lucide="tv" class="h-6 w-6 text-[#0b84ff] shrink-0"></i>
+          <h3 class="text-sm sm:text-base font-black text-white uppercase tracking-wider flex items-center">
+            Channel Selector
+          </h3>
+        </div>
+
+        <div id="channels-grid" class="grid grid-cols-2 gap-3 sm:gap-4">
+          <!-- Populated via Javascript -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#22324d]/65 bg-[#0f1b2e]/90 py-8 text-center text-xs relative z-10 mt-auto">
+      <p class="font-extrabold text-white/80">
+        © 2026 FIFA WORLD CUP LiveTV. Crafted by 
+        <a 
+          href="https://www.facebook.com/jovanalmamun" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="font-fancy text-[#00d4ff] text-sm hover:underline hover:scale-105 inline-block transition-transform ml-1"
+        >
+          Jovan Al Mamun
+        </a>
+      </p>
+    </footer>
+
+    <!-- Standard active interaction Toast notifications -->
+    <div 
+      id="toast" 
+      class="hidden fixed bottom-6 right-6 z-50 bg-[#0b1628] border border-[#00d4ff]/25 px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-2.5 transition-all transform"
+    >
+      <i data-lucide="info" class="h-4.5 w-4.5 text-[#00d4ff]"></i>
+      <span id="toast-text" class="text-xs font-black text-white">Swapped Channel</span>
+    </div>
+
+    <!-- Active Runtime Player Engine Script  -->
+    <script>
+      // 1. Unification of working ClearKey channels
+      const channelData = [
+        {
+          key: "dsports",
+          name: "D Sports",
+          image: "https://upload.wikimedia.org/wikipedia/commons/5/5a/DSports.png",
+          category: "Sports",
+          quality: "HD",
+          url: "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ubehitlwzo/out/v1/8e09c381a51f4366a19e979418112e8f/cenc.mpd",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "a7d11d37a1f7611ee88d4db880171f32": "68f96d618b0b956b008c445896a25a79"
+          }
+        },
+        {
+          key: "tvp-sport",
+          name: "TVP Sport",
+          image: "https://epg.iptvx.one/picons/tvp-sport.png",
+          category: "WORLD SPORTS",
+          quality: "HD",
+          url: "https://estreams.tv.nej.cz/dash/CH_TVP_SPORT_Portable.ism/playlist.mpd",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "95620bdd974041409d4674ab629e22d4": "c6c226ca1689f528a6f91e86da618f64",
+            "181c091002d04c5481c3faab18752843": "b081b6169351e0f4bfc40212dfeeed10",
+            "1163925b6b37434198130f773bc62841": "e2bdd2b87e1ddb502eb7898daece857f"
+          }
+        },
+        {
+          key: "tsn-1",
+          name: "TSN 1",
+          image: "https://i.imgur.com/eRFE0jZ.png",
+          category: "SPORTS PREMIUM",
+          quality: "HD",
+          url: "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/7janu55dwc/out/v1/69a2a7041395406b970598f61680e7cf/cenc.mpd",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "e51aa21f2a0fef9aabc120dfb655b52f": "a12a987fe725a40b6be95cd84b15f689"
+          }
+        },
+        {
+          key: "cbcsport",
+          name: "CBC SPORT YEDEK",
+          image: "https://d3ckc0u56niq67.cloudfront.net/conf/images/cbc_sport_92O.png",
+          category: "Thể Thao",
+          quality: "HD",
+          url: "https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/rbem8rorcw/out/v1/5318821e2c3c44c2a439681b9aa86e9b/cenc.mpd",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "d9623774ac5c8c351aafe97c5fe70267": "5164e6d05164a2d65fa8fcc962aa4861"
+          }
+        },
+        {
+          key: "caze-tv-1",
+          name: "CAZE TV 1",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpFVJGATy70KVBZ0txjIVDSVXTQUCSykt_5A&s",
+          category: "Sports",
+          quality: "HD",
+          url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8",
+          type: "hls",
+          drm: "none"
+        },
+        {
+          key: "caze-tv-2",
+          name: "CAZE TV 2",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpFVJGATy70KVBZ0txjIVDSVXTQUCSykt_5A&s",
+          category: "Sports",
+          quality: "HD",
+          url: "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/3ynrpdanq2/out/v1/81fd4c26584044d2b1a1cc5b32fa9af0/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "34475edab991ad5e92548aebd710410a": "501b209cccd323ac00bf5ac15b406cb4"
+          }
+        },
+        {
+          key: "caze-tv-3",
+          name: "CAZE TV 3",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpFVJGATy70KVBZ0txjIVDSVXTQUCSykt_5A&s",
+          category: "Sports",
+          quality: "HD",
+          url: "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/epg9sw6owc/out/v1/e50aecefcb294fae85d6b343e0a6f1cc/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "9752ef72590ef441ffa3731e0486fbc0": "db63ec7b9f11348b7cc6808a54c99457"
+          }
+        },
+        {
+          key: "tudn",
+          name: "TUDN",
+          image: "https://i.imgur.com/oT5CAvd.png",
+          category: "Sports",
+          quality: "HD",
+          url: "https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/8u9cregwlt/out/v1/687f6b2a559943549be271504a948ffd/cenc.mpd",
+          type: "dash",
+          drm: "clearkey",
+          keys: {
+            "1710ac2bbfcd3032d0f6533850968f47": "d2548dacc8efcd1cd0af0373060c82dc"
+          }
+        }
+      ];
+
+      // Dynamic Application variables
+      let shakaPlayerInstance = null;
+      let activeChannel = channelData[0]; // D Sports is loaded first by default
+      let isMuted = false;
+      let isPlaying = true;
+      let useCorsProxy = false;
+      let availableTracks = [];
+      let badgesTimeout = null;
+      let controlsTimeout = null;
+
+      // Safe Element Selectors
+      let videoElement, bufOverlay, errOverlay, errDetail, autoBanner, qualSelect, qualityBadge, chNameHeader, playIcon, playText, muteIcon;
+      let metricReso, metricLatency, metricBitrate, metricCors, btnCors, corsBtnText;
+
+      function initElements() {
+        videoElement = document.getElementById('liveVideo');
+        bufOverlay = document.getElementById('buffering-overlay');
+        errOverlay = document.getElementById('error-overlay');
+        errDetail = document.getElementById('error-detail');
+        autoBanner = document.getElementById('autoplay-banner');
+        qualSelect = document.getElementById('qualitySelect');
+        qualityBadge = document.getElementById('player-quality-badge');
+        chNameHeader = document.getElementById('player-channel-name');
+        playIcon = document.getElementById('play-pause-icon');
+        playText = document.getElementById('play-pause-text');
+        muteIcon = document.getElementById('mute-icon');
+
+        metricReso = document.getElementById('stat-resolution');
+        metricLatency = document.getElementById('stat-latency');
+        metricBitrate = document.getElementById('stat-bitrate');
+        metricCors = document.getElementById('stat-cors');
+        btnCors = document.getElementById('btn-cors');
+        corsBtnText = document.getElementById('cors-btn-text');
+      }
+
+      function triggerBadges() {
+        const badges = document.getElementById('player-badges');
+        if (!badges) return;
+        badges.classList.remove('opacity-0', 'translate-y-2', 'scale-95');
+        badges.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+        
+        if (badgesTimeout) {
+          clearTimeout(badgesTimeout);
+        }
+        badgesTimeout = setTimeout(() => {
+          badges.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+          badges.classList.add('opacity-0', 'translate-y-2', 'scale-95');
+        }, 3000);
+      }
+
+      function triggerControls() {
+        const controlBar = document.getElementById('controlBar');
+        if (!controlBar) return;
+        
+        controlBar.classList.remove('controls-hidden');
+        
+        if (controlsTimeout) {
+          clearTimeout(controlsTimeout);
+        }
+        
+        const pcard = document.getElementById('playerCard');
+        const isFS = document.fullscreenElement || document.webkitFullscreenElement || (pcard && pcard.classList.contains('fullscreen-mode'));
+        if (isFS) {
+          controlsTimeout = setTimeout(() => {
+            controlBar.classList.add('controls-hidden');
+          }, 2000);
+        }
+      }
+
+      function handleUserInteraction() {
+        triggerBadges();
+        triggerControls();
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById('toast');
+        const textNode = document.getElementById('toast-text');
+        if (!toast || !textNode) return;
+        textNode.innerText = message;
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3000);
+      }
+
+      // Populate channels selector area
+      function renderChannelsGrid() {
+        const grid = document.getElementById('channels-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        channelData.forEach((ch) => {
+          const isActive = ch.key === activeChannel.key;
+          const card = document.createElement('button');
+          card.className = `p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 flex items-center gap-2.5 sm:gap-4 w-full transition-all text-left outline-none relative group ${
+            isActive 
+              ? 'bg-[#0f1d3a] border-[#0b84ff] shadow-lg shadow-[#0b84ff]/10' 
+              : 'bg-[#070f1e]/90 border-[#14233a] hover:border-white/10 hover:bg-[#091325]'
+          }`;
+          
+          card.onclick = () => selectChannel(ch.key);
+
+          card.innerHTML = `
+            <div class="w-10 h-10 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl p-1 sm:p-1.5 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-inner">
+              <img src="${ch.image}" alt="${ch.name}" class="max-h-full max-w-full object-contain" onerror="this.src='https://placehold.co/100x100?text=TV'" />
+            </div>
+            <div class="text-left overflow-hidden min-w-0 flex-1 leading-tight sm:leading-normal">
+              <h4 class="text-xs sm:text-base font-extrabold truncate ${isActive ? 'text-[#00d4ff]' : 'text-white'}">
+                ${ch.name}
+              </h4>
+              <p class="text-[9px] sm:text-[11px] text-[#9dacbf] font-medium tracking-wide mt-0.5 sm:mt-1 uppercase">
+                ${ch.category} • ${ch.quality}
+              </p>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      function toggleCorsProxy() {
+        useCorsProxy = !useCorsProxy;
+        updateCorsUI();
+        showToast(useCorsProxy ? 'CORS Proxy Enabled' : 'CORS Proxy Disabled');
+        retryCurrentChannel();
+      }
+
+      function retryWithProxy() {
+        useCorsProxy = true;
+        updateCorsUI();
+        retryCurrentChannel();
+      }
+
+      function updateCorsUI() {
+        if (metricCors) {
+          metricCors.innerText = useCorsProxy ? 'ON' : 'OFF';
+          metricCors.className = useCorsProxy ? 'text-[#22c55e]' : 'text-[#ef4444]';
+        }
+        if (btnCors && corsBtnText) {
+          if (useCorsProxy) {
+            btnCors.classList.add('bg-[#22c55e]/20', 'border-[#22c55e]/40', 'text-[#22c55e]');
+            btnCors.classList.remove('bg-[#13243d]', 'border-[#22324d]', 'text-[#9dacbf]');
+            corsBtnText.innerText = 'CORS: ON';
+          } else {
+            btnCors.classList.remove('bg-[#22c55e]/20', 'border-[#22c55e]/40', 'text-[#22c55e]');
+            btnCors.classList.add('bg-[#13243d]', 'border-[#22324d]', 'text-[#9dacbf]');
+            corsBtnText.innerText = 'CORS: OFF';
+          }
+        }
+      }
+
+      async function initApp() {
+        shaka.polyfill.installAll();
+        if (!shaka.Player.isBrowserSupported()) {
+          console.error('Browser does not support Shaka Player.');
+          alert('Warning: ClearKey DRM secure stream decryption is not optimized for your web browser.');
+          return;
+        }
+
+        initElements();
+
+        isMuted = false;
+        if (videoElement) {
+          videoElement.muted = false;
+          videoElement.volume = 1.0;
+        }
+        localStorage.setItem('mlbd_livetv_sound', 'on');
+        syncMuteUI();
+        updateCorsUI();
+
+        document.addEventListener('click', () => {
+          if (videoElement && videoElement.muted) {
+            enableMutedSound();
+          }
+        }, { once: true });
+
+        renderChannelsGrid();
+        await loadChannelStream(activeChannel);
+      }
+
+      // Stream Loading core supporting multiple clearkeys & proxy
+      async function loadChannelStream(channel) {
+        if (!videoElement) return;
+        triggerBadges();
+        
+        if (bufOverlay) bufOverlay.classList.remove('hidden');
+        if (errOverlay) errOverlay.classList.add('hidden');
+        if (autoBanner) autoBanner.classList.add('hidden');
+        
+        const bufDetail = document.getElementById('buffering-detail');
+        if (bufDetail) bufDetail.innerText = `Preparing secure feed for ${channel.name}...`;
+        if (chNameHeader) chNameHeader.innerText = channel.name;
+
+        if (qualSelect) {
+          qualSelect.innerHTML = '<option value="auto">Auto</option>';
+          qualSelect.value = 'auto';
+        }
+
+        if (shakaPlayerInstance) {
+          try {
+            await shakaPlayerInstance.destroy();
+          } catch (destroyError) {
+            console.error('Failure resetting Shaka Instance', destroyError);
+          }
+          shakaPlayerInstance = null;
+        }
+
+        try {
+          const player = new shaka.Player();
+          await player.attach(videoElement);
+          shakaPlayerInstance = player;
+
+          player.addEventListener('error', (event) => {
+            const error = event.detail;
+            console.error('Shaka player error:', error);
+            handleStreamFailure(error);
+          });
+
+          // Network filter to handle custom proxying or request modifiers
+          player.getNetworkingEngine().registerRequestFilter((type, request) => {
+            if (useCorsProxy) {
+              request.uris[0] = 'https://corsproxy.io/?' + encodeURIComponent(request.uris[0]);
+            }
+          });
+
+          player.configure({
+            manifest: {
+              defaultPresentationDelay: 5,
+              dash: {
+                ignoreMinBufferTime: true,
+                autoCorrectDrift: true
+              },
+              retryParameters: {
+                timeout: 8000,
+                maxAttempts: 5,
+                backoffFactor: 1.5
+              }
+            },
+            streaming: {
+              bufferingGoal: 15,
+              rebufferingGoal: 4,
+              bufferBehind: 30,
+              stallEnabled: true,
+              stallThreshold: 2,
+              stallSkip: 0.5,
+              lowLatencyMode: false
+            },
+            abr: {
+              enabled: true,
+              defaultBandwidthEstimate: 1033200,
+              switchInterval: 3
+            }
+          });
+
+          // Dynamically setting key/value pairs for Clearkey Decryption
+          if (channel.drm === 'clearkey' && channel.keys) {
+            const keysMapping = {};
+            Object.keys(channel.keys).forEach(kId => {
+              keysMapping[kId.toLowerCase().trim()] = channel.keys[kId].toLowerCase().trim();
+            });
+            player.configure({
+              drm: {
+                clearKeys: keysMapping
+              }
+            });
+          }
+
+          videoElement.onwaiting = () => {
+             if (bufOverlay) bufOverlay.classList.remove('hidden');
+          };
+
+          videoElement.onplaying = () => {
+             if (bufOverlay) bufOverlay.classList.add('hidden');
+             isPlaying = true;
+             updatePlayButtonUI();
+          };
+
+          videoElement.onloadedmetadata = () => {
+             if (videoElement.videoHeight) {
+               if (metricReso) metricReso.innerText = `${videoElement.videoHeight}p`;
+               if (qualityBadge) qualityBadge.innerText = `HD ${videoElement.videoHeight}p`;
+             }
+          };
+
+          await player.load(channel.url);
+
+          const tracks = player.getVariantTracks();
+          if (tracks && tracks.length > 0 && qualSelect) {
+            availableTracks = tracks;
+            const selectTracksDesc = [...tracks].sort((a, b) => (b.height || 0) - (a.height || 0));
+            const seenHeights = new Set();
+            selectTracksDesc.forEach(track => {
+              if (track.height && !seenHeights.has(track.height)) {
+                seenHeights.add(track.height);
+                const item = document.createElement('option');
+                item.value = `track:${track.id}`;
+                item.innerText = `${track.height}p`;
+                qualSelect.appendChild(item);
+              }
+            });
+
+            player.configure({ abr: { enabled: true } });
+            qualSelect.value = "auto";
+            
+            if (metricReso) metricReso.innerText = "Auto";
+            if (qualityBadge) qualityBadge.innerText = "Smart Auto";
+            if (metricBitrate) metricBitrate.innerText = "Auto";
+          }
+
+          videoElement.muted = isMuted;
+          try {
+            await videoElement.play();
+            isPlaying = true;
+            updatePlayButtonUI();
+          } catch (autoplayError) {
+            console.log('Autoplay handled.');
+            if (autoBanner) autoBanner.classList.remove('hidden');
+            videoElement.muted = true;
+            isMuted = true;
+            syncMuteUI();
+            await videoElement.play();
+            isPlaying = true;
+            updatePlayButtonUI();
+          }
+
+          if (bufOverlay) bufOverlay.classList.add('hidden');
+
+        } catch (streamError) {
+          console.error('Fatal load error:', streamError);
+          handleStreamFailure(streamError);
+        }
+      }
+
+      function handleStreamFailure(err) {
+        if (bufOverlay) bufOverlay.classList.add('hidden');
+        if (errOverlay) errOverlay.classList.remove('hidden');
+        if (errDetail) {
+          errDetail.innerText = `Failed to establish connection. If you are inside an iframe editor preview, DRM/ClearKey might be blocked by iframe sandbox restrictions. (Code: ${err.code || 'Network Error'})`;
+        }
+      }
+
+      function selectChannel(key) {
+        const found = channelData.find(c => c.key === key);
+        if (found) {
+          activeChannel = found;
+          renderChannelsGrid();
+          loadChannelStream(found);
+          showToast(`Swapped to ${found.name}`);
+          
+          const playerCard = document.getElementById('playerCard');
+          if (playerCard) {
+            playerCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+
+      function retryCurrentChannel() {
+        loadChannelStream(activeChannel);
+      }
+
+      function togglePlay() {
+        triggerBadges();
+        if (!videoElement) return;
+        if (videoElement.paused) {
+          videoElement.play();
+          isPlaying = true;
+        } else {
+          videoElement.pause();
+          isPlaying = false;
+        }
+        updatePlayButtonUI();
+      }
+
+      function updatePlayButtonUI() {
+        if (!playIcon || !playText) return;
+        if (isPlaying) {
+          playIcon.setAttribute('data-lucide', 'pause');
+          playText.innerText = 'Pause';
+        } else {
+          playIcon.setAttribute('data-lucide', 'play');
+          playText.innerText = 'Play';
+        }
+        lucide.createIcons();
+      }
+
+      function syncMuteUI() {
+        const muteCross = document.getElementById('mute-cross');
+        const muteButton = document.getElementById('btn-mute');
+        if (!muteIcon) return;
+        
+        if (isMuted || (videoElement && videoElement.muted)) {
+          muteIcon.setAttribute('data-lucide', 'volume-2');
+          muteIcon.classList.add('opacity-30');
+          if (muteCross) {
+            muteCross.classList.remove('hidden');
+            muteCross.classList.add('flex');
+          }
+          if (muteButton) {
+            muteButton.classList.add('border-[#ef4444]/40');
+            muteButton.classList.remove('border-[#22324d]');
+          }
+        } else {
+          muteIcon.setAttribute('data-lucide', 'volume-2');
+          muteIcon.classList.remove('opacity-30');
+          if (muteCross) {
+            muteCross.classList.remove('flex');
+            muteCross.classList.add('hidden');
+          }
+          if (muteButton) {
+            muteButton.classList.remove('border-[#ef4444]/40');
+            muteButton.classList.add('border-[#22324d]');
+          }
+        }
+        lucide.createIcons();
+      }
+
+      function toggleMute() {
+        if (!videoElement) return;
+        triggerBadges();
+        isMuted = !isMuted;
+        videoElement.muted = isMuted;
+        if (!isMuted) {
+          videoElement.volume = 1.0;
+        }
+        localStorage.setItem('mlbd_livetv_sound', isMuted ? 'off' : 'on');
+        syncMuteUI();
+        if (autoBanner) autoBanner.classList.add('hidden');
+      }
+
+      function enableMutedSound() {
+        if (!videoElement) return;
+        triggerBadges();
+        isMuted = false;
+        videoElement.muted = false;
+        videoElement.volume = 1.0;
+        localStorage.setItem('mlbd_livetv_sound', 'on');
+        syncMuteUI();
+        if (autoBanner) autoBanner.classList.add('hidden');
+      }
+
+      function handleQualitySelection(val) {
+        triggerBadges();
+        if (!shakaPlayerInstance) return;
+        if (val === 'auto') {
+          shakaPlayerInstance.configure({ abr: { enabled: true } });
+          showToast('Smart quality optimization auto-activated');
+          if (metricBitrate) metricBitrate.innerText = 'Auto';
+        } else if (val.startsWith('track:')) {
+          const trackId = parseInt(val.split(':')[1], 10);
+          const track = availableTracks.find(t => t.id === trackId);
+          if (track) {
+            shakaPlayerInstance.configure({ abr: { enabled: false } });
+            shakaPlayerInstance.selectVariantTrack(track, true);
+            
+            if (metricReso) metricReso.innerText = `${track.height}p`;
+            if (qualityBadge) qualityBadge.innerText = `HD ${track.height}p`;
+            if (metricBitrate) metricBitrate.innerText = `${Math.round(track.bandwidth / 1000)}kbps`;
+            showToast(`Forced manual quality set to ${track.height}p`);
+          }
+        }
+      }
+
+      function togglePiP() {
+        if (!videoElement) return;
+        try {
+          if (document.pictureInPictureElement) {
+            document.exitPictureInPicture();
+          } else if (videoElement.requestPictureInPicture) {
+            videoElement.requestPictureInPicture();
+          }
+        } catch (e) {
+          console.error("PiP is not supported or failed:", e);
+        }
+      }
+
+      async function toggleFullscreen() {
+        const pcard = document.getElementById('playerCard');
+        if (!pcard || !videoElement) return;
+
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (pcard.requestFullscreen) {
+            try {
+              await pcard.requestFullscreen();
+              if (screen.orientation && typeof screen.orientation.lock === 'function') {
+                await screen.orientation.lock('landscape').catch(e => console.log('Orientation lock rejected:', e));
+              }
+            } catch (err) {
+              console.error('Fullscreen request failed, trying video fallback:', err);
+              if (videoElement.webkitEnterFullscreen) {
+                try {
+                  videoElement.webkitEnterFullscreen();
+                } catch (iosErr) {
+                  console.error('iOS Video fullscreen failed:', iosErr);
+                }
+              }
+            }
+          } else if (videoElement.webkitEnterFullscreen) {
+            try {
+              videoElement.webkitEnterFullscreen();
+            } catch (iosErr) {
+              console.error('iOS webkitEnterFullscreen failed:', iosErr);
+            }
+          }
+        } else {
+          try {
+            if (screen.orientation && typeof screen.orientation.unlock === 'function') {
+              screen.orientation.unlock();
+            }
+          } catch (lockError) {
+            console.warn('Could not unlock orientation:', lockError);
+          }
+
+          if (document.exitFullscreen) {
+            document.exitFullscreen().catch(err => console.error('Exit fullscreen failed:', err));
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+        }
+      }
+
+      document.addEventListener('fullscreenchange', () => {
+        const pcard = document.getElementById('playerCard');
+        if (pcard) {
+          if (document.fullscreenElement) {
+            pcard.classList.add('fullscreen-mode');
+            triggerControls();
+          } else {
+            pcard.classList.remove('fullscreen-mode');
+            const controlBar = document.getElementById('controlBar');
+            if (controlBar) {
+              controlBar.classList.remove('controls-hidden');
+            }
+            if (controlsTimeout) {
+              clearTimeout(controlsTimeout);
+            }
+          }
+        }
+      });
+
+      // Simple protections
+      document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        showToast('🔒 Actions restricted.');
+        return false;
+      }, false);
+
+      document.addEventListener('copy', (e) => {
+        e.preventDefault();
+        return false;
+      }, false);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.keyCode === 123 || e.key === 'F12') {
+          e.preventDefault();
+          return false;
+        }
+        const isMetaOrCtrl = e.ctrlKey || e.metaKey;
+        if (isMetaOrCtrl) {
+          const char = (e.key ? e.key.toLowerCase() : String.fromCharCode(e.keyCode).toLowerCase());
+          if (char === 'u' || char === 's' || char === 'p' || char === 'i' || char === 'j' || char === 'c') {
+            e.preventDefault();
+            return false;
+          }
+        }
+      }, false);
+
+      // DevTools Sizing Lock Check (Optimized for Nested / Preview environments)
+      let warningScreenActive = false;
+      function verifySecurityBreach() {
+        if (warningScreenActive) return;
+        
+        // Skip check if loaded inside an editor iframe (like Google AI Studio preview)
+        if (window.self !== window.top) return;
+
+        const thresh = 160;
+        const widthViolation = window.outerWidth - window.innerWidth;
+        const heightViolation = window.outerHeight - window.innerHeight;
+
+        if (window.innerWidth > 800) {
+          if (widthViolation > thresh || heightViolation > thresh) {
+            warningScreenActive = true;
+            triggerSecurityShutdown();
+          }
+        }
+      }
+
+      function triggerSecurityShutdown() {
+        document.body.innerHTML = `
+          <div class="fixed inset-0 bg-[#07111f] flex flex-col items-center justify-center p-6 text-center select-none z-[9999]">
+            <div class="h-20 w-20 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center mb-6 animate-pulse">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h1 class="text-white text-2xl font-black uppercase tracking-wider mb-2">Security Enforcement</h1>
+            <p class="text-red-400 text-sm font-bold max-w-sm mb-6 leading-relaxed font-bangla">
+              ডিবাগিং বা সোর্স কোড দেখার চেষ্টা সনাক্ত হয়েছে! কোডিং এবং সোর্স লিংক চুরির চেষ্টা নিষিদ্ধ।
+            </p>
+            <p class="text-[#9dacbf] text-xs max-w-xs mb-8 leading-relaxed">
+              To continue, please close your Inspect / Developer Tools window and reload.
+            </p>
+            <button onclick="window.location.reload()" class="px-6 py-3 bg-[#0b84ff] hover:bg-brand-accent/80 hover:scale-105 transition-all text-white font-extrabold text-[11px] rounded-xl shadow-lg shadow-[#0b84ff]/25 uppercase tracking-wider">
+              Reload Page
+            </button>
+          </div>
+        `;
+      }
+
+      // Security check execution interval
+      setInterval(() => {
+        verifySecurityBreach();
+      }, 1500);
+
+      window.addEventListener('DOMContentLoaded', () => {
+         initApp();
+         lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>
