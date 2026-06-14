@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#06030d" />
+    <meta name="theme-color" content="#06020f" />
     <title>FIFA 2026 | SAWARID سواريد</title>
     
-    <!-- Google Fonts (Inter for UI, Cairo for professional Arabic layout) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,7 +14,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Mux.js CDN (MPEG-TS (.ts) স্ট্রিম সরাসরি ব্রাউজারে ডিকোড ও প্লে করার জন্য এটি অত্যন্ত জরুরী) -->
+    <!-- Mux.js (TS Demuxer to support .ts and raw live segments in standard browsers) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/6.0.1/mux.min.js"></script>
 
     <!-- Shaka Player CDN -->
@@ -29,10 +29,10 @@
           extend: {
             colors: {
               brand: {
-                dark: '#06030d',
-                card: '#0e081f',
-                element: '#160d30',
-                border: '#2e1b5b'
+                dark: '#06020f',
+                card: '#0c051a',
+                element: '#14082b',
+                border: '#2e1256'
               }
             },
             fontFamily: {
@@ -49,7 +49,7 @@
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
-      /* Vibrant custom gradient matching your background gradient image */
+      /* Vibrant Mixing Gradient matching the user's uploaded image */
       .bg-mix-gradient {
         background: linear-gradient(135deg, #ff512f 0%, #dd2476 35%, #8a2be2 70%, #00c6ff 100%);
       }
@@ -60,16 +60,26 @@
         -webkit-text-fill-color: transparent;
       }
 
+      /* Multi-mesh color gradient background */
+      .bg-mesh-blur {
+        background-color: #06020f;
+        background-image: 
+          radial-gradient(at 10% 20%, rgba(255, 81, 47, 0.15) 0px, transparent 50%),
+          radial-gradient(at 90% 10%, rgba(221, 36, 118, 0.15) 0px, transparent 50%),
+          radial-gradient(at 50% 80%, rgba(138, 43, 226, 0.12) 0px, transparent 50%),
+          radial-gradient(at 80% 90%, rgba(0, 198, 255, 0.1) 0px, transparent 50%);
+      }
+
       /* Custom scrollbar matching theme style */
       ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #06030d;
+        background: #06020f;
       }
       ::-webkit-scrollbar-thumb {
-        background: #2e1b5b;
+        background: #2e1256;
         border-radius: 9px;
       }
       ::-webkit-scrollbar-thumb:hover {
@@ -120,34 +130,85 @@
       }
 
       .player-controls-overlay {
-        background: linear-gradient(to top, rgba(6, 3, 13, 0.95) 0%, rgba(6, 3, 13, 0.3) 70%, transparent 100%);
+        background: linear-gradient(to top, rgba(6, 2, 15, 0.95) 0%, rgba(6, 2, 15, 0.3) 70%, transparent 100%);
         transition: opacity 0.3s ease;
+      }
+
+      /* Dynamic Horizontal Scrolling Text Loop (Marquee) */
+      .marquee-container {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        position: relative;
+      }
+
+      .marquee-inner {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee-loop 8s linear infinite;
+      }
+
+      @keyframes marquee-loop {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-100%, 0, 0); }
+      }
+
+      /* Mixed color Ripple click effect styling */
+      .ripple-btn {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ripple-effect {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(221,36,118,0.5) 0%, rgba(0,198,255,0.1) 100%);
+        transform: scale(0);
+        animation: ripple-anim 0.6s linear;
+        pointer-events: none;
+      }
+
+      @keyframes ripple-anim {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
       }
     </style>
   </head>
-  <body class="bg-[#06030d] text-[#edf5ff] min-h-screen flex flex-col font-sans select-none relative" oncontextmenu="return false;">
-    
-    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-[#dd2476]/10 via-transparent to-transparent pointer-events-none -z-10"></div>
+  <body class="bg-mesh-blur text-[#edf5ff] min-h-screen flex flex-col font-sans select-none relative" oncontextmenu="return false;">
 
     <!-- Header Section -->
-    <header class="border-b border-[#2e1b5b]/60 bg-[#0e081f]/90 backdrop-blur-md sticky top-0 z-40 px-4 py-3">
+    <header class="border-b border-[#2e1256]/60 bg-[#0c051a]/90 backdrop-blur-md sticky top-0 z-40 px-4 py-3">
       <div class="w-full max-w-7xl mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="h-11 w-11 rounded-xl overflow-hidden border border-[#2e1b5b] bg-white shadow-lg flex items-center justify-center p-1">
+        
+        <!-- Left Side Logo and Brand Name -->
+        <div class="flex items-center gap-2.5">
+          <div class="h-10 w-10 rounded-lg overflow-hidden border border-[#2e1256] bg-white shadow-md flex items-center justify-center p-0.5">
             <img 
-              src="https://i.postimg.cc/2SPC4wwN/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png" 
-              alt="FIFA Logo" 
+              src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
+              alt="Left Logo" 
               class="max-h-full max-w-full object-contain" 
             />
           </div>
           <div>
-            <h1 class="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-2">
-              <span>FIFA 2026</span>
-              <span class="text-xs px-2 py-0.5 rounded-full bg-mix-gradient text-white font-bold font-arabic">سواريد</span>
+            <h1 class="text-sm sm:text-base font-black tracking-tight text-white flex items-center gap-1.5 font-sans">
+              <span>FIFA 2026 |</span>
+              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سوারিদ</span>
             </h1>
-            <p class="text-[10px] text-gray-400 font-semibold tracking-wider font-arabic mt-0.5 font-sans">SAWARID سواريد</p>
+            <p class="text-[9px] text-gray-400 font-semibold tracking-wider font-sans uppercase">Live Streaming Portal</p>
           </div>
         </div>
+
+        <!-- Right Side Logo -->
+        <div class="h-9 w-9 rounded-lg overflow-hidden border border-[#2e1256] bg-white shadow-md flex items-center justify-center p-0.5">
+          <img 
+            src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
+            alt="Right Logo" 
+            class="max-h-full max-w-full object-contain" 
+          />
+        </div>
+
       </div>
     </header>
 
@@ -157,7 +218,7 @@
       <!-- Video Player Card Container -->
       <div 
         id="playerCard" 
-        class="bg-[#0e081f] border border-[#2e1b5b] rounded-2xl overflow-hidden shadow-2xl relative group"
+        class="bg-[#0c051a] border border-[#2e1256] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(138,43,226,0.15)] relative group"
         onmousemove="handleUserInteraction()"
         ontouchstart="handleUserInteraction()"
       >
@@ -171,7 +232,7 @@
               onclick="togglePlay()"
             ></video>
 
-            <!-- Custom OSD Control Panel Overlay -->
+            <!-- Custom OSD Controls -->
             <div id="playerControls" class="player-controls-overlay absolute inset-0 flex flex-col justify-between p-3 sm:p-4 z-20 opacity-100 transition-opacity duration-300">
               
               <!-- Upper OSD Metadata -->
@@ -180,16 +241,16 @@
                   <span class="px-2.5 py-1 rounded-md bg-red-600 text-[10px] font-black tracking-widest text-white uppercase animate-pulse">
                     LIVE
                   </span>
-                  <span id="player-channel-display" class="px-2.5 py-1 rounded-md bg-black/60 text-[10px] font-bold text-white border border-[#2e1b5b] max-w-[180px] truncate">
-                    Loading Playlist...
+                  <span id="player-channel-display" class="px-2.5 py-1 rounded-md bg-black/60 text-[10px] font-bold text-white border border-[#2e1256] max-w-[180px] truncate">
+                    Loading Channels...
                   </span>
                 </div>
-                <span id="player-quality-badge" class="px-2.5 py-1 rounded-md bg-mix-gradient text-[10px] font-bold text-white">
+                <span id="player-quality-badge" class="px-2.5 py-1 rounded-md bg-mix-gradient text-[10px] font-bold text-white uppercase">
                   AUTO
                 </span>
               </div>
 
-              <!-- Playback Toggle Action Panel -->
+              <!-- Bottom Action Panel -->
               <div class="w-full flex items-center justify-between gap-2 pt-2 border-t border-white/10">
                 <div class="flex items-center gap-2">
                   <button onclick="togglePlay()" class="h-8 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center gap-1 text-xs font-bold">
@@ -204,7 +265,7 @@
                   <select 
                     id="qualitySelect"
                     onchange="handleQualitySelection(this.value)"
-                    class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1b5b] font-bold text-white outline-none cursor-pointer transition-all"
+                    class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1256] font-bold text-white outline-none cursor-pointer transition-all"
                   >
                     <option value="auto">Auto Quality</option>
                   </select>
@@ -219,17 +280,17 @@
 
             </div>
 
-            <!-- Loading overlay state -->
-            <div id="buffering-overlay" class="absolute inset-0 bg-[#06030d]/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 z-10">
+            <!-- Loading Spinner State -->
+            <div id="buffering-overlay" class="absolute inset-0 bg-[#06020f]/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 z-10">
               <div class="relative mb-4 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full border-4 border-[#2e1b5b] border-t-[#dd2476] animate-spin"></div>
+                <div class="w-14 h-14 rounded-full border-4 border-[#2e1256] border-t-[#dd2476] animate-spin"></div>
               </div>
-              <h3 class="text-white text-sm font-bold tracking-wider uppercase font-arabic">Syncing Stream</h3>
-              <p id="buffering-detail" class="text-[10px] text-gray-400 mt-1 font-semibold">Parsing Playlist Resources...</p>
+              <h3 class="text-white text-sm font-bold tracking-wider uppercase font-arabic">Connecting Secure Feed</h3>
+              <p id="buffering-detail" class="text-[10px] text-gray-400 mt-1 font-semibold font-sans">Decoding Streams...</p>
             </div>
 
-            <!-- Error state overlay -->
-            <div id="error-overlay" class="hidden absolute inset-0 bg-[#06030d]/95 flex flex-col items-center justify-center text-center p-6 z-10">
+            <!-- Error State overlay -->
+            <div id="error-overlay" class="hidden absolute inset-0 bg-[#06020f]/95 flex flex-col items-center justify-center text-center p-6 z-10">
               <i data-lucide="alert-triangle" class="text-red-500 h-12 w-12 mb-3"></i>
               <h4 class="text-white text-sm font-bold uppercase">Stream Offline</h4>
               <p id="error-detail" class="text-[11px] text-gray-400 mt-1 max-w-xs">Connecting issues.</p>
@@ -245,23 +306,18 @@
         </div>
       </div>
 
-      <!-- Center Logo Branding Segment -->
-      <div class="flex flex-col items-center justify-center py-4 text-center">
-        <div class="relative w-28 h-28 flex items-center justify-center">
-          <img 
-            src="https://i.postimg.cc/mD8N1bL6/square-frame-logo.png" 
-            alt="SAWARID Logo Frame" 
-            class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(221,36,118,0.4)]"
-            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/DSports.png';"
-          />
-        </div>
-        <h2 class="text-sm font-black text-white tracking-widest uppercase mt-3 font-arabic">SAWARID NETWORK</h2>
-        <div class="h-[2px] w-12 bg-mix-gradient mt-1 rounded-full"></div>
+      <!-- Center Dynamic Brand Text (In place of old logo) -->
+      <div class="flex flex-col items-center justify-center py-2 text-center select-none">
+        <h2 class="text-xs sm:text-sm font-black tracking-widest uppercase flex items-center gap-1 font-sans">
+          <span class="text-gray-400">Powered By:</span>
+          <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سواريد</span>
+        </h2>
+        <div class="h-[1.5px] w-12 bg-mix-gradient mt-1 rounded-full opacity-60"></div>
       </div>
 
-      <!-- Dynamic Channels Grid Section (3 Columns Layout with Logo Top + Text Bottom inside button) -->
-      <section class="bg-[#0e081f] border border-[#2e1b5b]/60 rounded-2xl p-4 shadow-2xl space-y-4">
-        <div class="flex items-center gap-2 border-b border-[#2e1b5b]/50 pb-3">
+      <!-- Dynamic Channels Grid Section (3 Columns Layout with Bigger Logo and Loop Name Marquee) -->
+      <section class="bg-[#0c051a]/95 border border-[#2e1256]/60 rounded-2xl p-4 shadow-2xl space-y-4">
+        <div class="flex items-center gap-2 border-b border-[#2e1256]/50 pb-3">
           <i data-lucide="tv" class="h-5 w-5 text-[#dd2476] shrink-0"></i>
           <h3 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-arabic">
             Channel Selector
@@ -275,7 +331,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-[#2e1b5b]/50 bg-[#0e081f]/95 py-6 text-center text-xs relative z-10 mt-auto font-sans">
+    <footer class="border-t border-[#2e1256]/50 bg-[#0c051a]/95 py-6 text-center text-xs relative z-10 mt-auto font-sans">
       <p class="font-bold text-gray-400">
         © 2026 FIFA WORLD CUP LiveTV. Crafted by: 
         <a 
@@ -284,7 +340,7 @@
           rel="noopener noreferrer" 
           class="text-mix-gradient font-black hover:underline transition-all font-arabic ml-1 inline-block"
         >
-          SAWARID سوারিদ
+          SAWARID سوარიদ
         </a>
       </p>
     </footer>
@@ -292,7 +348,7 @@
     <!-- Toast Notification -->
     <div 
       id="toast" 
-      class="hidden fixed bottom-6 right-6 z-50 bg-[#0e081f] border border-[#dd2476]/30 px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-2.5 transition-all"
+      class="hidden fixed bottom-6 right-6 z-50 bg-[#0c051a] border border-[#dd2476]/30 px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-2.5 transition-all"
     >
       <i data-lucide="info" class="h-4.5 w-4.5 text-[#00c6ff]"></i>
       <span id="toast-text" class="text-xs font-bold text-white font-arabic"></span>
@@ -301,14 +357,20 @@
     <!-- Active Runtime Parser and Playback Control Script -->
     <script>
       /* 
-         ========================================================================
-         এম৩ইউ (M3U) প্লেলিস্ট কনফিগারেশন এরিয়া (বাংলায় নির্দেশনাবলী):
-         ========================================================================
-         নিচে আপনার দেওয়া m3u প্লেলিস্টের লিংকটি ডিফাইন করা রয়েছে। 
-         আপনি চাইলে যেকোনো সময় নিচের 'm3uPlaylistUrl' এর ভেতরের লিংক পরিবর্তন করতে পারবেন।
-         আমাদের স্ক্রিপ্টটি ডাইনামিকালি এক্সটেনশন যাচাই করে .mpd, .m3u8 এবং .ts ফাইল লোড করবে।
+         ====================================================================================
+         প্লেলিস্ট পরিবর্তন নির্দেশনাবলী (How to Change Playlist URL):
+         ====================================================================================
+         আপনার M3U প্লেলিস্টের মূল সিকিউরিটি প্রোটেকশন বাড়ানোর জন্য ইউআরএল লিংকটিকে সরাসরি না লিখে 
+         Base64 এনকোড করে রাখা হয়েছে। 
+         
+         ভবিষ্যতে প্লেলিস্ট ইউআরএল পরিবর্তন করতে চাইলে:
+         ১. প্রথমে আপনার নতুন M3U লিংকটি কপি করুন।
+         ২. যেকোনো Base64 Encoder ওয়েবসাইটে (যেমন: https://www.base64encode.org) গিয়ে লিংকটি এনকোড করুন।
+         ৩. নিচের 'ePlaylist' ভেরিয়েবলের ডাবল কোটেশন চিহ্নের (" ") ভেতর নতুন জেনারেট হওয়া কোডটি পেস্ট করে দিন।
+         ====================================================================================
       */
-      const m3uPlaylistUrl = "https://raw.githubusercontent.com/raid35/docs/main/SPORT_UROP.m3u";
+      const ePlaylist = "aHR0cHM6Ly9yYXcuZ2l0aHViY29udGVudC5jb20vc2lrc2E0MC94UG9sYS1QbGF5ZXIvbWFpbi9iZWluLW1heC5tM3U=";
+      const m3uPlaylistUrl = atob(ePlaylist);
 
       let parsedChannels = [];
       let shakaPlayerInstance = null;
@@ -351,12 +413,27 @@
         }, 3500);
       }
 
+      // Dynamic Ripple Click Effect Handler for buttons
+      function createRipple(event, button) {
+        const circle = document.createElement("span");
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+        circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+        circle.classList.add("ripple-effect");
+
+        const ripple = button.getElementsByClassName("ripple-effect")[0];
+        if (ripple) ripple.remove();
+
+        button.appendChild(circle);
+      }
+
       /* 
          ========================================================================
          উন্নত M3U প্লেলিস্ট পার্সার ইঞ্জিন:
          ========================================================================
-         এই ফাংশনটি স্বয়ংক্রিয়ভাবে প্লেলিস্টের #EXTINF মেটাডাটা এবং তার ঠিক নিচের 
-         #KODIPROP ক্লিয়ার-কি লাইসেন্স প্যারামিটার ও ইউজার এজেন্টগুলো রিড করে ডাটাবেজ তৈরি করে।
       */
       async function fetchAndParseM3U(url) {
         try {
@@ -373,7 +450,6 @@
             if (!line) continue;
 
             if (line.startsWith('#EXTINF:')) {
-              // আগের চ্যানেলটি পুশ করে নেওয়া হচ্ছে যদি তার সঠিক ইউআরএল থাকে
               if (currentChannel && currentChannel.url) {
                 channels.push(currentChannel);
               }
@@ -403,7 +479,7 @@
               }
             } else if (line.startsWith('#KODIPROP:')) {
               if (!currentChannel) continue;
-              const propLine = line.substring(10).trim(); // skip "#KODIPROP:"
+              const propLine = line.substring(10).trim(); 
               const eqIdx = propLine.indexOf('=');
               if (eqIdx !== -1) {
                 const key = propLine.substring(0, eqIdx).trim();
@@ -417,7 +493,7 @@
                   currentChannel.isDrm = true;
                   try {
                     if (val.startsWith('{')) {
-                      // JSON Format: {"kid":"key"}
+                      // JSON Format Parsing
                       const parsedKeys = JSON.parse(val);
                       for (let k in parsedKeys) {
                         const cleanK = k.toLowerCase().replace(/[^a-f0-9]/gi, '');
@@ -425,7 +501,7 @@
                         currentChannel.drmKeys[cleanK] = cleanV;
                       }
                     } else {
-                      // Hex Format: kid:key
+                      // Hex Format Parsing (kid:key)
                       const parts = val.split(':');
                       if (parts.length === 2) {
                         const cleanK = parts[0].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
@@ -434,7 +510,7 @@
                       }
                     }
                   } catch (e) {
-                    console.error("DRM key parse error:", e);
+                    console.error("DRM key parsing error:", e);
                   }
                 }
               }
@@ -460,7 +536,7 @@
 
       /* 
          ========================================================================
-         ৩-কলাম গ্রিড রেন্ডার ফাংশন (লগো ওপরে, নাম নিচে):
+         ৩-কলাম গ্রিড রেন্ডার ফাংশন (লগো বড় ও নাম অটো-লুপ অ্যানিমেশন)
          ========================================================================
       */
       function renderChannelsGrid() {
@@ -471,21 +547,32 @@
           const isActive = activeChannel && ch.url === activeChannel.url;
           const card = document.createElement('button');
           
-          card.className = `p-2.5 rounded-xl border flex flex-col items-center justify-center text-center w-full transition-all outline-none group ${
+          card.className = `p-3 rounded-xl border flex flex-col items-center justify-center text-center w-full transition-all outline-none ripple-btn group ${
             isActive 
-              ? 'bg-[#160d30] border-[#dd2476] shadow-md shadow-[#dd2476]/10' 
-              : 'bg-[#0e081f]/95 border-[#2e1b5b]/50 hover:border-white/10'
+              ? 'bg-[#14082b] border-[#dd2476] shadow-md shadow-[#dd2476]/15' 
+              : 'bg-[#0c051a]/95 border-[#2e1256]/50 hover:border-white/10'
           }`;
           
-          card.onclick = () => selectChannel(idx);
+          card.addEventListener("click", function(e) {
+            createRipple(e, this);
+            selectChannel(idx);
+          });
+
+          // Text loop logic: if text length exceeds 14 chars, wrap inside marquee loop
+          const isLongName = ch.name.length > 14;
+          const displayNameMarkup = isLongName 
+            ? `<div class="marquee-container text-[10px] sm:text-xs font-extrabold tracking-wide ${isActive ? 'text-[#00c6ff]' : 'text-gray-300 group-hover:text-white'}">
+                 <span class="marquee-inner">${ch.name}</span>
+               </div>`
+            : `<span class="text-[10px] sm:text-xs font-extrabold tracking-wide truncate w-full ${isActive ? 'text-[#00c6ff]' : 'text-gray-300 group-hover:text-white'}">
+                 ${ch.name}
+               </span>`;
 
           card.innerHTML = `
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg p-1 flex items-center justify-center overflow-hidden mb-2 shadow-inner group-hover:scale-105 transition-all">
-              <img src="${ch.logo}" alt="" class="max-h-full max-w-full object-contain" onerror="this.src='https://i.postimg.cc/2SPC4wwN/hd-official-2026-fifa-world-cup-transparent-png-701751712076865bw3umpw9lk.png';" />
+            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl p-1.5 flex items-center justify-center overflow-hidden mb-2.5 shadow-inner group-hover:scale-105 transition-all">
+              <img src="${ch.logo}" alt="" class="max-h-full max-w-full object-contain" onerror="this.src='https://i.postimg.cc/RVfwpVLf/20260614-235732.png';" />
             </div>
-            <span class="text-[10px] sm:text-xs font-bold truncate w-full tracking-wide ${isActive ? 'text-[#00c6ff]' : 'text-gray-300 group-hover:text-white'}">
-              ${ch.name}
-            </span>
+            ${displayNameMarkup}
           `;
           grid.appendChild(card);
         });
@@ -497,7 +584,7 @@
           console.error('Browser does not support secure DRM stream playback.');
         }
 
-        document.getElementById('buffering-detail').innerText = "Loading remote playlist...";
+        document.getElementById('buffering-detail').innerText = "Syncing server layers...";
         parsedChannels = await fetchAndParseM3U(m3uPlaylistUrl);
 
         if (parsedChannels.length > 0) {
@@ -512,9 +599,9 @@
       }
 
       /* 
-         ========================================================================
-         ডাইনামিক স্ট্রিম প্লে ব্যাক ইঞ্জিন:
-         ========================================================================
+         ====================================================================================
+         ডাইনামিক এডাপটিভ প্লেব্যাক ইঞ্জিন (Adaptive Bitrate (ABR) out of the box কনফিগারেশন):
+         ====================================================================================
       */
       async function loadChannelStream(channel) {
         bufOverlay.classList.remove('hidden');
@@ -535,10 +622,6 @@
 
         const isTsStream = channel.url.toLowerCase().endsWith('.ts') || channel.url.includes('extension=ts') || channel.url.includes('/live/');
 
-        /* 
-           ১. যদি সাধারণ সরাসরি TS স্ট্রিম বা রিডাইরেক্ট স্ট্রিম হয়, তবে ব্রাউজারের নেটিভ প্লেয়ার বা ডিরেক্ট HTML সোর্স দিয়ে চালানোর হবে, 
-           কারণ সরাসরি TS ফাইল Shaka Media Engine অনেক সময় ব্লক করতে পারে।
-        */
         if (isTsStream) {
           try {
             videoElement.removeAttribute('src');
@@ -558,7 +641,6 @@
           }
         }
 
-        // ২. DASH (.mpd) এবং HLS (.m3u8) স্ট্রিমের জন্য Shaka Player রান করা হবে
         try {
           const player = new shaka.Player();
           await player.attach(videoElement);
@@ -568,26 +650,29 @@
             handleStreamFailure(e.detail);
           });
 
+          // নেটওয়ার্ক ব্যান্ডউইথ অনুযায়ী কোয়ালিটি অটো পরিবর্তন হওয়ার জন্য ABR অপটিমাইজেশন কনফিগারেশন
           player.configure({
             streaming: {
-              bufferingGoal: 25, 
-              rebufferingGoal: 6,
+              bufferingGoal: 20, 
+              rebufferingGoal: 5,
               bufferBehind: 30,
               stallEnabled: true,
-              stallThreshold: 2.0,
+              stallThreshold: 1.5,
               stallSkip: 0.2
             },
-            abr: { enabled: true }
+            abr: {
+              enabled: true, // ব্যান্ডউইথ অনুযায়ী কোয়ালিটি ডাইনামিক্যালি রিয়্যাল টাইমে পরিবর্তন হবে
+              defaultBandwidthEstimate: 1500000, 
+              switchInterval: 2 
+            }
           });
 
-          // কাস্টম ইউজার এজেন্ট কনফিগারেশন হ্যান্ডলিং (যদি হেডার অ্যালাউ করে)
           if (channel.userAgent) {
             player.getNetworkingEngine().registerRequestFilter((type, request) => {
               request.headers['User-Agent'] = channel.userAgent;
             });
           }
 
-          // স্বয়ংক্রিয়ভাবে M3U প্লেলিস্ট থেকে পার্স করা ClearKey জোড়াগুলো এখানে লোড করা হচ্ছে
           if (channel.isDrm && channel.drmKeys && Object.keys(channel.drmKeys).length > 0) {
             player.configure({
               drm: { clearKeys: channel.drmKeys }
@@ -730,12 +815,53 @@
         }
       });
 
+      /* 
+         ========================================================================
+         উন্নত সিকিউরিটি ইনফরসমেন্ট: অ্যান্টি-স্ক্র্যাপিং, রাইট-ক্লিক ও কনসোল ব্লকার
+         ========================================================================
+      */
+      // ১. রাইট-ক্লিক মেনু সম্পূর্ণ অফ
+      document.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
+
+      // ২. কপি/পেস্ট/কাট সিলেকশন অফ
+      document.addEventListener('copy', (e) => { e.preventDefault(); return false; });
+      document.addEventListener('cut', (e) => { e.preventDefault(); return false; });
+
+      // ৩. সোর্স কোড দেখার এবং কনসোল খোলার হট-কী লক
       document.addEventListener('keydown', (e) => {
-        if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74))) {
+        if (e.keyCode === 123 || e.key === 'F12') {
           e.preventDefault();
-          showToast('Debugging locked.');
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+          e.preventDefault();
+          return false;
+        }
+        if (e.ctrlKey && e.key === 'u') {
+          e.preventDefault();
+          return false;
+        }
+        if (e.metaKey && e.altKey && (e.key === 'i' || e.key === 'j' || e.key === 'c' || e.key === 'u')) {
+          e.preventDefault();
+          return false;
         }
       });
+
+      // ৪. ডেবগার লুপ এবং কনসোল ফ্রিজার (ডেভ-টুলস ওপেন হলে ব্রাউজার মেমোরি কনজিউম করে ফ্রিজ করে দেবে)
+      setInterval(function() {
+        (function() {
+          try {
+            (function a(i) {
+              if (("" + i / i).length !== 1 || i % 20 === 0) {
+                (function() {}).constructor("debugger")();
+              } else {
+                debugger;
+              }
+              a(++i);
+            })(0);
+          } catch (e) {}
+        })();
+      }, 1000);
 
       window.addEventListener('DOMContentLoaded', () => {
         initApp();
