@@ -49,7 +49,7 @@
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
-      /* Vibrant Mixing Gradient matching the user's uploaded image */
+      /* Vibrant Custom Mixing Gradient */
       .bg-mix-gradient {
         background: linear-gradient(135deg, #ff512f 0%, #dd2476 35%, #8a2be2 70%, #00c6ff 100%);
       }
@@ -60,14 +60,14 @@
         -webkit-text-fill-color: transparent;
       }
 
-      /* Multi-mesh color gradient background */
+      /* Premium radial gradient theme mimicking your mixing color image */
       .bg-mesh-blur {
         background-color: #06020f;
         background-image: 
-          radial-gradient(at 10% 20%, rgba(255, 81, 47, 0.15) 0px, transparent 50%),
-          radial-gradient(at 90% 10%, rgba(221, 36, 118, 0.15) 0px, transparent 50%),
-          radial-gradient(at 50% 80%, rgba(138, 43, 226, 0.12) 0px, transparent 50%),
-          radial-gradient(at 80% 90%, rgba(0, 198, 255, 0.1) 0px, transparent 50%);
+          radial-gradient(at 5% 15%, rgba(255, 81, 47, 0.18) 0px, transparent 55%),
+          radial-gradient(at 95% 10%, rgba(221, 36, 118, 0.18) 0px, transparent 55%),
+          radial-gradient(at 50% 85%, rgba(138, 43, 226, 0.15) 0px, transparent 55%),
+          radial-gradient(at 85% 95%, rgba(0, 198, 255, 0.12) 0px, transparent 55%);
       }
 
       /* Custom scrollbar matching theme style */
@@ -134,7 +134,7 @@
         transition: opacity 0.3s ease;
       }
 
-      /* Dynamic Horizontal Scrolling Text Loop (Marquee) */
+      /* Infinite Horizontal Name Scroller (Marquee for long names) */
       .marquee-container {
         overflow: hidden;
         white-space: nowrap;
@@ -145,7 +145,7 @@
       .marquee-inner {
         display: inline-block;
         padding-left: 100%;
-        animation: marquee-loop 8s linear infinite;
+        animation: marquee-loop 10s linear infinite;
       }
 
       @keyframes marquee-loop {
@@ -153,7 +153,7 @@
         100% { transform: translate3d(-100%, 0, 0); }
       }
 
-      /* Mixed color Ripple click effect styling */
+      /* Premium ripple effect using mixing gradient shades */
       .ripple-btn {
         position: relative;
         overflow: hidden;
@@ -162,15 +162,15 @@
       .ripple-effect {
         position: absolute;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(221,36,118,0.5) 0%, rgba(0,198,255,0.1) 100%);
+        background: radial-gradient(circle, rgba(221, 36, 118, 0.6) 0%, rgba(0, 198, 255, 0.1) 100%);
         transform: scale(0);
-        animation: ripple-anim 0.6s linear;
+        animation: ripple-anim 0.5s ease-out;
         pointer-events: none;
       }
 
       @keyframes ripple-anim {
         to {
-          transform: scale(4);
+          transform: scale(4.5);
           opacity: 0;
         }
       }
@@ -201,7 +201,7 @@
         </div>
 
         <!-- Right Side Logo -->
-        <div class="h-9 w-9 rounded-lg overflow-hidden border border-[#2e1256] bg-white shadow-md flex items-center justify-center p-0.5">
+        <div class="h-10 w-10 rounded-lg overflow-hidden border border-[#2e1256] bg-white shadow-md flex items-center justify-center p-0.5">
           <img 
             src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
             alt="Right Logo" 
@@ -218,7 +218,7 @@
       <!-- Video Player Card Container -->
       <div 
         id="playerCard" 
-        class="bg-[#0c051a] border border-[#2e1256] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(138,43,226,0.15)] relative group"
+        class="bg-[#0c051a] border border-[#2e1256] rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(221,36,118,0.18)] relative group"
         onmousemove="handleUserInteraction()"
         ontouchstart="handleUserInteraction()"
       >
@@ -265,7 +265,7 @@
                   <select 
                     id="qualitySelect"
                     onchange="handleQualitySelection(this.value)"
-                    class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1256] font-bold text-white outline-none cursor-pointer transition-all"
+                    class="h-8 pb-0.5 px-2.5 text-xs rounded-lg bg-black/60 border border-[#2e1b5b] font-bold text-white outline-none cursor-pointer transition-all"
                   >
                     <option value="auto">Auto Quality</option>
                   </select>
@@ -286,7 +286,7 @@
                 <div class="w-14 h-14 rounded-full border-4 border-[#2e1256] border-t-[#dd2476] animate-spin"></div>
               </div>
               <h3 class="text-white text-sm font-bold tracking-wider uppercase font-arabic">Connecting Secure Feed</h3>
-              <p id="buffering-detail" class="text-[10px] text-gray-400 mt-1 font-semibold font-sans">Decoding Streams...</p>
+              <p id="buffering-detail" class="text-[10px] text-gray-400 mt-1 font-semibold font-sans">Connecting Live Server...</p>
             </div>
 
             <!-- Error State overlay -->
@@ -306,7 +306,7 @@
         </div>
       </div>
 
-      <!-- Center Dynamic Brand Text (In place of old logo) -->
+      <!-- Center Dynamic Brand Text -->
       <div class="flex flex-col items-center justify-center py-2 text-center select-none">
         <h2 class="text-xs sm:text-sm font-black tracking-widest uppercase flex items-center gap-1 font-sans">
           <span class="text-gray-400">Powered By:</span>
@@ -413,7 +413,7 @@
         }, 3500);
       }
 
-      // Dynamic Ripple Click Effect Handler for buttons
+      // Dynamic Ripple Click Effect Handler
       function createRipple(event, button) {
         const circle = document.createElement("span");
         const diameter = Math.max(button.clientWidth, button.clientHeight);
@@ -432,106 +432,118 @@
 
       /* 
          ========================================================================
-         উন্নত M3U প্লেলিস্ট পার্সার ইঞ্জিন:
+         উন্নত M3U প্লেলিস্ট পার্সার ইঞ্জিন ও শক্তিশালী CORS Proxy হ্যান্ডলার:
          ========================================================================
       */
-      async function fetchAndParseM3U(url) {
+      async function fetchPlaylistData(url) {
+        // প্রথম চেষ্টা: সরাসরি প্লেলিস্ট ফেচ করা
         try {
           const response = await fetch(url);
-          if (!response.ok) throw new Error('Failed to load playlist from server.');
-          const text = await response.text();
-          const lines = text.split('\n');
-          
-          const channels = [];
-          let currentChannel = null;
+          if (response.ok) return await response.text();
+        } catch (e) {
+          console.warn("Direct fetch blocked by CORS, trying fallback proxy...", e);
+        }
 
-          for (let i = 0; i < lines.length; i++) {
-            let line = lines[i].trim();
-            if (!line) continue;
+        // দ্বিতীয় চেষ্টা: CORS Proxy সার্ভারের মাধ্যমে প্লেলিস্ট ফেচ করা (এটি ব্রাউজার ব্লকিং দূর করে)
+        try {
+          const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+          const response = await fetch(proxyUrl);
+          if (response.ok) return await response.text();
+        } catch (e) {
+          console.error("All playlist fetch attempts failed:", e);
+        }
+        return "";
+      }
 
-            if (line.startsWith('#EXTINF:')) {
-              if (currentChannel && currentChannel.url) {
-                channels.push(currentChannel);
-              }
+      async function fetchAndParseM3U(url) {
+        const text = await fetchPlaylistData(url);
+        if (!text) return [];
 
-              currentChannel = {
-                name: 'Unnamed Channel',
-                logo: '',
-                url: '',
-                isDrm: false,
-                drmKeys: {},
-                userAgent: ''
-              };
+        const lines = text.split('\n');
+        const channels = [];
+        let currentChannel = null;
 
-              // Extract tvg-logo
-              const logoMatch = line.match(/tvg-logo="([^"]+)"/);
-              if (logoMatch) currentChannel.logo = logoMatch[1];
+        for (let i = 0; i < lines.length; i++) {
+          let line = lines[i].trim();
+          if (!line) continue;
 
-              // Extract channel name (located after the last comma)
-              const commaIndex = line.lastIndexOf(',');
-              if (commaIndex !== -1) {
-                currentChannel.name = line.substring(commaIndex + 1).trim();
-              }
-            } else if (line.startsWith('#EXTVLCOPT:')) {
-              if (!currentChannel) continue;
-              if (line.includes('http-user-agent=')) {
-                currentChannel.userAgent = line.split('http-user-agent=')[1].trim();
-              }
-            } else if (line.startsWith('#KODIPROP:')) {
-              if (!currentChannel) continue;
-              const propLine = line.substring(10).trim(); 
-              const eqIdx = propLine.indexOf('=');
-              if (eqIdx !== -1) {
-                const key = propLine.substring(0, eqIdx).trim();
-                const val = propLine.substring(eqIdx + 1).trim();
+          if (line.startsWith('#EXTINF:')) {
+            if (currentChannel && currentChannel.url) {
+              channels.push(currentChannel);
+            }
 
-                if (key.includes('license_type')) {
-                  if (val.toLowerCase().includes('clearkey')) {
-                    currentChannel.isDrm = true;
-                  }
-                } else if (key.includes('license_key')) {
+            currentChannel = {
+              name: 'Unnamed Channel',
+              logo: '',
+              url: '',
+              isDrm: false,
+              drmKeys: {},
+              userAgent: ''
+            };
+
+            // Extract tvg-logo
+            const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+            if (logoMatch) currentChannel.logo = logoMatch[1];
+
+            // Extract channel name
+            const commaIndex = line.lastIndexOf(',');
+            if (commaIndex !== -1) {
+              currentChannel.name = line.substring(commaIndex + 1).trim();
+            }
+          } else if (line.startsWith('#EXTVLCOPT:')) {
+            if (!currentChannel) continue;
+            if (line.includes('http-user-agent=')) {
+              currentChannel.userAgent = line.split('http-user-agent=')[1].trim();
+            }
+          } else if (line.startsWith('#KODIPROP:')) {
+            if (!currentChannel) continue;
+            const propLine = line.substring(10).trim(); 
+            const eqIdx = propLine.indexOf('=');
+            if (eqIdx !== -1) {
+              const key = propLine.substring(0, eqIdx).trim();
+              const val = propLine.substring(eqIdx + 1).trim();
+
+              if (key.includes('license_type')) {
+                if (val.toLowerCase().includes('clearkey') || val.toLowerCase().includes('org.w3.clearkey')) {
                   currentChannel.isDrm = true;
-                  try {
-                    if (val.startsWith('{')) {
-                      // JSON Format Parsing
-                      const parsedKeys = JSON.parse(val);
-                      for (let k in parsedKeys) {
-                        const cleanK = k.toLowerCase().replace(/[^a-f0-9]/gi, '');
-                        const cleanV = parsedKeys[k].toLowerCase().replace(/[^a-f0-9]/gi, '');
-                        currentChannel.drmKeys[cleanK] = cleanV;
-                      }
-                    } else {
-                      // Hex Format Parsing (kid:key)
-                      const parts = val.split(':');
-                      if (parts.length === 2) {
-                        const cleanK = parts[0].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
-                        const cleanV = parts[1].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
-                        currentChannel.drmKeys[cleanK] = cleanV;
-                      }
+                }
+              } else if (key.includes('license_key')) {
+                currentChannel.isDrm = true;
+                try {
+                  if (val.startsWith('{')) {
+                    const parsedKeys = JSON.parse(val);
+                    for (let k in parsedKeys) {
+                      const cleanK = k.toLowerCase().replace(/[^a-f0-9]/gi, '');
+                      const cleanV = parsedKeys[k].toLowerCase().replace(/[^a-f0-9]/gi, '');
+                      currentChannel.drmKeys[cleanK] = cleanV;
                     }
-                  } catch (e) {
-                    console.error("DRM key parsing error:", e);
+                  } else {
+                    const parts = val.split(':');
+                    if (parts.length === 2) {
+                      const cleanK = parts[0].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+                      const cleanV = parts[1].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+                      currentChannel.drmKeys[cleanK] = cleanV;
+                    }
                   }
+                } catch (e) {
+                  console.error("DRM key parsing error:", e);
                 }
               }
-            } else if (line.startsWith('http://') || line.startsWith('https://')) {
-              if (currentChannel) {
-                currentChannel.url = line;
-                channels.push(currentChannel);
-                currentChannel = null; 
-              }
+            }
+          } else if (line.startsWith('http://') || line.startsWith('https://')) {
+            if (currentChannel) {
+              currentChannel.url = line;
+              channels.push(currentChannel);
+              currentChannel = null; 
             }
           }
-
-          if (currentChannel && currentChannel.url) {
-            channels.push(currentChannel);
-          }
-
-          return channels;
-        } catch (err) {
-          console.error("M3U Parser error:", err);
-          return [];
         }
+
+        if (currentChannel && currentChannel.url) {
+          channels.push(currentChannel);
+        }
+
+        return channels;
       }
 
       /* 
@@ -594,13 +606,13 @@
         } else {
           bufOverlay.classList.add('hidden');
           errOverlay.classList.remove('hidden');
-          errDetail.innerText = "Error: Could not load or parse the remote M3U file.";
+          errDetail.innerText = "Error: M3U playlist load blocked or empty. Refreshing...";
         }
       }
 
       /* 
          ====================================================================================
-         ডাইনামিক এডাপটিভ প্লেব্যাক ইঞ্জিন (Adaptive Bitrate (ABR) out of the box কনফিগারেশন):
+         এডাপটিভ প্লেব্যাক ইঞ্জিন (ABR out of the box কনফিগারেশন):
          ====================================================================================
       */
       async function loadChannelStream(channel) {
@@ -661,7 +673,7 @@
               stallSkip: 0.2
             },
             abr: {
-              enabled: true, // ব্যান্ডউইথ অনুযায়ী কোয়ালিটি ডাইনামিক্যালি রিয়্যাল টাইমে পরিবর্তন হবে
+              enabled: true, // ব্যান্ডউইথ অনুযায়ী কোয়ালিটি রিয়্যাল টাইমে পরিবর্তন হবে
               defaultBandwidthEstimate: 1500000, 
               switchInterval: 2 
             }
@@ -846,22 +858,6 @@
           return false;
         }
       });
-
-      // ৪. ডেবগার লুপ এবং কনসোল ফ্রিজার (ডেভ-টুলস ওপেন হলে ব্রাউজার মেমোরি কনজিউম করে ফ্রিজ করে দেবে)
-      setInterval(function() {
-        (function() {
-          try {
-            (function a(i) {
-              if (("" + i / i).length !== 1 || i % 20 === 0) {
-                (function() {}).constructor("debugger")();
-              } else {
-                debugger;
-              }
-              a(++i);
-            })(0);
-          } catch (e) {}
-        })();
-      }, 1000);
 
       window.addEventListener('DOMContentLoaded', () => {
         initApp();
