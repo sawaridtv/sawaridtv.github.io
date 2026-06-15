@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06020f" />
+    <title>SAWARID سواريد LIVE TV</title>
+    <meta name="author" content="SAWARID سواريদ Live Sports">
+    <meta name="referrer" content="no-referrer">
+    
+    <!-- Favicon -->
+    <link class="js-favicon" rel="icon" href="https://i.postimg.cc/htZPY1DX/Sawarid-logo.png" type="image/png">
+    
+    <!-- PWA Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <!-- Mux.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/6.0.1/mux.min.js"></script>
+
+    <!-- Shaka Player CDN -->
+    <script src="https://unpkg.com/shaka-player@5.0.0/dist/shaka-player.compiled.js"></script>
+
+    <!-- Clappr Core Player and Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/level-selector@0.2.0/dist/level-selector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+    <!-- PIP Mode Plugin for Clappr -->
+    <script src="https://cdn.jsdelivr.net/npm/clappr-pip-mode@1.1.0/dist/clappr-pip-mode.min.js"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: '#06020f',
+                card: '#0c051a',
+                element: '#14082b',
+                border: '#2e1256'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              arabic: ['Cairo', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body, html {
+        height: 100%;
+        overflow: hidden !important;
+      }
+
+      .transition-all {
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .bg-mix-gradient {
+        background: linear-gradient(135deg, #ff512f 0%, #dd2476 35%, #8a2be2 70%, #00c6ff 100%);
+      }
+      
+      .text-mix-gradient {
+        background: linear-gradient(135deg, #ff512f 0%, #dd2476 40%, #8a2be2 75%, #00c6ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .bg-mesh-blur {
+        background-color: #06020f;
+        background-image: 
+          radial-gradient(at 5% 15%, rgba(255, 81, 47, 0.12) 0px, transparent 55%),
+          radial-gradient(at 95% 10%, rgba(221, 36, 118, 0.12) 0px, transparent 55%),
+          radial-gradient(at 50% 85%, rgba(138, 43, 226, 0.1) 0px, transparent 55%);
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #06020f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2e1256;
+        border-radius: 9px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #dd2476;
+      }
+
+      .main-split-container {
+        display: flex;
+        flex-direction: row;
+        height: calc(100vh - 65px);
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        .main-split-container {
+          flex-direction: column;
+        }
+        .video-split-container {
+          height: auto !important;
+          max-height: 40vh;
+          width: 100% !important;
+          flex-shrink: 0;
+        }
+        .channel-split-container {
+          flex: 1;
+          height: auto !important;
+          overflow: hidden;
+        }
+      }
+
+      #playerCard:fullscreen,
+      #playerCard:-webkit-full-screen,
+      #playerCard.fullscreen-mode {
+        background-color: #000000 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 99999 !important;
+      }
+
+      .player-inner-wrapper {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+
+      .player-controls-overlay {
+        background: linear-gradient(to top, rgba(6, 2, 15, 0.95) 0%, rgba(6, 2, 15, 0.2) 70%, transparent 100%);
+        transition: opacity 0.3s ease;
+      }
+
+      .marquee-container {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        position: relative;
+      }
+
+      .marquee-inner {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee-loop 12s linear infinite;
+      }
+
+      @keyframes marquee-loop {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-100%, 0, 0); }
+      }
+
+      .ripple-btn {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ripple-effect {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(221, 36, 118, 0.6) 0%, rgba(0, 198, 255, 0.1) 100%);
+        transform: scale(0);
+        animation: ripple-anim 0.5s ease-out;
+        pointer-events: none;
+      }
+
+      @keyframes ripple-anim {
+        to {
+          transform: scale(4.5);
+          opacity: 0;
+        }
+      }
+
+      .channel-item-gradient {
+        background: linear-gradient(180deg, #711054 0%, #3e1561 50%, #202d6d 100%);
+        background-attachment: fixed;
+      }
+
+      .playlist-selector-container {
+        scrollbar-width: thin;
+        scrollbar-color: #dd2476 #0c051a;
+      }
+      .playlist-selector-container::-webkit-scrollbar {
+        height: 4px;
+      }
+      .playlist-selector-container::-webkit-scrollbar-thumb {
+        background: #dd2476;
+        border-radius: 4px;
+      }
+
+      .ad-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 1000000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .ad-popup-overlay.show {
+        display: flex;
+      }
+      .ad-popup-box {
+        position: absolute;
+        top: 10%;
+        bottom: 10%;
+        left: 10%;
+        right: 10%;
+        background: #0c051a;
+        border: 2px solid #dd2476;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 0 35px rgba(221, 36, 118, 0.45);
+      }
+
+      /* Clappr & Shaka Synchronized Watermark Styles */
+      .clappr-watermark[data-watermark], .shaka-custom-watermark {
+        position: absolute;
+        min-width: 70px;
+        max-width: 200px;
+        width: 12%;
+        text-align: center;
+        z-index: 15;
+        left: 10% !important;
+        bottom: 20% !important;
+        top: auto !important;
+        right: auto !important;
+        transform: scale(0.6) !important;
+        transform-origin: left bottom !important;
+        pointer-events: none;
+      }
+      
+      .clappr-watermark[data-watermark] img, .shaka-custom-watermark img {
+        max-width: 100%;
+        border: none;
+        opacity: 0.4;
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body class="bg-mesh-blur text-[#edf5ff] min-h-screen flex flex-col font-sans select-none overflow-hidden" oncontextmenu="return false;">
+
+    <!-- Header Section -->
+    <header class="border-b border-[#2e1256]/60 bg-[#0c051a]/95 backdrop-blur-md z-40 px-4 py-3 h-[65px] flex items-center shrink-0">
+      <div class="w-full max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Left Side Logo -->
+        <div class="flex items-center gap-2.5">
+          <div class="h-10 w-10 rounded-lg overflow-hidden border border-[#2e1256] bg-white shadow-md flex items-center justify-center p-0.5">
+            <img 
+              src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
+              alt="Left Logo" 
+              class="max-h-full max-w-full object-contain" 
+            />
+          </div>
+          <div>
+            <h1 class="text-sm sm:text-base font-black tracking-tight text-white flex items-center gap-1.5 font-sans">
+              <span>FIFA 2026 |</span>
+              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سواريد</span>
+            </h1>
+            <p class="text-[9px] text-gray-400 font-semibold tracking-wider font-sans uppercase">DOWNLOAD SAWARID APPS FROM APKPURE</p>
+          </div>
+        </div>
+
+        <!-- Right Side Logo (Interactive App Download Button) -->
+        <a 
+          href="https://apkpure.com/p/com.sawaridtv.pro" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="h-10 rounded-lg overflow-hidden border border-[#2e1256] bg-brand-dark shadow-md flex items-center justify-center p-0.5 transition-transform duration-200 hover:scale-105 active:scale-95"
+        >
+          <img 
+            src="https://i.postimg.cc/tgNBNZKd/button-download-sawarid-apps.png" 
+            alt="Download Sawarid Apps" 
+            class="max-h-full object-contain" 
+          />
+        </a>
+
+      </div>
+    </header>
+
+    <!-- Main Split View Layout -->
+    <main class="main-split-container flex-1">
+      
+      <!-- LEFT CONTAINER: Video Player, Counters, PWA Button & Search Box -->
+      <div class="video-split-container lg:w-[70%] md:w-[62%] w-full h-full p-3 md:p-4 flex flex-col gap-3 overflow-hidden bg-black/10 border-r border-[#2e1256]/30 justify-start">
+        
+        <!-- Video Player Wrapper -->
+        <div class="w-full aspect-video bg-black relative rounded-xl overflow-hidden border border-[#2e1256]/50 shadow-lg shrink-0">
+          <div 
+            id="playerCard" 
+            class="w-full h-full relative group"
+            onmousemove="handleUserInteraction()"
+            ontouchstart="handleUserInteraction()"
+          >
+            <div class="player-inner-wrapper relative w-full h-full flex flex-col justify-center bg-black">
+
+              <!-- Shaka Video Container element -->
+              <video 
+                id="liveVideo" 
+                class="w-full h-full object-contain cursor-default" 
+                playsinline
+                autoplay
+              ></video>
+
+              <!-- Clappr Video Container element -->
+              <div id="clapprContainer" class="w-full h-full hidden"></div>
+
+              <!-- Shaka custom watermark image element overlay -->
+              <div id="shakaWatermark" class="shaka-custom-watermark hidden">
+                <img src="https://i.postimg.cc/htZPY1DX/Sawarid-logo.png" alt="Sawarid Watermark" />
+              </div>
+
+              <!-- Dynamic GIF Poster (Smooth Fade Out/In) -->
+              <img 
+                id="videoPoster" 
+                src="https://i.pinimg.com/originals/5a/93/4e/5a934e84f67d2a61a118ec95b1d6cb74.gif" 
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 pointer-events-none opacity-100" 
+                alt="Loading Broadcast"
+              />
+
+              <!-- Custom OSD Controls -->
+              <div id="playerControls" class="player-controls-overlay absolute inset-0 flex flex-col justify-between p-3 z-30 opacity-100 transition-opacity duration-300">
+                
+                <!-- Upper OSD Metadata -->
+                <div class="flex justify-between items-start w-full pointer-events-none">
+                  <div class="flex items-center gap-1.5 pointer-events-auto">
+                    <span class="px-2 py-0.5 rounded bg-red-600 text-[9px] font-black tracking-widest text-white uppercase animate-pulse">
+                      LIVE
+                    </span>
+                    <span id="player-channel-display" class="px-2 py-0.5 rounded bg-black/60 text-[9px] font-bold text-white border border-[#2e1256] max-w-[150px] truncate">
+                      Loading...
+                    </span>
+                  </div>
+                  <span id="player-quality-badge" class="px-2 py-0.5 rounded bg-mix-gradient text-[9px] font-bold text-white uppercase pointer-events-auto">
+                    AUTO
+                  </span>
+                </div>
+
+                <!-- OSD Bottom controls and Progress bar -->
+                <div class="w-full flex flex-col gap-2">
+                  
+                  <!-- Timeline Seekbar Container -->
+                  <div class="w-full group/timeline relative h-1.5 bg-white/25 rounded-full cursor-pointer transition-all" id="timelineContainer" onclick="seekVideo(event)">
+                    <div id="timelineProgress" class="absolute left-0 top-0 h-full bg-[#dd2476] rounded-full w-0"></div>
+                  </div>
+
+                  <!-- Control Buttons -->
+                  <div class="w-full flex items-center justify-between gap-2 pt-1 border-t border-white/10">
+                    <div class="flex items-center gap-2">
+                      <button onclick="togglePlay()" class="h-7 px-2.5 rounded bg-white/10 hover:bg-white/20 text-white transition-all flex items-center gap-1 text-xs font-bold focus:outline-none">
+                        <i data-lucide="pause" class="h-4 w-4 fill-white" id="play-btn-icon"></i>
+                      </button>
+                      <button onclick="toggleMute()" class="h-7 w-7 rounded bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center focus:outline-none">
+                        <i data-lucide="volume-2" class="h-4 w-4" id="mute-btn-icon"></i>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center gap-1.5">
+                      <select 
+                        id="qualitySelect"
+                        onchange="handleQualitySelection(this.value)"
+                        class="h-7 pb-0.5 px-2 text-[10px] rounded bg-black/60 border border-[#2e1256] font-bold text-white outline-none cursor-pointer transition-all"
+                      >
+                        <option value="auto">Auto Quality</option>
+                      </select>
+                      <!-- Aspect Ratio Toggle Button (Fit, Stretch, Zoom) -->
+                      <button onclick="toggleAspectRatio()" class="h-7 w-7 rounded bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center focus:outline-none" title="Screen Mode">
+                        <i data-lucide="expand" class="h-4 w-4"></i>
+                      </button>
+                      <button onclick="togglePiP()" class="h-7 w-7 rounded bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center focus:outline-none">
+                        <i data-lucide="picture-in-picture" class="h-4 w-4"></i>
+                      </button>
+                      <button onclick="toggleFullscreen()" class="h-7 w-7 rounded bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center focus:outline-none">
+                        <i data-lucide="maximize" class="h-4 w-4"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- Loading Spinner State -->
+              <div id="buffering-overlay" class="absolute inset-0 bg-[#06020f]/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 z-20 transition-opacity duration-300">
+                <div class="relative mb-3 flex items-center justify-center">
+                  <div class="w-10 h-10 rounded-full border-4 border-[#2e1256] border-t-[#dd2476] animate-spin"></div>
+                </div>
+                <h3 class="text-white text-xs font-bold tracking-wider uppercase font-arabic">Connecting Secure Feed</h3>
+                <p id="buffering-detail" class="text-[9px] text-gray-400 mt-1 font-semibold font-sans">Connecting Live Server...</p>
+              </div>
+
+              <!-- Error State overlay -->
+              <div id="error-overlay" class="hidden absolute inset-0 bg-[#06020f]/95 flex flex-col items-center justify-center text-center p-6 z-20">
+                <i data-lucide="alert-triangle" class="text-red-500 h-10 w-10 mb-2"></i>
+                <h4 class="text-white text-xs font-bold uppercase">Stream Offline</h4>
+                <p id="error-detail" class="text-[10px] text-gray-400 mt-1 max-w-xs">Connecting issues.</p>
+                <button 
+                  onclick="retryCurrentChannel()"
+                  class="mt-3 px-3 py-1.5 bg-mix-gradient hover:opacity-90 transition-all rounded-lg text-white font-extrabold text-[11px] shadow-lg focus:outline-none"
+                >
+                  Retry Stream
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Static Metadata: Firebase Counters & Search Box -->
+        <div class="w-full flex flex-col gap-2 shrink-0">
+          
+          <!-- PWA App Installer Button -->
+          <button 
+            id="pwaInstallBtn" 
+            class="hidden w-full h-9 bg-mix-gradient rounded-lg text-xs font-black text-white flex items-center justify-center gap-2 hover:opacity-95 active:scale-95 transition-all shadow-lg focus:outline-none"
+          >
+            <i data-lucide="download" class="h-4 w-4"></i>
+            <span>Install SAWARID Live TV</span>
+          </button>
+
+          <!-- Firebase Counter -->
+          <div id="counters" class="bg-[#0c051a] border border-[#2e1256]/60 rounded-lg p-2 text-center text-[10px] font-bold text-gray-300">
+            <span id="online-counter">👥 Connecting online analytics...</span>
+          </div>
+
+          <!-- Search Box -->
+          <div class="relative flex items-center">
+            <span class="absolute left-3 text-gray-400">
+              <i data-lucide="search" class="h-4 w-4"></i>
+            </span>
+            <input 
+              type="text" 
+              id="channelSearch" 
+              placeholder="Search Channels..." 
+              class="w-full h-9 pl-9 pr-8 bg-[#0c051a] border border-[#2e1256]/60 rounded-lg text-xs font-bold text-white placeholder-gray-500 focus:outline-none focus:border-[#dd2476]/80 transition-all"
+            />
+            <button 
+              id="clearSearch" 
+              class="hidden absolute right-3 text-gray-400 hover:text-white text-xs font-bold transition-all focus:outline-none"
+            >
+              ✕
+            </button>
+          </div>
+
+          <!-- Search Count Info -->
+          <div id="searchResultsInfo" class="hidden text-center text-[9px] font-bold text-[#00c6ff] bg-[#14082b]/60 border border-[#2e1256]/30 py-1 rounded-md"></div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT CONTAINER: Multi-Playlist & Scrollable Channels Grid -->
+      <div class="channel-split-container lg:w-[30%] md:w-[38%] w-full h-full flex flex-col bg-[#0c051a]/95">
+        
+        <!-- Playlist horizontal selector -->
+        <div class="playlist-selector-container overflow-x-auto whitespace-nowrap p-3 border-b border-[#2e1256]/40 shrink-0 bg-[#06020f]/85">
+          <div id="playlistSelector" class="inline-flex gap-2">
+            <!-- Dynamic Playlist Buttons Inserted Here -->
+          </div>
+        </div>
+
+        <!-- Dynamic Scrollable Channel Grid Inner -->
+        <div class="flex-1 overflow-y-auto p-3" id="channelList">
+          <div id="channels-grid" class="grid grid-cols-4 md:grid-cols-3 gap-2">
+            <!-- Dynamic Buttons Generated here -->
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div 
+      id="toast" 
+      class="hidden fixed bottom-6 right-6 z-50 bg-[#0c051a] border border-[#dd2476]/30 px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-2.5 transition-all"
+    >
+      <i data-lucide="info" class="h-4.5 w-4.5 text-[#00c6ff]"></i>
+      <span id="toast-text" class="text-xs font-bold text-white font-arabic"></span>
+    </div>
+
+    <!-- Countdown In-Page Ad Overlay -->
+    <div id="ad-popup-overlay" class="ad-popup-overlay">
+      <div class="ad-popup-box">
+        <div class="bg-[#dd2476] text-white py-3 px-4 text-center font-sans text-xs font-bold leading-normal border-b border-white/20" id="ad-popup-msg-box">
+          To keep our services active, please stay on the advertisement for 15 seconds. Our team spends a lot of time giving you the opportunity to watch free IPTV and Sports.
+        </div>
+        <div class="bg-red-600 text-white font-sans text-[11px] font-bold py-1.5 text-center border-b border-white/10" id="ad-popup-timer-text">
+          Please wait... Ad closes automatically in 15 seconds.
+        </div>
+        <div class="flex-1 w-full bg-[#14082b] relative flex items-center justify-center">
+          <div class="absolute text-center p-4 text-gray-400 text-xs font-bold z-0 leading-relaxed">
+            Loading secure ad campaign...<br>
+            If the ad doesn't display, please keep this window open for 15 seconds to support us.
+          </div>
+          <iframe id="ad-popup-iframe" class="w-full h-full border-none bg-white z-10 relative" src=""></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Externalized Script Reference -->
+    <script src="sawarid.js"></script>
+  </body>
+</html>
