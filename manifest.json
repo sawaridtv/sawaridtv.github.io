@@ -1,0 +1,21 @@
+{
+  "name": "SAWARID سواريد LIVE TV",
+  "short_name": "SAWARID سواريد TV",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#06020f",
+  "theme_color": "#06020f",
+  "description": "FIFA 2026 | SAWARID Live Sports Portal",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/htZPY1DX/Sawarid-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.postimg.cc/htZPY1DX/Sawarid-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
