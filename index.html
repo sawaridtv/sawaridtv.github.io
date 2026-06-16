@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#06020f" />
-    <title>SAWARID سواريد LIVE TV</title>
+    <title>SAWARID سوারিদ LIVE TV</title>
     <meta name="author" content="SAWARID سواريد  Live Sports">
     <meta name="referrer" content="no-referrer">
     
@@ -129,6 +129,11 @@
           height: auto !important;
           overflow: hidden;
         }
+      }
+
+      /* মোবাইল জুম রোধ এবং ফুলস্ক্রিন ইন্টারঅ্যাকশন অপ্টিমাইজেশন */
+      #playerCard, #playerCard * {
+        touch-action: manipulation;
       }
 
       #playerCard:fullscreen,
@@ -300,7 +305,7 @@
           <div>
             <h1 class="text-sm sm:text-base font-black tracking-tight text-white flex items-center gap-1.5 font-sans">
               <span>FIFA 2026 |</span>
-              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سوারিদ</span>
+              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID সোারিদ</span>
             </h1>
             <p class="text-[9px] text-gray-100 font-semibold tracking-wider font-sans uppercase">DOWNLOAD SAWARID APPS FROM APKPURE</p>
           </div>
@@ -441,14 +446,14 @@
                 <div class="relative mb-3 flex items-center justify-center">
                   <div class="w-10 h-10 rounded-full border-4 border-[#2e1256] border-t-[#dd2476] animate-spin"></div>
                 </div>
-                <h3 class="text-white text-xs font-bold tracking-wider uppercase font-arabic">SAWARID سواريد Connecting Secure Feed</h3>
+                <h3 class="text-white text-xs font-bold tracking-wider uppercase font-arabic">SAWARID سوারিদ Connecting Secure Feed</h3>
                 <p id="buffering-detail" class="text-[9px] text-gray-400 mt-1 font-semibold font-sans">Connecting Live Server...</p>
               </div>
 
               <!-- Error State overlay -->
               <div id="error-overlay" class="hidden absolute inset-0 bg-[#06020f]/95 flex flex-col items-center justify-center text-center p-6 z-20">
                 <i data-lucide="alert-triangle" class="text-red-500 h-10 w-10 mb-2"></i>
-                <h4 class="text-white text-xs font-bold uppercase">SAWARID سواريد Stream Offline</h4>
+                <h4 class="text-white text-xs font-bold uppercase">SAWARID সোারিদ Stream Offline</h4>
                 <p id="error-detail" class="text-[10px] text-gray-400 mt-1 max-w-xs">Connecting issues.</p>
                 <button 
                   onclick="retryCurrentChannel()"
@@ -977,7 +982,6 @@ function toggleQualityMenu(event) {
   menu.classList.toggle('hidden');
 }
 
-// ক্লিক বাইরে পড়লে ড্রপডাউন অটো বন্ধ হবে
 document.addEventListener('click', (e) => {
   const dropdown = document.getElementById('customQualityDropdown');
   const menu = document.getElementById('qualityDropdownMenu');
@@ -1043,22 +1047,18 @@ async function loadChannelStream(channel) {
   errOverlay.classList.add('hidden');
   chDisplay.innerText = channel.name;
 
-  // পোস্টার রিসেট ও দৃশ্যমান করা (ফেড-ইন)
   videoPoster.classList.remove('opacity-0');
 
-  // কোয়ালিটি রিসেট
   currentSelectedQualityValue = 'auto';
   document.getElementById('qualityDropdownLabel').textContent = 'Auto Quality';
   updateQualityDropdownMenuUI();
 
-  // পূর্ববর্তী প্লেয়ার ডিসপোজ করা
   await cleanUpPlayers();
 
   const urlLower = channel.url.toLowerCase();
   const isDASH = urlLower.includes('.mpd') || channel.isDrm;
 
   if (isDASH) {
-    // DASH DRM কন্টেন্ট -> Shaka Player Engine
     document.getElementById('liveVideo').classList.remove('hidden');
     document.getElementById('clapprContainer').classList.add('hidden');
     shakaWatermark.classList.remove('hidden');
@@ -1161,7 +1161,6 @@ async function loadChannelStream(channel) {
 
       await player.load(channel.url);
 
-      // ডিফল্ট এ্যাসপেক্ট রেশিও রি-এপ্লাই
       applyAspectRatio();
 
       videoElement.play().then(() => {
@@ -1183,7 +1182,6 @@ async function loadChannelStream(channel) {
     }
 
   } else {
-    // HLS (.m3u8) এবং TS (.ts) কন্টেন্ট -> Clappr Player Engine
     document.getElementById('liveVideo').classList.add('hidden');
     document.getElementById('clapprContainer').classList.remove('hidden');
     shakaWatermark.classList.add('hidden');
@@ -1264,7 +1262,7 @@ function updateShakaQualities() {
 }
 
 function updateClapprQualities(levels) {
-  // Clappr কোয়ালিটি ট্র্যাকগুলো অটো আপডেট হবে লেভেল ইভেন্ট থেকে
+  // Clappr কোয়ালিটি ইভেন্ট দ্বারা স্বয়ংক্রিয় হ্যান্ডলিং
 }
 
 function handleQualitySelection(val) {
@@ -1308,7 +1306,7 @@ function applyAspectRatio() {
   const currentRatio = aspectRatios[currentAspectIndex];
   
   if (videoElement) {
-    videoElement.style.style = ''; // ক্লিন রিসেট
+    videoElement.style.style = ''; 
     videoElement.style.objectFit = currentRatio;
   }
   
@@ -1319,13 +1317,14 @@ function applyAspectRatio() {
 }
 
 /* ========================================================================
-   ৫.৩. ডাবল ট্যাপে ফুলস্ক্রিন এবং সিঙ্গেল ট্যাপে প্লে-পজ ইভেন্ট হ্যান্ডলার
+   ৫.৩. ডাবল ট্যাপে ফুলস্ক্রিন এবং সিঙ্গেল ট্যাপে প্লে-পজ ইভেন্ট হ্যান্ডলার (ক্যাপচার মোড)
    ======================================================================== */
 function setupPlayerInteractions() {
   const playerCard = document.getElementById('playerCard');
-  
-  playerCard.addEventListener('click', (e) => {
-    // কন্ট্রোল প্যানেল, অ্যাড উইন্ডো বা প্রমোশনাল পপআপের বাইরের ক্লিকে এটি কাজ করবে
+  if (!playerCard) return;
+
+  // ক্যাপচারিং ফেজে (true) ইভেন্ট ধরা হয়েছে যাতে ক্ল্যাপ্র বা ওএসডি লেয়ার এটি ব্লক না করে
+  playerCard.addEventListener('click', function(e) {
     if (
       e.target.closest('#playerControls') || 
       e.target.closest('#ad-popup-overlay') || 
@@ -1333,7 +1332,7 @@ function setupPlayerInteractions() {
       e.target.closest('.clappr-controls') || 
       e.target.closest('#customQualityDropdown')
     ) {
-      return;
+      return; 
     }
 
     const currentTime = new Date().getTime();
@@ -1342,16 +1341,15 @@ function setupPlayerInteractions() {
     if (tapDelayTimeout) clearTimeout(tapDelayTimeout);
 
     if (tapLength < 300 && tapLength > 0) {
-      // ডাবল ট্যাপ ট্রিগার (ফুলস্ক্রিন টগল)
       toggleFullscreen();
+      lastTapTime = 0; 
     } else {
-      // সিঙ্গেল ট্যাপ ট্রিগার (প্লে / পজ টগল)
       tapDelayTimeout = setTimeout(() => {
         togglePlay();
-      }, 300);
+      }, 250);
     }
     lastTapTime = currentTime;
-  });
+  }, true); 
 }
 
 function handleStreamFailure(err) {
@@ -1439,17 +1437,34 @@ function togglePiP() {
   }
 }
 
+/* ========================================================================
+   ৫.৪. হাইব্রিড ফুলস্ক্রিন কন্ট্রোল (iOS এবং Android উভয়ের সাথে সামঞ্জস্যপূর্ণ)
+   ======================================================================== */
 async function toggleFullscreen() {
   const pcard = document.getElementById('playerCard');
+  const isShakaActive = !document.getElementById('liveVideo').classList.contains('hidden');
+  const activeVideo = isShakaActive 
+    ? document.getElementById('liveVideo') 
+    : document.querySelector('#clapprContainer video');
+
+  if (!activeVideo) return;
+
   if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-    if (pcard.requestFullscreen) {
-      await pcard.requestFullscreen();
-    } else if (videoElement.webkitEnterFullscreen) {
-      videoElement.webkitEnterFullscreen();
+    try {
+      if (pcard.requestFullscreen) {
+        await pcard.requestFullscreen();
+      } else if (pcard.webkitRequestFullscreen) {
+        await pcard.webkitRequestFullscreen();
+      } else if (activeVideo.webkitEnterFullscreen) {
+        activeVideo.webkitEnterFullscreen();
+      }
+    } catch (err) {
+      if (activeVideo.webkitEnterFullscreen) {
+        activeVideo.webkitEnterFullscreen();
+      }
     }
     
-    // ফুলস্ক্রিনে যাওয়ার সাথে সাথে ডিফল্টভাবে FILL (Stretch) মোড সেট হবে
-    currentAspectIndex = 1; // index 1 corresponds to 'fill' (STRETCH)
+    currentAspectIndex = 1; // index 1 = 'fill' (STRETCH)
     applyAspectRatio();
 
     if (screen.orientation && screen.orientation.lock) {
@@ -1465,24 +1480,15 @@ async function toggleFullscreen() {
     } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen();
     }
-    
-    if (screen.orientation && screen.orientation.unlock) {
-      try {
-        screen.orientation.unlock();
-      } catch (e) {
-        console.warn("Screen orientation unlock failed:", e);
-      }
-    }
   }
 }
 
-// Fullscreen স্ট্যাটাস মনিটরিং এবং এ্যাসপেক্ট রেশিও হ্যান্ডলিং
 document.addEventListener('fullscreenchange', () => {
   const pcard = document.getElementById('playerCard');
   if (pcard) {
     if (document.fullscreenElement) {
       pcard.classList.add('fullscreen-mode');
-      currentAspectIndex = 1; // FILL (Stretch) মোড নিশ্চিত করা
+      currentAspectIndex = 1; 
       applyAspectRatio();
     } else {
       pcard.classList.remove('fullscreen-mode');
@@ -1494,7 +1500,7 @@ document.addEventListener('fullscreenchange', () => {
 });
 
 /* ========================================================================
-   ৬. ১০টি মাল্টি-প্লেলিস্ট সিলেক্টর ও ফায়ারবেস ট্র্যাকার
+   ৬. প্লেলিস্ট সিলেক্টর ও ফায়ারবেস ট্র্যাকার
    ======================================================================== */
 function setupPlaylistSelector() {
   const playlistSelector = document.getElementById('playlistSelector');
@@ -1968,7 +1974,7 @@ async function initApp() {
   setupSearchEngine();
   registerServiceWorker();
   initSawaridAppPromoPopup();
-  setupPlayerInteractions(); // ডাবল/সিঙ্গেল ট্যাপ লজিক শুরু করা হলো
+  setupPlayerInteractions(); 
 
   document.addEventListener('keydown', handleTVRemoteKeyDown);
   document.addEventListener('keyup', e => {
