@@ -300,7 +300,7 @@
           <div>
             <h1 class="text-sm sm:text-base font-black tracking-tight text-white flex items-center gap-1.5 font-sans">
               <span>FIFA 2026 |</span>
-              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سواريد</span>
+              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سوারিদ</span>
             </h1>
             <p class="text-[9px] text-gray-100 font-semibold tracking-wider font-sans uppercase">DOWNLOAD SAWARID APPS FROM APKPURE</p>
           </div>
@@ -326,34 +326,10 @@
     <!-- Main Split View Layout -->
     <main class="main-split-container flex-1">
       
-      <!-- LEFT CONTAINER: Video Player, Counters, PWA Button & Search Box -->
-      <!-- 
-      
-<div class="video-split-container lg:w-[70%] md:w-[62%] w-full h-full p-3 md:p-4 flex flex-col gap-3 overflow-hidden bg-black/10 border-r border-[#2e1256]/30 justify-start">
-    
-    কীভাবে পরিবর্তন করবেন:
-কন্টেইনারের ভেতরের খালি জায়গা (Padding) কমাতে: এখানে থাকা p-3 md:p-4 ক্লাসটি পরিবর্তন করে p-1.5 sm:p-2 বা আরও কমিয়ে p-1 করে দিন।
-ভিডিও প্লেয়ার ও নিচের মেটাডেটার মধ্যবর্তী দূরত্ব কমাতে: এখানে থাকা gap-3 ক্লাসটি পরিবর্তন করে gap-1.5 বা gap-1 করে দিন।
-       -->
-       
-       
       <div class="video-split-container lg:w-[70%] md:w-[62%] w-full h-full p-0.5 sd:p-0.5 flex flex-col gap-0.5 overflow-hidden bg-black/10 border-r border-[#2e1256]/30 justify-start">
         
-        
-        
         <!-- Video Player Wrapper -->
-        <!-- 
-    <div class="w-full aspect-video bg-black relative rounded-xl overflow-hidden border border-[#2e1256]/50 shadow-lg shrink-0">
-    
-        এখানে থাকা rounded-xl ক্লাসটি কোণ গোল করার মাত্রা নির্ধারণ করে।
-        
-        কীভাবে পরিবর্তন করবেন:
-এখানে থাকা rounded-xl ক্লাসটি কোণ গোল করার মাত্রা নির্ধারণ করে।
-কোণ পুরোপুরি চারকোনা বা তীক্ষ্ণ করতে (কোনো গোল থাকবে না): rounded-xl পরিবর্তন করে rounded-none দিন।
-গোল ভাব কমাতে: rounded-xl পরিবর্তন করে rounded-md অথবা rounded দিন।
-গোল ভাব বাড়াতে: rounded-xl পরিবর্তন করে rounded-2xl অথবা rounded-3xl দিন।
-        -->
-        <div class="w-full aspect-video bg-black relative rounded-md overflow-hidden border border-[white]/100 shadow-lg shrink-0">
+        <div class="w-full aspect-video bg-black relative rounded-md overflow-hidden border border-[#202d6d]/100 shadow-lg shrink-0">
           <div 
             id="playerCard" 
             class="w-full h-full relative group"
@@ -424,13 +400,25 @@
                     </div>
 
                     <div class="flex items-center gap-1.5">
-                      <select 
-                        id="qualitySelect"
-                        onchange="handleQualitySelection(this.value)"
-                        class="h-7 pb-0.5 px-2 text-[10px] rounded bg-black/60 border border-[#2e1256] font-bold text-white outline-none cursor-pointer transition-all"
-                      >
-                        <option value="auto">Auto Quality</option>
-                      </select>
+                      <!-- Custom Styled Quality Dropdown (Screenshots standard layout) -->
+                      <div class="relative inline-block text-left" id="customQualityDropdown">
+                        <button 
+                          type="button"
+                          id="qualityDropdownBtn" 
+                          onclick="toggleQualityMenu(event)"
+                          class="h-7 pb-0.5 px-2 text-[10px] rounded bg-[#0c051a] border border-[#2e1256] font-bold text-white outline-none cursor-pointer transition-all flex items-center gap-1 focus:outline-none"
+                        >
+                          <span id="qualityDropdownLabel">Auto Quality</span>
+                          <i data-lucide="chevron-down" class="h-3 w-3"></i>
+                        </button>
+                        <div 
+                          id="qualityDropdownMenu" 
+                          class="hidden absolute bottom-full right-0 mb-1.5 w-32 bg-[#4c4c4c] border border-neutral-600 rounded shadow-2xl overflow-hidden z-[99999] flex flex-col"
+                        >
+                          <!-- Dynamic quality items loaded here -->
+                        </div>
+                      </div>
+
                       <!-- Aspect Ratio Toggle Button (Fit, Stretch, Zoom) -->
                       <button onclick="toggleAspectRatio()" class="h-7 w-7 rounded bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center focus:outline-none" title="Screen Mode">
                         <i data-lucide="expand" class="h-4 w-4"></i>
@@ -486,7 +474,7 @@
           </button>
 
           <!-- Firebase Counter -->
-          <div id="counters" class="bg-[#0c051a] border border-[#2e1256]/60 rounded-lg p-2 text-center text-[10px] font-bold text-gray-300">
+          <div id="counters" class="bg-[#0c051a] border border-[#2e1256]/100 rounded-lg p-2 text-center text-[12px] font-bold text-gray-300">
             <span id="online-counter">👥 Connecting online analytics...</span>
           </div>
 
@@ -623,6 +611,9 @@ let clapprInstance = null;
 const aspectRatios = ['contain', 'fill', 'cover']; // contain = FIT, fill = STRETCH, cover = ZOOM
 let currentAspectIndex = 0;
 
+// Quality State
+let currentSelectedQualityValue = 'auto';
+
 // Ad & Counters State
 let channelWatchCount = 0;
 let adTimer = null;
@@ -639,6 +630,10 @@ let focusDebounceTimer = null;
 const KEY_DEBOUNCE = 180;
 const REPEAT_INTERVAL = 180;
 
+// Single / Double Tap Detection Variables
+let lastTapTime = 0;
+let tapDelayTimeout = null;
+
 // UI Bindings
 const videoElement = document.getElementById('liveVideo');
 const videoPoster = document.getElementById('videoPoster');
@@ -646,7 +641,6 @@ const shakaWatermark = document.getElementById('shakaWatermark');
 const bufOverlay = document.getElementById('buffering-overlay');
 const errOverlay = document.getElementById('error-overlay');
 const errDetail = document.getElementById('error-detail');
-const qualSelect = document.getElementById('qualitySelect');
 const qualityBadge = document.getElementById('player-quality-badge');
 const playIcon = document.getElementById('play-btn-icon');
 const muteIcon = document.getElementById('mute-btn-icon');
@@ -929,7 +923,7 @@ function pushCollectedChannels(channelsList, meta, urls) {
 }
 
 /* ========================================================================
-   ৩. ডাইনামিক চ্যানেল গ্রিড রেন্ডারিং (স্ক্রিনশটের মতো প্রিমিয়াম লেআউট)
+   ৩. ডাইনামিক চ্যানেল গ্রিড রেন্ডারিং
    ======================================================================== */
 function renderChannelsGrid(targetChannels = parsedChannels) {
   const grid = document.getElementById('channels-grid');
@@ -944,7 +938,6 @@ function renderChannelsGrid(targetChannels = parsedChannels) {
     const isActive = activeChannel && ch.url === activeChannel.url;
     const card = document.createElement('button');
     
-    // আপনার স্ক্রিনশটের মতো করে লোগো বক্স এবং নিচে টেক্সট ব্যানার ডিজাইন
     card.className = `rounded-lg border flex flex-col w-full overflow-hidden transition-all duration-200 outline-none channel-item ${
       isActive 
         ? 'border-[#00d4ff] shadow-[0_0_12px_rgba(0,212,255,0.85)] scale-[1.02]' 
@@ -976,7 +969,74 @@ function renderChannelsGrid(targetChannels = parsedChannels) {
 }
 
 /* ========================================================================
-   ৪. ডুয়াল-প্লেয়ার সুইচিং ইঞ্জিন (DASH -> Shaka, HLS/TS -> Clappr)
+   ৪. কাস্টম ড্রপডাউন কোয়ালিটি রেন্ডারার (পিসি এবং মোবাইল লেআউট অভিন্ন)
+   ======================================================================== */
+function toggleQualityMenu(event) {
+  if (event) event.stopPropagation();
+  const menu = document.getElementById('qualityDropdownMenu');
+  menu.classList.toggle('hidden');
+}
+
+// ক্লিক বাইরে পড়লে ড্রপডাউন অটো বন্ধ হবে
+document.addEventListener('click', (e) => {
+  const dropdown = document.getElementById('customQualityDropdown');
+  const menu = document.getElementById('qualityDropdownMenu');
+  if (dropdown && !dropdown.contains(e.target) && menu) {
+    menu.classList.add('hidden');
+  }
+});
+
+function updateQualityDropdownMenuUI() {
+  const menu = document.getElementById('qualityDropdownMenu');
+  if (!menu) return;
+  menu.innerHTML = '';
+
+  let options = [{ value: 'auto', label: 'Auto Quality' }];
+
+  if (shakaPlayerInstance) {
+    const seenHeights = new Set();
+    const sortedTracks = [...availableTracks].sort((a, b) => (b.height || 0) - (a.height || 0));
+    sortedTracks.forEach(track => {
+      if (track.height && !seenHeights.has(track.height)) {
+        seenHeights.add(track.height);
+        options.push({ value: `track:${track.id}`, label: `${track.height}p` });
+      }
+    });
+  } else if (clapprInstance) {
+    const levels = clapprInstance.levels || [];
+    levels.forEach(level => {
+      const label = level.label || (level.height ? `${level.height}p` : `Level ${level.id}`);
+      options.push({ value: `clappr:${level.id}`, label: label });
+    });
+  }
+
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `w-full text-left px-3 py-1.5 border-b border-neutral-700/50 transition-all outline-none block text-[10px] font-bold ${
+      currentSelectedQualityValue === opt.value 
+        ? 'bg-[#1a73e8] text-white' 
+        : 'bg-[#5a5a5a] text-white hover:bg-[#6c6c6c]'
+    }`;
+    btn.textContent = opt.label;
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      selectQualityOption(opt.value, opt.label);
+      menu.classList.add('hidden');
+    };
+    menu.appendChild(btn);
+  });
+}
+
+function selectQualityOption(value, label) {
+  currentSelectedQualityValue = value;
+  document.getElementById('qualityDropdownLabel').textContent = label;
+  handleQualitySelection(value);
+  updateQualityDropdownMenuUI();
+}
+
+/* ========================================================================
+   ৫. ডুয়াল-প্লেয়ার সুইচিং ইঞ্জিন (DASH -> Shaka, HLS/TS -> Clappr)
    ======================================================================== */
 async function loadChannelStream(channel) {
   bufOverlay.classList.remove('hidden');
@@ -986,10 +1046,12 @@ async function loadChannelStream(channel) {
   // পোস্টার রিসেট ও দৃশ্যমান করা (ফেড-ইন)
   videoPoster.classList.remove('opacity-0');
 
-  qualSelect.innerHTML = '<option value="auto">Auto Quality</option>';
-  qualSelect.value = 'auto';
+  // কোয়ালিটি রিসেট
+  currentSelectedQualityValue = 'auto';
+  document.getElementById('qualityDropdownLabel').textContent = 'Auto Quality';
+  updateQualityDropdownMenuUI();
 
-  // পূর্ববর্তী প্লেয়ার ইনস্ট্যান্সগুলো নিরাপদের সাথে ডিসপোজ করা
+  // পূর্ববর্তী প্লেয়ার ডিসপোজ করা
   await cleanUpPlayers();
 
   const urlLower = channel.url.toLowerCase();
@@ -999,7 +1061,7 @@ async function loadChannelStream(channel) {
     // DASH DRM কন্টেন্ট -> Shaka Player Engine
     document.getElementById('liveVideo').classList.remove('hidden');
     document.getElementById('clapprContainer').classList.add('hidden');
-    shakaWatermark.classList.remove('hidden'); // Shaka ওয়াটারমার্ক শো করা
+    shakaWatermark.classList.remove('hidden');
 
     videoElement.muted = false;
     videoElement.volume = 1.0;
@@ -1026,16 +1088,20 @@ async function loadChannelStream(channel) {
         handleStreamFailure(e.detail);
       });
 
-      // Shaka-তে রেজোলিউশন প্রোফাইল ডিক্লেয়ার ও আপডেট লুপ ইভেন্ট
-      player.addEventListener('trackschanged', updateShakaQualities);
-      player.addEventListener('variantchanged', updateShakaQualities);
+      player.addEventListener('trackschanged', () => {
+        updateShakaQualities();
+        updateQualityDropdownMenuUI();
+      });
+      player.addEventListener('variantchanged', () => {
+        updateShakaQualities();
+        updateQualityDropdownMenuUI();
+      });
 
-      // আপনার বন্ধুর ফাইলের সুপার-ফাস্ট কনফিগারেশন সেটিংস
       player.configure({
         manifest: {
-          defaultPresentationDelay: 5, // live edge presentation delay
+          defaultPresentationDelay: 5,
           dash: {
-            ignoreMinBufferTime: true, // ম্যানিফেস্টের বাফার ডিলে বাইপাস করে ইনস্ট্যান্ট প্লে করার জন্য
+            ignoreMinBufferTime: true,
             autoCorrectDrift: true
           },
           retryParameters: {
@@ -1045,8 +1111,8 @@ async function loadChannelStream(channel) {
           }
         },
         streaming: {
-          bufferingGoal: 15,      // বাফার সিকিউরড রাখতে ১৫ সেকেন্ড টার্গেট
-          rebufferingGoal: 3,     // ড্রপ রিকভারির জন্য ৩ সেকেন্ড গোল
+          bufferingGoal: 15,
+          rebufferingGoal: 3,
           bufferBehind: 45,
           stallEnabled: true,
           stallThreshold: 1,
@@ -1060,7 +1126,7 @@ async function loadChannelStream(channel) {
         },
         abr: {
           enabled: true, 
-          defaultBandwidthEstimate: 500000, // কম ব্যান্ডউইথ দিয়ে শুরু হবে যাতে চোখের পলকে প্রথম ফ্রেম আসে
+          defaultBandwidthEstimate: 500000,
           switchInterval: 2,
           restrictToElementSize: false
         },
@@ -1075,7 +1141,6 @@ async function loadChannelStream(channel) {
         });
       }
 
-      // ব্রাউজারের নেটিভ ভিডিও ইভেন্টের মাধ্যমে দ্রুততম রেসপন্স লোডিং ট্রিগার
       videoElement.onwaiting = () => {
          bufOverlay.classList.remove('hidden');
       };
@@ -1096,16 +1161,15 @@ async function loadChannelStream(channel) {
 
       await player.load(channel.url);
 
-      // কাস্টম এ্যাসপেক্ট রেশিও ডিফল্টলি পুনরায় প্রয়োগ করা
+      // ডিফল্ট এ্যাসপেক্ট রেশিও রি-এপ্লাই
       applyAspectRatio();
 
-      // দ্রুত অটো-প্লে নিশ্চিতকরণ
       videoElement.play().then(() => {
         isPlaying = true;
         videoPoster.classList.add('opacity-0');
         bufOverlay.classList.add('hidden');
       }).catch(e => {
-        console.warn("Autoplay restricted. Retrying with mute fallback...", e);
+        console.warn("Autoplay restricted. Muted autoplay running...", e);
         videoElement.muted = true;
         videoElement.play().then(() => {
           isPlaying = true;
@@ -1122,7 +1186,7 @@ async function loadChannelStream(channel) {
     // HLS (.m3u8) এবং TS (.ts) কন্টেন্ট -> Clappr Player Engine
     document.getElementById('liveVideo').classList.add('hidden');
     document.getElementById('clapprContainer').classList.remove('hidden');
-    shakaWatermark.classList.add('hidden'); // Shaka ওয়াটারমার্ক অফ করা
+    shakaWatermark.classList.add('hidden');
 
     try {
       clapprInstance = new Clappr.Player({
@@ -1154,12 +1218,12 @@ async function loadChannelStream(channel) {
         errOverlay.classList.add('hidden');
         playIcon.setAttribute('data-lucide', 'pause');
         lucide.createIcons();
-        applyAspectRatio(); // এ্যাসপেক্ট রেশিও রি-এপ্লাই করা
+        applyAspectRatio();
       });
 
-      // ক্ল্যাপ্র-এর কোয়ালিটি লেভেল রিড করে আমাদের প্রিমিয়াম সিলেক্ট মেনুতে পুশ করা
       clapprInstance.on(Clappr.Events.PLAYBACK_LEVELS_AVAILABLE, (levels) => {
         updateClapprQualities(levels);
+        updateQualityDropdownMenuUI();
       });
 
       clapprInstance.on(Clappr.Events.PLAYER_PAUSE, () => {
@@ -1189,44 +1253,18 @@ async function loadChannelStream(channel) {
 }
 
 /* ========================================================================
-   ৪.১. ডুয়াল-প্লেয়ার রেজোলিউশন ট্র্যাক রেন্ডারার
+   ৫.১. ডুয়াল-প্লেয়ার রেজোলিউশন ট্র্যাক রেন্ডারার
    ======================================================================== */
 function updateShakaQualities() {
   if (!shakaPlayerInstance) return;
-  qualSelect.innerHTML = '<option value="auto">Auto Quality</option>';
-  
   const tracks = shakaPlayerInstance.getVariantTracks();
   if (tracks && tracks.length > 0) {
     availableTracks = tracks;
-    const sortedTracks = [...tracks].sort((a, b) => (b.height || 0) - (a.height || 0));
-    const seenHeights = new Set();
-    
-    sortedTracks.forEach(track => {
-      if (track.height && !seenHeights.has(track.height)) {
-        seenHeights.add(track.height);
-        const opt = document.createElement('option');
-        opt.value = `track:${track.id}`;
-        opt.innerText = `${track.height}p`;
-        qualSelect.appendChild(opt);
-      }
-    });
   }
 }
 
 function updateClapprQualities(levels) {
-  if (!clapprInstance) return;
-  qualSelect.innerHTML = '<option value="auto">Auto Quality</option>';
-  
-  const currentLevels = levels || clapprInstance.levels;
-  if (currentLevels && currentLevels.length > 0) {
-    currentLevels.forEach(level => {
-      const opt = document.createElement('option');
-      opt.value = `clappr:${level.id}`;
-      const label = level.label || (level.height ? `${level.height}p` : `Level ${level.id}`);
-      opt.innerText = label;
-      qualSelect.appendChild(opt);
-    });
-  }
+  // Clappr কোয়ালিটি ট্র্যাকগুলো অটো আপডেট হবে লেভেল ইভেন্ট থেকে
 }
 
 function handleQualitySelection(val) {
@@ -1259,7 +1297,7 @@ function handleQualitySelection(val) {
 }
 
 /* ========================================================================
-   ৪.২. ভিডিও এ্যাসপেক্ট রেশিও কন্ট্রোল (FIT, STRETCH, ZOOM)
+   ৫.২. ভিডিও এ্যাসপেক্ট রেশিও কন্ট্রোল (FIT, STRETCH, ZOOM)
    ======================================================================== */
 function toggleAspectRatio() {
   currentAspectIndex = (currentAspectIndex + 1) % aspectRatios.length;
@@ -1270,6 +1308,7 @@ function applyAspectRatio() {
   const currentRatio = aspectRatios[currentAspectIndex];
   
   if (videoElement) {
+    videoElement.style.style = ''; // ক্লিন রিসেট
     videoElement.style.objectFit = currentRatio;
   }
   
@@ -1277,6 +1316,48 @@ function applyAspectRatio() {
   if (clapprVideo) {
     clapprVideo.style.objectFit = currentRatio;
   }
+}
+
+/* ========================================================================
+   ৫.৩. ডাবল ট্যাপে ফুলস্ক্রিন এবং সিঙ্গেল ট্যাপে প্লে-পজ ইভেন্ট হ্যান্ডলার
+   ======================================================================== */
+function setupPlayerInteractions() {
+  const playerCard = document.getElementById('playerCard');
+  
+  playerCard.addEventListener('click', (e) => {
+    // কন্ট্রোল প্যানেল, অ্যাড উইন্ডো বা প্রমোশনাল পপআপের বাইরের ক্লিকে এটি কাজ করবে
+    if (
+      e.target.closest('#playerControls') || 
+      e.target.closest('#ad-popup-overlay') || 
+      e.target.closest('#app-promo-overlay') ||
+      e.target.closest('.clappr-controls') || 
+      e.target.closest('#customQualityDropdown')
+    ) {
+      return;
+    }
+
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTapTime;
+    
+    if (tapDelayTimeout) clearTimeout(tapDelayTimeout);
+
+    if (tapLength < 300 && tapLength > 0) {
+      // ডাবল ট্যাপ ট্রিগার (ফুলস্ক্রিন টগল)
+      toggleFullscreen();
+    } else {
+      // সিঙ্গেল ট্যাপ ট্রিগার (প্লে / পজ টগল)
+      tapDelayTimeout = setTimeout(() => {
+        togglePlay();
+      }, 300);
+    }
+    lastTapTime = currentTime;
+  });
+}
+
+function handleStreamFailure(err) {
+  console.error("Playback error:", err);
+  bufOverlay.classList.add('hidden');
+  errOverlay.classList.remove('hidden');
 }
 
 function selectChannel(index) {
@@ -1350,7 +1431,6 @@ function seekVideo(event) {
   }
 }
 
-// PiP Mode configuration
 function togglePiP() {
   if (document.pictureInPictureElement) {
     document.exitPictureInPicture();
@@ -1368,8 +1448,8 @@ async function toggleFullscreen() {
       videoElement.webkitEnterFullscreen();
     }
     
-    // ফুলস্ক্রিনে ডিফল্টভাবে ভিডিও FORCE FILL (STRETCH) করা হবে
-    currentAspectIndex = 1; // 1 = 'fill' (STRETCH)
+    // ফুলস্ক্রিনে যাওয়ার সাথে সাথে ডিফল্টভাবে FILL (Stretch) মোড সেট হবে
+    currentAspectIndex = 1; // index 1 corresponds to 'fill' (STRETCH)
     applyAspectRatio();
 
     if (screen.orientation && screen.orientation.lock) {
@@ -1396,13 +1476,13 @@ async function toggleFullscreen() {
   }
 }
 
-// Fullscreen স্ট্যাটাস মনিটরিং এবং ডিফল্ট ফোর্স ফিল এপ্লাই
+// Fullscreen স্ট্যাটাস মনিটরিং এবং এ্যাসপেক্ট রেশিও হ্যান্ডলিং
 document.addEventListener('fullscreenchange', () => {
   const pcard = document.getElementById('playerCard');
   if (pcard) {
     if (document.fullscreenElement) {
       pcard.classList.add('fullscreen-mode');
-      currentAspectIndex = 1; // ফোর্স ফিল সেট করা হলো
+      currentAspectIndex = 1; // FILL (Stretch) মোড নিশ্চিত করা
       applyAspectRatio();
     } else {
       pcard.classList.remove('fullscreen-mode');
@@ -1414,7 +1494,7 @@ document.addEventListener('fullscreenchange', () => {
 });
 
 /* ========================================================================
-   ৫. ১০টি মাল্টি-প্লেলিস্ট সিলেক্টর ও ফায়ারবেস ট্র্যাকার
+   ৬. ১০টি মাল্টি-প্লেলিস্ট সিলেক্টর ও ফায়ারবেস ট্র্যাকার
    ======================================================================== */
 function setupPlaylistSelector() {
   const playlistSelector = document.getElementById('playlistSelector');
@@ -1529,7 +1609,7 @@ function initFirebaseCounters() {
 }
 
 /* ========================================================================
-   ৬. সার্চ ইঞ্জিন
+   ৭. সার্চ ইঞ্জিন
    ======================================================================== */
 function setupSearchEngine() {
   const searchInput = document.getElementById('channelSearch');
@@ -1544,7 +1624,7 @@ function setupSearchEngine() {
       renderChannelsGrid(filteredChannels);
       
       searchResultsInfo.classList.remove('hidden');
-      searchResultsInfo.innerText = `Found ${filteredChannels.length} Channels`;
+      searchResultsInfo.text = `Found ${filteredChannels.length} Channels`;
     } else {
       clearBtn.classList.add('hidden');
       resetSearchState();
@@ -1566,7 +1646,7 @@ function resetSearchState() {
 }
 
 /* ========================================================================
-   ৭. ১৫ সেকেন্ড কাউন্টডাউন অ্যাড পপআপ ইন্টিগ্রেশন
+   ৮. অ্যাড পপআপ ইন্টিগ্রেশন
    ======================================================================== */
 function showAdPopup() {
   const overlay = document.getElementById('ad-popup-overlay');
@@ -1608,7 +1688,7 @@ function closeAdPopup() {
 }
 
 /* ========================================================================
-   ৭.১. ১৫ সেকেন্ড পর ৫ সেকেন্ডের Sawarid অ্যাপ প্রোমো পপ-আপ ট্রিগার
+   ৮.১. Sawarid অ্যাপ প্রোমো পপ-আপ ট্রিগার
    ======================================================================== */
 function initSawaridAppPromoPopup() {
   setTimeout(() => {
@@ -1617,17 +1697,16 @@ function initSawaridAppPromoPopup() {
       promoOverlay.classList.remove('hidden');
       promoOverlay.classList.add('flex');
       
-      // ৫ সেকেন্ড পর স্বয়ংক্রিয়ভাবে বন্ধ করার টাইমার
       setTimeout(() => {
         promoOverlay.classList.remove('flex');
         promoOverlay.classList.add('hidden');
       }, 5000);
     }
-  }, 15000); // ১৫ সেকেন্ড ডিলে
+  }, 15000);
 }
 
 /* ========================================================================
-   ৮. টিভি রিমোট নেভিগেশন কন্ট্রোল (D-Pad Keyboard Control)
+   ৯. টিভি রিমোট নেভিগেশন কন্ট্রোল
    ======================================================================== */
 function updateChannelItems() {
   const items = document.querySelectorAll('.channel-item');
@@ -1820,7 +1899,7 @@ function focusOnChannels() {
 }
 
 /* ========================================================================
-   ৯. সিকিউরিটি প্রোটেকশন (Disable Inspect & Copying)
+   ১০. সিকিউরিটি প্রোটেকশন
    ======================================================================== */
 function initSecurityShield() {
   document.addEventListener('contextmenu', e => e.preventDefault(), true);
@@ -1839,7 +1918,7 @@ function initSecurityShield() {
 }
 
 /* ========================================================================
-   ১০. PWA ক্রোম ইনস্টলার ও সার্ভিস ওয়ার্কার স্ক্রিপ্ট
+   ১১. PWA ক্রোম ইনস্টলার ও সার্ভিস ওয়ার্কার স্ক্রিপ্ট
    ======================================================================== */
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -1888,7 +1967,8 @@ async function initApp() {
   setupPlaylistSelector();
   setupSearchEngine();
   registerServiceWorker();
-  initSawaridAppPromoPopup(); // অ্যাপ প্রোমো পপআপ চালু করা হলো
+  initSawaridAppPromoPopup();
+  setupPlayerInteractions(); // ডাবল/সিঙ্গেল ট্যাপ লজিক শুরু করা হলো
 
   document.addEventListener('keydown', handleTVRemoteKeyDown);
   document.addEventListener('keyup', e => {
@@ -1920,6 +2000,6 @@ window.addEventListener('DOMContentLoaded', () => {
     </script>
 
     <!-- Active Externalized Script Reference -->
-    <script src="sawarid3.js"></script>
+    <script src="sawarid.js"></script>
   </body>
 </html>
