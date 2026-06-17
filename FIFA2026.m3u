@@ -1,3 +1,5 @@
+#EXTM3U
+
 # ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA  ", TUDN (AQ)
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -56,7 +58,7 @@ https://a151aivottlinear-a.akamaihd.net/OTTB/sin-nitro/live/clients/dash/enc/bcj
 
 
 # ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
-#EXTM3U
+
 
 #EXTINF:-1 tvg-logo="images/Telemundo.jpg" group-title="FIFA WORLD CUP", Telemundo
 #KODIPROP:inputstream.adaptive.license_type=clearkey
