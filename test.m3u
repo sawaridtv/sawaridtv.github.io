@@ -1,0 +1,201 @@
+#EXTM3U
+
+# =======================================================
+# ১. স্ট্যান্ডার্ড ও ডাইনামিক DRM MPD (DASH) লিংক টেস্ট
+# =======================================================
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="TEST", Test-1
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=1710ac2bbfcd3032d0f6533850968f47:d2548dacc8efcd1cd0af0373060c82dc
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/8u9cregwlt/out/v1/687f6b2a559943549be271504a948ffd/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="TEST", Test-2
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=ce7ab3022e753307997f58afe001bac4:72d631a66e635c60829a0fe7705516c1
+https://live-oneapp-prd-news.akamaized.net/Content/CMAF_OL2-CTR-4s-v2/Live/channel(kvea)/master.mpd
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="TEST", Test-3
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=7d6bb9f86e133e4cb33440b493b6b672:584ad285dcb9e7d42cf3e93f1cc3fe11
+https://live-oneapp-prd-news.akamaized.net/Content/CMAF_OL2-CTR-4s/Live/channel(WSNS)/master.mpd
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/7GVp3fW.png" group-title="TEST", Test-4
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=433ffba670963e70857859a9dff4be04:51ede3a821229fe81e71282c8eff80e3
+https://origin-m6web.live.6cloud.fr/out/v1/6play/6play-m6/cmaf_cenc00/dash-short-hd.mpd
+
+# =======================================================
+# ২. Antik Widevine ও সিকিউরিটি হেডার ভিত্তিক ক্রোম-টোকেন টেস্ট
+# =======================================================
+
+#EXTINF:-1 tvg-id="Матч! 2 🇷🇺" tvg-logo="https://7sport.sk/wp-content/uploads/2023/02/sport1-300x150.png" group-title="TEST", Test-5
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referer=https://webtv.sk/tv/
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_sport_1/playlist_cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://7sport.sk/wp-content/uploads/2023/02/sport1-300x150.png" group-title="TEST", Test-6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referer=https://webtv.sk/tv/
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_sport2/playlist_cenc.mpd
+
+# =======================================================
+# ৩. প্রিমিয়াম স্পোর্টস ডাইনামিক ক্লিয়ারকী (M3U8) টেস্ট
+# =======================================================
+
+#EXTINF:-1 tvg-logo="images/PTV Sports.png" group-title="TEST", Test-7
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=adca25b8779e4168a0cd710f59f61ccf:be5383ed3cd8079f4ffe78ad067f476a
+https://crichd.johirxofficial.workers.dev/live/ptvpk.m3u8
+
+#EXTINF:-1 tvg-logo="https://imglink.cc/cdn/u7SqaFacbH.png" group-title="TEST", Test-8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=0b59ce06de74ed84f2eda5e81dadba13:48e4ba4ad6c2a60d2bda5d71a0050844
+https://tvsen7.aynaott.com/tsn3/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/eRFE0jZ.png" group-title="TEST", Test-9
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=e51aa21f2a0fef9aabc120dfb655b52f:a12a987fe725a40b6be95cd84b15f689
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/7janu55dwc/out/v1/69a2a7041395406b970598f61680e7cf/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/fzHfwF5j/TSN2.png" group-title="TEST", Test-10
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=daa8ea92553fd16cd6bfae2b8c582715:4042e041b5639b79b69ae07a872eef9b
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/3n6slkgh54/out/v1/8977baf175da4b94873194613dd3fe55/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/qJyAWU8.png" group-title="TEST", Test-11
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=c4088f5f265f9de50cffd80bf89308b7:2c4d2239d96d532b4ec2050653611003
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/h9urpo3cwb/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/HEzHpzz.png" group-title="TEST", Test-12
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=e853333da2c9196ea11374634231bc45:de2e2dbe818d78dfad07d6cd9a4c63d4
+https://otte.cache.aiv-cdn.net/bom-nitro/clients/dash/enc/jkcljgqbx8/out/v1/63bfa701559340f3a2a2cb1fccd24807/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://www.sportsmediawatch.com/wp-content/uploads/2013/08/fs1logo-500x375.gif" group-title="TEST", Test-13
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=5466ebd70704bdeb657f0abf3c5ca4ef:bdd79b72d8e48ed483aa623cc38a8a16
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/tmpzbbdj9y/out/v1/962736723a534ba294e7592fef49827b/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fox_Sports_1_logo.svg/2560px-Fox_Sports_1_logo.svg.png" group-title="TEST", Test-14
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=2fbdaa3bea0d0323ae011b318d1db716:8726ef7eaf5b9dce15fb6aa9f80bd53f
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/oboxe53wyo/out/v1/f7892a9d706d419a846d738fa22ea33e/cenc.mpd
+
+# =======================================================
+# ৪. মাক্স ও গুগলের গ্লোবাল অফিশিয়াল কোয়ালিটি টেস্ট স্ট্রিমস
+# =======================================================
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-15
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-16
+https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-17
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-18
+https://test-streams.mux.dev/x36xhzz/x36xhzz.ts
+
+# =======================================================
+# ৫. কাস্টম মাল্টি-ফরম্যাট ভিডিও এবং প্রোটোকল টেস্ট
+# =======================================================
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-19
+https://samples.ffmpeg.org/MPEG-4/mkv/h264_aac.mkv
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-20
+https://samples.ffmpeg.org/MPEG-4/avi/mpeg4_aac.avi
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-21
+https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K_30fps_3000ms_track_l1.mp4/Big_Buck_Bunny_4K_30fps_3000ms_track_l1.mp4.720p.webm
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-22
+https://samples.ffmpeg.org/FLV/flash_video.flv
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-23
+https://samples.ffmpeg.org/MPEG-4/ogg/mpeg4_aac.ogg
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-24
+https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-25
+https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-26
+https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.mpd
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-27
+https://cph-p2p-msl.akamaized.net/hls/live/200034/test/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-28
+rtmp://ns8.indexforce.com/home/mystream
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-29
+rtsp://rtsp.stream/pattern
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-30
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://cwip-shaka-proxy.appspot.com/no_auth
+https://storage.googleapis.com/shaka-demo-assets/angel-one-widevine/dash.mpd
+
+# =======================================================
+# ৬. গ্লোবাল বিটরেট এবং অ্যাডভান্সড কোডেক টেস্ট লিংকস (NEW ADDED)
+# =======================================================
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-31
+https://bitmovin-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e800881.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-32
+https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e800881.mpd
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-33
+https://ntv1.akamaized.net/hls/live/2014027/NASA-NTV1-HLS/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-34
+https://rbmn-live.akamaized.net/hls/live/590971/flb-global/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-35
+https://demo.unified-streaming.com/k8s/features/stable/video/sintel/sintel.ism/.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-36
+https://storage.googleapis.com/shaka-demo-assets/heuristics/dash.mpd
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-37
+https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-38
+https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-39
+http://playertest.longtailvideo.com/adaptive/oceans_aes/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-40
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=7e43190efc077a8e34d29efe88667f0d:bdc614e076190e536c7aca7f66ae3f88
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vfumc0t3cc/out/v1/f14dd22c77cb4138b316baf3c970304e/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-41
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=a66095f78e3bd3cfdf04354f9d0619fa:d7e8ea4cf8bcebf30757f251384e7a0c
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/dzyb02igop/out/v1/b997f6ddb52f4af88c0db614580fa615/cenc.mpd
+
+#EXTINF:-1 tvg-logo="https://placehold.co/800x450" group-title="TEST", Test-42
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=262ae113b3aa5d43bafb04f71bb87dd0:61d2c5dfb070e825adae56e07b7bc57c
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/dnms7gm805/out/v1/b063a96f8f524015bf4c8670121900b5/cenc.mpd
