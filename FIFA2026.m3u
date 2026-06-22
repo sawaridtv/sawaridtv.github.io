@@ -40,9 +40,9 @@ https://sm-monirul.top/tof/live/toffee4/index.m3u8?nocache=1782146598612
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", China Fifa (AQ)
 https://live.wxinxi.com/live/84600906_46n5rq10l0bmsj8e2aovavl914psvggx.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", China Fifa (AQ)
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Fifa (AQ)
 https://cdn.fifalive.click/play.m3u8
-
+https://vizio.kuvuslov.cymru/hls/fox.m3u8
 
 
 
@@ -60,24 +60,24 @@ https://cdn.fifalive.click/play.m3u8
 #EXTINF:-1 tvg-logo="images/Sporza.jpg" group-title="FIFA World Cup", Sporza / VRT DUTCH
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=893bc63340876605f52886a42e0ccce5:d6c46d2d691056fbd091bf1f01b21a91
-https://live.vrtcdn.be/groupd/live/0761024f-37fe-4254-bc37-e95d7c62b2d1/live.isml/.mpd
+#https://live.vrtcdn.be/groupd/live/0761024f-37fe-4254-bc37-e95d7c62b2d1/live.isml/.mpd
 
 #EXTINF:-1 tvg-logo="images/win sports.png" group-title="FIFA World Cup", Win Sports
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=0b59ce06de74ed84f2eda5e81dadba13:48e4ba4ad6c2a60d2bda5d71a0050844
-https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
+#https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
 
 #EXTINF:-1 tvg-logo="images/Cignal.jpg" group-title="FIFA World Cup", CIGNAL ENG
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=549ab7cd35a64bb6bb479ecead04d69d:829799ed534d11fcadeb4b192467e050
-https://qp-pldt-live-bpk-ucd-prod.akamaized.net/bpk-tv/ch299/default/index.mpd
+#https://qp-pldt-live-bpk-ucd-prod.akamaized.net/bpk-tv/ch299/default/index.mpd
 
 
 
 #EXTINF:-1 tvg-logo="images/Z Cinama.jpg" group-title="FIFA World Cup", Z CINEMA HINDI
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=43513b13f4b542e39c9265921dfc1726:b0b2678bcd274c37b888a6c987d502ed
-https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Zeecinema/default/manifest.mpd
+#https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Zeecinema/default/manifest.mpd
 
 
 
