@@ -6,8 +6,9 @@
 #EXTVLCOPT:http-referrer=https://iframe.rumsport10.live/
 #https://livecdn-tc-livestream.rumsport10.live/sla/1-6a19b1008be8f8513010370c-hd/chunks.m3u8?is_vip=false&token=1782233219-Kv4cPTAAP5YTi-97485dc429df9d197299f11e6910085db581b107-5bf3d73c8c9e0b9673c117c8c8ffc9f6
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", TUDN (AQ)
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Toffee
 #http://103.238.115.159:8080/FDDF/index.m3u8
+https://prod-cdn01-live.toffeelive.com/live/FIFA-2026-4/0/master_2000.m3u8?hdntl=Expires=1782243942~_GO=Generated~URLPrefix=aHR0cHM6Ly9wcm9kLWNkbjAxLWxpdmUudG9mZmVlbGl2ZS5jb20~Signature=AVXEwvewX8yG0iWve3GE0tfemRk4AwMW-549INX_Dv8oOX28CVhVE3A9-iTeqY5E_9kwpFvmBJ8icsxpHerREvkPfSsE
 https://prod-cdn01-live.toffeelive.com/live/FIFA-2026-4/0/master_2000.m3u8
 https://sm-monirul.top/tof/live/toffee4/index.m3u8
 https://prod-cdn01-live.toffeelive.com/live/FIFA-2026-4/0/master_2000.m3u8
