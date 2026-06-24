@@ -15,6 +15,12 @@
 #https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/3ynrpdanq2/out/v1/81fd4c26584044d2b1a1cc5b32fa9af0/cenc.mpd?amznDtid=AOAGZA014O5RE&encoding=segmentBase
 #https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Fifa (AQ)
+https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Fifa (AQ)
+http://114.130.57.233:8080/manik-kutta-moharaza-kuttar-baccha-t.me/tvserverhd/video.m3u8?token=manik-kuttar-baccha-t.me/tvserverhd
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", TSports Bangladeshi
 http://198.195.239.50:8095/tsports/index.m3u8
 
@@ -29,9 +35,9 @@ https://prod-cdn01-live.toffeelive.com/live/FIFA-2026-4/0/master_2000.m3u8
 
 # ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Fifa (AQ)
-https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
-https://pull.niues.live/live/stream-9912108_lhd.m3u8
-https://cdn.fifalive.click/play.m3u8
+#https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
+#https://pull.niues.live/live/stream-9912108_lhd.m3u8
+#https://cdn.fifalive.click/play.m3u8
 
 
 
