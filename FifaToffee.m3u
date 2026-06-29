@@ -34,12 +34,6 @@ https://tahmidx.cinemoja.workers.dev/
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", I Screen (HD)
-#EXTVLCOPT:http-referrer=https://iscreen.com.bd/
-https://tc-sg.rockstreamer.com/v1/019ed91616121ea540a8171c8e801f/019ed92ac80315fc600b1796d4ad8b/main.m3u8
-#EXTVLCOPT:http-referrer=https://iscreen.com.bd/
-https://m3u-tvb.pages.dev/ics.m3u8
-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Win
 https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
 
