@@ -1,5 +1,3 @@
-#EXTINF:-1 tvg-id="toffee" tvg-name="FIFA World Cup" tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Brazil 🆚 Japan 0
-https://andro.evrenesoglu57.click/checklist/androstreamliveexn3.m3u8
 
 #====== Toffee World Cup ============
 #EXTINF:-1 tvg-id="toffee" tvg-name="FIFA World Cup" tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", Brazil 🆚 Japan 1
@@ -33,11 +31,6 @@ https://tahmidx.cinemoja.workers.dev/
 
 # ✅
 #EXTM3U
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup",FIFA World Cup 2026 - Cignal TV
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2c338a117d434ce4bbe3569231af90f1:a9633d901ee8a3f4f58ac314b5c5f4fb
-https://qp-pldt-live-bpk-ucd-prod.akamaized.net/bpk-tv/fifa_ppv1/default/index.mpd
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup",FIFA World Cup 2026 - FoX Sports 60FPS
 #KODIPROP:inputstream.adaptive.license_type=clearkey
