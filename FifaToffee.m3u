@@ -55,9 +55,6 @@ https://ld58dqz8ajj8.rockstreamer.com/isc_ssai/isc_ssai_ads/isc_ssai/isc_ssai_72
 
 
 #EXTINF:-1 tvg-id="toffee" tvg-name="FIFA World Cup" tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", FIFA
-https://live1.streambylivepulse.com/live/channel1/playlist.m3u8?wsSecret=d279c6097dbca555ed36b0233713642d&wsABSTime=1784182720
-https://tfxl0gr3uomttgr31hcjo8rzdkqbpptwzc3jt.100ycdn.com/live1.streambylivepulse.com/live/channel1/playlist.m3u8?wsSecret=d279c6097dbca555ed36b0233713642d&wsABSTime=1784182720&wsSession=dba7f15aa09441c8e4611a9e-178414501039791&wsIPSercert=bfc7393322de09d47035d48da338698e&wsBindIP=2&wsserid=1168286496308655722
-http://103.114.11.37:8081/PTV-BDIX/index.m3u8?token=sdhssdjhgdsgsdghslddgalghaghghghghgftdfdfdkhlhglhgkjhgkjhgkjfjhgkfjhgjhfgjhgljhgyhglhgjhfghjgjhgjhgjhgjhgjhgjyhg
 https://fifa-stream-proxy.mdsabbirhowlader420.workers.dev/https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8
 https://cp11.adabmedia.com/hls2/sport.m3u8?nocache=1782057214460
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
@@ -95,6 +92,7 @@ https://www.rtmpcdn.com/live/cctv5.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", PTV (Pakistan)
 http://103.165.93.31:8095/ptv/video.m3u8
 http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/745149.ts
+http://27.124.71.27/T-Sports/index.m3u8
 
 #EXTINF:-1 tvg-id="toffee" tvg-name="FIFA World Cup" tvg-logo="https://i.postimg.cc/kgqp1hLG/Fifa2026.jpg" group-title="FIFA World Cup", TOFFEE
 #https://prod-cdn01-live.toffeelive.com/live/FIFA-2026-2/sst/0/master_1000.m3u8?hdntl=Expires=1783905203~_GO=Generated~URLPrefix=aHR0cHM6Ly9wcm9kLWNkbjAxLWxpdmUudG9mZmVlbGl2ZS5jb20~Data=eyJzdWJzY3JpYmVyX2lkIjoiOTQ2YmNmNTQtZTAxZC00NjkzLThiYTQtMzExMTRiZjQxMjJmIn0~Signature=AWIR_5GNQhgSK1tdMcAu0I51iL8WfK5pYjjvVxXg67L_yoX2XQ3i1Hm3Dpua1JMw0La4P8tNT_5ga_UdiOiZM2IKmCcE
@@ -406,7 +404,7 @@ https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8
 
 
 
-# http://27.124.71.27/T-Sports/index.m3u8
+
 
 
 
