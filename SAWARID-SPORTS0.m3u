@@ -53,36 +53,12 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="tapmad-18783" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17925678091020x576.jpg" group-title="SAWARID سواريد - Football", Beijing FC (CHN) vs Jeonbuk Hyundai Motors FC (KOR) - MATCHDAY 3 - AFC Champions League Elite 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-18778" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17925674741020x576.jpg" group-title="SAWARID سواريد - Football", Ratchaburi FC (THA) vs Kashiwa Reysol (JPN) - MATCHDAY 3 - AFC Champions League Elite 2026/27
+#EXTINF:-1 tvg-id="tapmad-18788" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17925681931020x576.jpg" group-title="SAWARID سواريد - Football", Shabab Al Ahli (UAE) vs Esteghlal FC (IRN) - MATCHDAY 3 - AFC Champions League Elite 2026/27
 https://bpl24middleeast.akamaized.net/hls/live/2109311/j15klM//master.m3u8
 
 
-#EXTINF:-1 tvg-id="4248720" tvg-name="Shanghai Port Vs Cong An Ha Noi" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248720_53053_SHG_CAH_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Shanghai Port Vs Cong An Ha Noi
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248720_english_hls_6565a0123240985_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248721" tvg-name="Johor Darul Ta'zim Vs Port Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248721_53053_JDT_PFC_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Johor Darul Ta'zim Vs Port Fc
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248721_english_hls_b3d78a634125890_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248722" tvg-name="Daejeon Hana Citizen Fc Vs Vissel Kobe" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248722_53053_DAC_VIS_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Daejeon Hana Citizen Fc Vs Vissel Kobe
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248722_english_hls_7b39da61fa4700_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248723" tvg-name="Kyoto Sanga Vs Newcastle Jets" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248723_53053_KYS_NJ_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Kyoto Sanga Vs Newcastle Jets
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248723_english_hls_380992af4276697_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248724" tvg-name="Beijing Guoan Vs Jeonbuk Motors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248724_53053_BEI_JNB_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Beijing Guoan Vs Jeonbuk Motors
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248724_english_hls_5572b29afe77534_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248725" tvg-name="Ratchaburi Vs Kashiwa Reysol" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248725_53053_RAT_REY_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Ratchaburi Vs Kashiwa Reysol
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248725_english_hls_f67d4623c384869_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="tapmad-18538" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926546121020x576.jpg" group-title="SAWARID سواريد - Football", Al Seeb Club (OMA) vs East Bengal FC (IND) - MATCHDAY 3 - AFC Champions League Two 2026/27
+https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
 
 
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
@@ -98,14 +74,6 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 https://sonymtmnew.akamaized.net/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaTa083prod-PlaybackConfig/2120305/criclive2710/HIN/master.m3u8?hdnea=exp=1793146849~acl=/*~id=23934922890663764224271584022865~hmac=0c1c711a8009f6c568eae2b6ef3917e56d30cb3ef91f457895b5b441fd0b601d
 
 
-#EXTINF:-1 tvg-id="tapmad-18884" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17925776481020x576.jpg" group-title="SAWARID سواريد - Cricket", Pakistan vs Sri Lanka - 5th ODI - Pakistan ODI Tri-Series 2026 - Server 1
-https://d8j84o343a5m2.cloudfront.net/live/testtapmad3/master.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-18884" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17925776481020x576.jpg" group-title="SAWARID سواريد - Cricket", Pakistan vs Sri Lanka - 5th ODI - Pakistan ODI Tri-Series 2026 - Server 2
-https://tencent-cdn.tapmad.com/v1/01a145b15ce115fc600b1e3e9683db/01a145b24db11ea557841e1612cf4c/main.m3u8
-
-
 #EXTINF:-1 tvg-id="tapmad-17702" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17918900981020x576.jpg" group-title="SAWARID سواريد - Cricket", South Africa vs Australia - 3rd Test - Australia Tour of South Africa 2026 - Server 1
 https://d8j84o343a5m2.cloudfront.net/live/testtapmad4/master.m3u8
 
@@ -114,12 +82,12 @@ https://d8j84o343a5m2.cloudfront.net/live/testtapmad4/master.m3u8
 https://tencent-cdn.tapmad.com/v1/01a145d823d515fc600b1e3e9683de/01a145dc15751ea540a81c2b41b754/main.m3u8
 
 
-#EXTINF:-1 tvg-id="B0HN2PT7BB" tvg-name="Pakistan ODI Tri-Series 2026 - 5th Match - Pakistan vs Sri Lanka" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1751377a-8a97-41ca-8cfe-a48a200fae9c/4/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Pakistan ODI Tri-Series 2026 - 5th Match - Pakistan vs Sri Lanka
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=71c9587a489e14e4463fb01f0951bc69:2e5fcd0b450696f14c9f065364b6787b
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/jcogtjna1p/out/v1/49e48e49b1b74230bc32c008303e962f/cenc.mpd
+#EXTINF:-1 tvg-id="tapmad-19111" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17927539991020x576.jpg" group-title="SAWARID سواريد - Cricket", Afghanistan vs Zimbabwe - 1st T20I - Afghanistan vs Zimbabwe 2026 - Server 1
+https://t-prod-bd.tapmad.com/v1/01a1456f124d15fc600b1e3e9683d7/01a145990eba15fc60e91e1786b054/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-19111" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17927539991020x576.jpg" group-title="SAWARID سواريد - Cricket", Afghanistan vs Zimbabwe - 1st T20I - Afghanistan vs Zimbabwe 2026 - Server 2
+https://d8j84o343a5m2.cloudfront.net/live/testtapmad2/master.m3u8
 
 
 #EXTINF:-1 tvg-id="B0HKDPRJRS" tvg-name="Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.20a790a3-51e9-4ec1-9a8b-cb632845af2d/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia
@@ -127,27 +95,27 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/jcogtjna1p/out/v1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bdc52b31dcf25b0515a61fb9d0f444a2:468ae45daef1021713e7ea869a340f96
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/mdzi0aespt/out/v1/ebc753f4d4af40e481e5506bad35eb42/cenc.mpd
+https://ss-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/mdzi0aespt/out/v1/ebc753f4d4af40e481e5506bad35eb42/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="4250517" tvg-name="Netherlands Vs Oman" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ICC-CWC-League_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Netherlands Vs Oman
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250517_english_hls_c6aadfde282620_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4250344" tvg-name="Jersey Vs Kuwait" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Cricket_FC-We.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Jersey Vs Kuwait
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250344_english_hls_de2fcdd6e014877_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4250333" tvg-name="Namibia Vs Ireland" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Namibia-vs-Ireland_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Namibia Vs Ireland
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250333_english_hls_13eab2201f23744_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="B0HNSCNTXG" tvg-name="Afghanistan vs. Zimbabwe" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.68779caa-dd6b-46dc-b1de-3a19c8c208db/3/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Afghanistan vs. Zimbabwe
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=85e95a4fae22e02459252a03faaf3166:29334fa5e1d5708ed994f8bf74687933
+https://a96aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/eieh0ekrzy/out/v1/2587259ec56e439086e501951f31ccf7/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="4249783" tvg-name="South Africa Vs Australia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/AUS-vs-SA-test_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | South Africa Vs Australia
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249783_english_hls_97c5a4780083137_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
-#EXTINF:-1 tvg-id="4250357" tvg-name="Karnali Yaks Vs Janakpur Bolts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250357_53124_KNY_JKB_fc-Web.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Karnali Yaks Vs Janakpur Bolts
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250357_english_hls_0360aac3556241_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4249769" tvg-name="Afghanistan Vs Zimbabwe" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ZIM1.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Afghanistan Vs Zimbabwe
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249769_english_hls_260c41cdcf27321_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4250534" tvg-name="Up Thunderbolts Vs Rajasthan Royalsmen" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250534_53137_UPT_RR_FC-Web.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Up Thunderbolts Vs Rajasthan Royalsmen
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250534_english_hls_9b25ee3f6638203_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
@@ -167,22 +135,6 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/g4ydvmoa9t/out/v1/73c73d5ac64146c2b7b133cac333a24c/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HP69Z4HT" tvg-name="The Morning Drive" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.7086bb27-816e-4519-a9f1-6537cf41f24b/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",The Morning Drive
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=e14535ab02e4065cc846047f1feee48d:a51c5c164f9a6b0ae751afeec7f85052
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uenudg4x6g/out/v1/8b25f245771b4e5698d914b941c54982/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HN2PT7BB" tvg-name="Pakistan ODI Tri-Series 2026 - 5th Match - Pakistan vs Sri Lanka" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1751377a-8a97-41ca-8cfe-a48a200fae9c/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Pakistan ODI Tri-Series 2026 - 5th Match - Pakistan vs Sri Lanka
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=71c9587a489e14e4463fb01f0951bc69:2e5fcd0b450696f14c9f065364b6787b
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/jcogtjna1p/out/v1/49e48e49b1b74230bc32c008303e962f/cenc.mpd
-
-
 #EXTINF:-1 tvg-id="B0HKDPRJRS" tvg-name="Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.20a790a3-51e9-4ec1-9a8b-cb632845af2d/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -191,12 +143,36 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/jcogtjna1p/out/v1
 https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/yi1ah9sgsj/out/v1/ffe37797429b4ed28810e8d7735124fc/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HJ9YNQ91" tvg-name="South Africa vs. Australia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1548c248-86f6-444f-94a6-0c2291f771c2/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",South Africa vs. Australia
+#EXTINF:-1 tvg-id="B0HNSCNTXG" tvg-name="Afghanistan vs. Zimbabwe" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.68779caa-dd6b-46dc-b1de-3a19c8c208db/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Afghanistan vs. Zimbabwe
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/tll6uwepxa/out/v1/a7f67cbb33df46539312956427343886/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=85e95a4fae22e02459252a03faaf3166:29334fa5e1d5708ed994f8bf74687933
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/eieh0ekrzy/out/v1/2587259ec56e439086e501951f31ccf7/cenc.mpd
+
+
+#EXTINF:-1 tvg-id="B0FQQXFCMF" tvg-name="Second Serve - Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.68ccc8db-4407-492d-8b37-369596935fcd/18/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Second Serve - Live-Basel-ATP & Vienna-ATP Early Rounds
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+
+
+#EXTINF:-1 tvg-id="B0HMP6PGCL" tvg-name="Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.65b7ccd7-c5a2-4c95-b2fc-248251407e8f/7/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+
+
+#EXTINF:-1 tvg-id="B0HN38XCNG" tvg-name="ECHL Hockey: Allen Americans vs Tulsa Oilers" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.417e00c7-ae30-4dee-bdca-b4db3f07c787/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",ECHL Hockey: Allen Americans vs Tulsa Oilers
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=b74568d74a6d7f5d2a07d903f820cdb1:ea92e2f4ec746aa5e64fd9c4fc6ed3e9
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/kxpg5rl6v6/out/v1/8f60215ae257441e8b1cbe44c31839b1/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
@@ -214,6 +190,14 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 
 #EXTINF:-1 tvg-id="4249650" tvg-name="Iwb Court 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tennis_FC-We.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Iwb Court 1
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249650_english_hls_8941f86d5194089_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249629" tvg-name="C. Alcaraz Vs K. Khachanov" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Alcaraz-vs-Karen-Khachanov-Open-Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | C. Alcaraz Vs K. Khachanov
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249629_english_hls_934d6d9fab39308_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249643" tvg-name="World Feed" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tennis_FC-We.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | World Feed
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249643_english_hls_c14cffe8e137141_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Tennis 👉 Updateded Done ✅✅✅✅✅✅
