@@ -1,0 +1,55 @@
+name: Update M3U Playlists
+
+on:
+  schedule:
+    # প্রতি ৫ মিনিটে চলবে (GitHub Actions-এর সর্বনিম্ন অনুমোদিত ব্যবধান)
+    - cron: '*/5 * * * *'
+  workflow_dispatch:   # ম্যানুয়ালি চালানোর জন্য
+
+permissions:
+  contents: write      # ফাইল কমিট ও পুশ করার অনুমতি
+
+concurrency:
+  group: playlist-update
+  cancel-in-progress: true   # আগের রান চললে নতুন রান শুরু হবে না
+
+jobs:
+  update-playlists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}   # PAT_TOKEN থাকলে সেটি, নাহলে GITHUB_TOKEN
+
+      - name: Download and overwrite playlists
+        env:
+          SECRETS_JSON: ${{ toJSON(secrets) }}   # সব সিক্রেট JSON আকারে
+        run: |
+          set -euo pipefail
+
+          # SOURCE_ দিয়ে শুরু হওয়া প্রতিটি সিক্রেটের key-ভ্যালু বের করা
+          echo "$SECRETS_JSON" | jq -r 'to_entries[] | select(.key | startswith("SOURCE_")) | "\(.key)=\(.value)"' | while IFS='=' read -r key url; do
+            # আউটপুট ফাইলের নাম তৈরি: SOURCE_SPORTS -> SAWARID-SPORTS.m3u
+            filename="${key#SOURCE_}"          # SOURCE_ বাদ দিন
+            filename="SAWARID-${filename}.m3u" # SAWARID- প্রিফিক্স ও .m3u এক্সটেনশন
+
+            echo "Downloading $url -> $filename"
+            # প্লেলিস্ট ডাউনলোড করে সরাসরি ফাইলে লিখুন (পুরোনো ডেটা মুছে যাবে)
+            curl -fsSL "$url" -o "$filename"
+          done
+
+      - name: Commit and push changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add --all
+          # কোনো পরিবর্তন না থাকলে কমিট হবে না
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Auto-update M3U playlists [skip ci]"
+          git push
