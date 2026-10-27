@@ -1,0 +1,1658 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#06020f" />
+    <title>SAWARID سواريد LIVE TV</title>
+    <meta name="author" content="SAWARID سواريد Live Sports">
+    <meta name="referrer" content="no-referrer">
+    
+    <!-- Favicon -->
+    <link class="js-favicon" rel="icon" href="https://i.postimg.cc/htZPY1DX/Sawarid-logo.png" type="image/png">
+    
+    <!-- PWA Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <!-- Hls.js (Ultra Fast, Zero-Lag Engine for M3U8, SonyLiv, FanCode, TS) -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <!-- Mux.js (Transmuxer for TS and HLS/DASH) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/6.0.1/mux.min.js"></script>
+
+    <!-- Shaka Player v5 (DRM, MPD/DASH ClearKey Engine) -->
+    <script src="https://unpkg.com/shaka-player@5.0.0/dist/shaka-player.compiled.js"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: '#06020f',
+                card: '#0c051a',
+                element: '#14082b',
+                border: '#2e1256'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              arabic: ['Cairo', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body, html {
+        height: 100%;
+        overflow: hidden !important;
+      }
+
+      .transition-all {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .bg-mix-gradient {
+        background: linear-gradient(135deg, #ff512f 0%, #dd2476 35%, #8a2be2 70%, #00c6ff 100%);
+      }
+      
+      .text-mix-gradient {
+        background: linear-gradient(135deg, #ff512f 0%, #dd2476 40%, #8a2be2 75%, #00c6ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .bg-mesh-blur {
+        background-color: #06020f;
+        background-image: 
+          radial-gradient(at 5% 15%, rgba(255, 81, 47, 0.12) 0px, transparent 55%),
+          radial-gradient(at 95% 10%, rgba(221, 36, 118, 0.12) 0px, transparent 55%),
+          radial-gradient(at 50% 85%, rgba(138, 43, 226, 0.1) 0px, transparent 55%);
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #06020f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2e1256;
+        border-radius: 9px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #dd2476;
+      }
+
+      .main-split-container {
+        display: flex;
+        flex-direction: row;
+        height: calc(100vh - 50px);
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        .main-split-container {
+          flex-direction: column;
+        }
+        .video-split-container {
+          height: auto !important;
+          max-height: 44vh;
+          width: 100% !important;
+          flex-shrink: 0;
+        }
+        .channel-split-container {
+          flex: 1;
+          height: auto !important;
+          overflow: hidden;
+        }
+      }
+
+      #playerCard:fullscreen,
+      #playerCard:-webkit-full-screen,
+      #playerCard.fullscreen-mode {
+        background-color: #000000 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 99999 !important;
+      }
+
+      .player-controls-overlay {
+        background: linear-gradient(to top, rgba(6, 2, 15, 0.95) 0%, rgba(6, 2, 15, 0.25) 55%, transparent 100%);
+        transition: opacity 0.3s ease;
+      }
+
+      /* D-PAD Remote Navigation High-Contrast Focus Outline */
+      .dpad-focused {
+        border-color: #00d4ff !important;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.9), 0 0 5px #00d4ff !important;
+        transform: scale(1.04) !important;
+        z-index: 20 !important;
+        outline: none !important;
+      }
+
+      .playlist-focused {
+        border-color: #00d4ff !important;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.9) !important;
+        transform: scale(1.05) !important;
+        outline: none !important;
+      }
+
+      .ad-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 1000000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .ad-popup-overlay.show {
+        display: flex;
+      }
+      .ad-popup-box {
+        position: absolute;
+        top: 8%;
+        bottom: 8%;
+        left: 8%;
+        right: 8%;
+        background: #0c051a;
+        border: 2px solid #dd2476;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 0 35px rgba(221, 36, 118, 0.45);
+      }
+
+      .custom-watermark {
+        position: absolute;
+        width: 11%;
+        min-width: 65px;
+        max-width: 125px;
+        left: 4%;
+        bottom: 15%;
+        z-index: 15;
+        opacity: 0.55;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      /* Custom Quality Dropdown matching screenshot */
+      .quality-menu-box {
+        background-color: #121214;
+        border: 1px solid #2e1256;
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 160px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+      }
+      .quality-menu-header {
+        background-color: #dd2476;
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 11px;
+        padding: 7px 12px;
+        cursor: pointer;
+      }
+      .quality-menu-item {
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .quality-menu-item:hover {
+        background-color: rgba(221, 36, 118, 0.25);
+        color: #00c6ff;
+      }
+      .quality-menu-item.active {
+        color: #00d4ff;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body class="bg-mesh-blur text-[#edf5ff] min-h-screen flex flex-col font-sans select-none overflow-hidden" oncontextmenu="return false;">
+
+    <!-- Header Section -->
+    <header class="border-b border-white/20 bg-[#202d6d]/90 backdrop-blur-md z-40 px-3 py-2 h-[50px] flex items-center shrink-0">
+      <div class="w-full max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Left Side Logo with Click Trigger for Disclaimer -->
+        <div class="flex items-center gap-2">
+          <div 
+            onclick="showDisclaimer()"
+            class="h-8 w-8 rounded-lg overflow-hidden border border-[#2e1256] bg-white shadow-md flex items-center justify-center p-0.5 cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95"
+            title="View Disclaimer"
+          >
+            <img 
+              src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
+              alt="Sawarid Logo" 
+              class="max-h-full max-w-full object-contain" 
+            />
+          </div>
+          <div>
+            <h1 class="text-xs sm:text-sm font-black tracking-tight text-white flex items-center gap-1.5 font-sans">
+              <span>FIFA 2026 |</span>
+              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سواريد</span>
+            </h1>
+            <p class="text-[8px] text-gray-200 font-semibold tracking-wider font-sans uppercase">DOWNLOAD SAWARID APPS FROM APKPURE</p>
+          </div>
+        </div>
+
+        <!-- Right Side Original Download Sawarid Apps Button -->
+        <a 
+          href="https://apkpure.com/p/com.sawaridtv.pro" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="h-9 rounded-lg overflow-hidden border border-[#2e1256] bg-brand-dark shadow-md flex items-center justify-center p-0.5 transition-transform duration-200 hover:scale-105 active:scale-95"
+        >
+          <img 
+            src="https://i.postimg.cc/tgNBNZKd/button-download-sawarid-apps.png" 
+            alt="Download Sawarid Apps" 
+            class="max-h-full object-contain" 
+          />
+        </a>
+
+      </div>
+    </header>
+
+    <!-- Main Split View Layout -->
+    <main class="main-split-container flex-1">
+      
+      <!-- Video Split Section (Left/Top) -->
+      <div class="video-split-container lg:w-[70%] md:w-[62%] w-full h-full p-1 flex flex-col gap-1 overflow-hidden bg-black/20 border-r border-[#2e1256]/30 justify-start">
+        
+        <!-- Video Player Wrapper -->
+        <div class="w-full aspect-video bg-black relative rounded-lg overflow-hidden border border-[#202d6d]/80 shadow-2xl shrink-0">
+          <div 
+            id="playerCard" 
+            class="w-full h-full relative group bg-black"
+            onmousemove="handleUserInteraction()"
+            ontouchstart="handleUserInteraction()"
+          >
+            <div class="relative w-full h-full flex flex-col justify-center items-center bg-black overflow-hidden">
+
+              <!-- Unified Video Player Element -->
+              <video 
+                id="liveVideo" 
+                class="w-full h-full object-contain cursor-default" 
+                playsinline
+                webkit-playsinline
+                x5-playsinline
+                autoplay
+              ></video>
+
+              <!-- Watermark Overlay -->
+              <img 
+                id="shakaWatermark"
+                src="https://i.postimg.cc/htZPY1DX/Sawarid-logo.png" 
+                alt="Sawarid" 
+                class="custom-watermark"
+              />
+
+              <!-- Dynamic Poster -->
+              <img 
+                id="videoPoster" 
+                src="https://i.pinimg.com/originals/5a/93/4e/5a934e84f67d2a61a118ec95b1d6cb74.gif" 
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-10 pointer-events-none opacity-100" 
+                alt="Loading"
+              />
+
+              <!-- Modern OSD Controls Overlay (শীর্ষভাগ সম্পূর্ণ পরিষ্কার) -->
+              <div id="playerControls" class="player-controls-overlay absolute inset-0 flex flex-col justify-end p-2.5 z-30 opacity-100 transition-opacity duration-300">
+                
+                <!-- Bottom Controls Toolbar with Progress Line -->
+                <div class="w-full flex flex-col gap-1.5 pointer-events-auto">
+                  
+                  <!-- Progress Bar: Left Time, Middle Scrubber with Dot, Right Buffer Time -->
+                  <div class="w-full flex items-center gap-2 px-1">
+                    <!-- Left: Current Playing Time -->
+                    <span id="timeCurrent" class="text-[10px] font-mono font-bold text-gray-200 shrink-0">00:00</span>
+                    
+                    <!-- Middle Track with DOT Pointer -->
+                    <div id="timelineContainer" class="relative flex-1 h-1.5 bg-white/20 rounded-full cursor-pointer py-1">
+                      <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1 bg-white/20 rounded-full overflow-hidden">
+                        <!-- Loaded Buffer Bar -->
+                        <div id="loadedProgress" class="absolute top-0 bottom-0 left-0 bg-white/40 w-0 transition-all"></div>
+                        <!-- Playback Progress Bar -->
+                        <div id="playbackProgress" class="absolute top-0 bottom-0 left-0 bg-[#dd2476] w-0"></div>
+                      </div>
+                      <!-- The Active Scrubber DOT -->
+                      <div id="progressDot" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full border-2 border-[#dd2476] shadow-[0_0_8px_#dd2476] pointer-events-none" style="left: 0%;"></div>
+                    </div>
+
+                    <!-- Right: Loaded/Buffer Duration Time -->
+                    <span id="timeLoaded" class="text-[10px] font-mono font-bold text-gray-400 shrink-0">00:00</span>
+                  </div>
+
+                  <!-- Control Buttons Row -->
+                  <div class="w-full flex items-center justify-between gap-2 pt-1 border-t border-white/10 backdrop-blur-sm">
+                    <!-- Left Controls: Play, Mute, and LIVE Badge -->
+                    <div class="flex items-center gap-2">
+                      <button id="playBtn" onclick="togglePlay()" class="h-8 px-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none" title="Play/Pause">
+                        <!-- Play Icon SVG rendered by JS -->
+                      </button>
+                      
+                      <button id="muteBtn" onclick="toggleMute()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none" title="Mute/Unmute">
+                        <!-- Mute Icon SVG rendered by JS -->
+                      </button>
+
+                      <!-- LIVE Badge (চ্যানেল সফলভাবে প্লে হলেই কেবল দৃশ্যমান হবে) -->
+                      <span id="bottomLiveBadge" class="hidden px-2.5 py-0.5 rounded-full bg-red-600 text-[9px] font-black tracking-widest text-white uppercase animate-pulse shadow-md select-none">
+                        LIVE
+                      </span>
+                    </div>
+
+                    <!-- Right Controls: CC, Quality, Screen Mode, PiP, Fullscreen -->
+                    <div class="flex items-center gap-1.5">
+                      
+                      <!-- CC (Closed Caption / Subtitle) Button -->
+                      <button 
+                        id="ccBtn" 
+                        onclick="toggleCC()" 
+                        class="h-8 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-gray-400 transition-all flex items-center justify-center text-[10px] font-black active:scale-95 focus:outline-none"
+                        title="Subtitles / Closed Captions"
+                      >
+                        CC
+                      </button>
+
+                      <!-- Quality Dropdown matching screenshot -->
+                      <div class="relative inline-block text-left" id="customQualityDropdown">
+                        <button 
+                          type="button"
+                          id="qualityDropdownBtn" 
+                          onclick="toggleQualityMenu(event)"
+                          class="h-8 px-2.5 text-[10px] rounded-lg bg-[#0c051a]/90 border border-white/20 font-bold text-white hover:bg-[#14082b] transition-all flex items-center gap-1 focus:outline-none"
+                        >
+                          <span id="qualityDropdownLabel">Quality</span>
+                          <i data-lucide="chevron-down" class="h-3 w-3"></i>
+                        </button>
+                        <div 
+                          id="qualityDropdownMenu" 
+                          class="hidden absolute bottom-full right-0 mb-2 quality-menu-box z-[99999] flex flex-col"
+                        >
+                          <!-- Dynamic qualities will load here with Pink Auto Header & Bitrate -->
+                        </div>
+                      </div>
+
+                      <!-- Aspect Ratio Toggle (FIT, FILL, ZOOM) -->
+                      <button 
+                        onclick="toggleAspectRatio()" 
+                        class="h-8 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center gap-1 text-[10px] font-black active:scale-95 focus:outline-none" 
+                        title="Change Screen Mode (FIT, FILL, ZOOM)"
+                      >
+                        <i data-lucide="scaling" class="h-3.5 w-3.5"></i>
+                        <span id="aspectRatioLabel">FIT</span>
+                      </button>
+
+                      <!-- PiP Mode Toggle -->
+                      <button onclick="togglePiP()" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none" title="Picture-in-Picture">
+                        <i data-lucide="picture-in-picture" class="h-4 w-4"></i>
+                      </button>
+
+                      <!-- Fullscreen Mode Toggle -->
+                      <button onclick="toggleFullscreen()" class="h-8 w-8 rounded-lg bg-mix-gradient text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none shadow-md" title="Fullscreen">
+                        <i data-lucide="maximize" class="h-4 w-4"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Animated Buffering Overlay -->
+              <div id="buffering-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center text-center p-4 z-20 transition-opacity duration-300">
+                <div class="relative mb-3 flex items-center justify-center">
+                  <div class="w-10 h-10 rounded-full border-4 border-white/10 border-t-[#dd2476] border-r-[#00c6ff] animate-spin"></div>
+                </div>
+                <h3 class="text-white text-xs font-black tracking-wider uppercase font-arabic">SAWARID سواريد সংযোগ হচ্ছে</h3>
+                <p id="buffering-detail" class="text-[9px] text-gray-300 mt-1 font-semibold font-sans">Connecting Live Feed...</p>
+              </div>
+
+              <!-- Stream Error Overlay with Responsive Retry Button -->
+              <div id="error-overlay" class="hidden absolute inset-0 bg-[#06020f]/95 flex flex-col items-center justify-center text-center p-6 z-20">
+                <i data-lucide="alert-triangle" class="text-red-500 h-10 w-10 mb-2"></i>
+                <h4 class="text-white text-xs font-bold uppercase font-arabic">Feed Currently Offline</h4>
+                <p id="error-detail" class="text-[10px] text-gray-400 mt-1 max-w-xs">Unable to connect to live stream feed.</p>
+                <button 
+                  id="btnRetryStream"
+                  onclick="retryCurrentChannel(event)"
+                  class="mt-3 px-5 py-2 bg-mix-gradient hover:opacity-90 active:scale-95 transition-all rounded-lg text-white font-black text-xs shadow-lg cursor-pointer focus:outline-none"
+                >
+                  Retry Stream
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Metadata & Search Panel -->
+        <div class="w-full flex flex-col gap-1 shrink-0">
+          
+          <!-- PWA Install Button -->
+          <button 
+            id="pwaInstallBtn" 
+            class="hidden w-full h-8 bg-mix-gradient rounded-lg text-xs font-black text-white flex items-center justify-center gap-2 hover:opacity-95 active:scale-95 transition-all shadow-lg focus:outline-none"
+          >
+            <i data-lucide="download" class="h-3.5 w-3.5"></i>
+            <span>Install SAWARID Live TV PC 💻 / iPhone 📱</span>
+          </button>
+
+          <!-- Firebase Live Traffic Counter -->
+          <div id="counters" class="bg-[#0c051a] border border-[#2e1256] rounded-lg p-1.5 text-center text-[11px] font-bold text-gray-300">
+            <span id="online-counter">👥 Connecting online analytics...</span>
+          </div>
+
+          <!-- Channel Search Input Box -->
+          <div class="relative flex items-center">
+            <span class="absolute left-3 text-gray-400">
+              <i data-lucide="search" class="h-3.5 w-3.5"></i>
+            </span>
+            <input 
+              type="text" 
+              id="channelSearch" 
+              placeholder="Search Live Channels..." 
+              class="w-full h-8 pl-8 pr-8 bg-[#0c051a] border border-[#2e1256] rounded-lg text-xs font-bold text-white placeholder-gray-500 focus:outline-none focus:border-[#00c6ff] transition-all"
+            />
+            <button 
+              id="clearSearch" 
+              class="hidden absolute right-3 text-gray-400 hover:text-white text-xs font-bold transition-all focus:outline-none"
+            >
+              ✕
+            </button>
+          </div>
+
+          <!-- Search Results Info -->
+          <div id="searchResultsInfo" class="hidden text-center text-[10px] font-bold text-[#00c6ff] bg-[#14082b] border border-[#2e1256]/50 py-0.5 rounded-md"></div>
+        </div>
+
+      </div>
+
+      <!-- Channel & Category Section (Right/Bottom) -->
+      <div class="channel-split-container lg:w-[30%] md:w-[38%] w-full h-full flex flex-col bg-[#0c051a]/95">
+        
+        <!-- Playlist Horizontal Category Selector -->
+        <div class="playlist-selector-container overflow-x-auto whitespace-nowrap p-1.5 border-b border-white/10 shrink-0 bg-[#202d6d]">
+          <div id="playlistSelector" class="inline-flex gap-2">
+            <!-- Dynamic Category Buttons (D-Pad Navigable) -->
+          </div>
+        </div>
+
+        <!-- Scrollable Channel Grid Inner -->
+        <div class="flex-1 overflow-y-auto p-2" id="channelList">
+          <div id="channels-grid" class="grid grid-cols-4 md:grid-cols-3 gap-2">
+            <!-- Dynamic Channel Cards Generated Here -->
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- In-Page Ad Overlay -->
+    <div id="ad-popup-overlay" class="ad-popup-overlay">
+      <div class="ad-popup-box">
+        <div class="bg-[#dd2476] text-white py-2.5 px-4 text-center font-sans text-xs font-bold leading-normal border-b border-white/20">
+          To keep our services free, please view our sponsor for 15 seconds.
+        </div>
+        <div class="bg-red-600 text-white font-sans text-[11px] font-bold py-1 text-center" id="ad-popup-timer-text">
+          Ad closes automatically in 15 seconds.
+        </div>
+        <div class="flex-1 w-full bg-[#14082b] relative flex items-center justify-center">
+          <div class="absolute text-center p-4 text-gray-400 text-xs font-bold z-0">
+            Loading secure ad...
+          </div>
+          <iframe id="ad-popup-iframe" class="w-full h-full border-none bg-white z-10 relative" src=""></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer Modal Overlay -->
+    <div id="disclaimer-popup-overlay" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[3000000] hidden items-center justify-center p-4">
+      <div class="bg-[#0c051a] border-2 border-[#dd2476] rounded-2xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-[0_0_50px_rgba(221,36,118,0.5)] overflow-hidden">
+        <div class="bg-[#202d6d] px-4 py-3 border-b border-white/10 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="h-7 w-7 rounded bg-white p-0.5 flex items-center justify-center">
+              <img src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" alt="Sawarid" class="max-h-full object-contain" />
+            </div>
+            <div>
+              <h3 class="text-white text-sm font-black uppercase font-arabic">Disclaimer & Notice</h3>
+            </div>
+          </div>
+          <div id="disclaimer-countdown" class="bg-red-600 text-white text-xs font-black px-2 py-0.5 rounded animate-pulse">
+            30s
+          </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 text-xs text-gray-200 space-y-3 font-sans leading-relaxed">
+          <div>
+            <h4 class="text-[#00c6ff] font-bold text-xs mb-1 uppercase">1. No Hosting & No Broadcasting</h4>
+            <p>SAWARID سواريد is strictly a Media Aggregator. We DO NOT host, broadcast, or store media files or streams on our servers.</p>
+          </div>
+          <div>
+            <h4 class="text-[#00c6ff] font-bold text-xs mb-1 uppercase">2. Third-Party Links</h4>
+            <p>All streaming links are gathered from free and public domains on the internet and belong solely to their respective copyright owners.</p>
+          </div>
+          <div class="bg-red-950/40 border border-red-500/30 p-2.5 rounded-lg">
+            <h4 class="text-red-400 font-bold text-xs mb-1 uppercase">3. Content & Gambling Warning</h4>
+            <p class="text-red-300 font-semibold italic">We strictly condemn gambling and inappropriate adult content. If any ad appears, please close it immediately.</p>
+          </div>
+        </div>
+
+        <div class="bg-[#14082b] px-4 py-2.5 border-t border-white/10 flex justify-between items-center">
+          <a href="https://www.facebook.com/sawaridtv/" target="_blank" class="px-3 py-1 bg-[#1877f2] hover:bg-[#166fe5] text-white font-bold text-xs rounded transition-all flex items-center gap-1">
+            <i data-lucide="message-square" class="h-3 w-3"></i> Facebook
+          </a>
+          <button onclick="hideDisclaimer()" class="px-4 py-1 bg-gray-800 hover:bg-gray-700 text-white font-bold text-xs rounded transition-all">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Playlists Configuration -->
+    <script>
+      const playlists = [
+        { url: 'https://sawaridtv.pages.dev/SAWARID-SPORTS0.m3u', name: "Live Event", displayName: "Live Event" },
+        { url: 'https://sawaridtv.pages.dev/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
+        { url: 'https://sawaridtv.pages.dev/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Live Channels" },
+      ];
+
+      const adsterraLinks = [
+        "https://clenchinfer.com/d5yhbq8kg?key=a6e7f0b5411e29ddfc4ad4b07f0bd55e",
+        "https://clenchinfer.com/wa4j1fs86d?key=8c109ea1fe3da680691b30448b3eb147",
+        "https://clenchinfer.com/gq968gjnk?key=62e59ae53115a83f79c455d7f0529f0f"
+      ];
+      const AD_TRIGGER_CLICKS = 300; 
+
+      // Default IPTV User-Agent (ExoPlayer standard)
+      const DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 13; SM-S908B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36 ExoPlayer/Media3 SawaridTV/2.0";
+    </script>
+
+    <!-- Main Logic Script -->
+    <script>
+      // Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBOYmpK5yTAFT-IQgJv_WE8iUeAf4ydpVA",
+        authDomain: "sawarid.firebaseapp.com",
+        databaseURL: "https://sawarid-default-rtdb.firebaseio.com", 
+        projectId: "sawarid",
+        storageBucket: "sawarid.firebasestorage.app",
+        messagingSenderId: "410572620208",
+        appId: "1:410572620208:web:aca1810b69057d32f05675"
+      };
+
+      // State Management
+      let parsedChannels = [];
+      let filteredChannels = [];
+      let activeChannel = null;
+      let isPlaying = false;
+      let availableTracks = [];
+      let controlsTimeout = null;
+      let activeEngine = null; // 'hls' or 'shaka'
+      let hlsInstance = null;
+      let shakaInstance = null;
+      let isCcEnabled = false;
+
+      // Aspect Ratio Modes: 'contain' (FIT), 'fill' (FILL/Stretch), 'cover' (ZOOM)
+      const aspectModes = [
+        { key: 'contain', label: 'FIT' },
+        { key: 'fill', label: 'FILL' },
+        { key: 'cover', label: 'ZOOM' }
+      ];
+      let currentAspectIndex = 0;
+
+      // Quality state
+      let currentSelectedQuality = 'auto';
+
+      // Remote Navigation State
+      let focusZone = 'channels';
+      let currentPlaylistIndex = 0;
+      let currentChannelFocusIndex = 0;
+
+      // Counters & Ads State
+      let channelWatchCount = 0;
+      let adTimer = null;
+      let countdownInterval = null;
+      let disclaimerAutoCloseTimer = null;
+      let disclaimerCountdownInterval = null;
+
+      // Tap Handler
+      let lastTapTime = 0;
+      let tapDelayTimeout = null;
+
+      // DOM Elements
+      const videoElement = document.getElementById('liveVideo');
+      const videoPoster = document.getElementById('videoPoster');
+      const bufOverlay = document.getElementById('buffering-overlay');
+      const errOverlay = document.getElementById('error-overlay');
+      const aspectRatioLabel = document.getElementById('aspectRatioLabel');
+      const playerControls = document.getElementById('playerControls');
+      const bottomLiveBadge = document.getElementById('bottomLiveBadge');
+      const loadedProgress = document.getElementById('loadedProgress');
+      const playbackProgress = document.getElementById('playbackProgress');
+      const progressDot = document.getElementById('progressDot');
+      const timeCurrent = document.getElementById('timeCurrent');
+      const timeLoaded = document.getElementById('timeLoaded');
+      const playBtn = document.getElementById('playBtn');
+      const muteBtn = document.getElementById('muteBtn');
+      const ccBtn = document.getElementById('ccBtn');
+
+      /* ========================================================================
+         ১. রিয়েল-টাইম এসভিজি আইকন রেন্ডারিং ইঞ্জিন (Play/Pause & Mute/Unmute)
+         ======================================================================== */
+      function renderPlayPauseIcon(playing) {
+        if (playing) {
+          playBtn.innerHTML = `
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24">
+              <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+              <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+            </svg>`;
+        } else {
+          playBtn.innerHTML = `
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>`;
+        }
+      }
+
+      function renderMuteUnmuteIcon(muted) {
+        if (muted) {
+          muteBtn.innerHTML = `
+            <svg class="w-4 h-4 text-red-500 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>`;
+        } else {
+          muteBtn.innerHTML = `
+            <svg class="w-4 h-4 text-white stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>`;
+        }
+      }
+
+      /* ========================================================================
+         ২. ভিডিও ইঞ্জিন ক্লিনআপ
+         ======================================================================== */
+      async function destroyEngines() {
+        if (hlsInstance) {
+          try { hlsInstance.destroy(); } catch (e) {}
+          hlsInstance = null;
+        }
+        if (shakaInstance) {
+          try { await shakaInstance.destroy(); } catch (e) {}
+          shakaInstance = null;
+        }
+        videoElement.removeAttribute('src');
+        videoElement.load();
+        activeEngine = null;
+        bottomLiveBadge.classList.add('hidden'); // স্টপ হলে বা চ্যানেল পাল্টালে লাইভ ব্যাজ হাইড
+      }
+
+      /* ========================================================================
+         ৩. স্মার্ট হাইব্রিড ইঞ্জিন (Shaka for DASH ClearKey & Hls.js for M3U8/TS)
+         ======================================================================== */
+      async function loadChannelStream(channel, useFallbackProxy = false) {
+        if (!channel || !channel.url) return;
+        activeChannel = channel;
+
+        bufOverlay.classList.remove('hidden');
+        errOverlay.classList.add('hidden');
+        bottomLiveBadge.classList.add('hidden'); // এখনো প্লে হয়নি, তাই লাইভ ব্যাজ বন্ধ
+        videoPoster.classList.remove('opacity-0');
+
+        currentSelectedQuality = 'auto';
+        document.getElementById('qualityDropdownLabel').textContent = 'Auto (Adaptive)';
+
+        await destroyEngines();
+
+        let streamUrl = channel.url.trim();
+
+        if (useFallbackProxy && !streamUrl.includes('allorigins.win')) {
+          streamUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(streamUrl)}`;
+        }
+
+        const isDashMpd = streamUrl.toLowerCase().includes('.mpd') || channel.isDrm;
+
+        if (isDashMpd) {
+          // ================= MPD / ClearKey DRM Engine (Shaka Player) =================
+          activeEngine = 'shaka';
+          try {
+            shaka.polyfill.installAll();
+            const player = new shaka.Player();
+            await player.attach(videoElement);
+            shakaInstance = player;
+
+            // 8s সেফটি অফসেট ও ইনস্ট্যান্ট লোড (ExoPlayer এর মতো)
+            player.configure({
+              manifest: {
+                defaultPresentationDelay: 8,
+                dash: { ignoreMinBufferTime: true, autoCorrectDrift: true }
+              },
+              streaming: {
+                bufferingGoal: 10,
+                rebufferingGoal: 1.5,
+                bufferBehind: 20,
+                stallEnabled: true,
+                stallThreshold: 1,
+                stallSkip: 0.1,
+                retryParameters: { maxAttempts: 5, timeout: 5000 }
+              },
+              abr: {
+                enabled: true,
+                bandwidthFraction: 0.70
+              }
+            });
+
+            if (channel.isDrm && channel.drmKeys && Object.keys(channel.drmKeys).length > 0) {
+              player.configure({ drm: { clearKeys: channel.drmKeys } });
+            }
+
+            player.addEventListener('trackschanged', () => {
+              availableTracks = player.getVariantTracks() || [];
+              updateQualityDropdownMenuUI();
+            });
+
+            player.addEventListener('error', (e) => {
+              if (e.detail && e.detail.severity === shaka.util.Error.Severity.CRITICAL) {
+                handlePlaybackFailure();
+              }
+            });
+
+            await player.load(streamUrl);
+            applyAspectRatio();
+            startPlaybackSafe();
+
+          } catch (err) {
+            console.warn("Shaka DASH error:", err);
+            handlePlaybackFailure();
+          }
+
+        } else {
+          // ================= M3U8, TS, SonyLiv, FanCode Engine (Hls.js) =================
+          activeEngine = 'hls';
+          if (Hls.isSupported()) {
+            const hls = new Hls({
+              enableWorker: true,
+              lowLatencyMode: false,
+              liveSyncDurationCount: 3, // ~7-8 seconds buffer
+              liveMaxLatencyDurationCount: 6,
+              maxBufferLength: 30,
+              maxMaxBufferLength: 60,
+              backBufferLength: 15,
+              fragLoadingTimeOut: 15000,
+              manifestLoadingTimeOut: 15000,
+              abrBandWidthFactor: 0.70,
+              startLevel: -1
+            });
+
+            hlsInstance = hls;
+            hls.loadSource(streamUrl);
+            hls.attachMedia(videoElement);
+
+            hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
+              availableTracks = data.levels || [];
+              updateQualityDropdownMenuUI();
+              applyAspectRatio();
+              startPlaybackSafe();
+            });
+
+            hls.on(Hls.Events.ERROR, (event, data) => {
+              if (data.fatal) {
+                switch (data.type) {
+                  case Hls.ErrorTypes.NETWORK_ERROR:
+                    hls.startLoad();
+                    break;
+                  case Hls.ErrorTypes.MEDIA_ERROR:
+                    hls.recoverMediaError();
+                    break;
+                  default:
+                    handlePlaybackFailure();
+                    break;
+                }
+              }
+            });
+
+          } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+            videoElement.src = streamUrl;
+            applyAspectRatio();
+            startPlaybackSafe();
+          } else {
+            handlePlaybackFailure();
+          }
+        }
+      }
+
+      function startPlaybackSafe() {
+        videoElement.play().then(() => {
+          isPlaying = true;
+          bufOverlay.classList.add('hidden');
+          videoPoster.classList.add('opacity-0');
+          renderPlayPauseIcon(true);
+        }).catch(() => {
+          videoElement.muted = true;
+          videoElement.play().then(() => {
+            isPlaying = true;
+            bufOverlay.classList.add('hidden');
+            videoPoster.classList.add('opacity-0');
+            renderPlayPauseIcon(true);
+            renderMuteUnmuteIcon(true);
+          });
+        });
+      }
+
+      function handlePlaybackFailure() {
+        if (activeChannel && !activeChannel.url.includes('allorigins.win')) {
+          console.log("Direct play blocked. Retrying with CORS Proxy...");
+          loadChannelStream(activeChannel, true);
+          return;
+        }
+        bufOverlay.classList.add('hidden');
+        errOverlay.classList.remove('hidden');
+        bottomLiveBadge.classList.add('hidden'); // অফলাইনে লাইভ ব্যাজ বন্ধ
+        renderPlayPauseIcon(false);
+      }
+
+      function retryCurrentChannel(e) {
+        if (e) e.stopPropagation();
+        if (activeChannel) {
+          loadChannelStream(activeChannel, true);
+        }
+      }
+
+      /* ========================================================================
+         ৪. প্রোগ্রেস বার, বাফার এবং টাইমার ইঞ্জিন (বামে টাইম, ডানে বাফার, DOT)
+         ======================================================================== */
+      videoElement.addEventListener('timeupdate', () => {
+        const curTime = videoElement.currentTime || 0;
+        const mins = Math.floor(curTime / 60);
+        const secs = Math.floor(curTime % 60);
+        timeCurrent.textContent = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+
+        let currentPercent = 100;
+        if (videoElement.duration && isFinite(videoElement.duration) && videoElement.duration > 0) {
+          currentPercent = (curTime / videoElement.duration) * 100;
+        }
+
+        playbackProgress.style.width = `${currentPercent}%`;
+        progressDot.style.left = `${currentPercent}%`;
+
+        // বাফার/লোড হওয়া টাইম ক্যালকুলেশন
+        if (videoElement.buffered.length > 0) {
+          const bufEnd = videoElement.buffered.end(videoElement.buffered.length - 1);
+          const bMins = Math.floor(bufEnd / 60);
+          const bSecs = Math.floor(bufEnd % 60);
+          timeLoaded.textContent = `${bMins < 10 ? '0' : ''}${bMins}:${bSecs < 10 ? '0' : ''}${bSecs}`;
+
+          const duration = videoElement.duration || bufEnd;
+          if (duration > 0) {
+            const bufferedPct = Math.min((bufEnd / duration) * 100, 100);
+            loadedProgress.style.width = `${bufferedPct}%`;
+          }
+        }
+      });
+
+      // ভিডিও প্লে হওয়া মাত্রই LIVE ব্যাজটি দৃশ্যমান হবে
+      videoElement.addEventListener('playing', () => {
+        isPlaying = true;
+        bufOverlay.classList.add('hidden');
+        errOverlay.classList.add('hidden');
+        videoPoster.classList.add('opacity-0');
+        bottomLiveBadge.classList.remove('hidden'); // সচল প্লেব্যাক শুরু হয়েছে, লাইভ ব্যাজ অন
+        renderPlayPauseIcon(true);
+      });
+
+      videoElement.addEventListener('waiting', () => {
+        bufOverlay.classList.remove('hidden');
+      });
+
+      videoElement.addEventListener('pause', () => {
+        isPlaying = false;
+        renderPlayPauseIcon(false);
+      });
+
+      videoElement.addEventListener('volumechange', () => {
+        renderMuteUnmuteIcon(videoElement.muted || videoElement.volume === 0);
+      });
+
+      /* ========================================================================
+         ৫. CC (Closed Caption) টগল
+         ======================================================================== */
+      function toggleCC() {
+        isCcEnabled = !isCcEnabled;
+        if (isCcEnabled) {
+          ccBtn.classList.remove('text-gray-400');
+          ccBtn.classList.add('text-[#00c6ff]', 'bg-white/20');
+        } else {
+          ccBtn.classList.remove('text-[#00c6ff]', 'bg-white/20');
+          ccBtn.classList.add('text-gray-400');
+        }
+
+        // HLS.js সাবটাইটেল টগল
+        if (activeEngine === 'hls' && hlsInstance) {
+          hlsInstance.subtitleDisplay = isCcEnabled;
+          hlsInstance.subtitleTrack = isCcEnabled ? 0 : -1;
+        }
+        // Shaka সাবটাইটেল টগল
+        if (activeEngine === 'shaka' && shakaInstance) {
+          shakaInstance.setTextTrackVisibility(isCcEnabled);
+        }
+      }
+
+      /* ========================================================================
+         ৬. কোয়ালিটি ড্রপডাউন (পিংক Auto হেডার এবং Mbps বিটরেট তালিকা)
+         ======================================================================== */
+      function toggleQualityMenu(event) {
+        if (event) event.stopPropagation();
+        const menu = document.getElementById('qualityDropdownMenu');
+        menu.classList.toggle('hidden');
+      }
+
+      function updateQualityDropdownMenuUI() {
+        const menu = document.getElementById('qualityDropdownMenu');
+        if (!menu) return;
+        menu.innerHTML = '';
+
+        // পিংক কালার অটো হেডার
+        const autoHeader = document.createElement('div');
+        autoHeader.className = 'quality-menu-header';
+        autoHeader.textContent = 'Auto (Adaptive)';
+        autoHeader.onclick = (e) => {
+          e.stopPropagation();
+          selectQualityOption('auto', 'Auto (Adaptive)');
+          menu.classList.add('hidden');
+        };
+        menu.appendChild(autoHeader);
+
+        const qualityList = [];
+
+        if (activeEngine === 'hls' && hlsInstance) {
+          hlsInstance.levels.forEach((lvl, idx) => {
+            const h = lvl.height || 0;
+            const mbps = lvl.bitrate ? (lvl.bitrate / 1000000).toFixed(1) : '1.2';
+            qualityList.push({
+              id: `hls:${idx}`,
+              label: `${h}p - ${mbps} Mbps`,
+              height: h
+            });
+          });
+        } else if (activeEngine === 'shaka' && shakaInstance) {
+          const seen = new Set();
+          const sorted = [...availableTracks].sort((a, b) => (b.height || 0) - (a.height || 0));
+          sorted.forEach(t => {
+            if (t.height && !seen.has(t.height)) {
+              seen.add(t.height);
+              const mbps = t.bandwidth ? (t.bandwidth / 1000000).toFixed(1) : '1.5';
+              qualityList.push({
+                id: `shaka:${t.id}`,
+                label: `${t.height}p - ${mbps} Mbps`,
+                height: t.height
+              });
+            }
+          });
+        }
+
+        qualityList.sort((a, b) => a.height - b.height);
+
+        qualityList.forEach(item => {
+          const row = document.createElement('div');
+          row.className = `quality-menu-item ${currentSelectedQuality === item.id ? 'active' : ''}`;
+          row.textContent = item.label;
+          row.onclick = (e) => {
+            e.stopPropagation();
+            selectQualityOption(item.id, item.label);
+            menu.classList.add('hidden');
+          };
+          menu.appendChild(row);
+        });
+      }
+
+      function selectQualityOption(val, label) {
+        currentSelectedQuality = val;
+        document.getElementById('qualityDropdownLabel').textContent = label;
+
+        if (val === 'auto') {
+          if (activeEngine === 'hls' && hlsInstance) hlsInstance.currentLevel = -1;
+          if (activeEngine === 'shaka' && shakaInstance) shakaInstance.configure({ abr: { enabled: true } });
+        } else if (val.startsWith('hls:')) {
+          const levelIdx = parseInt(val.split(':')[1]);
+          if (hlsInstance) hlsInstance.currentLevel = levelIdx;
+        } else if (val.startsWith('shaka:')) {
+          const trackId = parseInt(val.split(':')[1]);
+          if (shakaInstance) {
+            const trk = availableTracks.find(t => t.id === trackId);
+            if (trk) {
+              shakaInstance.configure({ abr: { enabled: false } });
+              shakaInstance.selectVariantTrack(trk, true);
+            }
+          }
+        }
+        updateQualityDropdownMenuUI();
+      }
+
+      document.addEventListener('click', (e) => {
+        const dropdown = document.getElementById('customQualityDropdown');
+        const menu = document.getElementById('qualityDropdownMenu');
+        if (dropdown && !dropdown.contains(e.target) && menu) {
+          menu.classList.add('hidden');
+        }
+      });
+
+      /* ========================================================================
+         ৭. অ্যাসপেক্ট রেশিও এবং ফুলস্ক্রিন
+         ======================================================================== */
+      function toggleAspectRatio(forcedIdx = null) {
+        if (forcedIdx !== null) currentAspectIndex = forcedIdx;
+        else currentAspectIndex = (currentAspectIndex + 1) % aspectModes.length;
+        applyAspectRatio();
+      }
+
+      function applyAspectRatio() {
+        const mode = aspectModes[currentAspectIndex];
+        videoElement.style.objectFit = mode.key;
+        aspectRatioLabel.textContent = mode.label;
+      }
+
+      async function toggleFullscreen() {
+        const pcard = document.getElementById('playerCard');
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (pcard.requestFullscreen) await pcard.requestFullscreen();
+          else if (videoElement.webkitEnterFullscreen) videoElement.webkitEnterFullscreen();
+          
+          toggleAspectRatio(1); // 1 = FILL মোড (ফুলস্ক্রিনে মোবাইল স্ক্রিন সম্পূর্ণ কভার করবে)
+          
+          if (screen.orientation && screen.orientation.lock) {
+            try { await screen.orientation.lock('landscape'); } catch (e) {}
+          }
+        } else {
+          if (document.exitFullscreen) await document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+          
+          toggleAspectRatio(0); // Exit -> FIT
+          if (screen.orientation && screen.orientation.unlock) {
+            try { screen.orientation.unlock(); } catch (e) {}
+          }
+        }
+      }
+
+      document.addEventListener('fullscreenchange', () => {
+        if (document.fullscreenElement) {
+          document.getElementById('playerCard').classList.add('fullscreen-mode');
+          toggleAspectRatio(1);
+        } else {
+          document.getElementById('playerCard').classList.remove('fullscreen-mode');
+          toggleAspectRatio(0);
+        }
+      });
+
+      /* ========================================================================
+         ৮. M3U পার্সার (ডিফল্ট User-Agent সেটআপ সহ)
+         ======================================================================== */
+      async function fetchAndParseM3U(url) {
+        let text = '';
+        try {
+          const res = await fetch(url);
+          if (res.ok) text = await res.text();
+        } catch (e) {
+          try {
+            const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+            const res2 = await fetch(proxy);
+            if (res2.ok) text = await res2.text();
+          } catch (err) {}
+        }
+
+        if (!text) return [];
+
+        const lines = text.split('\n');
+        const channels = [];
+        let tempMeta = null;
+        let tempUrls = [];
+
+        for (let i = 0; i < lines.length; i++) {
+          let line = lines[i].trim();
+          if (!line) continue;
+
+          if (line.startsWith('#EXTINF:')) {
+            if (tempMeta && tempUrls.length > 0) {
+              pushParsedStreams(channels, tempMeta, tempUrls);
+            }
+            tempMeta = {
+              name: 'Channel',
+              logo: '',
+              isDrm: false,
+              drmKeys: {},
+              userAgent: DEFAULT_USER_AGENT // ডিফল্টভাবে নিজে থেকে সেট হবে
+            };
+            tempUrls = [];
+
+            const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+            if (logoMatch) tempMeta.logo = logoMatch[1];
+
+            const commaIdx = line.lastIndexOf(',');
+            if (commaIdx !== -1) {
+              tempMeta.name = line.substring(commaIdx + 1).trim().replace(/["']/g, '');
+            }
+          } else if (line.startsWith('#KODIPROP:inputstream.adaptive.license_key=')) {
+            if (!tempMeta) continue;
+            tempMeta.isDrm = true;
+            const keyStr = line.split('=')[1].trim();
+            parseDrmKeys(keyStr, tempMeta.drmKeys);
+          } else if (line.startsWith('#EXTVLCOPT:http-user-agent=')) {
+            if (tempMeta) tempMeta.userAgent = line.split('http-user-agent=')[1].trim();
+          } else if (line.startsWith('http://') || line.startsWith('https://')) {
+            if (tempMeta) tempUrls.push(line);
+          }
+        }
+
+        if (tempMeta && tempUrls.length > 0) {
+          pushParsedStreams(channels, tempMeta, tempUrls);
+        }
+
+        return channels;
+      }
+
+      function parseDrmKeys(keyStr, drmKeysObj) {
+        try {
+          if (keyStr.startsWith('{')) {
+            const parsed = JSON.parse(keyStr);
+            for (let k in parsed) {
+              const cleanK = k.toLowerCase().replace(/[^a-f0-9]/gi, '');
+              const cleanV = parsed[k].toLowerCase().replace(/[^a-f0-9]/gi, '');
+              drmKeysObj[cleanK] = cleanV;
+            }
+          } else {
+            const parts = keyStr.split(':');
+            if (parts.length === 2) {
+              const cleanK = parts[0].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+              const cleanV = parts[1].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+              drmKeysObj[cleanK] = cleanV;
+            }
+          }
+        } catch (e) {}
+      }
+
+      function pushParsedStreams(channelsList, meta, urls) {
+        urls.forEach((rawUrl, idx) => {
+          let cleanUrl = rawUrl.trim();
+          let localMeta = { ...meta, drmKeys: { ...meta.drmKeys } };
+
+          if (cleanUrl.includes('|')) {
+            const parts = cleanUrl.split('|');
+            cleanUrl = parts[0].trim();
+            const q = parts[1].trim();
+            if (q.includes('User-Agent=')) {
+              localMeta.userAgent = q.split('User-Agent=')[1].split('&')[0];
+            }
+          }
+
+          if (cleanUrl.includes('drmScheme=clearkey')) {
+            localMeta.isDrm = true;
+            const keyMatch = cleanUrl.match(/drmLicense=([a-f0-9]{32}:[a-f0-9]{32})/i);
+            if (keyMatch) parseDrmKeys(keyMatch[1], localMeta.drmKeys);
+          }
+
+          const targetName = (urls.length === 1) ? localMeta.name : `${localMeta.name} ${idx + 1}`;
+
+          channelsList.push({
+            name: targetName,
+            logo: localMeta.logo,
+            url: cleanUrl,
+            isDrm: localMeta.isDrm,
+            drmKeys: localMeta.drmKeys,
+            userAgent: localMeta.userAgent
+          });
+        });
+      }
+
+      /* ========================================================================
+         ৯. চ্যানেল গ্রিড ও D-Pad রিমোট নেভিগেশন
+         ======================================================================== */
+      function renderChannelsGrid(channels = parsedChannels) {
+        const grid = document.getElementById('channels-grid');
+        grid.innerHTML = '';
+
+        if (channels.length === 0) {
+          grid.innerHTML = '<div class="col-span-full py-10 text-center text-xs font-bold text-gray-400">No Channels Found</div>';
+          return;
+        }
+
+        channels.forEach((ch, idx) => {
+          const isActive = activeChannel && ch.url === activeChannel.url;
+          const card = document.createElement('button');
+          card.className = `channel-item rounded-lg border flex flex-col w-full overflow-hidden transition-all duration-150 outline-none ${
+            isActive 
+              ? 'border-[#00d4ff] shadow-[0_0_12px_rgba(0,212,255,0.85)] scale-[1.02]' 
+              : 'border-[#2e1256] bg-[#0c051a] hover:border-white/40'
+          }`;
+          card.setAttribute('data-index', idx);
+
+          card.innerHTML = `
+            <div class="bg-white p-1 flex-1 flex items-center justify-center w-full aspect-[1.3/1] overflow-hidden">
+              <img src="${ch.logo}" alt="" class="max-h-full max-w-full object-contain pointer-events-none" onerror="this.src='https://i.postimg.cc/htZPY1DX/Sawarid-logo.png';" />
+            </div>
+            <div class="w-full py-1 px-1 text-center text-[9px] font-black truncate text-white uppercase ${
+              isActive ? 'bg-[#0052cc]' : 'bg-[#5c134f]'
+            }">
+              ${ch.name}
+            </div>
+          `;
+
+          card.onclick = () => selectChannel(idx);
+          grid.appendChild(card);
+        });
+
+        highlightFocusedItem();
+      }
+
+      function selectChannel(index) {
+        const targetList = filteredChannels.length > 0 ? filteredChannels : parsedChannels;
+        if (targetList[index]) {
+          activeChannel = targetList[index];
+          currentChannelFocusIndex = index;
+          focusZone = 'channels';
+
+          channelWatchCount++;
+          if (channelWatchCount >= AD_TRIGGER_CLICKS) {
+            channelWatchCount = 0;
+            showAdPopup();
+          }
+
+          renderChannelsGrid(targetList);
+          loadChannelStream(activeChannel);
+        }
+      }
+
+      function getGridColumns() {
+        return window.innerWidth >= 768 ? 3 : 4;
+      }
+
+      function highlightFocusedItem() {
+        document.querySelectorAll('.playlist-btn').forEach(btn => btn.classList.remove('playlist-focused'));
+        document.querySelectorAll('.channel-item').forEach(item => item.classList.remove('dpad-focused'));
+
+        if (focusZone === 'playlist') {
+          const catButtons = document.querySelectorAll('.playlist-btn');
+          if (catButtons[currentPlaylistIndex]) {
+            const activeBtn = catButtons[currentPlaylistIndex];
+            activeBtn.classList.add('playlist-focused');
+            activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        } else if (focusZone === 'channels') {
+          const cards = document.querySelectorAll('.channel-item');
+          if (cards[currentChannelFocusIndex]) {
+            const activeCard = cards[currentChannelFocusIndex];
+            activeCard.classList.add('dpad-focused');
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+          }
+        }
+      }
+
+      function handleDpadKeyDown(e) {
+        const key = e.key;
+        const searchInput = document.getElementById('channelSearch');
+
+        if (document.activeElement === searchInput) {
+          if (key === 'Escape' || key === 'ArrowDown') {
+            searchInput.blur();
+            focusZone = 'channels';
+            highlightFocusedItem();
+          }
+          return;
+        }
+
+        const navKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' '];
+        if (!navKeys.includes(key)) return;
+        e.preventDefault();
+
+        const cols = getGridColumns();
+        const totalChannels = (filteredChannels.length > 0 ? filteredChannels : parsedChannels).length;
+        const totalPlaylists = playlists.length;
+
+        if (focusZone === 'playlist') {
+          if (key === 'ArrowLeft') {
+            currentPlaylistIndex = currentPlaylistIndex > 0 ? currentPlaylistIndex - 1 : totalPlaylists - 1;
+            highlightFocusedItem();
+          } else if (key === 'ArrowRight') {
+            currentPlaylistIndex = currentPlaylistIndex < totalPlaylists - 1 ? currentPlaylistIndex + 1 : 0;
+            highlightFocusedItem();
+          } else if (key === 'ArrowDown') {
+            focusZone = 'channels';
+            highlightFocusedItem();
+          } else if (key === 'Enter' || key === ' ') {
+            switchPlaylistTab(currentPlaylistIndex);
+          }
+        } else if (focusZone === 'channels') {
+          if (key === 'ArrowLeft') {
+            if (currentChannelFocusIndex > 0) {
+              currentChannelFocusIndex--;
+              highlightFocusedItem();
+            }
+          } else if (key === 'ArrowRight') {
+            if (currentChannelFocusIndex < totalChannels - 1) {
+              currentChannelFocusIndex++;
+              highlightFocusedItem();
+            }
+          } else if (key === 'ArrowUp') {
+            if (currentChannelFocusIndex >= cols) {
+              currentChannelFocusIndex -= cols;
+              highlightFocusedItem();
+            } else {
+              focusZone = 'playlist';
+              highlightFocusedItem();
+            }
+          } else if (key === 'ArrowDown') {
+            if (currentChannelFocusIndex + cols < totalChannels) {
+              currentChannelFocusIndex += cols;
+              highlightFocusedItem();
+            }
+          } else if (key === 'Enter' || key === ' ') {
+            selectChannel(currentChannelFocusIndex);
+          }
+        }
+      }
+
+      /* ========================================================================
+         ১০. প্লেলিস্ট সিলেক্টর
+         ======================================================================== */
+      function setupPlaylistSelector() {
+        const container = document.getElementById('playlistSelector');
+        container.innerHTML = '';
+
+        playlists.forEach((p, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `playlist-btn px-4 py-1.5 rounded-lg border text-xs font-black transition-all outline-none ${
+            idx === currentPlaylistIndex 
+              ? 'bg-[#dd2476] border-white text-white shadow-lg' 
+              : 'bg-[#14082b] border-[#2e1256] text-gray-300 hover:text-white'
+          }`;
+          btn.textContent = p.displayName;
+          btn.onclick = () => switchPlaylistTab(idx);
+          container.appendChild(btn);
+        });
+
+        loadPlaylistData(currentPlaylistIndex);
+      }
+
+      function switchPlaylistTab(index) {
+        currentPlaylistIndex = index;
+        const buttons = document.querySelectorAll('.playlist-btn');
+        buttons.forEach((b, i) => {
+          if (i === index) {
+            b.className = 'playlist-btn px-4 py-1.5 rounded-lg border text-xs font-black transition-all outline-none bg-[#dd2476] border-white text-white shadow-lg';
+          } else {
+            b.className = 'playlist-btn px-4 py-1.5 rounded-lg border text-xs font-black transition-all outline-none bg-[#14082b] border-[#2e1256] text-gray-300 hover:text-white';
+          }
+        });
+        loadPlaylistData(index);
+      }
+
+      async function loadPlaylistData(index) {
+        const playlist = playlists[index];
+        const grid = document.getElementById('channels-grid');
+        grid.innerHTML = `
+          <div class="col-span-full py-12 flex flex-col items-center justify-center gap-2">
+            <div class="w-8 h-8 rounded-full border-4 border-[#2e1256] border-t-[#dd2476] animate-spin"></div>
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider font-arabic">Connecting ${playlist.displayName}...</p>
+          </div>
+        `;
+
+        parsedChannels = await fetchAndParseM3U(playlist.url);
+        filteredChannels = [];
+        currentChannelFocusIndex = 0;
+
+        document.getElementById('channelSearch').value = '';
+        document.getElementById('clearSearch').classList.add('hidden');
+        document.getElementById('searchResultsInfo').classList.add('hidden');
+
+        if (parsedChannels.length > 0) {
+          activeChannel = parsedChannels[0];
+          renderChannelsGrid(parsedChannels);
+          await loadChannelStream(activeChannel);
+        } else {
+          grid.innerHTML = '<div class="col-span-full py-12 text-center text-xs font-bold text-gray-400">Failed to load channels</div>';
+        }
+      }
+
+      /* ========================================================================
+         ১১. প্লেয়ার কন্ট্রোল ও ওএসডি হ্যান্ডলার
+         ======================================================================== */
+      function handleUserInteraction() {
+        playerControls.style.opacity = '1';
+        document.getElementById('playerCard').style.cursor = 'default';
+        if (controlsTimeout) clearTimeout(controlsTimeout);
+        controlsTimeout = setTimeout(() => {
+          if (isPlaying && !videoElement.paused) {
+            playerControls.style.opacity = '0';
+            document.getElementById('playerCard').style.cursor = 'none';
+          }
+        }, 2500);
+      }
+
+      function togglePlay() {
+        if (videoElement.paused) {
+          videoElement.play();
+          renderPlayPauseIcon(true);
+        } else {
+          videoElement.pause();
+          renderPlayPauseIcon(false);
+        }
+      }
+
+      function toggleMute() {
+        videoElement.muted = !videoElement.muted;
+        renderMuteUnmuteIcon(videoElement.muted);
+      }
+
+      function togglePiP() {
+        if (document.pictureInPictureElement) document.exitPictureInPicture();
+        else if (videoElement.requestPictureInPicture) videoElement.requestPictureInPicture();
+      }
+
+      // ডাবল ট্যাপে ফুলস্ক্রিন ও সিঙ্গেল ট্যাপে প্লে/পজ
+      document.getElementById('playerCard').addEventListener('click', (e) => {
+        if (e.target.closest('#playerControls') || e.target.closest('#ad-popup-overlay') || e.target.closest('#disclaimer-popup-overlay') || e.target.closest('#error-overlay')) {
+          return;
+        }
+
+        const now = new Date().getTime();
+        const diff = now - lastTapTime;
+        if (tapDelayTimeout) clearTimeout(tapDelayTimeout);
+
+        if (diff < 300 && diff > 0) {
+          toggleFullscreen();
+        } else {
+          tapDelayTimeout = setTimeout(() => {
+            togglePlay();
+          }, 300);
+        }
+        lastTapTime = now;
+      });
+
+      /* ========================================================================
+         ১২. বিজ্ঞাপন, ডিসক্লেইমার ও সার্চ
+         ======================================================================== */
+      function showAdPopup() {
+        const overlay = document.getElementById('ad-popup-overlay');
+        const iframe = document.getElementById('ad-popup-iframe');
+        const timerText = document.getElementById('ad-popup-timer-text');
+        
+        const randomAd = adsterraLinks[Math.floor(Math.random() * adsterraLinks.length)];
+        iframe.src = randomAd;
+        overlay.classList.add('show');
+
+        let secondsLeft = 15;
+        timerText.textContent = `Ad closes automatically in ${secondsLeft} seconds.`;
+
+        if (countdownInterval) clearInterval(countdownInterval);
+        countdownInterval = setInterval(() => {
+          secondsLeft--;
+          if (secondsLeft > 0) {
+            timerText.textContent = `Ad closes automatically in ${secondsLeft} seconds.`;
+          } else {
+            clearInterval(countdownInterval);
+          }
+        }, 1000);
+
+        if (adTimer) clearTimeout(adTimer);
+        adTimer = setTimeout(() => {
+          overlay.classList.remove('show');
+          iframe.src = '';
+        }, 15000);
+      }
+
+      function showDisclaimer() {
+        const overlay = document.getElementById('disclaimer-popup-overlay');
+        const timer = document.getElementById('disclaimer-countdown');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+
+        let left = 30;
+        timer.textContent = `${left}s`;
+        if (disclaimerCountdownInterval) clearInterval(disclaimerCountdownInterval);
+        disclaimerCountdownInterval = setInterval(() => {
+          left--;
+          if (left > 0) timer.textContent = `${left}s`;
+          else clearInterval(disclaimerCountdownInterval);
+        }, 1000);
+
+        if (disclaimerAutoCloseTimer) clearTimeout(disclaimerAutoCloseTimer);
+        disclaimerAutoCloseTimer = setTimeout(hideDisclaimer, 30000);
+      }
+
+      function hideDisclaimer() {
+        const overlay = document.getElementById('disclaimer-popup-overlay');
+        overlay.classList.remove('flex');
+        overlay.classList.add('hidden');
+        if (disclaimerCountdownInterval) clearInterval(disclaimerCountdownInterval);
+        if (disclaimerAutoCloseTimer) clearTimeout(disclaimerAutoCloseTimer);
+      }
+
+      function setupSearchEngine() {
+        const searchInput = document.getElementById('channelSearch');
+        const clearBtn = document.getElementById('clearSearch');
+        const searchInfo = document.getElementById('searchResultsInfo');
+
+        searchInput.addEventListener('input', function() {
+          const query = this.value.trim().toLowerCase();
+          if (query.length > 0) {
+            clearBtn.classList.remove('hidden');
+            filteredChannels = parsedChannels.filter(c => c.name.toLowerCase().includes(query));
+            renderChannelsGrid(filteredChannels);
+            searchInfo.classList.remove('hidden');
+            searchInfo.textContent = `Found ${filteredChannels.length} Channels`;
+          } else {
+            clearBtn.classList.add('hidden');
+            filteredChannels = [];
+            searchInfo.classList.add('hidden');
+            renderChannelsGrid(parsedChannels);
+          }
+        });
+
+        clearBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          clearBtn.classList.add('hidden');
+          filteredChannels = [];
+          searchInfo.classList.add('hidden');
+          renderChannelsGrid(parsedChannels);
+        });
+      }
+
+      function initFirebaseCounters() {
+        try {
+          firebase.initializeApp(firebaseConfig);
+          const db = firebase.database();
+          const usersRef = db.ref("onlineUsers");
+          const totalRef = db.ref("totalVisitors");
+          const todayRef = db.ref("dailyVisitors/" + new Date().toISOString().slice(0, 10));
+          const sessionId = "user_" + Math.random().toString(36).substring(2, 10);
+
+          usersRef.child(sessionId).set({ lastSeen: Date.now() });
+          totalRef.transaction(c => (c || 0) + 1);
+          todayRef.transaction(c => (c || 0) + 1);
+
+          window.addEventListener("beforeunload", () => usersRef.child(sessionId).remove());
+
+          const counterLabel = document.getElementById("online-counter");
+          function updateOnline() {
+            usersRef.once("value").then(snap => {
+              const onlineUsers = snap.val() || {};
+              const now = Date.now();
+              const active = Object.values(onlineUsers).filter(u => (now - u.lastSeen) <= 6000).length;
+
+              totalRef.once("value").then(s2 => {
+                const total = s2.val() || 0;
+                todayRef.once("value").then(s3 => {
+                  const today = s3.val() || 0;
+                  counterLabel.innerHTML = `👥 Online: ${active} | 📅 Today: ${today} | 🌍 Total: ${total}`;
+                });
+              });
+            });
+          }
+          usersRef.on("value", updateOnline);
+          setInterval(() => usersRef.child(sessionId).update({ lastSeen: Date.now() }), 10000);
+        } catch (e) {}
+      }
+
+      function initSecurity() {
+        document.addEventListener('contextmenu', e => e.preventDefault(), true);
+        document.addEventListener('keydown', e => {
+          if (e.keyCode === 123 || e.key === 'F12') e.preventDefault();
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) e.preventDefault();
+          if ((e.ctrlKey || e.metaKey) && ['U', 'S'].includes(e.key.toUpperCase())) e.preventDefault();
+        }, true);
+      }
+
+      window.addEventListener('DOMContentLoaded', async () => {
+        initSecurity();
+        renderPlayPauseIcon(false);
+        renderMuteUnmuteIcon(false);
+        setupPlaylistSelector();
+        setupSearchEngine();
+        initFirebaseCounters();
+
+        document.addEventListener('keydown', handleDpadKeyDown);
+        lucide.createIcons();
+      });
+    </script>
+    <script src="sawarid.js"></script>
+  </body>
+</html>
