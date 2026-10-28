@@ -53,22 +53,6 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="sonyliv-1090551075" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000026665/1792353470120172_ISL26_FCGoa_vs_SportingClub_Delhi_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", FC Goa vs Sporting Club Delhi | MG Indian Super League 2026-27 [English]
-https://liveakmt-m-lr.slivcdn.com/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT5559prod-PlaybackConfig/2119931/cricodi_2810/ENG/master.m3u8?hdnea=exp=1793236857~acl=/*~id=96181214760550814358411741514230~hmac=6e656f0dece6bdbe78917dc4c5e72acb9b5597583c4c796a3b9e99a12245be80
-
-
-#EXTINF:-1 tvg-id="sonyliv-1090551075" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000026665/1792353470120172_ISL26_FCGoa_vs_SportingClub_Delhi_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", FC Goa vs Sporting Club Delhi | MG Indian Super League 2026-27 [Hindi]
-https://liveakmt-m-lr.slivcdn.com/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT5559prod-PlaybackConfig/2119921/cricodi_2810/HIN/master.m3u8?hdnea=exp=1793236857~acl=/*~id=96181214760550814358411741514230~hmac=6e656f0dece6bdbe78917dc4c5e72acb9b5597583c4c796a3b9e99a12245be80
-
-
-#EXTINF:-1 tvg-id="tapmad-18558" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926582761020x576.jpg" group-title="SAWARID سواريد - Football", Golgohar Sirjan SC (IRN) vs FC Arkadag (TKM) - MATCHDAY 3 - AFC Champions League Two 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-18553" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926579491020x576.jpg" group-title="SAWARID سواريد - Football", PFC Nasaf (UZB) vs Kuwait SC (KUW) - MATCHDAY 3 - AFC Champions League Two 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/j15klM//master.m3u8
-
-
 #EXTINF:-1 tvg-id="tapmad-18568" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926592861020x576.jpg" group-title="SAWARID سواريد - Football", Al Nahda Club (OMA) vs Al Rayyan SC (QAT) - MATCHDAY 3 - AFC Champions League Two 2026/27
 https://d8j84o343a5m2.cloudfront.net/live/testtapmad2/master.m3u8
 
@@ -98,14 +82,6 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 https://sonymtmnew.akamaized.net/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT33a6prod-PlaybackConfig/2120299/criclive2810/HIN/master.m3u8?hdnea=exp=1793233252~acl=/*~id=74226180586525656493550808381961~hmac=1c68fc219546453d1ea3b2492c8ef0ba7854e6b6544f54514a4088d0a10644cf
 
 
-#EXTINF:-1 tvg-id="tapmad-17702" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17918900981020x576.jpg" group-title="SAWARID سواريد - Cricket", South Africa vs Australia - 3rd Test - Australia Tour of South Africa 2026 - Server 1
-https://tencent-cdn.tapmad.com/v1/01a145d823d515fc600b1e3e9683de/01a145dc15751ea540a81c2b41b754/main.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-17702" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17918900981020x576.jpg" group-title="SAWARID سواريد - Cricket", South Africa vs Australia - 3rd Test - Australia Tour of South Africa 2026 - Server 2
-https://d8j84o343a5m2.cloudfront.net/live/testtapmad3/master.m3u8
-
-
 #EXTINF:-1 tvg-id="B0HKDPRJRS" tvg-name="Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.20a790a3-51e9-4ec1-9a8b-cb632845af2d/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -131,15 +107,7 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Prime Video Sports 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="B0HKDPRJRS" tvg-name="Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.20a790a3-51e9-4ec1-9a8b-cb632845af2d/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6d8a8cf63f2cb151902100b0d9e668dd:e75124a72568aee19b04558263d1d050
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/aqmldkpmqa/out/v1/5759ba0348c34e839eb7d42e39731bb9/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HKZYM9N2" tvg-name="Second Serve - Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.6d6425d0-0d4a-4220-9bc3-be6855ef1053/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Second Serve - Live-Basel-ATP & Vienna-ATP Early Rounds
+#EXTINF:-1 tvg-id="B0HKZYM9N2" tvg-name="Second Serve - Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.6d6425d0-0d4a-4220-9bc3-be6855ef1053/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Second Serve - Live-Basel-ATP & Vienna-ATP Early Rounds
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -147,12 +115,20 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/aqmldkpm
 https://hls-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/k653vm77p0/out/v1/313a4febbed346d298f7c1c281a00f6d/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HN2Y7Z6F" tvg-name="Cricket-India Women vs. Zimbabwe Women: 3rd ODI" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e777665f-7e0b-40d5-800b-00fdf08c5a4e/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Cricket-India Women vs. Zimbabwe Women: 3rd ODI
+#EXTINF:-1 tvg-id="B0GTZ7LJPW" tvg-name="Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1e4d692f-7ce1-44cf-b8ce-08555a51d32b/7/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/0bftapixow/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+
+
+#EXTINF:-1 tvg-id="B0HKDPRJRS" tvg-name="Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.20a790a3-51e9-4ec1-9a8b-cb632845af2d/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=6d8a8cf63f2cb151902100b0d9e668dd:e75124a72568aee19b04558263d1d050
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/aqmldkpmqa/out/v1/5759ba0348c34e839eb7d42e39731bb9/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
