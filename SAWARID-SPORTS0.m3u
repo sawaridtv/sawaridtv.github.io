@@ -53,34 +53,6 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="tapmad-18578" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17927364781020x576.jpg" group-title="SAWARID سواريد - Football", Al Khaldiya SC (BHR) vs Al Wahda FC (UAE) - MATCHDAY 3 - AFC Champions League Two 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-18573" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926595861020x576.jpg" group-title="SAWARID سواريد - Football", Al Faisaly (JOR) vs Al Taawoun FC (KSA) - MATCHDAY 3 - AFC Champions League Two 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/j15klM//master.m3u8
-
-
-#EXTINF:-1 tvg-id="4249486" tvg-name="Chelsea F.c. Women Vs Roma Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249486_53078_CHE-W_ROM-W_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Chelsea F.c. Women Vs Roma Women
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249486_english_hls_b07624f96877630_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4249487" tvg-name="Bayern Munich Women Vs Real Madrid Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249487_53078_BAY-W_RM-W_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Bayern Munich Women Vs Real Madrid Women
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249487_english_hls_86ca4456f695852_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4249488" tvg-name="Servette Women Vs Oud Heverlee Leuven Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249488_53078_SVT-W_OHL-W_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Servette Women Vs Oud Heverlee Leuven Women
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249488_english_hls_b2011e3f7918062_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248986" tvg-name="Al Khaldiya Sc Vs Al Wahda" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248986_53057_ALK_ALW_fc-web_1789025065400.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Al Khaldiya Sc Vs Al Wahda
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248986_english_hls_b2b0c3704776877_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248990" tvg-name="Al Faisaly Vs Al Taawoun Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248990_53057_ALF_ALTW_fc-web_1789025065473.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Al Faisaly Vs Al Taawoun Fc
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248990_english_hls_f7920e7d1151984_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
 #EXTINF:-1 tvg-id="4249712" tvg-name="Manchester City Vs Brighton And Hove Albion" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249712_53016_MCI_BHA_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Manchester City Vs Brighton And Hove Albion
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249712_english_hls_79a706788c25876_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
@@ -105,26 +77,33 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249993_english_hls_7f603460f516651_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
+#EXTINF:-1 tvg-id="4249489" tvg-name="Arsenal Women Vs Benfica Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249489_53078_ARS-W_BEN-W_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Arsenal Women Vs Benfica Women
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249489_english_hls_1e1d7caf3540298_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249490" tvg-name="Ol Lyonnes Vs Inter Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249490_53078_OLY-W_INT-W_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Ol Lyonnes Vs Inter Women
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249490_english_hls_94def54aa747178_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249716" tvg-name="Liverpool Vs Chelsea" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249716_53016_LIV_CHE_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Liverpool Vs Chelsea
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249716_english_hls_dc760edd5a13591_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
 
 
 # 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
 
-# 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Cricket 🟢🟢🟢🟢🟢🟢
-
-
-#EXTINF:-1 tvg-id="4250491" tvg-name="Abu Dhabi Vs Emirates Blues" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250491_53130_EMB_ABD_fc-web_1792412929359.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Abu Dhabi Vs Emirates Blues
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250491_english_hls_ef31c7005664929_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-# 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
-
-
-# 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
-
-
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Prime Video Sports 🟢🟢🟢🟢🟢🟢
+
+
+#EXTINF:-1 tvg-id="B0HN4TM41Z" tvg-name="Bournemouth vs. Villa" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.2844dca7-66c8-42ed-b122-edd35cd9cd58/2/BOXART-16X9/en-US/1920x1080._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMpng_.png" group-title="SAWARID سواريد - Prime Video Sports",Bournemouth vs. Villa
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=d9623774ac5c8c351aafe97c5fe70267:5164e6d05164a2d65fa8fcc962aa4861
+https://hls-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/rbem8rorcw/out/v1/5318821e2c3c44c2a439681b9aa86e9b/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0GTZ7LJPW" tvg-name="Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1e4d692f-7ce1-44cf-b8ce-08555a51d32b/7/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds
@@ -142,18 +121,6 @@ https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/
 
 
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Tennis 🟢🟢🟢🟢🟢🟢
-
-
-#EXTINF:-1 tvg-id="4249651" tvg-name="Iwb Court 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tennis_FC-We.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Iwb Court 1
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249651_english_hls_f9093ad69c81693_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4249630" tvg-name="World Feed" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Erste-Bank-Open_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | World Feed
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249630_english_hls_b555b035dd59328_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4249637" tvg-name="Glaubandich Court" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Erste-Bank-Open_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Glaubandich Court
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249637_english_hls_dc36a35c8a10890_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 #EXTINF:-1 tvg-id="4249644" tvg-name="N. Djokovic Vs U. Humbert" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Djo_WEB.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | N. Djokovic Vs U. Humbert
