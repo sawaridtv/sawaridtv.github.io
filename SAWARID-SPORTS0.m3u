@@ -53,24 +53,28 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="tapmad-18773" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17927381311020x576.jpg" group-title="SAWARID سواريد - Football", Kashima Antlers (JPN) vs FC Pohang Steelers (KOR) - MATCHDAY 3 - AFC Champions League Elite 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
+#EXTINF:-1 tvg-id="sonyliv-1090551075" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000026665/1792353470120172_ISL26_FCGoa_vs_SportingClub_Delhi_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", FC Goa vs Sporting Club Delhi | MG Indian Super League 2026-27 [English]
+https://liveakmt-m-lr.slivcdn.com/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT5559prod-PlaybackConfig/2119931/cricodi_2810/ENG/master.m3u8?hdnea=exp=1793236857~acl=/*~id=96181214760550814358411741514230~hmac=6e656f0dece6bdbe78917dc4c5e72acb9b5597583c4c796a3b9e99a12245be80
 
 
-#EXTINF:-1 tvg-id="tapmad-18768" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17927376651020x576.jpg" group-title="SAWARID سواريد - Football", Gamba Osaka (JPN) vs Buriram United (THA) - MATCHDAY 3 - AFC Champions League Elite 2026/27
-https://bpl24middleeast.akamaized.net/hls/live/2109311/j15klM//master.m3u8
+#EXTINF:-1 tvg-id="sonyliv-1090551075" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000026665/1792353470120172_ISL26_FCGoa_vs_SportingClub_Delhi_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", FC Goa vs Sporting Club Delhi | MG Indian Super League 2026-27 [Hindi]
+https://liveakmt-m-lr.slivcdn.com/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT5559prod-PlaybackConfig/2119921/cricodi_2810/HIN/master.m3u8?hdnea=exp=1793236857~acl=/*~id=96181214760550814358411741514230~hmac=6e656f0dece6bdbe78917dc4c5e72acb9b5597583c4c796a3b9e99a12245be80
 
 
 #EXTINF:-1 tvg-id="tapmad-18583" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926553481020x576.jpg" group-title="SAWARID سواريد - Football", Persib Bandung (IDN) vs Melbourne Victory FC (AUS) - MATCHDAY 3 - AFC Champions League Two 2026/27
 https://d8j84o343a5m2.cloudfront.net/live/testtapmad2/master.m3u8
 
 
-#EXTINF:-1 tvg-id="4248726" tvg-name="Kashima Antlers Vs Pohang Steelers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248726_53053_ANL_PHG_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Kashima Antlers Vs Pohang Steelers
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248726_english_hls_26d458240137180_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="tapmad-18548" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926564471020x576.jpg" group-title="SAWARID سواريد - Football", The Cong - Viettel FC (VIE) vs FC Seoul (KOR) - MATCHDAY 3 - AFC Champions League Two 2026/27
+https://d8j84o343a5m2.cloudfront.net/live/testtapmad4/master.m3u8
 
 
-#EXTINF:-1 tvg-id="4248727" tvg-name="Gamba Osaka Vs Buriram United" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248727_53053_OSK_BU_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Gamba Osaka Vs Buriram United
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248727_english_hls_7a1c680f9068411_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="tapmad-18558" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926582761020x576.jpg" group-title="SAWARID سواريد - Football", Golgohar Sirjan SC (IRN) vs FC Arkadag (TKM) - MATCHDAY 3 - AFC Champions League Two 2026/27
+https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-18553" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17926579491020x576.jpg" group-title="SAWARID سواريد - Football", PFC Nasaf (UZB) vs Kuwait SC (KUW) - MATCHDAY 3 - AFC Champions League Two 2026/27
+https://bpl24middleeast.akamaized.net/hls/live/2109311/j15klM//master.m3u8
 
 
 #EXTINF:-1 tvg-id="4248993" tvg-name="The Cong   Viettel Fc Vs Seoul" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248993_53057_CV_SE_fc-web_1789025065500.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | The Cong   Viettel Fc Vs Seoul
@@ -81,6 +85,10 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248994_english_hls_4f46a204cd79513_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
+#EXTINF:-1 tvg-id="4248987" tvg-name="Golgohar Sirjan Sc Vs Fk Arkadag" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248987_53057_GGS_ARK_fc-web_1789025065552.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Golgohar Sirjan Sc Vs Fk Arkadag
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248987_english_hls_1aff23ab079848_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
 
 
@@ -88,6 +96,10 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 
 
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Cricket 🟢🟢🟢🟢🟢🟢
+
+
+#EXTINF:-1 tvg-id="sonyliv-1090551064" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027599/1793181428437269_STCL26_final_Haryana_Lions_vs_UP_Dhurandhar_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket", Haryana Lions vs UP Dhurandhar - Final | Salute Tiranga Cricket League (STCL) 2026 [Hindi]
+https://sonymtmnew.akamaized.net/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT33a6prod-PlaybackConfig/2120299/criclive2810/HIN/master.m3u8?hdnea=exp=1793233252~acl=/*~id=74226180586525656493550808381961~hmac=1c68fc219546453d1ea3b2492c8ef0ba7854e6b6544f54514a4088d0a10644cf
 
 
 #EXTINF:-1 tvg-id="tapmad-17702" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17918900981020x576.jpg" group-title="SAWARID سواريد - Cricket", South Africa vs Australia - 3rd Test - Australia Tour of South Africa 2026 - Server 1
@@ -103,15 +115,7 @@ https://d8j84o343a5m2.cloudfront.net/live/testtapmad3/master.m3u8
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6d8a8cf63f2cb151902100b0d9e668dd:e75124a72568aee19b04558263d1d050
-https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/aqmldkpmqa/out/v1/5759ba0348c34e839eb7d42e39731bb9/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HMGDLS21" tvg-name="India Women vs. Zimbabwe Women" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e1dcd31f-dfe8-44de-84bd-ed233da230f6/4/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",India Women vs. Zimbabwe Women
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2058d5339704f2e7313fef30cb0d505d:d25e0448f0a7e71f9c426d0b0a51cfcd
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ob4a17ydoa/out/v1/f131774c5d354a6590cfd133a1c25338/cenc.mpd
+https://a96aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/aqmldkpmqa/out/v1/5759ba0348c34e839eb7d42e39731bb9/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HM8BVJ9X" tvg-name="WPL 2027 Auction - WPL 2026 Player Auction" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e1d267c7-de98-497b-b10a-16946f5e2238/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",WPL 2027 Auction - WPL 2026 Player Auction
@@ -119,7 +123,7 @@ https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ob4a17ydoa/
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c426546fa9890b75bd446f2cc988c7f6:9b5ea5567d5f4d5aad8123df11dfb24e
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vfq7vktpaj/out/v1/e5454d69a91c478db2e1b3e56cf9bf47/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vfq7vktpaj/out/v1/e5454d69a91c478db2e1b3e56cf9bf47/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="4249783" tvg-name="South Africa Vs Australia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/AUS-vs-SA-test_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | South Africa Vs Australia
@@ -132,6 +136,14 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 
 #EXTINF:-1 tvg-id="4250358" tvg-name="Pokhara Avengers Vs Sudurpaschim Royals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250358_53124_PKA_SPR_fc-Web.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Pokhara Avengers Vs Sudurpaschim Royals
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250358_english_hls_96367dc67f52533_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4250490" tvg-name="Emirates Red Vs Sharjah" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250490_53130_SHA_EMR_fc-web_1792412929378.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Emirates Red Vs Sharjah
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250490_english_hls_da64db50c736288_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4250537" tvg-name="Delhi Dynamites Vs Chandigarh Chargers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250537_53137_DLD_CC_FC-Web.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Delhi Dynamites Vs Chandigarh Chargers
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250537_english_hls_1c2b5afcff42790_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
@@ -148,7 +160,7 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e14535ab02e4065cc846047f1feee48d:a51c5c164f9a6b0ae751afeec7f85052
-https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/uenudg4x6g/out/v1/8b25f245771b4e5698d914b941c54982/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uenudg4x6g/out/v1/8b25f245771b4e5698d914b941c54982/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HKDPRJRS" tvg-name="Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.20a790a3-51e9-4ec1-9a8b-cb632845af2d/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Australia tour of South Africa 2026 - 3rd Test - South Africa vs Australia
@@ -159,20 +171,20 @@ https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/uenudg4x
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/aqmldkpmqa/out/v1/5759ba0348c34e839eb7d42e39731bb9/cenc.mpd
 
 
+#EXTINF:-1 tvg-id="B0HJZRQ6JB" tvg-name="Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.5a06d9b7-9e9b-4f4e-b4b7-7b8c3205a4c6/19/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Tennis Today Live-Basel-ATP & Vienna-ATP Early Rounds
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+
+
 #EXTINF:-1 tvg-id="B0HN2Y7Z6F" tvg-name="Cricket-India Women vs. Zimbabwe Women: 3rd ODI" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e777665f-7e0b-40d5-800b-00fdf08c5a4e/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Cricket-India Women vs. Zimbabwe Women: 3rd ODI
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/0bftapixow/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HMGDLS21" tvg-name="India Women vs. Zimbabwe Women" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e1dcd31f-dfe8-44de-84bd-ed233da230f6/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",India Women vs. Zimbabwe Women
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2058d5339704f2e7313fef30cb0d505d:d25e0448f0a7e71f9c426d0b0a51cfcd
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ob4a17ydoa/out/v1/f131774c5d354a6590cfd133a1c25338/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/0bftapixow/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HM8BVJ9X" tvg-name="WPL 2027 Auction - WPL 2026 Player Auction" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e1d267c7-de98-497b-b10a-16946f5e2238/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",WPL 2027 Auction - WPL 2026 Player Auction
@@ -180,7 +192,7 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ob4a17ydoa/out/v1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c426546fa9890b75bd446f2cc988c7f6:9b5ea5567d5f4d5aad8123df11dfb24e
-https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/ti197fooyt/out/v1/91ff24abd6924aa0b1d821320c6ccadf/cenc.mpd
+https://hls-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/ti197fooyt/out/v1/91ff24abd6924aa0b1d821320c6ccadf/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
@@ -194,6 +206,18 @@ https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/ti197foo
 
 #EXTINF:-1 tvg-id="4249651" tvg-name="Iwb Court 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tennis_FC-We.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Iwb Court 1
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249651_english_hls_f9093ad69c81693_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249630" tvg-name="World Feed" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Erste-Bank-Open_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | World Feed
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249630_english_hls_b555b035dd59328_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249637" tvg-name="Glaubandich Court" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Erste-Bank-Open_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Glaubandich Court
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249637_english_hls_dc36a35c8a10890_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4249644" tvg-name="World Feed" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tennis_FC-We.png" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | World Feed
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249644_english_hls_8d8e73c39974541_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Tennis 👉 Updateded Done ✅✅✅✅✅✅
