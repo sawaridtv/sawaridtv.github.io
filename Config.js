@@ -1,7 +1,7 @@
       const playlists = [
-        { url: 'https://sawaridtv.pages.dev/SAWARID-SPORTS0.m3u', name: "Live Event", displayName: "Live Event" },
-        { url: 'https://sawaridtv.pages.dev/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
-        { url: 'https://sawaridtv.pages.dev/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Live Channels" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-SPORTS0.m3u', name: "Live Event", displayName: "Live Event" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Live Channels" },
       ];
 
       const adsterraLinks = [
