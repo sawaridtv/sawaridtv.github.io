@@ -66,7 +66,7 @@ https://tencent-cdn.tapmad.com/v1/01a145abfb3a1ea540a81c2b41b751/01a145ae0ac115f
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=81cceef47300d899003a2dd4f80a0ec4:0db92cc3f3a7b1c97af4aaef56d641ef
-https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/5spnuigv8z/out/v1/06c617e5db8f49cb9e63ca89da7b281c/cenc.mpd
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/5spnuigv8z/out/v1/06c617e5db8f49cb9e63ca89da7b281c/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="4249668" tvg-name="Western Australia Vs South Australia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249668_53087_SAU_WAU_FC-WEB.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Western Australia Vs South Australia
@@ -85,8 +85,8 @@ https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/
 https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250518_english_hls_923ba3241185095_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
-#EXTINF:-1 tvg-id="4250538" tvg-name="Himachal Highlenders Vs Rajasthan Royalsmen" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250538_53137_HHL_RR_FC-Web.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Himachal Highlenders Vs Rajasthan Royalsmen
-https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250538_english_hls_936f92972277852_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4250359" tvg-name="Janakpur Bolts Vs Kathmandu Gurkhas" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250359_53124_JKB_KMG_fc-Web.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Janakpur Bolts Vs Kathmandu Gurkhas
+https://cinexcricket.com/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250359_english_hls_11dff5b23576540_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
