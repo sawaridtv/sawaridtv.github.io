@@ -195,7 +195,7 @@ https://drk6xq0vhn.gpcdn.net/live/ten_cricket_hd_abr/index.m3u8
 
 
 
-#EXTINF:-1 tvg-logo="" group-title="All Sports",Laliga HD
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kgSG3TrM/La-Liga-New.png" group-title="All Sports",Laliga HD
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=1444f4235529f183f0a5a486befe9cdb:e5e3fec67a1bb3472a2089c8a0a2557f
@@ -221,7 +221,7 @@ https://abfjk4haaaaaaaampv6ofhkihi4r6.bia-cf.live.pv-cdn.net/iad-nitro/live/clie
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/rmb55FMQ/Willow-SPORTS1-Cricbuzz.png" group-title="All Sports", Willow by Cricbuz 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/hGMCSbTK/Willow-By-Cricbuzz.png" group-title="All Sports", Willow by Cricbuzz
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -245,7 +245,7 @@ https://tvsen5.aynaott.com/willowhd/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rmb55FMQ/Willow-SPORTS1-Cricbuzz.png" group-title="All Sports", Willow by Cricbuzz
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rmb55FMQ/Willow-SPORTS1-Cricbuzz.png" group-title="All Sports", Willow 2 by Cricbuzz 
-https://tvsen7.aynaott.com/Sports1/index.m3u8
+#https://tvsen7.aynaott.com/Sports1/index.m3u8
 https://raw.githubusercontent.com/stablesports711-hue/stable-sports-movie/refs/heads/main/IPTV/SS-Willow2.m3u8
 
 
@@ -255,10 +255,12 @@ https://raw.githubusercontent.com/stablesports711-hue/stable-sports-movie/refs/h
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/WzLL5m4Z/Willow-SPORTS1.png" group-title="All Sports", Willow Sports 
+#KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
 https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/tll6uwepxa/out/v1/a7f67cbb33df46539312956427343886/cenc.mpd
+https://stream-relay-buddy.lovable.app/api/public/proxy?url=https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/tll6uwepxa/out/v1/a7f67cbb33df46539312956427343886/cenc.mpd
 https://warm-caverns-48629-92fab798385f.herokuapp.com/https://d36r8jifhgsk5j.cloudfront.net/Willow_TV.m3u8
 # ✅
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -409,15 +411,26 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/b3b3fkmrbl/out/v1
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/d0M5WrjK/FANCODE.png" group-title="All Sports", FANCODE 2
+#KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=1994b1df7dfd2e8a8d7b9bf3fb900285:22a1444b3da18e139191665b3d652835
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd
+# ✅
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/d0M5WrjK/FANCODE.png" group-title="All Sports", FANCODE 3
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5318e462b9e0677487cb87837f0bbdb1:4fa0fb973b95738306005f2e8591bf8e
 https://abjqoehaaaaaaaamlzr65eai5t3fs.ta.bia-cf.live.pv-cdn.net/bom-nitro/live/clients/dash-sd/enc/eayjamsonn/out/v1/6c25cddab58043a6ace0ac64d97983f0/cenc-sd.mpd
+
+#🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/MKbyB0KZ/Himalaya-Sports.png" group-title="All Sports", Himalaya Sports
+https://ott-lb.nettv.com.np/iptvlivestream/hpremiumPAID/playlist.m3u8
+https://ott-wlink-01.nettv.com.np/iptvlivestream/netHIMALAYA1500.stream/playlist.m3u8
 
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
@@ -476,12 +489,30 @@ https://a166aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/mit
 
 
 
-#EXTINF:-1 tvg-logo="" group-title="All Sports", CBS Sports
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/HssknTqp/CBS-Sports.png" group-title="All Sports", CBS Sports
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=d9623774ac5c8c351aafe97c5fe70267:5164e6d05164a2d65fa8fcc962aa4861
 https://otte.live.fly.ww.aiv-cdn.net/bom-nitro/live/clients/dash/enc/5qz8wmdome/out/v1/b9323e853dce427eac214b77bd48a204/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Sx12knjy/Sport1.png" group-title="All Sports", Sport 1
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_sport_1/playlist_cenc.mpd
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/sXPmxYtS/Moto-GP.png" group-title="All Sports", MotoGP
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=e03f302ec4dabcccca82cc9f76731ec9:53ea1027d2bf2893a552cf15bc0366de
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/wjeweupwyc/out/v1/8197c8e055c94a868623653ac55c10bf/cenc.mpd
+
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
@@ -904,11 +935,12 @@ http://103.175.73.12:8080/live/282/282_0.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/7ZQMVhmz/image.jpg" group-title="All Sports",Star Sports Select 2HD
-#https://flussonic.defineatoz.com/starsportsselect2sw/index.m3u8
+http://110.44.127.106:8081/viatv/viaselecthd2/playlist.m3u8
+#http://110.44.127.106:8081/viatv/viaselecthd2/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ni8xMS8yMDI2IDI6NDU6MTAgQU0maGFzaF92YWx1ZT1aN0paTjdlOGJkN29MUWUzRy9FbUFRPT0mdmFsaWRtaW51dGVzPTEwMDAmaWQ9MzI4
 https://raw.githubusercontent.com/stablesports711-hue/stable-sports-movie/refs/heads/main/IPTV/SS-StarSS_2.m3u8
 #http://tvportal4k.xyz:80/live/Rachideddib26/d41g5hkc1b/276735.ts
 #https://footfytv.pro/proxy/direct?url=https://flussonic.defineatoz.com/starsportsselect2sw/tracks-v1a1/mono.m3u8
- 
+#https://flussonic.defineatoz.com/starsportsselect2sw/index.m3u8
 
 
 
@@ -1058,6 +1090,7 @@ https://drk6xq0vhn.gpcdn.net/live/euro_sports_hd_abr/index.m3u8
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=12ed56d780abcfebcd23aa27e4ac5015:6784567890abcfebcd23aa27e4ac2814
 https://wbd.skandha.tv/EuroSport_HD/EuroSport_HD.isml/.mpd
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3RGCTxWM/image.jpg" group-title="All Sports", Euro Sports
