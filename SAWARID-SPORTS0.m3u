@@ -53,40 +53,20 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="tapmad-19648" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17935985841020x576.jpg" group-title="SAWARID سواريد - Football", Pakhtakor (UZB) vs Al Nassr Club (KSA) - MATCHDAY 4 - AFC Champions League Elite 2026/27
+#EXTINF:-1 tvg-id="tapmad-19673" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17936000621020x576.jpg" group-title="SAWARID سواريد - Football", Al Gharafa SC (QAT) vs Al Qadsiah Club (KSA) - MATCHDAY 4 - AFC Champions League Elite 2026/27
+https://multiregion-asia-cdn.tapmad.com/v1/01a1456f124d15fc600b1e3e9683d7/01a145990eba15fc60e91e1786b054/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-19668" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17936004211020x576.jpg" group-title="SAWARID سواريد - Football", Al Ittihad Club (KSA) vs Al Ain FC (UAE) - MATCHDAY 4 - AFC Champions League Elite 2026/27
 https://multiregion-asia-cdn.tapmad.com/v1/01a1548c4faf15fc600b1e3e968408/01a1548c7fde1ea557841e1612cf76/main.m3u8
 
 
-#EXTINF:-1 tvg-id="tapmad-19663" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17935997551020x576.jpg" group-title="SAWARID سواريد - Football", Al Sadd SC (QAT) vs Al Ahli Saudi FC (KSA) - MATCHDAY 4 - AFC Champions League Elite 2026/27
-https://multiregion-asia-cdn.tapmad.com/v1/01a154a641d51567ee931e109fa59f/01a154a676281ea557841e1612cf77/main.m3u8
+#EXTINF:-1 tvg-id="4248732" tvg-name="Al Ittihad Vs Al Ain" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248732_53053_ITT_AAI_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Al Ittihad Vs Al Ain
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248732_english_hls_1b9e148e1247439_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
-#EXTINF:-1 tvg-id="tapmad-19658" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17935994661020x576.jpg" group-title="SAWARID سواريد - Football", Al Wasl FC (UAE) vs Air Force SC (IRQ) - MATCHDAY 4 - AFC Champions League Elite 2026/27
-https://multiregion-asia-cdn.tapmad.com/v1/01a154de56151ea540a81c2b41b77a/01a154de85c41567ee931e109fa5a5/main.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-19653" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17935989621020x576.jpg" group-title="SAWARID سواريد - Football", Tractor FC (IRN) vs PFC Neftchi (UZB) - MATCHDAY 4 - AFC Champions League Elite 2026/27
-https://multiregion-asia-cdn.tapmad.com/v1/01a154e351d61ea557841e1612cf79/01a154e3809215fc60e91e1786b098/main.m3u8
-
-
-#EXTINF:-1 tvg-id="4248728" tvg-name="Pakhtakor Tashkent Vs Al Nassr Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248728_53053_PT_ANF_fc-web_1793182503341.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Pakhtakor Tashkent Vs Al Nassr Fc
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248728_english_hls_74a916e7e810742_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248729" tvg-name="Tractor Vs Pfc Neftchi" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248729_53053_TFC_NB_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Tractor Vs Pfc Neftchi
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248729_english_hls_3c976e05a48496_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248730" tvg-name="Al Wasl F.c. Vs Air Force Sc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248730_53053_AWS_AFSC_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Al Wasl F.c. Vs Air Force Sc
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248730_english_hls_23b9c020c441811_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4248731" tvg-name="Al Sadd Vs Al Ahli Saudi Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248731_53053_SDD_AAS_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Al Sadd Vs Al Ahli Saudi Fc
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248731_english_hls_d22cb11ef167319_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4250628" tvg-name="Real Oviedo Vs Las Palmas" tvg-logo="https://images.fancode.com/aig/match/v1793599278548/4250628_CASACARDS_SPORTY_APP.png" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Real Oviedo Vs Las Palmas
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250628_english_hls_bf509611c745727_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4248733" tvg-name="Al Gharafa Vs Al Qadisiyah" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248733_53053_AGH_ALQ_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Al Gharafa Vs Al Qadisiyah
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248733_english_hls_0194875fca800_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
@@ -98,8 +78,8 @@ https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mum
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Cricket 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="4250500" tvg-name="Emirates Blues Vs Ajman" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250500_53130_EMB_AJM_fc-web_1792412930091.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Emirates Blues Vs Ajman
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250500_english_hls_c4ed8ba72c46666_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4250501" tvg-name="Dubai Vs Sharjah" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250501_53130_DUB_SHA_fc-web_1792412930100.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Dubai Vs Sharjah
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250501_english_hls_ab493c21a565424_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
@@ -111,20 +91,20 @@ https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mum
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Prime Video Sports 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="B0HP8GGRWK" tvg-name="The Morning Drive" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.0acecee8-14a1-45bb-b78e-c83dd4167822/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",The Morning Drive
+#EXTINF:-1 tvg-id="B0HPH21D24" tvg-name="Sassuolo vs. Fiorentina" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.bf457391-3f7d-4ba6-a706-3e59a8de6ad0/3/BOXART-16X9/en-US/1920x1080._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMpng_.png" group-title="SAWARID سواريد - Prime Video Sports",Sassuolo vs. Fiorentina
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=e14535ab02e4065cc846047f1feee48d:a51c5c164f9a6b0ae751afeec7f85052
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vax19ewjes/out/v1/f077d112d47e4a899664fa27031ba9fa/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=d9623774ac5c8c351aafe97c5fe70267:5164e6d05164a2d65fa8fcc962aa4861
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/rbem8rorcw/out/v1/5318821e2c3c44c2a439681b9aa86e9b/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HN4P31ZX" tvg-name="Tennis Today Live-Paris-ATP & Chennai-WTA Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.80d5455b-886e-4f95-9aa1-50a8784ccdc3/9/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Tennis Today Live-Paris-ATP & Chennai-WTA Early Rounds
+#EXTINF:-1 tvg-id="B0HN4P31ZX" tvg-name="Tennis Today Live-Paris-ATP & Chennai-WTA Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.80d5455b-886e-4f95-9aa1-50a8784ccdc3/10/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Tennis Today Live-Paris-ATP & Chennai-WTA Early Rounds
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+https://hls-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
@@ -136,16 +116,16 @@ https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Tennis 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="4250547" tvg-name="Court 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Rolex-Paris-Masters_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Court 2
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250547_english_hls_86bc2823d575763_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
 #EXTINF:-1 tvg-id="4250548" tvg-name="Court 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Rolex-Paris-Masters_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Court 1
 https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250548_english_hls_dc9ffe730c203_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 #EXTINF:-1 tvg-id="4250549" tvg-name="World Feed" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Rolex-Paris-Masters_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | World Feed
 https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250549_english_hls_cd610edfc088949_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+
+
+#EXTINF:-1 tvg-id="4250550" tvg-name="Court Central" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Rolex-Paris-Masters_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Tennis",ENG | Court Central
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250550_english_hls_af88dc9fb09822_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 # 🆕 SAWARID سواريد - Tennis 👉 Updateded Done ✅✅✅✅✅✅
