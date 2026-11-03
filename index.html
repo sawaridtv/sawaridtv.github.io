@@ -26,14 +26,17 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
-    <!-- Mux.js (Transmuxer for MPEG-TS & HLS/DASH) -->
+    <!-- Mux.js (Transmuxer for MPEG-TS) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/6.0.1/mux.min.js"></script>
 
-    <!-- Hls.js (Optimized Engine for HLS, SonyLiv, FanCode, M3U8) -->
+    <!-- Hls.js (Engine for M3U8/HLS) -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <!-- Shaka Player v5 (Engine for DASH, MPD, ClearKey DRM) -->
     <script src="https://unpkg.com/shaka-player@5.0.0/dist/shaka-player.compiled.js"></script>
+
+    <!-- Artplayer Core -->
+    <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
 
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -127,30 +130,59 @@
         }
       }
 
-      #playerCard:fullscreen,
-      #playerCard:-webkit-full-screen,
-      #playerCard.fullscreen-mode {
-        background-color: #000000 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: none !important;
-        max-height: none !important;
-        padding: 0 !important;
-        border-radius: 0 !important;
-        border: none !important;
-        overflow: hidden !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        z-index: 99999 !important;
+      /* Artplayer Container Custom Styling */
+      #artplayer-mount {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        background: #000;
       }
 
-      .player-controls-overlay {
-        background: linear-gradient(to top, rgba(6, 2, 15, 0.95) 0%, rgba(6, 2, 15, 0.25) 55%, transparent 100%);
-        transition: opacity 0.3s ease;
+      .art-video-player .art-bottom {
+        padding: 6px 10px !important;
       }
 
-      /* D-PAD Remote Navigation High-Contrast Focus Outline */
+      .art-video-player .art-progress-played {
+        background: #dd2476 !important;
+      }
+
+      /* Adaptive Watermark Over Artplayer */
+      .sawarid-watermark {
+        position: absolute;
+        width: 6.5%;
+        min-width: 38px;
+        max-width: 65px;
+        z-index: 25;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+      .sawarid-watermark.live-visible {
+        opacity: 0.6 !important;
+      }
+
+      /* Unmute overlay banner if browser blocks autoplay audio */
+      .unmute-alert-btn {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(221, 36, 118, 0.95);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 6px 14px;
+        border-radius: 20px;
+        z-index: 40;
+        box-shadow: 0 0 15px rgba(221, 36, 118, 0.6);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* D-PAD Remote Navigation High-Contrast Focus */
       .dpad-focused {
         border-color: #00d4ff !important;
         box-shadow: 0 0 15px rgba(0, 212, 255, 0.9), 0 0 5px #00d4ff !important;
@@ -195,112 +227,6 @@
         overflow: hidden;
         box-shadow: 0 0 35px rgba(221, 36, 118, 0.45);
       }
-
-      /* Ultra-Compact Adaptive Watermark Overlay (Hidden on Dead/Idle, Visible on Live) */
-      .custom-watermark {
-        position: absolute;
-        width: 6.5%;
-        min-width: 36px;
-        max-width: 60px;
-        z-index: 25;
-        opacity: 0; 
-        pointer-events: none;
-        transition: opacity 0.4s ease, left 0.3s ease, bottom 0.3s ease;
-      }
-      .custom-watermark.live-visible {
-        opacity: 0.55 !important; 
-      }
-
-      /* Dynamic Static Poster Fade CSS */
-      #videoPoster {
-        transition: opacity 0.4s ease, visibility 0.4s ease;
-      }
-      #videoPoster.fade-out {
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-      }
-
-      /* Quality & CC Dropdown Boxes */
-      .quality-menu-box, .cc-menu-box {
-        background-color: #121214;
-        border: 1px solid #2e1256;
-        border-radius: 8px;
-        overflow: hidden;
-        min-width: 165px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
-      }
-      .quality-menu-header, .cc-menu-header {
-        background-color: #dd2476;
-        color: #ffffff;
-        font-weight: 800;
-        font-size: 11px;
-        padding: 7px 12px;
-      }
-      .quality-menu-item, .cc-menu-item {
-        color: #ffffff;
-        font-size: 11px;
-        font-weight: 700;
-        padding: 6px 12px;
-        cursor: pointer;
-        transition: background 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .quality-menu-item:hover, .cc-menu-item:hover {
-        background-color: rgba(221, 36, 118, 0.25);
-        color: #00c6ff;
-      }
-      .quality-menu-item.active, .cc-menu-item.active {
-        color: #00d4ff;
-        font-weight: 900;
-      }
-
-      /* Gesture HUD Floating Indicator Pill */
-      .gesture-hud-pill {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(12, 5, 26, 0.88);
-        border: 1px solid rgba(0, 212, 255, 0.4);
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-        border-radius: 24px;
-        padding: 8px 18px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        z-index: 35;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-      }
-      .gesture-hud-pill.show {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-
-      /* Animated Ripple Feedback for Double Tap Seek */
-      .seek-ripple-pill {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(221, 36, 118, 0.85);
-        border-radius: 9999px;
-        padding: 10px 20px;
-        font-size: 13px;
-        font-weight: 900;
-        color: white;
-        z-index: 35;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.25s, transform 0.25s;
-      }
-      .seek-ripple-pill.show {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.1);
-      }
     </style>
   </head>
   <body class="bg-mesh-blur text-[#edf5ff] min-h-screen flex flex-col font-sans select-none overflow-hidden" oncontextmenu="return false;">
@@ -309,7 +235,7 @@
     <header class="border-b border-white/20 bg-[#202d6d]/90 backdrop-blur-md z-40 px-3 py-2 h-[50px] flex items-center shrink-0">
       <div class="w-full max-w-7xl mx-auto flex items-center justify-between">
         
-        <!-- Left Side Logo with Click Trigger for Disclaimer -->
+        <!-- Left Side Logo -->
         <div class="flex items-center gap-2">
           <div 
             onclick="showDisclaimer()"
@@ -317,22 +243,21 @@
             title="View Disclaimer"
           >
             <img 
-              src="https://i.postimg.cc/2SV9xNmR/SAWARID-LOGO-MEDIUM-Copy.png" 
+              src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" 
               alt="Sawarid Logo" 
               class="max-h-full max-w-full object-contain" 
             />
           </div>
           <div>
             <h1 class="text-xs sm:text-sm font-black tracking-tight text-white flex items-center gap-1.5 font-sans">
-              
-              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سواريد   |</span>
-              <span>ALL SPORTS</span>
+              <span>FIFA 2026 |</span>
+              <span class="text-mix-gradient font-arabic font-extrabold">SAWARID سواريد</span>
             </h1>
             <p class="text-[8px] text-gray-200 font-semibold tracking-wider font-sans uppercase">DOWNLOAD SAWARID APPS FROM APKPURE</p>
           </div>
         </div>
 
-        <!-- Right Side Original Download Sawarid Apps Button -->
+        <!-- Right Side Download Button -->
         <a 
           href="https://apkpure.com/p/com.sawaridtv.pro" 
           target="_blank" 
@@ -357,169 +282,26 @@
         
         <!-- Video Player Wrapper -->
         <div class="w-full aspect-video bg-black relative rounded-lg overflow-hidden border border-[#202d6d]/80 shadow-2xl shrink-0">
-          <div 
-            id="playerCard" 
-            class="w-full h-full relative group bg-black"
-            onmousemove="handleUserInteraction()"
-          >
-            <div class="relative w-full h-full flex flex-col justify-center items-center bg-black overflow-hidden">
+          <div id="playerCard" class="w-full h-full relative group bg-black">
+            
+            <!-- Artplayer Mount Div -->
+            <div id="artplayer-mount"></div>
 
-              <!-- Unified HTML5 Video Element (Default: FILL/object-fill) -->
-              <video 
-                id="liveVideo" 
-                class="w-full h-full object-fill cursor-default relative z-0" 
-                playsinline
-                webkit-playsinline
-                x5-playsinline
-                autoplay
-              ></video>
+            <!-- Unmute Warning Button (If Autoplay Sound Blocked) -->
+            <button id="unmutePrompt" class="unmute-alert-btn" onclick="forceUnmuteAudio()">
+              <i data-lucide="volume-x" class="w-4 h-4"></i>
+              <span>Click to Unmute Audio</span>
+            </button>
 
-              <!-- Dynamic Brightness Overlay (Mobile Gesture Controlled) -->
-              <div id="brightnessFilterOverlay" class="absolute inset-0 bg-black pointer-events-none opacity-0 z-20 transition-opacity duration-75"></div>
+            <!-- Adaptive Watermark Logo -->
+            <img 
+              id="sawaridWatermark"
+              src="https://i.postimg.cc/htZPY1DX/Sawarid-logo.png" 
+              alt="Sawarid" 
+              class="sawarid-watermark"
+              style="left: 3%; bottom: 10%;"
+            />
 
-              <!-- Watermark Overlay (Adaptive, Compact, Hidden on Dead Channels) -->
-              <img 
-                id="shakaWatermark"
-                src="https://i.postimg.cc/htZPY1DX/Sawarid-logo.png" 
-                alt="Sawarid" 
-                class="custom-watermark left-[4%] bottom-[13%]"
-              />
-
-              <!-- Dynamic Poster -->
-              
-              <img 
-                id="videoPoster" 
-                src="https://i.pinimg.com/originals/5a/93/4e/5a934e84f67d2a61a118ec95b1d6cb74.gif" 
-                class="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none" 
-                alt="Connecting"
-              />
-
-              <!-- Gesture HUD Floating Pill (Volume / Brightness) -->
-              <div id="gestureHudPill" class="gesture-hud-pill">
-                <span id="gestureHudIcon" class="text-[#00d4ff]"></span>
-                <span id="gestureHudLabel" class="text-xs font-black text-white"></span>
-                <div class="w-20 h-1.5 bg-white/20 rounded-full overflow-hidden ml-1">
-                  <div id="gestureHudBar" class="h-full bg-gradient-to-r from-[#00c6ff] to-[#dd2476] w-1/2"></div>
-                </div>
-              </div>
-
-              <!-- Double Tap Seek Feedback Pills -->
-              <div id="seekLeftPill" class="seek-ripple-pill left-8">⏪ -10s</div>
-              <div id="seekRightPill" class="seek-ripple-pill right-8">⏩ +10s</div>
-
-              <!-- Modern OSD Controls Overlay -->
-              <div id="playerControls" class="player-controls-overlay absolute inset-0 flex flex-col justify-end p-2.5 z-30 opacity-100 transition-opacity duration-300">
-                
-                <!-- Bottom Controls Toolbar with Interactive Scrubber Line -->
-                <div class="w-full flex flex-col gap-1.5 pointer-events-auto" onclick="event.stopPropagation()">
-                  
-                  <!-- Interactive Progress Bar: Left Time, Middle Drag Track with Dot, Right Buffer Time -->
-                  <div class="w-full flex items-center gap-2 px-1">
-                    <span id="timeCurrent" class="text-[10px] font-mono font-bold text-gray-200 shrink-0">00:00</span>
-                    
-                    <div id="timelineContainer" class="relative flex-1 h-3 flex items-center cursor-pointer select-none">
-                      <div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden relative">
-                        <div id="loadedProgress" class="absolute top-0 bottom-0 left-0 bg-white/40 w-0 transition-all"></div>
-                        <div id="playbackProgress" class="absolute top-0 bottom-0 left-0 bg-[#dd2476] w-0"></div>
-                      </div>
-                      <div id="progressDot" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full border-2 border-[#dd2476] shadow-[0_0_10px_#dd2476] pointer-events-none" style="left: 0%;"></div>
-                    </div>
-
-                    <span id="timeLoaded" class="text-[10px] font-mono font-bold text-gray-400 shrink-0">00:00</span>
-                  </div>
-
-                  <!-- Control Buttons Row -->
-                  <div class="w-full flex items-center justify-between gap-2 pt-1 border-t border-white/10 backdrop-blur-sm">
-                    <!-- Left Controls: Play, Mute, and LIVE Badge -->
-                    <div class="flex items-center gap-2">
-                      <button id="playBtn" onclick="togglePlay(event)" class="h-8 px-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none" title="Play/Pause">
-                        <!-- Play SVG -->
-                      </button>
-                      
-                      <button id="muteBtn" onclick="toggleMute(event)" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none" title="Mute/Unmute">
-                        <!-- Mute SVG -->
-                      </button>
-
-                      <span id="bottomLiveBadge" class="hidden px-2.5 py-0.5 rounded-full bg-red-600 text-[9px] font-black tracking-widest text-white uppercase animate-pulse shadow-md select-none">
-                        LIVE
-                      </span>
-                    </div>
-
-                    <!-- Right Controls: Quality, CC, Aspect Ratio (FILL), PiP, Fullscreen -->
-                    <div class="flex items-center gap-1.5">
-                      
-                      <!-- 1. Quality Dropdown (Auto Adaptive) -->
-                      <div class="relative inline-block text-left" id="customQualityDropdown">
-                        <button 
-                          type="button"
-                          id="qualityDropdownBtn" 
-                          onclick="toggleQualityMenu(event)"
-                          class="h-8 px-2.5 text-[10px] rounded-lg bg-[#0c051a]/90 border border-white/20 font-bold text-white hover:bg-[#14082b] transition-all flex items-center gap-1 focus:outline-none"
-                        >
-                          <span id="qualityDropdownLabel">Auto (Adaptive)</span>
-                          <i data-lucide="chevron-down" class="h-3 w-3"></i>
-                        </button>
-                        <div 
-                          id="qualityDropdownMenu" 
-                          class="hidden absolute bottom-full right-0 mb-2 quality-menu-box z-[99999] flex flex-col"
-                        ></div>
-                      </div>
-
-                      <!-- 2. CC Button with Settings Popover -->
-                      <div class="relative inline-block text-left" id="ccDropdownWrapper">
-                        <button 
-                          type="button"
-                          id="ccBtn" 
-                          onclick="toggleCCMenu(event)" 
-                          class="h-8 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-gray-400 transition-all flex items-center justify-center text-[10px] font-black active:scale-95 focus:outline-none"
-                          title="Subtitles & Closed Captions"
-                        >
-                          CC
-                        </button>
-                        
-                        <div id="ccSettingsModal" class="hidden absolute bottom-full right-0 mb-2 cc-menu-box z-[99999] flex flex-col">
-                          <div class="cc-menu-header flex items-center justify-between">
-                            <span>Captions & Subtitles</span>
-                            <span id="ccStatusBadge" class="text-[9px] px-1.5 py-0.5 bg-black/40 rounded">OFF</span>
-                          </div>
-                          <div class="p-2 border-b border-white/10 flex items-center justify-between text-[11px] font-bold">
-                            <span>Enable CC</span>
-                            <button onclick="toggleCCQuick(event)" id="ccToggleSwitch" class="w-8 h-4 bg-gray-600 rounded-full p-0.5 transition-colors">
-                              <div class="w-3 h-3 bg-white rounded-full transition-transform"></div>
-                            </button>
-                          </div>
-                          <div class="p-2 text-[10px] text-gray-400 font-bold border-b border-white/10">TRACK SELECTION</div>
-                          <div id="ccTracksList" class="flex flex-col max-h-32 overflow-y-auto"></div>
-                        </div>
-                      </div>
-
-                      <!-- 3. Aspect Ratio Toggle (Default: FILL) -->
-                      <button 
-                        id="aspectRatioBtn"
-                        onclick="toggleAspectRatio(null, event)" 
-                        class="h-8 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center gap-1.5 text-[10px] font-black active:scale-95 focus:outline-none" 
-                        title="Screen Mode: FILL / ZOOM / FIT"
-                      >
-                        <span id="aspectRatioIconContainer"></span>
-                        <span id="aspectRatioLabel">FILL</span>
-                      </button>
-
-                      <!-- 4. PiP Mode Toggle -->
-                      <button onclick="togglePiP(event)" class="h-8 w-8 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none" title="Picture-in-Picture">
-                        <i data-lucide="picture-in-picture" class="h-4 w-4"></i>
-                      </button>
-
-                      <!-- 5. Fullscreen Mode Toggle -->
-                      <button onclick="toggleFullscreen(event)" class="h-8 w-8 rounded-lg bg-mix-gradient text-white transition-all flex items-center justify-center active:scale-95 focus:outline-none shadow-md" title="Fullscreen">
-                        <i data-lucide="maximize" class="h-4 w-4"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
           </div>
         </div>
 
@@ -606,7 +388,7 @@
         <div class="bg-[#202d6d] px-4 py-3 border-b border-white/10 flex items-center justify-between">
           <div class="flex items-center gap-2">
             <div class="h-7 w-7 rounded bg-white p-0.5 flex items-center justify-center">
-              <img src="https://i.postimg.cc/2SV9xNmR/SAWARID-LOGO-MEDIUM-Copy.png" alt="Sawarid" class="max-h-full object-contain" />
+              <img src="https://i.postimg.cc/RVfwpVLf/20260614-235732.png" alt="Sawarid" class="max-h-full object-contain" />
             </div>
             <div>
               <h3 class="text-white text-sm font-black uppercase font-arabic">Disclaimer & Notice</h3>
@@ -620,7 +402,6 @@
         <div class="flex-1 overflow-y-auto p-4 text-xs text-gray-200 space-y-3 font-sans leading-relaxed">
           <div>
             <h4 class="text-[#00c6ff] font-bold text-xs mb-1 uppercase">1. No Hosting & No Broadcasting</h4>
-            
             <p>SAWARID سواريد is strictly a Media Aggregator. We DO NOT host, broadcast, or store media files or streams on our servers.</p>
           </div>
           <div>
@@ -644,8 +425,782 @@
       </div>
     </div>
 
+    <!-- Playlists Configuration -->
+    <script>
+      const playlists = [
+        { url: 'https://sawarid-proxy-ksa.pages.dev/LiveEventSports.m3u', name: "Live Event", displayName: "Live Event" },
+        { url: 'https://sawaridtv.pages.dev/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
+        { url: 'https://sawaridtv.pages.dev/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Live Channels" },
+      ];
 
-    <script src="Config.js"></script>
+      const adsterraLinks = [
+        "https://clenchinfer.com/d5yhbq8kg?key=a6e7f0b5411e29ddfc4ad4b07f0bd55e",
+        "https://clenchinfer.com/wa4j1fs86d?key=8c109ea1fe3da680691b30448b3eb147",
+        "https://clenchinfer.com/gq968gjnk?key=62e59ae53115a83f79c455d7f0529f0f"
+      ];
+      const AD_TRIGGER_CLICKS = 300; 
+
+      const DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 13; SM-S908B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36 ExoPlayer/Media3 SawaridTV/2.0";
+    </script>
+
+    <!-- Unified Artplayer Engine Script -->
+    <script>
+      // Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBOYmpK5yTAFT-IQgJv_WE8iUeAf4ydpVA",
+        authDomain: "sawarid.firebaseapp.com",
+        databaseURL: "https://sawarid-default-rtdb.firebaseio.com", 
+        projectId: "sawarid",
+        storageBucket: "sawarid.firebasestorage.app",
+        messagingSenderId: "410572620208",
+        appId: "1:410572620208:web:aca1810b69057d32f05675"
+      };
+
+      // State Management
+      let parsedChannels = [];
+      let filteredChannels = [];
+      let activeChannel = null;
+      let playlistSyncInterval = null;
+
+      // Remote Navigation State
+      let focusZone = 'channels';
+      let currentPlaylistIndex = 0;
+      let currentChannelFocusIndex = 0;
+
+      // Counters & Ads State
+      let channelWatchCount = 0;
+      let adTimer = null;
+      let countdownInterval = null;
+      let disclaimerAutoCloseTimer = null;
+      let disclaimerCountdownInterval = null;
+
+      // Global Player & Engine References
+      let art = null;
+      let activeHls = null;
+      let activeShaka = null;
+      let isFirstAutoplay = true;
+
+      const sawaridWatermark = document.getElementById('sawaridWatermark');
+      const unmutePrompt = document.getElementById('unmutePrompt');
+
+      /* ========================================================================
+         ১. ওয়াটারমার্ক ও অ্যাসপেক্ট রেশিও অ্যাডাপ্টেশন (Fit মোডে ডার্ক অংশ এড়িয়ে চলা)
+         ======================================================================== */
+      function updateWatermarkPosition(aspectRatio) {
+        if (!sawaridWatermark) return;
+        if (aspectRatio === 'contain' || aspectRatio === 'fit') {
+          // FIT মোডে ভিডিও মাঝখানে থাকে, তাই ওয়াটারমার্ক আরও ডান ও উপরের দিকে যাবে
+          sawaridWatermark.style.left = '14%';
+          sawaridWatermark.style.bottom = '12%';
+        } else {
+          // FILL বা COVER মোডে স্বাভাবিক কর্নারে থাকবে
+          sawaridWatermark.style.left = '3%';
+          sawaridWatermark.style.bottom = '10%';
+        }
+      }
+
+      function showWatermark() {
+        if (sawaridWatermark) sawaridWatermark.classList.add('live-visible');
+      }
+
+      function hideWatermark() {
+        if (sawaridWatermark) sawaridWatermark.classList.remove('live-visible');
+      }
+
+      function forceUnmuteAudio() {
+        if (art && art.video) {
+          art.video.muted = false;
+          art.video.volume = 1.0;
+          unmutePrompt.style.display = 'none';
+        }
+      }
+
+      /* ========================================================================
+         ২. Artplayer.js কোর প্লেব্যাক ম্যানেজার
+         ======================================================================== */
+      function cleanupActiveEngines() {
+        if (activeHls) {
+          try { activeHls.destroy(); } catch (e) {}
+          activeHls = null;
+        }
+        if (activeShaka) {
+          try { activeShaka.destroy(); } catch (e) {}
+          activeShaka = null;
+        }
+      }
+
+      function loadChannelInArtplayer(channelPlan) {
+        hideWatermark();
+        unmutePrompt.style.display = 'none';
+
+        // ৩.১ রিকোয়ারমেন্ট: চ্যানেল পরিবর্তনের সাথে সাথে প্লেয়ার সম্পূর্ণ রিসেট হবে (কোনো প্রগ্রেস বার অবশিষ্ট থাকবে না)
+        if (art && art.destroy) {
+          art.destroy(false);
+          art = null;
+        }
+        cleanupActiveEngines();
+
+        const mount = document.getElementById('artplayer-mount');
+        mount.innerHTML = '';
+
+        const streamUrl = channelPlan.url;
+        const isDrmStream = channelPlan.isDrm || streamUrl.includes('.mpd');
+
+        // Artplayer ইন্সট্যান্স ইনিশিয়ালাইজেশন
+        art = new Artplayer({
+          container: '#artplayer-mount',
+          url: streamUrl,
+          poster: 'https://i.pinimg.com/originals/5a/93/4e/5a934e84f67d2a61a118ec95b1d6cb74.gif',
+          isLive: true,
+          volume: 1.0,
+          muted: false, // ৩.৩ রিকোয়ারমেন্ট: আনমিউটেড থাকবে
+          autoplay: true,
+          autoSize: false,
+          autoMini: false,
+          theme: '#dd2476',
+          setting: true,
+          pip: true,
+          fullscreen: true,
+          fullscreenWeb: true,
+          aspectRatio: true,
+          autoHide: true,
+          autoHideTime: 2000, // ৩ রিকোয়ারমেন্ট: ঠিক ২ সেকেন্ডে কন্ট্রোলার হাইড হবে
+          lock: false,
+          type: isDrmStream ? 'mpd' : 'm3u8',
+          customType: {
+            m3u8: function (video, url, artInstance) {
+              if (Hls.isSupported()) {
+                const hls = new Hls({
+                  enableWorker: true,
+                  lowLatencyMode: true,
+                  backBufferLength: 15,
+                  maxBufferLength: 25,
+                  maxMaxBufferLength: 50,
+                  liveSyncDurationCount: 3
+                });
+                activeHls = hls;
+                hls.loadSource(url);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                  // কোয়ালিটি সুইচার বিল্ডআপ
+                  let levels = hls.levels.map((lvl, index) => ({
+                    height: lvl.height || 0,
+                    levelIndex: index
+                  }));
+                  levels.sort((a, b) => b.height - a.height);
+                  let qualities = levels.map(lvl => ({
+                    default: lvl.levelIndex === hls.currentLevel,
+                    html: lvl.height ? lvl.height + 'P' : 'SD',
+                    levelIndex: lvl.levelIndex
+                  }));
+                  qualities.unshift({ default: true, html: 'Auto', levelIndex: -1 });
+
+                  if (artInstance && artInstance.setting) {
+                    artInstance.setting.update({
+                      width: 200,
+                      name: 'Quality',
+                      html: 'Quality',
+                      selector: qualities,
+                      onSelect: function (item) {
+                        hls.currentLevel = item.levelIndex;
+                        return item.html;
+                      }
+                    });
+                  }
+                  attemptPlaySafe(video);
+                });
+
+                hls.on(Hls.Events.ERROR, function(ev, data) {
+                  if (data.fatal) {
+                    if (data.type === Hls.ErrorTypes.NETWORK_ERROR) hls.startLoad();
+                    else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) hls.recoverMediaError();
+                    else hideWatermark();
+                  }
+                });
+              } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = url;
+                attemptPlaySafe(video);
+              }
+            },
+            mpd: function (video, url, artInstance) {
+              shaka.polyfill.installAll();
+              const player = new shaka.Player();
+              player.attach(video).then(() => {
+                activeShaka = player;
+                player.configure({
+                  streaming: {
+                    bufferingGoal: 8,
+                    rebufferingGoal: 1.5,
+                    retryParameters: { maxAttempts: 3, timeout: 5000 }
+                  },
+                  abr: { enabled: true }
+                });
+
+                if (channelPlan.isDrm && channelPlan.drmKeys && Object.keys(channelPlan.drmKeys).length > 0) {
+                  player.configure({ drm: { clearKeys: channelPlan.drmKeys } });
+                }
+
+                player.load(url).then(() => {
+                  attemptPlaySafe(video);
+                }).catch(err => {
+                  console.warn("Shaka load error:", err);
+                  hideWatermark();
+                });
+              });
+            }
+          },
+          controls: [
+            {
+              position: 'left',
+              index: 10,
+              html: '<span class="px-2 py-0.5 bg-red-600 rounded text-[9px] font-black text-white uppercase animate-pulse">LIVE</span>',
+            }
+          ]
+        });
+
+        // ইভেন্ট লিসেনারস
+        art.on('video:playing', () => {
+          showWatermark();
+          unmutePrompt.style.display = 'none';
+        });
+
+        art.on('video:pause', () => {
+          // পজ হলে ওয়াটারমার্ক থাকবে কিন্তু স্টপ বা এরর হলে লুকাবে
+        });
+
+        art.on('error', () => {
+          hideWatermark();
+        });
+
+        // অ্যাসপেক্ট রেশিও পরিবর্তনের সাথে সাথে ওয়াটারমার্ক ডার্ক অংশ থেকে সরানো
+        art.on('aspectRatio', (ratio) => {
+          updateWatermarkPosition(ratio);
+        });
+
+        // ডিফল্ট ফিল স্ক্রিন
+        if (art.video) {
+          art.video.style.objectFit = 'fill';
+        }
+      }
+
+      function attemptPlaySafe(video) {
+        video.muted = false;
+        video.volume = 1.0;
+        video.play().then(() => {
+          showWatermark();
+        }).catch(err => {
+          console.warn("Browser prevented unmuted autoplay:", err);
+          video.muted = true;
+          video.play().then(() => {
+            showWatermark();
+            unmutePrompt.style.display = 'flex';
+          });
+        });
+      }
+
+      /* ========================================================================
+         ৩. অটোমেটিক প্লেলিস্ট অ্যানালাইজার ও পার্সার
+         ======================================================================== */
+      async function fetchAndAnalyzePlaylist(url) {
+        let text = '';
+        try {
+          const res = await fetch(url);
+          if (res.ok) text = await res.text();
+        } catch (e) {
+          try {
+            const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+            const res2 = await fetch(proxy);
+            if (res2.ok) text = await res2.text();
+          } catch (err) {}
+        }
+
+        if (!text) return [];
+
+        const lines = text.split('\n');
+        const channels = [];
+        let tempMeta = null;
+        let tempUrls = [];
+
+        for (let i = 0; i < lines.length; i++) {
+          let line = lines[i].trim();
+          if (!line) continue;
+
+          if (line.startsWith('#EXTINF:')) {
+            if (tempMeta && tempUrls.length > 0) {
+              createChannelPlaybackPlans(channels, tempMeta, tempUrls);
+            }
+            tempMeta = {
+              name: 'Channel',
+              logo: '',
+              isDrm: false,
+              drmKeys: {},
+              userAgent: DEFAULT_USER_AGENT
+            };
+            tempUrls = [];
+
+            const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+            if (logoMatch) tempMeta.logo = logoMatch[1];
+
+            const commaIdx = line.lastIndexOf(',');
+            if (commaIdx !== -1) {
+              tempMeta.name = line.substring(commaIdx + 1).trim().replace(/["']/g, '');
+            }
+          } else if (line.startsWith('#KODIPROP:inputstream.adaptive.license_key=')) {
+            if (!tempMeta) continue;
+            tempMeta.isDrm = true;
+            parseDrmKeys(line.split('=')[1].trim(), tempMeta.drmKeys);
+          } else if (line.startsWith('#EXTVLCOPT:http-user-agent=')) {
+            if (tempMeta) tempMeta.userAgent = line.split('http-user-agent=')[1].trim();
+          } else if (line.startsWith('http://') || line.startsWith('https://')) {
+            if (tempMeta) tempUrls.push(line);
+          }
+        }
+
+        if (tempMeta && tempUrls.length > 0) {
+          createChannelPlaybackPlans(channels, tempMeta, tempUrls);
+        }
+
+        return channels;
+      }
+
+      function parseDrmKeys(keyStr, drmKeysObj) {
+        try {
+          if (keyStr.startsWith('{')) {
+            const parsed = JSON.parse(keyStr);
+            for (let k in parsed) {
+              const cleanK = k.toLowerCase().replace(/[^a-f0-9]/gi, '');
+              const cleanV = parsed[k].toLowerCase().replace(/[^a-f0-9]/gi, '');
+              drmKeysObj[cleanK] = cleanV;
+            }
+          } else {
+            const parts = keyStr.split(':');
+            if (parts.length === 2) {
+              const cleanK = parts[0].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+              const cleanV = parts[1].toLowerCase().trim().replace(/[^a-f0-9]/gi, '');
+              drmKeysObj[cleanK] = cleanV;
+            }
+          }
+        } catch (e) {}
+      }
+
+      function createChannelPlaybackPlans(channelsList, meta, urls) {
+        urls.forEach((rawUrl, idx) => {
+          let cleanUrl = rawUrl.trim();
+          let localMeta = { ...meta, drmKeys: { ...meta.drmKeys } };
+
+          if (cleanUrl.includes('|')) {
+            const parts = cleanUrl.split('|');
+            cleanUrl = parts[0].trim();
+            const q = parts[1].trim();
+            if (q.includes('User-Agent=')) {
+              localMeta.userAgent = q.split('User-Agent=')[1].split('&')[0];
+            }
+          }
+
+          if (cleanUrl.includes('drmScheme=clearkey')) {
+            localMeta.isDrm = true;
+            const keyMatch = cleanUrl.match(/drmLicense=([a-f0-9]{32}:[a-f0-9]{32})/i);
+            if (keyMatch) parseDrmKeys(keyMatch[1], localMeta.drmKeys);
+          }
+
+          const targetName = (urls.length === 1) ? localMeta.name : `${localMeta.name} ${idx + 1}`;
+
+          channelsList.push({
+            name: targetName,
+            logo: localMeta.logo,
+            url: cleanUrl,
+            isDrm: localMeta.isDrm,
+            drmKeys: localMeta.drmKeys,
+            userAgent: localMeta.userAgent
+          });
+        });
+      }
+
+      /* ========================================================================
+         ৪. চ্যানেল গ্রিড ও D-Pad রিমোট নেভিগেশন
+         ======================================================================== */
+      function renderChannelsGrid(channels = parsedChannels) {
+        const grid = document.getElementById('channels-grid');
+        grid.innerHTML = '';
+
+        if (channels.length === 0) {
+          grid.innerHTML = '<div class="col-span-full py-10 text-center text-xs font-bold text-gray-400">No Channels Found</div>';
+          return;
+        }
+
+        channels.forEach((ch, idx) => {
+          const isActive = activeChannel && ch.url === activeChannel.url;
+          const card = document.createElement('button');
+          card.className = `channel-item rounded-lg border flex flex-col w-full overflow-hidden transition-all duration-150 outline-none ${
+            isActive 
+              ? 'border-[#00d4ff] shadow-[0_0_12px_rgba(0,212,255,0.85)] scale-[1.02]' 
+              : 'border-[#2e1256] bg-[#0c051a] hover:border-white/40'
+          }`;
+          card.setAttribute('data-index', idx);
+
+          card.innerHTML = `
+            <div class="bg-white p-1 flex-1 flex items-center justify-center w-full aspect-[1.3/1] overflow-hidden">
+              <img src="${ch.logo}" alt="" class="max-h-full max-w-full object-contain pointer-events-none" onerror="this.src='https://i.postimg.cc/htZPY1DX/Sawarid-logo.png';" />
+            </div>
+            <div class="w-full py-1 px-1 text-center text-[9px] font-black truncate text-white uppercase ${
+              isActive ? 'bg-[#0052cc]' : 'bg-[#5c134f]'
+            }">
+              ${ch.name}
+            </div>
+          `;
+
+          card.onclick = () => selectChannel(idx);
+          grid.appendChild(card);
+        });
+
+        highlightFocusedItem();
+      }
+
+      function selectChannel(index) {
+        const targetList = filteredChannels.length > 0 ? filteredChannels : parsedChannels;
+        if (targetList[index]) {
+          activeChannel = targetList[index];
+          currentChannelFocusIndex = index;
+          focusZone = 'channels';
+
+          channelWatchCount++;
+          if (channelWatchCount >= AD_TRIGGER_CLICKS) {
+            channelWatchCount = 0;
+            showAdPopup();
+          }
+
+          renderChannelsGrid(targetList);
+          loadChannelInArtplayer(activeChannel);
+        }
+      }
+
+      function getGridColumns() {
+        return window.innerWidth >= 768 ? 3 : 4;
+      }
+
+      function highlightFocusedItem() {
+        document.querySelectorAll('.playlist-btn').forEach(btn => btn.classList.remove('playlist-focused'));
+        document.querySelectorAll('.channel-item').forEach(item => item.classList.remove('dpad-focused'));
+
+        if (focusZone === 'playlist') {
+          const catButtons = document.querySelectorAll('.playlist-btn');
+          if (catButtons[currentPlaylistIndex]) {
+            const activeBtn = catButtons[currentPlaylistIndex];
+            activeBtn.classList.add('playlist-focused');
+            activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        } else if (focusZone === 'channels') {
+          const cards = document.querySelectorAll('.channel-item');
+          if (cards[currentChannelFocusIndex]) {
+            const activeCard = cards[currentChannelFocusIndex];
+            activeCard.classList.add('dpad-focused');
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+          }
+        }
+      }
+
+      function handleDpadKeyDown(e) {
+        const key = e.key;
+        const searchInput = document.getElementById('channelSearch');
+
+        if (document.activeElement === searchInput) {
+          if (key === 'Escape' || key === 'ArrowDown') {
+            searchInput.blur();
+            focusZone = 'channels';
+            highlightFocusedItem();
+          }
+          return;
+        }
+
+        const navKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' '];
+        if (!navKeys.includes(key)) return;
+        e.preventDefault();
+
+        const cols = getGridColumns();
+        const totalChannels = (filteredChannels.length > 0 ? filteredChannels : parsedChannels).length;
+        const totalPlaylists = playlists.length;
+
+        if (focusZone === 'playlist') {
+          if (key === 'ArrowLeft') {
+            currentPlaylistIndex = currentPlaylistIndex > 0 ? currentPlaylistIndex - 1 : totalPlaylists - 1;
+            highlightFocusedItem();
+          } else if (key === 'ArrowRight') {
+            currentPlaylistIndex = currentPlaylistIndex < totalPlaylists - 1 ? currentPlaylistIndex + 1 : 0;
+            highlightFocusedItem();
+          } else if (key === 'ArrowDown') {
+            focusZone = 'channels';
+            highlightFocusedItem();
+          } else if (key === 'Enter' || key === ' ') {
+            switchPlaylistTab(currentPlaylistIndex);
+          }
+        } else if (focusZone === 'channels') {
+          if (key === 'ArrowLeft') {
+            if (currentChannelFocusIndex > 0) {
+              currentChannelFocusIndex--;
+              highlightFocusedItem();
+            }
+          } else if (key === 'ArrowRight') {
+            if (currentChannelFocusIndex < totalChannels - 1) {
+              currentChannelFocusIndex++;
+              highlightFocusedItem();
+            }
+          } else if (key === 'ArrowUp') {
+            if (currentChannelFocusIndex >= cols) {
+              currentChannelFocusIndex -= cols;
+              highlightFocusedItem();
+            } else {
+              focusZone = 'playlist';
+              highlightFocusedItem();
+            }
+          } else if (key === 'ArrowDown') {
+            if (currentChannelFocusIndex + cols < totalChannels) {
+              currentChannelFocusIndex += cols;
+              highlightFocusedItem();
+            }
+          } else if (key === 'Enter' || key === ' ') {
+            selectChannel(currentChannelFocusIndex);
+          }
+        }
+      }
+
+      /* ========================================================================
+         ৫. প্লেলিস্ট সুইচিং ও ব্যাকগ্রাউন্ড অটো-সিঙ্ক
+         ======================================================================== */
+      function setupPlaylistSelector() {
+        const container = document.getElementById('playlistSelector');
+        container.innerHTML = '';
+
+        playlists.forEach((p, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `playlist-btn px-4 py-1.5 rounded-lg border text-xs font-black transition-all outline-none ${
+            idx === currentPlaylistIndex 
+              ? 'bg-[#dd2476] border-white text-white shadow-lg' 
+              : 'bg-[#14082b] border-[#2e1256] text-gray-300 hover:text-white'
+          }`;
+          btn.textContent = p.displayName;
+          btn.onclick = () => switchPlaylistTab(idx);
+          container.appendChild(btn);
+        });
+
+        loadPlaylistData(currentPlaylistIndex);
+      }
+
+      function switchPlaylistTab(index) {
+        currentPlaylistIndex = index;
+        const buttons = document.querySelectorAll('.playlist-btn');
+        buttons.forEach((b, i) => {
+          if (i === index) {
+            b.className = 'playlist-btn px-4 py-1.5 rounded-lg border text-xs font-black transition-all outline-none bg-[#dd2476] border-white text-white shadow-lg';
+          } else {
+            b.className = 'playlist-btn px-4 py-1.5 rounded-lg border text-xs font-black transition-all outline-none bg-[#14082b] border-[#2e1256] text-gray-300 hover:text-white';
+          }
+        });
+        loadPlaylistData(index);
+      }
+
+      async function loadPlaylistData(index) {
+        const playlist = playlists[index];
+        const grid = document.getElementById('channels-grid');
+        grid.innerHTML = `
+          <div class="col-span-full py-12 flex flex-col items-center justify-center gap-2">
+            <div class="w-8 h-8 rounded-full border-4 border-[#2e1256] border-t-[#dd2476] animate-spin"></div>
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider font-arabic">Connecting ${playlist.displayName}...</p>
+          </div>
+        `;
+
+        parsedChannels = await fetchAndAnalyzePlaylist(playlist.url);
+        filteredChannels = [];
+        currentChannelFocusIndex = 0;
+
+        document.getElementById('channelSearch').value = '';
+        document.getElementById('clearSearch').classList.add('hidden');
+        document.getElementById('searchResultsInfo').classList.add('hidden');
+
+        if (parsedChannels.length > 0) {
+          activeChannel = parsedChannels[0];
+          renderChannelsGrid(parsedChannels);
+          // ৩.৩ রিকোয়ারমেন্ট: প্রথম চ্যানেলটি পেজ খোলার সাথে সাথে অটো প্লে হবে
+          loadChannelInArtplayer(activeChannel);
+        } else {
+          grid.innerHTML = '<div class="col-span-full py-12 text-center text-xs font-bold text-gray-400">Failed to load channels</div>';
+        }
+
+        restartPlaylistSyncTimer();
+      }
+
+      async function syncPlaylistInBackground() {
+        try {
+          const playlist = playlists[currentPlaylistIndex];
+          if (!playlist || !playlist.url) return;
+
+          const cacheBustedUrl = playlist.url + (playlist.url.includes('?') ? '&' : '?') + '_t=' + Date.now();
+          const freshChannels = await fetchAndAnalyzePlaylist(cacheBustedUrl);
+
+          if (freshChannels && freshChannels.length > 0) {
+            parsedChannels = freshChannels;
+            const searchInput = document.getElementById('channelSearch');
+            const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+            if (query.length > 0) {
+              filteredChannels = parsedChannels.filter(c => c.name.toLowerCase().includes(query));
+              renderChannelsGrid(filteredChannels);
+            } else {
+              filteredChannels = [];
+              renderChannelsGrid(parsedChannels);
+            }
+          }
+        } catch (e) {}
+      }
+
+      function restartPlaylistSyncTimer() {
+        if (playlistSyncInterval) clearInterval(playlistSyncInterval);
+        playlistSyncInterval = setInterval(syncPlaylistInBackground, 5 * 60 * 1000);
+      }
+
+      /* ========================================================================
+         ৬. বিজ্ঞাপন ও ডিসক্লেইমার
+         ======================================================================== */
+      function showAdPopup() {
+        const overlay = document.getElementById('ad-popup-overlay');
+        const iframe = document.getElementById('ad-popup-iframe');
+        const timerText = document.getElementById('ad-popup-timer-text');
+        
+        const randomAd = adsterraLinks[Math.floor(Math.random() * adsterraLinks.length)];
+        iframe.src = randomAd;
+        overlay.classList.add('show');
+
+        let secondsLeft = 15;
+        timerText.textContent = `Ad closes automatically in ${secondsLeft} seconds.`;
+
+        if (countdownInterval) clearInterval(countdownInterval);
+        countdownInterval = setInterval(() => {
+          secondsLeft--;
+          if (secondsLeft > 0) {
+            timerText.textContent = `Ad closes automatically in ${secondsLeft} seconds.`;
+          } else {
+            clearInterval(countdownInterval);
+          }
+        }, 1000);
+
+        if (adTimer) clearTimeout(adTimer);
+        adTimer = setTimeout(() => {
+          overlay.classList.remove('show');
+          iframe.src = '';
+        }, 15000);
+      }
+
+      function showDisclaimer() {
+        const overlay = document.getElementById('disclaimer-popup-overlay');
+        const timer = document.getElementById('disclaimer-countdown');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+
+        let left = 30;
+        timer.textContent = `${left}s`;
+        if (disclaimerCountdownInterval) clearInterval(disclaimerCountdownInterval);
+        disclaimerCountdownInterval = setInterval(() => {
+          left--;
+          if (left > 0) timer.textContent = `${left}s`;
+          else clearInterval(disclaimerCountdownInterval);
+        }, 1000);
+
+        if (disclaimerAutoCloseTimer) clearTimeout(disclaimerAutoCloseTimer);
+        disclaimerAutoCloseTimer = setTimeout(hideDisclaimer, 30000);
+      }
+
+      function hideDisclaimer() {
+        const overlay = document.getElementById('disclaimer-popup-overlay');
+        overlay.classList.remove('flex');
+        overlay.classList.add('hidden');
+        if (disclaimerCountdownInterval) clearInterval(disclaimerCountdownInterval);
+        if (disclaimerAutoCloseTimer) clearTimeout(disclaimerAutoCloseTimer);
+      }
+
+      function setupSearchEngine() {
+        const searchInput = document.getElementById('channelSearch');
+        const clearBtn = document.getElementById('clearSearch');
+        const searchInfo = document.getElementById('searchResultsInfo');
+
+        searchInput.addEventListener('input', function() {
+          const query = this.value.trim().toLowerCase();
+          if (query.length > 0) {
+            clearBtn.classList.remove('hidden');
+            filteredChannels = parsedChannels.filter(c => c.name.toLowerCase().includes(query));
+            renderChannelsGrid(filteredChannels);
+            searchInfo.classList.remove('hidden');
+            searchInfo.textContent = `Found ${filteredChannels.length} Channels`;
+          } else {
+            clearBtn.classList.add('hidden');
+            filteredChannels = [];
+            searchInfo.classList.add('hidden');
+            renderChannelsGrid(parsedChannels);
+          }
+        });
+
+        clearBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          clearBtn.classList.add('hidden');
+          filteredChannels = [];
+          searchInfo.classList.add('hidden');
+          renderChannelsGrid(parsedChannels);
+        });
+      }
+
+      function initFirebaseCounters() {
+        try {
+          firebase.initializeApp(firebaseConfig);
+          const db = firebase.database();
+          const usersRef = db.ref("onlineUsers");
+          const totalRef = db.ref("totalVisitors");
+          const todayRef = db.ref("dailyVisitors/" + new Date().toISOString().slice(0, 10));
+          const sessionId = "user_" + Math.random().toString(36).substring(2, 10);
+
+          usersRef.child(sessionId).set({ lastSeen: Date.now() });
+          totalRef.transaction(c => (c || 0) + 1);
+          todayRef.transaction(c => (c || 0) + 1);
+
+          window.addEventListener("beforeunload", () => usersRef.child(sessionId).remove());
+
+          const counterLabel = document.getElementById("online-counter");
+          function updateOnline() {
+            usersRef.once("value").then(snap => {
+              const onlineUsers = snap.val() || {};
+              const now = Date.now();
+              const active = Object.values(onlineUsers).filter(u => (now - u.lastSeen) <= 6000).length;
+
+              totalRef.once("value").then(s2 => {
+                const total = s2.val() || 0;
+                todayRef.once("value").then(s3 => {
+                  const today = s3.val() || 0;
+                  counterLabel.innerHTML = `👥 Online: ${active} | 📅 Today: ${today} | 🌍 Total: ${total}`;
+                });
+              });
+            });
+          }
+          usersRef.on("value", updateOnline);
+          setInterval(() => usersRef.child(sessionId).update({ lastSeen: Date.now() }), 10000);
+        } catch (e) {}
+      }
+
+      function initSecurity() {
+        document.addEventListener('contextmenu', e => e.preventDefault(), true);
+        document.addEventListener('keydown', e => {
+          if (e.keyCode === 123 || e.key === 'F12') e.preventDefault();
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) e.preventDefault();
+          if ((e.ctrlKey || e.metaKey) && ['U', 'S'].includes(e.key.toUpperCase())) e.preventDefault();
+        }, true);
+      }
+
+      window.addEventListener('DOMContentLoaded', async () => {
+        initSecurity();
+        setupPlaylistSelector();
+        setupSearchEngine();
+        initFirebaseCounters();
+
+        document.addEventListener('keydown', handleDpadKeyDown);
+        lucide.createIcons();
+      });
+    </script>
     <script src="sawarid.js"></script>
   </body>
 </html>
