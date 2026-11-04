@@ -7,9 +7,9 @@ const playlists = [
 
 // Direct Ads Configuration
 const adsterraLinks = [
-  "https://clenchinfer.com/d5yhbq8kg?key=a6e7f0b5411e29ddfc4ad4b07f0bd55e",
+  "https://www.google.com/search?q=Sawarid",
   "https://clenchinfer.com/wa4j1fs86d?key=8c109ea1fe3da680691b30448b3eb147",
-  "https://clenchinfer.com/gq968gjnk?key=62e59ae53115a83f79c455d7f0529f0f"
+  "https://www.google.com/search?q=SAWARID+TV"
 ];
 
 const AD_TRIGGER_CLICKS = 10; 
