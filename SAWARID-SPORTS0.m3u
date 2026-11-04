@@ -53,47 +53,106 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="tapmad-19498" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17936488321020x576.jpg" group-title="SAWARID سواريد - Football", Melbourne Victory FC (AUS) vs Persib Bandung (IDN) - MATCHDAY 4 - AFC Champions League Two 2026/27
+#EXTINF:-1 tvg-id="tapmad-19718" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17937767231020x576.jpg" group-title="SAWARID سواريد - Football", FC Pohang Steelers (KOR) vs Gamba Osaka (JPN) - MATCHDAY 4 - AFC Champions League Elite 2026/27
 https://multiregion-asia-cdn.tapmad.com/v1/01a1548c4faf15fc600b1e3e968408/01a1548c7fde1ea557841e1612cf76/main.m3u8
 
 
-#EXTINF:-1 tvg-id="tapmad-19259" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17937789121020x576.jpg" group-title="SAWARID سواريد - Football", 4.25 Sports Club (PRK) vs Ho Chi Minh City Women's FC (VIE) - MATCHDAY 2 - AFC Women's Champions League 2026/27
-https://multiregion-asia-cdn.tapmad.com/v1/01a154a641d51567ee931e109fa59f/01a154a676281ea557841e1612cf77/main.m3u8
+#EXTINF:-1 tvg-id="tapmad-19503" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17936492951020x576.jpg" group-title="SAWARID سواريد - Football", FC Seoul (KOR) vs The Cong - Viettel FC (VIE) - MATCHDAY 4 - AFC Champions League Two 2026/27
+https://multiregion-asia-cdn.tapmad.com/v1/01a154e351d61ea557841e1612cf79/01a154e3809215fc60e91e1786b098/main.m3u8
 
 
-#EXTINF:-1 tvg-id="tapmad-19254" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17937782681020x576.jpg" group-title="SAWARID سواريد - Football", Bam Khatoon FC (IRN) vs Naegohyang Women's FC (PRK) - MATCHDAY 2 - AFC Women's Champions League 2026/27
-https://multiregion-asia-cdn.tapmad.com/v1/01a154de56151ea540a81c2b41b77a/01a154de85c41567ee931e109fa5a5/main.m3u8
+#EXTINF:-1 tvg-id="tapmad-19264" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17937797651020x576.jpg" group-title="SAWARID سواريد - Football", Kaya FC-Iliolo (PHI) vs Melbourne City FC (AUS) - MATCHDAY 2 - AFC Women's Champions League 2026/27
+https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-PAKvsWI-BKd2-TesT/master.m3u8
 
 
-#EXTINF:-1 tvg-id="4249009" tvg-name="Melbourne Victory Vs Persib Bandung" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249009_53057_MLV_PER_fc-web_1789025065711.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Melbourne Victory Vs Persib Bandung
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249009_english_hls_3cee20df9032217_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4248742" tvg-name="Pohang Steelers Vs Gamba Osaka" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4248742_53053_PHG_OSK_fc-web.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Pohang Steelers Vs Gamba Osaka
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4248742_english_hls_704e0f513640525_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
-#EXTINF:-1 tvg-id="4250250" tvg-name="Bam Khatoon Fc Vs Naegohyang Women's Fc" tvg-logo="https://images.fancode.com/aig/match/v1793533399050/4250250_CASACARDS_SPORTY_APP.png" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Bam Khatoon Fc Vs Naegohyang Women's Fc
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250250_english_hls_d3bc5c7ed325175_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4249010" tvg-name="Seoul Vs The Cong   Viettel Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4249010_53057_SE_CV_fc-web_1789025065555.jpg" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Seoul Vs The Cong   Viettel Fc
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4249010_english_hls_04468d42f594603_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
-#EXTINF:-1 tvg-id="4250256" tvg-name="4.25 Sc Women Vs Ho Chi Minh City Women" tvg-logo="https://images.fancode.com/aig/match/v1793533399050/4250256_CASACARDS_SPORTY_APP.png" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | 4.25 Sc Women Vs Ho Chi Minh City Women
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250256_english_hls_debc0d36fb68671_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
+#EXTINF:-1 tvg-id="4250262" tvg-name="Kaya Fc Iloilo Women Vs Melbourne City Women" tvg-logo="https://images.fancode.com/aig/match/v1793533399054/4250262_CASACARDS_SPORTY_APP.png" tvg-language="English" group-title="SAWARID سواريد - Football",ENG | Kaya Fc Iloilo Women Vs Melbourne City Women
+https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250262_english_hls_51169e83de95924_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Melbourne%20Victory%20Vs%20Persib%20Bandung.jpg" group-title="SAWARID سواريد - Football", Melbourne Victory Vs Persib Bandung - STREAM TV + HD
-#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
-https://chatgpt.hereisman.net/playlist//load-playlist?&.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Porto%20U19%20Vs%20Napoli%20U19.jpg" group-title="SAWARID سواريد - Football", FC Porto U19 Vs Napoli U19 - STREAM TV + HD
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.44/hls/HHHHAA.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Porto%20U19%20Vs%20Napoli%20U19.jpg" group-title="SAWARID سواريد - Football", FC Porto U19 Vs Napoli U19 - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.44/hls/HHHHAA.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Lekie%20Filles%20FC%20Vs%20Mamelodi%20Sundowns.jpg" group-title="SAWARID سواريد - Football", Lekie Filles FC Vs Mamelodi Sundowns - STREAM TV + HD
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.44/hls/HHHHAAA.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Lekie%20Filles%20FC%20Vs%20Mamelodi%20Sundowns.jpg" group-title="SAWARID سواريد - Football", Lekie Filles FC Vs Mamelodi Sundowns - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.44/hls/HHHHAAA.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Fenerbah%C3%A7e%20U19%20Vs%20Liverpool%20U19.jpg" group-title="SAWARID سواريد - Football", Fenerbahçe U19 Vs Liverpool U19 - STREAM TV + HD
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.59/hls/ETTT.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Fenerbah%C3%A7e%20U19%20Vs%20Liverpool%20U19.jpg" group-title="SAWARID سواريد - Football", Fenerbahçe U19 Vs Liverpool U19 - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.59/hls/ETTT.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/AEK%20Athens%20U19%20Vs%20Real%20Madrid%20U19.jpg" group-title="SAWARID سواريد - Football", AEK Athens U19 Vs Real Madrid U19 - STREAM TV + HD
 https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/master.m3u8
 
 
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/AEK%20Athens%20U19%20Vs%20Real%20Madrid%20U19.jpg" group-title="SAWARID سواريد - Football", AEK Athens U19 Vs Real Madrid U19 - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.55/hls/rrrrA.m3u8
+
+
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Pohang%20Steelers%20Vs%20Gamba%20Osaka.jpg" group-title="SAWARID سواريد - Football", Pohang Steelers Vs Gamba Osaka - STREAM TV + HD
-#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
-https://chatgpt.hereisman.net/playlist//load-playlist?&.m3u8
+https://www.rtmpcdn.com/live/d8f6046d-be6f-4d41-9b31-1c18826ffde1.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Pohang%20Steelers%20Vs%20Gamba%20Osaka.jpg" group-title="SAWARID سواريد - Football", Pohang Steelers Vs Gamba Osaka - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.55/hls/rrrrAAA.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Seoul%20Vs%20Th%E1%BB%83%20C%C3%B4ng%20-%20Viettel.jpg" group-title="SAWARID سواريد - Football", FC Seoul Vs Thể Công - Viettel - STREAM TV + HD
-#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
-https://chatgpt.hereisman.net/playlist//load-playlist?&.m3u8
+https://www.rtmpcdn.com/live/73cfe26f-4a4e-4fb3-8621-4e0d89941298.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Seoul%20Vs%20Th%E1%BB%83%20C%C3%B4ng%20-%20Viettel.jpg" group-title="SAWARID سواريد - Football", FC Seoul Vs Thể Công - Viettel - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.55/hls/rrrrAA.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Buriram%20United%20Vs%20Kashima%20Antlers.jpg" group-title="SAWARID سواريد - Football", Buriram United Vs Kashima Antlers - STREAM TV + HD
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.44/hls/HHHHAAQA.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Buriram%20United%20Vs%20Kashima%20Antlers.jpg" group-title="SAWARID سواريد - Football", Buriram United Vs Kashima Antlers - LOW QUALITY (USE VPN)
+#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
+http://193.47.62.44/hls/HHHHAAQA.m3u8
 
 
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
@@ -105,28 +164,8 @@ https://chatgpt.hereisman.net/playlist//load-playlist?&.m3u8
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Cricket 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="sonyliv-1090552113" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028131/1793689445603200_NZvsIND_1st_odi_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket", 1st ODI | India Tour of New Zealand 2026 [English]
-https://sonyeventsglobal.akamaized.net/hls/live/2022321/DAI17-INDNZ/master.m3u8?hdnea=exp=1793800256~acl=/*~id=84635706087704210471074559953035~hmac=ff2126721d1e595f1d4ee82aa727513b83d624802474bb969733c3a860defb53
-
-
-#EXTINF:-1 tvg-id="tapmad-19060" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17936125251020x576.jpg" group-title="SAWARID سواريد - Cricket", New Zealand vs India - 1st ODI - India Tour of New Zealand 2026 - Server 1
-https://tencent-cdn.tapmad.com/v1/01a14abbcff31ea540a81c2b41b760/01a14abc06421567ee931e109fa577/main.m3u8
-
-
-#EXTINF:-1 tvg-id="tapmad-19060" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17936125251020x576.jpg" group-title="SAWARID سواريد - Cricket", New Zealand vs India - 1st ODI - India Tour of New Zealand 2026 - Server 2
-https://serieAleague.akamaized.net/hls/live/2107107/A1@25853-tapmad/master.m3u8
-
-
 #EXTINF:-1 tvg-id="tapmad-19186" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17937742821020x576.jpg" group-title="SAWARID سواريد - Cricket", Hobart Hurricanes vs Melbourne Renegades - Group Stage - Women's Big Bash League 2026
 https://tencent-cdn.tapmad.com/v1/01a14ab8af8915fc600b1e3e9683f0/01a14ab953dd1ea540a81c2b41b75f/main.m3u8
-
-
-#EXTINF:-1 tvg-id="B0HLMSF6ZN" tvg-name="India tour of New Zealand 2026 - 1st ODI - New Zealand vs India" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.99ec681a-3141-49d1-8feb-512b02667fca/4/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",India tour of New Zealand 2026 - 1st ODI - New Zealand vs India
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6a028d5592b0e81f9c4fd4de4df6d5c7:9378d2ddd738b2d0b7a85ba65b643a7f
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/pkooyxhqmr/out/v1/4c8d0ecc7d704eb2935efde33b289d50/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HMQLGGJ8" tvg-name="Womens Big Bash League 2026 - 9th Match - Hobart Hurricanes Women vs Melbourne Renegades Women" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.d3f5c03f-a9aa-4e4e-b278-f3902eb5e0de/1/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Womens Big Bash League 2026 - 9th Match - Hobart Hurricanes Women vs Melbourne Renegades Women
@@ -134,15 +173,11 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/pkooyxhqmr/out/v1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c3bbeb16c18d825f04b51b17b67baf5a:f744722c08e3d13fecfa59de5436cce7
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/fp3yc5p9tv/out/v1/6b56556dd5304f8897403a55a27298e3/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/fp3yc5p9tv/out/v1/6b56556dd5304f8897403a55a27298e3/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="4250521" tvg-name="United Arab Emirates Vs Oman" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ICC-CWC-League_Web-match-card.png" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | United Arab Emirates Vs Oman
 https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250521_english_hls_67c3c2083472952_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
-
-
-#EXTINF:-1 tvg-id="4250395" tvg-name="Hobart Hurricanes Women Vs Melbourne Renegades Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/4250395_53125_HB-W_MR-W_fc-web_1793352702028.jpg" tvg-language="English" group-title="SAWARID سواريد - Cricket",ENG | Hobart Hurricanes Women Vs Melbourne Renegades Women
-https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mumbai/4250395_english_hls_e4b3957daa9486_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1&Referer=https://fancode.com/
 
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Hobart%20Hurricanes%20Women%20Vs%20Melbourne%20Renegades%20Women.jpg" group-title="SAWARID سواريد - Cricket", Hobart Hurricanes Women Vs Melbourne Renegades Women - STREAM TV + HD
@@ -150,63 +185,17 @@ https://cinearena.fun/proxy/universal.php/?url=https://dai-fancode.pages.dev/mum
 https://bl.rutube.ru/livestream/7c13a51576b9ff2601f08f5d57dd5169/index.m3u8?s=uiXES2ePt7xTpQnbJxn7Dg&e=2074684474&scheme=https
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - TNT2UK SPORTS FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Hobart%20Hurricanes%20Women%20Vs%20Melbourne%20Renegades%20Women.jpg" group-title="SAWARID سواريد - Cricket", Hobart Hurricanes Women Vs Melbourne Renegades Women - FANCODE FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=f3df7843080ae743bf865dc5fdf64c68:567c863bc12eb74788ea74888c042e1b
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/puehlftk5j/out/v1/f7f0da1ee112481ca0024e6d4dd97f4a/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=82dfca238e8c4b430a3269db71965db9:a00b28caf4ac628e77a553d440c0ddca
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/b3b3fkmrbl/out/v1/1084d5c9a97a4c5b9f9554c88f486646/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - PRIME HINDI FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Hobart%20Hurricanes%20Women%20Vs%20Melbourne%20Renegades%20Women.jpg" group-title="SAWARID سواريد - Cricket", Hobart Hurricanes Women Vs Melbourne Renegades Women - WILLOW FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=952fb91696308da86bee7cd24edf0b58:bf359214ab3ac848738bdf014ace21b3
-https://otte.live.fly.ww.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/ppmrp8tlzz/out/v1/cf829370483b4212ac7d5e3009c514b1/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - WILLOW FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a59f28b25431a5ab1091707c14e6e5b5:0e2b44300a38bd47fbb02e9c687aa2c8
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vqu1w8f6e7/out/v1/f7d7ec07c208491681c1b6f68d0e823f/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - PRIME ENG FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=db4b3e1da015cf0f03c2a5f4b9ee8433:964bab777741f2b59adedcbbcd463374
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/xnz2tp3cz2/out/v1/57dea44e09564aa7b769ebdc51f9a42f/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - WILLOW FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=7ef90352c28904be995275bc47f74c04:af5e36ddef7584474601c19b4ae5935a
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/s3eotogzpl/out/v1/3a421da823214ef99571a137c1035f04/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - WILLOW ALT
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6a028d5592b0e81f9c4fd4de4df6d5c7:9378d2ddd738b2d0b7a85ba65b643a7f
-https://otte.cache.aiv-cdn.net/fra-nitro/live/clients/dash/enc/4dwybz2taj/out/v1/c90ad7bb77af498083f47bf86b7999b7/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - SonyLiv (ENG)
-https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_0311/ENG/std_lrh-800300010.m3u8?hdnea=exp=1793796037~acl=/*~id=944eb554fe0d9d39204a057f1ae426e3-1793752837149~hmac=3f6ed50fb95858dc451bb75e5f83384c487dce331cf29ae361b3784bc545208d
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - SonyLiv (HIN)
-https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_0311/HIN/std_lrh-800300010.m3u8?hdnea=exp=1793796037~acl=/*~id=944eb554fe0d9d39204a057f1ae426e3-1793752837149~hmac=3f6ed50fb95858dc451bb75e5f83384c487dce331cf29ae361b3784bc545208d
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - SonyLiv (TEL)
-https://sonyeventsglobal.akamaized.net/hls/live/2119941/cricodi_0311/TEL/std_lrh-800300010.m3u8?hdnea=exp=1793796155~acl=/*~id=9330fc4a2255cbf324394d7b5b191e90-1793752955164~hmac=1fd83137467b58c5eab840c4d951510eddecacd341e747518010c8de4e5e5aed
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - SonyLiv (TAM)
-https://sonyeventsglobal.akamaized.net/hls/live/2119951/cricodi_0311/TAM/std_lrh-800300010.m3u8?hdnea=exp=1793796155~acl=/*~id=9330fc4a2255cbf324394d7b5b191e90-1793752955164~hmac=1fd83137467b58c5eab840c4d951510eddecacd341e747518010c8de4e5e5aed
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - SonyLiv (KAN)
-https://sonyeventsglobal.akamaized.net/hls/live/2119782/cricodi_0311/KAN/std_lrh-800300010.m3u8?hdnea=exp=1793796155~acl=/*~id=9330fc4a2255cbf324394d7b5b191e90-1793752955164~hmac=1fd83137467b58c5eab840c4d951510eddecacd341e747518010c8de4e5e5aed
+#KODIPROP:inputstream.adaptive.license_key=c3bbeb16c18d825f04b51b17b67baf5a:f744722c08e3d13fecfa59de5436cce7
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/w6mcmg5vcu/out/v1/45db9febe2b64d59a5ecd2181616a9db/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
@@ -348,14 +337,6 @@ http://193.47.62.50/hls/BUUU.m3u8
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Prime Video Sports 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="B0HMPF2QBS" tvg-name="New Zealand vs. India" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3f469c59-a7e3-4104-be52-5a1a3ea1d0c5/8/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",New Zealand vs. India
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=290e09c837da78d5cd961978d390515c:b748836c71e6a4ca68ef5b5652db6247
-https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/tll6uwepxa/out/v1/a7f67cbb33df46539312956427343886/cenc.mpd
-
-
 #EXTINF:-1 tvg-id="B0HLV6XWJC" tvg-name="Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.1ff79b2f-f09a-4999-82c8-e6c1687858b0/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Early Rounds
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -364,12 +345,12 @@ https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/tll6uwep
 https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/k653vm77p0/out/v1/313a4febbed346d298f7c1c281a00f6d/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HLMSF6ZN" tvg-name="India tour of New Zealand 2026 - 1st ODI - New Zealand vs India" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.99ec681a-3141-49d1-8feb-512b02667fca/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",India tour of New Zealand 2026 - 1st ODI - New Zealand vs India
+#EXTINF:-1 tvg-id="B0HH9PG3LM" tvg-name="The Morning Drive" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e5b3e566-c9fa-4ac9-a128-69f43f3c5885/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",The Morning Drive
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=6a028d5592b0e81f9c4fd4de4df6d5c7:9378d2ddd738b2d0b7a85ba65b643a7f
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/pkooyxhqmr/out/v1/4c8d0ecc7d704eb2935efde33b289d50/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=e14535ab02e4065cc846047f1feee48d:a51c5c164f9a6b0ae751afeec7f85052
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/vax19ewjes/out/v1/f077d112d47e4a899664fa27031ba9fa/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HMQLGGJ8" tvg-name="Womens Big Bash League 2026 - 9th Match - Hobart Hurricanes Women vs Melbourne Renegades Women" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.d3f5c03f-a9aa-4e4e-b278-f3902eb5e0de/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Womens Big Bash League 2026 - 9th Match - Hobart Hurricanes Women vs Melbourne Renegades Women
@@ -377,7 +358,7 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/pkooyxhq
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c3bbeb16c18d825f04b51b17b67baf5a:f744722c08e3d13fecfa59de5436cce7
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/fp3yc5p9tv/out/v1/6b56556dd5304f8897403a55a27298e3/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/fp3yc5p9tv/out/v1/6b56556dd5304f8897403a55a27298e3/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
