@@ -10,8 +10,10 @@
       
       const adsterraLinks = [
         "https://www.google.com/search?q=sawarid",
-        "https://clenchinfer.com/wa4j1fs86d?key=8c109ea1fe3da680691b30448b3eb147",
-        "https://clenchinfer.com/gq968gjnk?key=62e59ae53115a83f79c455d7f0529f0f"
+        "https://asiafilm.org/4/a6e7f0b5411e29ddfc4ad4b07f0bd55e",
+        "https://www.google.com/search?q=Best+IPTV+APPS+Sawarid+%28%D8%B3%D9%88%D8%A7%D8%B1%D9%8A%D8%AF%29++",
+        "https://www.google.com/search?q=Best+Live+TV+APPS+SAWARID",
+        "https://www.google.com/search?q=Best+IPTV+APPS+SAWARID"
       ];
 
       const AD_TRIGGER_CLICKS = 5;  
