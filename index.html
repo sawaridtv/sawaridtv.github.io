@@ -112,7 +112,7 @@
         }
       }
 
-      /* Artplayer Container: ডিফল্ট FILL মোড নিশ্চিত */
+       
       #artplayer-mount {
         width: 100%;
         height: 100%;
@@ -164,29 +164,6 @@
         box-shadow: 0 0 15px rgba(0, 212, 255, 0.9) !important;
         transform: scale(1.05) !important;
         outline: none !important;
-      }
-
-      /* Ad Overlay */
-      .ad-popup-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.94);
-        z-index: 1000000;
-        display: none;
-        align-items: center;
-        justify-content: center;
-      }
-      .ad-popup-overlay.show { display: flex; }
-      .ad-popup-box {
-        position: absolute;
-        top: 8%; bottom: 8%; left: 8%; right: 8%;
-        background: #0c051a;
-        border: 2px solid #dd2476;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        box-shadow: 0 0 35px rgba(221, 36, 118, 0.45);
       }
     </style>
   </head>
@@ -293,25 +270,7 @@
 
     </main>
 
-    <!-- Ad Overlay -->
-    <div id="ad-popup-overlay" class="ad-popup-overlay">
-      <div class="ad-popup-box">
-        <div class="bg-[#dd2476] text-white py-2.5 px-4 text-center font-sans text-xs font-bold leading-normal border-b border-white/20">
-          To keep our services free, please view our sponsor for 15 seconds.
-        </div>
-        <div class="bg-red-600 text-white font-sans text-[11px] font-bold py-1 text-center" id="ad-popup-timer-text">
-          Ad closes automatically in 15 seconds.
-        </div>
-        <div class="flex-1 w-full bg-[#14082b] relative flex items-center justify-center">
-          <div class="absolute text-center p-4 text-gray-400 text-xs font-bold z-0">
-            Loading secure sponsor ad...
-          </div>
-          <iframe id="ad-popup-iframe" class="w-full h-full border-none bg-white z-10 relative" src=""></iframe>
-        </div>
-      </div>
-    </div>
-
-    <!-- Disclaimer Modal Popup  -->
+    <!-- Disclaimer Modal Popup -->
     <div id="disclaimer-popup-overlay" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[3000000] hidden items-center justify-center p-4">
       <div class="bg-[#0c051a] border-2 border-[#dd2476] rounded-2xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-[0_0_50px_rgba(221,36,118,0.5)] overflow-hidden">
         <div class="bg-[#202d6d] px-4 py-3 border-b border-white/10 flex items-center justify-between">
@@ -331,7 +290,7 @@
         <div class="flex-1 overflow-y-auto p-4 text-xs text-gray-200 space-y-3 font-sans leading-relaxed">
           <div>
             <h4 class="text-[#00c6ff] font-bold text-xs mb-1 uppercase">1. No Hosting & No Broadcasting</h4>
-            <p>SAWARID سواريد — is strictly a Media Player and Aggregator. We DO NOT host, broadcast, archive, store, or distribute any media files, video streams, or TV channels on our servers. We have no control over the content that is played through this application.</p>
+            <p>SAWARID سواريد  — is strictly a Media Player and Aggregator. We DO NOT host, broadcast, archive, store, or distribute any media files, video streams, or TV channels on our servers. We have no control over the content that is played through this application.</p>
           </div>
 
           <div>
@@ -357,7 +316,7 @@
             <p>Sawarid respects intellectual property rights. Since we do not host any of the streams, we cannot physically remove content from the internet. However, if you are a copyright owner or an official representative, and you believe a link in our default playlist infringes upon your rights, please contact us immediately.</p>
             <p class="mt-1">We will promptly remove the infringing link from our app's directory.</p>
           </div>
-        </div> <!-- Close content wrapper -->
+        </div>
 
         <div class="bg-[#14082b] px-4 py-2.5 border-t border-white/10 flex justify-between items-center">
           <a href="https://www.facebook.com/sawaridtv/" target="_blank" class="px-3 py-1 bg-[#1877f2] hover:bg-[#166fe5] text-white font-bold text-xs rounded transition-all flex items-center gap-1">
@@ -369,10 +328,3 @@
         </div>
       </div>
     </div>
-    <!-- 1. Global Configurations -->
-    <script src="config.js"></script>
-
-    <!-- 2. Application Logic & Video Engine -->
-    <script src="sawarid.js"></script>
-  </body>
-</html>
