@@ -2,9 +2,10 @@
        * SAWARID LIVE TV - Global Configurations
        */
       const playlists = [
-        { url: 'https://sawarid-proxy-ksa.pages.dev/LiveEventSports.m3u', name: "Live Event", displayName: "Live Event" },
-        { url: 'https://sawaridtv.pages.dev/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
-        { url: 'https://sawaridtv.pages.dev/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Live Channels" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-SPORTS0.m3u', name: "Live Event", displayName: "Live Event" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Channels Server 1" },
+        { url: 'https://walatv.pages.dev/channels.m3u', name: "ALL Channels", displayName: "Channels Server 2" },
       ];
 
       
