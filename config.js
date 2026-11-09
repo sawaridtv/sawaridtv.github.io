@@ -7,9 +7,9 @@ const playlists = [
 
 // Direct Ads Configuration
 const adsterraLinks = [
-  "https://www.google.com/search?q=sawarid&oq=sawarid&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEEyBggCEEUYPDIGCAMQRRg8MgYIBBBFGEEyBggFEEUYPDIGCAYQRRg9MgYIBxBFGEHSAQg0MjA5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
-  "https://www.google.com/search?q=sawarid&oq=sawarid&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEEyBggCEEUYPDIGCAMQRRg8MgYIBBBFGEEyBggFEEUYPDIGCAYQRRg9MgYIBxBFGEHSAQg0MjA5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
-  "https://www.google.com/search?q=sawarid&oq=sawarid&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGEEyBggCEEUYPDIGCAMQRRg8MgYIBBBFGEEyBggFEEUYPDIGCAYQRRg9MgYIBxBFGEHSAQg0MjA5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8"
+        "https://www.google.com/search?q=sawarid",
+        "https://clenchinfer.com/wa4j1fs86d?key=8c109ea1fe3da680691b30448b3eb147",
+        "https://clenchinfer.com/gq968gjnk?key=62e59ae53115a83f79c455d7f0529f0f"
 ];
 
 const AD_TRIGGER_CLICKS = 10; 
