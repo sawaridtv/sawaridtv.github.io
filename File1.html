@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWave — Ultra-Fast Local P2P File Transfer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090d16',
+                        cardBg: '#111827',
+                        cardHover: '#1f2937',
+                        accentPurple: '#8b5cf6',
+                        accentBlue: '#3b82f6',
+                        accentPink: '#ec4899',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
+        }
+        .glow-blue {
+            box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.3);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white relative">
+
+    <!-- Background Ambient Glow Orbs -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+
+    <!-- Header / Navbar -->
+    <header class="w-full border-b border-gray-800/60 glass-panel sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="location.reload()">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center glow-effect transform transition hover:scale-105 active:scale-95">
+                    <i class="fa-solid fa-wifi text-white text-xl animate-float"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-200 to-purple-400 bg-clip-text text-transparent">AirWave</h1>
+                    <p class="text-xs text-gray-400 font-medium flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Local Wi-Fi P2P Transfer
+                    </p>
+                </div>
+            </div>
+
+            <!-- Profile & Status Badge -->
+            <div class="flex items-center space-x-4">
+                <button onclick="openNicknameModal()" class="glass-card px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-800 transition flex items-center space-x-2 border border-gray-700/50 group active:scale-95">
+                    <div class="w-7 h-7 rounded-lg bg-purple-600/30 text-purple-400 flex items-center justify-center font-bold text-xs group-hover:bg-purple-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span id="displayNickname" class="text-gray-200">My Device</span>
+                    <i class="fa-solid fa-pen text-xs text-gray-400 ml-1"></i>
+                </button>
+
+                <!-- Mode Switcher Tabs -->
+                <div class="hidden sm:flex bg-gray-900/80 p-1 rounded-xl border border-gray-800">
+                    <button id="tabSender" onclick="switchMode('sender')" class="px-4 py-1.5 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg">
+                        <i class="fa-solid fa-paper-plane mr-1.5"></i> Sender
+                    </button>
+                    <button id="tabReceiver" onclick="switchMode('receiver')" class="px-4 py-1.5 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white">
+                        <i class="fa-solid fa-download mr-1.5"></i> Receiver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Mobile Mode Switcher Banner -->
+        <div class="sm:hidden flex bg-gray-900/80 p-1.5 rounded-xl border border-gray-800 mb-6">
+            <button id="mobileTabSender" onclick="switchMode('sender')" class="flex-1 py-2 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg text-center">
+                <i class="fa-solid fa-paper-plane mr-1.5"></i> Sender Mode
+            </button>
+            <button id="mobileTabReceiver" onclick="switchMode('receiver')" class="flex-1 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white text-center">
+                <i class="fa-solid fa-download mr-1.5"></i> Receiver Mode
+            </button>
+        </div>
+
+        <!-- ================= SENDER VIEW ================= -->
+        <div id="senderContainer" class="space-y-8 transition-all duration-300">
+            <!-- Top Banner / Instructions -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-80 h-80 bg-gradient-to-bl from-purple-500/10 to-transparent pointer-events-none rounded-bl-full"></div>
+                <div class="max-w-2xl">
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 inline-flex items-center gap-1.5 mb-4">
+                        <i class="fa-solid fa-bolt"></i> Direct WebRTC P2P Stream
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">Send files instantly over local Wi-Fi</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">Drag and drop movies, documents, or multiple files below. Select a nearby connected device on your local network and stream directly with zero internet bandwidth usage.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Left Column: Drag & Drop + File Queue -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Dropzone -->
+                    <div id="dropzone" 
+                         ondragover="handleDragOver(event)" 
+                         ondragleave="handleDragLeave(event)" 
+                         ondrop="handleFileDrop(event)"
+                         onclick="document.getElementById('fileInput').click()"
+                         class="border-2 border-dashed border-gray-700 hover:border-purple-500/70 bg-gray-900/40 hover:bg-gray-900/70 rounded-3xl p-8 sm:p-12 text-center cursor-pointer transition-all duration-300 group relative">
+                        
+                        <input type="file" id="fileInput" multiple class="hidden" onchange="handleFileSelect(event)">
+                        
+                        <div class="w-20 h-20 mx-auto rounded-3xl bg-purple-600/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition">Drag & Drop files here or browse</h3>
+                        <p class="text-xs text-gray-400 mb-4">Support for any file type (Movies, Images, APKs, Zip, Documents)</p>
+                        <span class="inline-flex items-center text-xs font-semibold px-4 py-2 rounded-xl bg-gray-800 text-gray-300 border border-gray-700 group-hover:bg-purple-600 group-hover:text-white transition shadow-sm">
+                            <i class="fa-solid fa-folder-open mr-2"></i> Browse Files
+                        </span>
+                    </div>
+
+                    <!-- File Queue List -->
+                    <div class="glass-panel rounded-3xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <h4 class="font-bold text-white text-base">File Queue</h4>
+                                <span id="fileCountBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-800 text-gray-300 border border-gray-700">0 files</span>
+                            </div>
+                            <button onclick="clearFileQueue()" class="text-xs text-red-400 hover:text-red-300 font-semibold transition flex items-center gap-1">
+                                <i class="fa-solid fa-trash-can"></i> Clear All
+                            </button>
+                        </div>
+
+                        <div id="fileQueueList" class="space-y-3 max-h-72 overflow-y-auto pr-1">
+                            <!-- Empty State -->
+                            <div id="emptyQueueState" class="text-center py-10 text-gray-500">
+                                <i class="fa-regular fa-folder-open text-3xl mb-2 opacity-40"></i>
+                                <p class="text-xs font-medium">No files selected yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Local Receiver Devices & Send Controls -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Nearby Receivers Panel -->
+                    <div class="glass-panel rounded-3xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="font-bold text-white text-base flex items-center gap-2">
+                                    <i class="fa-solid fa-radar text-purple-400 animate-spin-slow"></i> Nearby Receivers
+                                </h4>
+                                <button onclick="scanLocalDevices()" class="text-xs text-purple-400 hover:text-purple-300 font-semibold transition flex items-center gap-1">
+                                    <i class="fa-solid fa-rotate-right"></i> Refresh
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-400 mb-4">Active devices connected to the same local Wi-Fi network ready to receive your files.</p>
+
+                            <!-- Receiver Devices Grid / List -->
+                            <div id="receiverDevicesList" class="space-y-3 mb-6 max-h-60 overflow-y-auto pr-1">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+
+                        <!-- Send Action Button -->
+                        <div class="pt-4 border-t border-gray-800">
+                            <button id="sendBtn" onclick="startSendingFiles()" disabled
+                                class="w-full py-4 rounded-2xl font-bold text-sm bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-xl glow-effect hover:opacity-95 active:scale-95 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Send Files to Selected Device
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Live Active Transfer Card (Sender) -->
+                    <div id="senderActiveTransferCard" class="glass-panel rounded-3xl p-6 hidden border border-purple-500/30">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-notch animate-spin"></i> Transferring Live
+                            </span>
+                            <span id="senderTransferPercent" class="text-xs font-extrabold text-white">0%</span>
+                        </div>
+                        <div class="mb-3">
+                            <div class="flex justify-between text-xs text-gray-300 mb-1">
+                                <span id="senderCurrentFileName" class="truncate max-w-[180px]">file.mp4</span>
+                                <span id="senderTransferSpeed">0 MB/s</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5 border border-gray-700/50">
+                                <div id="senderProgressBar" class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-200" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-xs text-gray-400 pt-2 border-t border-gray-800">
+                            <span id="senderTimeRemaining">Est. remaining: Calculating...</span>
+                            <button onclick="cancelActiveTransfer()" class="text-red-400 hover:text-red-300 font-semibold">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= RECEIVER VIEW ================= -->
+        <div id="receiverContainer" class="space-y-8 hidden transition-all duration-300">
+            <!-- Top Banner -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-80 h-80 bg-gradient-to-bl from-blue-500/10 to-transparent pointer-events-none rounded-bl-full"></div>
+                <div class="max-w-2xl">
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 inline-flex items-center gap-1.5 mb-4">
+                        <i class="fa-solid fa-tower-broadcast"></i> Ready to Receive on Local Network
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">Waiting for incoming files</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">Keep this page open on your mobile or target device. When a sender initiates a transfer to your device ID, incoming requests will appear below instantly.</p>
+                </div>
+            </div>
+
+            <!-- Receiver Status & Incoming Transfer Box -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Left: Device Discovery Status -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="glass-panel rounded-3xl p-8 text-center space-y-6">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-blue-600/20 to-purple-600/20 border-2 border-blue-500/40 flex items-center justify-center glow-blue relative animate-float">
+                            <i class="fa-solid fa-mobile-screen-button text-4xl text-blue-400"></i>
+                            <span class="absolute top-0 right-0 w-5 h-5 rounded-full bg-emerald-500 border-2 border-gray-900 animate-ping"></span>
+                            <span class="absolute top-0 right-0 w-5 h-5 rounded-full bg-emerald-500 border-2 border-gray-900"></span>
+                        </div>
+                        <div>
+                            <h3 id="receiverDeviceNameCard" class="text-xl font-bold text-white mb-1">My Mobile Device</h3>
+                            <p class="text-xs text-gray-400">Listening on local Wi-Fi subnet (Port 8080 P2P)</p>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-gray-900/60 border border-gray-800 text-xs font-semibold text-emerald-400">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Status: Ready & Discoverable
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Incoming Requests & Downloads -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="glass-panel rounded-3xl p-6">
+                        <h4 class="font-bold text-white text-base mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-download text-blue-400"></i> Incoming Transfer Stream
+                        </h4>
+
+                        <!-- No Incoming Request State -->
+                        <div id="receiverIdleState" class="text-center py-14 text-gray-500">
+                            <i class="fa-regular fa-clock text-4xl mb-3 opacity-30"></i>
+                            <p class="text-sm font-medium text-gray-400">No active transfers right now</p>
+                            <p class="text-xs text-gray-500 mt-1">Initiate a transfer from another sender device on this Wi-Fi.</p>
+                        </div>
+
+                        <!-- Active Incoming Transfer UI -->
+                        <div id="receiverActiveCard" class="hidden space-y-5 bg-gray-900/60 p-6 rounded-2xl border border-blue-500/30">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-bold text-blue-400 uppercase">Receiving from <span id="incomingSenderName">Desktop-Pro</span></span>
+                                    <h5 id="incomingFileName" class="text-base font-bold text-white truncate max-w-[240px] sm:max-w-xs mt-0.5">Avengers_Endgame_1080p.mp4</h5>
+                                </div>
+                                <span id="receiverPercentText" class="text-lg font-extrabold text-white">0%</span>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1.5">
+                                    <span id="receiverDownloadedSize">0 MB / 1.4 GB</span>
+                                    <span id="receiverSpeedText">0 MB/s</span>
+                                </div>
+                                <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden p-0.5 border border-gray-700">
+                                    <div id="receiverProgressBar" class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-200" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-800">
+                                <span id="receiverTimeRemaining">Est. remaining: Calculating...</span>
+                                <button id="saveDownloadBtn" onclick="triggerFileDownload()" class="hidden px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-md">
+                                    <i class="fa-solid fa-download mr-1"></i> Save File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-gray-800/60 glass-panel py-6 mt-12 text-center text-xs text-gray-500">
+        <p>AirWave Local P2P File Transfer &bull; Secure Browser-to-Browser Wi-Fi Streaming &bull; No Internet Required</p>
+    </footer>
+
+    <!-- Nickname Customization Modal -->
+    <div id="nicknameModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
+        <div class="glass-panel w-full max-w-md p-6 sm:p-8 rounded-3xl border border-gray-700 shadow-2xl space-y-6 mx-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-user-pen text-purple-400"></i> Edit Device Nickname
+                </h3>
+                <button onclick="closeNicknameModal()" class="text-gray-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-400">Customize the name that other devices will see on your local Wi-Fi network.</p>
+            <div>
+                <label class="block text-xs font-semibold text-gray-300 mb-2">Device Name / Nickname</label>
+                <input type="text" id="nicknameInput" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition" placeholder="e.g. My MacBook Pro / Gaming PC">
+            </div>
+            <div class="flex justify-end space-x-3 pt-2">
+                <button onclick="closeNicknameModal()" class="px-5 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-semibold transition">Cancel</button>
+                <button onclick="saveNickname()" class="px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition shadow-lg glow-effect">Save Nickname</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Box -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 glass-panel border border-purple-500/40 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3 max-w-sm">
+        <div id="toastIcon" class="w-8 h-8 rounded-xl bg-purple-600/30 text-purple-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <div>
+            <h5 id="toastTitle" class="text-xs font-bold text-white">Notification</h5>
+            <p id="toastMessage" class="text-xs text-gray-300">Action completed successfully.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // App State Variables
+        let userNickname = localStorage.getItem('airwave_nickname') || (Math.random() < 0.5 ? 'Desktop-Main' : 'Mobile-Swarid');
+        let currentMode = 'sender'; // 'sender' or 'receiver'
+        let fileQueue = [];
+        let selectedReceiverId = null;
+        let simulatedReceivers = [
+            { id: 'dev_1', name: 'Swarid’s iPhone 15 Pro', type: 'mobile', ip: '192.168.1.14', status: 'online' },
+            { id: 'dev_2', name: 'Living Room PC', type: 'desktop', ip: '192.168.1.22', status: 'online' },
+            { id: 'dev_3', name: 'Dad’s Tablet', type: 'tablet', ip: '192.168.1.35', status: 'online' }
+        ];
+
+        let activeTransferInterval = null;
+        let receivedChunks = [];
+        let completedFileBlobUrl = null;
+        let completedFileName = '';
+
+        // Initialize App on Load
+        window.onload = function() {
+            document.getElementById('displayNickname').innerText = userNickname;
+            document.getElementById('nicknameInput').value = userNickname;
+            document.getElementById('receiverDeviceNameCard').innerText = userNickname;
+            renderReceiverDevices();
+        };
+
+        // Switch Modes (Sender / Receiver)
+        function switchMode(mode) {
+            currentMode = mode;
+            const senderContainer = document.getElementById('senderContainer');
+            const receiverContainer = document.getElementById('receiverContainer');
+            
+            const tabSender = document.getElementById('tabSender');
+            const tabReceiver = document.getElementById('tabReceiver');
+            const mobileTabSender = document.getElementById('mobileTabSender');
+            const mobileTabReceiver = document.getElementById('mobileTabReceiver');
+
+            if (mode === 'sender') {
+                senderContainer.classList.remove('hidden');
+                receiverContainer.classList.add('hidden');
+
+                tabSender.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg";
+                tabReceiver.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white";
+                mobileTabSender.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg text-center";
+                mobileTabReceiver.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white text-center";
+                showToast('Switched to Sender Mode', 'Drag and drop files to start streaming.', 'plane');
+            } else {
+                senderContainer.classList.add('hidden');
+                receiverContainer.classList.remove('hidden');
+
+                tabReceiver.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition bg-blue-600 text-white shadow-lg";
+                tabSender.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white";
+                mobileTabReceiver.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition bg-blue-600 text-white shadow-lg text-center";
+                mobileTabSender.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white text-center";
+                showToast('Switched to Receiver Mode', 'Listening for incoming local Wi-Fi streams.', 'download');
+            }
+        }
+
+        // Nickname Modal Actions
+        function openNicknameModal() {
+            document.getElementById('nicknameModal').classList.remove('hidden');
+        }
+        function closeNicknameModal() {
+            document.getElementById('nicknameModal').classList.add('hidden');
+        }
+        function saveNickname() {
+            const inputVal = document.getElementById('nicknameInput').value.trim();
+            if (inputVal) {
+                userNickname = inputVal;
+                localStorage.setItem('airwave_nickname', userNickname);
+                document.getElementById('displayNickname').innerText = userNickname;
+                document.getElementById('receiverDeviceNameCard').innerText = userNickname;
+                closeNicknameModal();
+                showToast('Nickname Updated', `Your device is now named "${userNickname}"`, 'user');
+            }
+        }
+
+        // Drag and Drop File Handling
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.currentTarget.classList.add('border-purple-500', 'bg-gray-900/80');
+        }
+        function handleDragLeave(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.currentTarget.classList.remove('border-purple-500', 'bg-gray-900/80');
+        }
+        function handleFileDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.currentTarget.classList.remove('border-purple-500', 'bg-gray-900/80');
+            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                addFilesToQueue(e.dataTransfer.files);
+            }
+        }
+        function handleFileSelect(e) {
+            if (e.target.files && e.target.files.length > 0) {
+                addFilesToQueue(e.target.files);
+            }
+        }
+
+        // Add Files to Queue Array
+        function addFilesToQueue(files) {
+            for (let i = 0; i < files.length; i++) {
+                fileQueue.push(files[i]);
+            }
+            renderFileQueue();
+            showToast('Files Added', `${files.length} file(s) added to queue.`, 'folder-plus');
+        }
+
+        function removeFileFromQueue(index) {
+            fileQueue.splice(index, 1);
+            renderFileQueue();
+        }
+
+        function clearFileQueue() {
+            fileQueue = [];
+            renderFileQueue();
+            showToast('Queue Cleared', 'All files removed from queue.', 'trash');
+        }
+
+        // Render File Queue UI
+        function renderFileQueue() {
+            const queueList = document.getElementById('fileQueueList');
+            const emptyState = document.getElementById('emptyQueueState');
+            const fileCountBadge = document.getElementById('fileCountBadge');
+            const sendBtn = document.getElementById('sendBtn');
+
+            fileCountBadge.innerText = `${fileQueue.length} file(s)`;
+
+            if (fileQueue.length === 0) {
+                emptyState.classList.remove('hidden');
+                queueList.innerHTML = '';
+                queueList.appendChild(emptyState);
+                sendBtn.disabled = true;
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            let html = '';
+            fileQueue.forEach((file, index) => {
+                const fileSizeFormatted = formatBytes(file.size);
+                const fileExt = file.name.split('.').pop().toLowerCase();
+                let iconClass = 'fa-file text-gray-400';
+                if(['mp4', 'mkv', 'mov', 'avi'].includes(fileExt)) iconClass = 'fa-file-video text-purple-400';
+                else if(['jpg', 'jpeg', 'png', 'webp'].includes(fileExt)) iconClass = 'fa-file-image text-blue-400';
+                else if(['zip', 'rar', '7z'].includes(fileExt)) iconClass = 'fa-file-zipper text-yellow-400';
+                else if(['pdf', 'doc', 'docx', 'txt'].includes(fileExt)) iconClass = 'fa-file-lines text-emerald-400';
+
+                html += `
+                    <div class="flex items-center justify-between p-3 rounded-2xl bg-gray-900/60 border border-gray-800/80 hover:border-gray-700 transition">
+                        <div class="flex items-center space-x-3 overflow-hidden">
+                            <div class="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid ${iconClass}"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h5 class="text-xs font-bold text-white truncate">${file.name}</h5>
+                                <p class="text-[10px] text-gray-400">${fileSizeFormatted}</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFileFromQueue(${index})" class="text-gray-500 hover:text-red-400 p-1.5 transition">
+                            <i class="fa-solid fa-xmark text-xs"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            queueList.innerHTML = html;
+
+            // Enable send button if a receiver is selected
+            if (selectedReceiverId) {
+                sendBtn.disabled = false;
+            }
+        }
+
+        // Render Local Receiver Devices
+        function renderReceiverDevices() {
+            const listContainer = document.getElementById('receiverDevicesList');
+            let html = '';
+
+            simulatedReceivers.forEach(dev => {
+                const isSelected = selectedReceiverId === dev.id;
+                let icon = 'fa-mobile-screen-button';
+                if(dev.type === 'desktop') icon = 'fa-laptop';
+                if(dev.type === 'tablet') icon = 'fa-tablet-screen-button';
+
+                html += `
+                    <div onclick="selectReceiver('${dev.id}')" class="flex items-center justify-between p-3.5 rounded-2xl cursor-pointer transition border ${isSelected ? 'bg-purple-600/20 border-purple-500/80 glow-effect' : 'bg-gray-900/60 border-gray-800 hover:bg-gray-800/50'}">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl ${isSelected ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-300'} flex items-center justify-center text-base transition">
+                                <i class="fa-solid ${icon}"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-white">${dev.name}</h5>
+                                <p class="text-[10px] text-gray-400">IP: ${dev.ip} &bull; <span class="text-emerald-400">Ready</span></p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full border ${isSelected ? 'bg-purple-600 border-purple-400 text-white flex items-center justify-center text-[10px]' : 'border-gray-700'}">
+                            ${isSelected ? '<i class="fa-solid fa-check"></i>' : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            listContainer.innerHTML = html;
+        }
+
+        function selectReceiver(id) {
+            selectedReceiverId = id;
+            renderReceiverDevices();
+            if (fileQueue.length > 0) {
+                document.getElementById('sendBtn').disabled = false;
+            }
+            const dev = simulatedReceivers.find(d => d.id === id);
+            if (dev) {
+                showToast('Device Selected', `Target receiver set to ${dev.name}`, 'link');
+            }
+        }
+
+        function scanLocalDevices() {
+            showToast('Scanning Wi-Fi...', 'Searching for active local AirWave receivers.', 'radar');
+            setTimeout(() => {
+                renderReceiverDevices();
+                showToast('Scan Complete', `Found ${simulatedReceivers.length} active devices on local subnet.`, 'circle-check');
+            }, 800);
+        }
+
+        // Start Sending Files Sequential Streaming Simulation
+        function startSendingFiles() {
+            if (fileQueue.length === 0 || !selectedReceiverId) return;
+
+            const targetDev = simulatedReceivers.find(d => d.id === selectedReceiverId);
+            const activeTransferCard = document.getElementById('senderActiveTransferCard');
+            activeTransferCard.classList.remove('hidden');
+            document.getElementById('sendBtn').disabled = true;
+
+            // Also trigger receiver UI simulation
+            triggerReceiverIncoming(targetDev.name, fileQueue[0].name);
+
+            let currentFileIndex = 0;
+            let totalFiles = fileQueue.length;
+
+            function processNextFile() {
+                if (currentFileIndex >= totalFiles) {
+                    // All files sent successfully
+                    clearInterval(activeTransferInterval);
+                    activeTransferCard.classList.add('hidden');
+                    showToast('Transfer Complete!', `Successfully sent ${totalFiles} file(s) to ${targetDev.name}`, 'circle-check');
+                    fileQueue = [];
+                    renderFileQueue();
+                    return;
+                }
+
+                let file = fileQueue[currentFileIndex];
+                document.getElementById('senderCurrentFileName').innerText = file.name;
+
+                let progress = 0;
+                let speedMBs = (Math.random() * 15 + 22).toFixed(1); // 22-37 MB/s Wi-Fi speed
+                let totalBytes = file.size;
+
+                activeTransferInterval = setInterval(() => {
+                    progress += Math.floor(Math.random() * 8) + 5; // increment progress
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(activeTransferInterval);
+
+                        // Update receiver state to finished
+                        completeReceiverDownload(file.name, totalBytes);
+
+                        currentFileIndex++;
+                        setTimeout(processNextFile, 600); // proceed to next file in queue
+                    }
+
+                    // Update Sender UI
+                    document.getElementById('senderTransferPercent').innerText = `${progress}%`;
+                    document.getElementById('senderProgressBar').style.width = `${progress}%`;
+                    document.getElementById('senderTransferSpeed').innerText = `${speedMBs} MB/s`;
+
+                    let remainingSeconds = Math.max(1, Math.ceil((100 - progress) / 15));
+                    document.getElementById('senderTimeRemaining').innerText = `Est. remaining: ${remainingSeconds}s (${currentFileIndex + 1}/${totalFiles})`;
+
+                    // Update Receiver UI simulation
+                    updateReceiverProgress(progress, speedMBs, totalBytes, remainingSeconds);
+
+                }, 200);
+            }
+
+            processNextFile();
+        }
+
+        function cancelActiveTransfer() {
+            if (activeTransferInterval) clearInterval(activeTransferInterval);
+            document.getElementById('senderActiveTransferCard').classList.add('hidden');
+            document.getElementById('receiverActiveCard').classList.add('hidden');
+            document.getElementById('receiverIdleState').classList.remove('hidden');
+            if (fileQueue.length > 0 && selectedReceiverId) {
+                document.getElementById('sendBtn').disabled = false;
+            }
+            showToast('Transfer Cancelled', 'File streaming was stopped.', 'ban');
+        }
+
+        // Receiver Simulation Handlers
+        function triggerReceiverIncoming(senderName, fileName) {
+            document.getElementById('receiverIdleState').classList.add('hidden');
+            const activeCard = document.getElementById('receiverActiveCard');
+            activeCard.classList.remove('hidden');
+            document.getElementById('incomingSenderName').innerText = senderName;
+            document.getElementById('incomingFileName').innerText = fileName;
+            document.getElementById('saveDownloadBtn').classList.add('hidden');
+            
+            // Create dummy blob data for download simulation
+            const dummyData = "AirWave P2P Simulated File Transfer Data Content.";
+            const blob = new Blob([dummyData], { type: 'application/octet-stream' });
+            completedFileBlobUrl = URL.createObjectURL(blob);
+            completedFileName = fileName;
+        }
+
+        function updateReceiverProgress(progress, speed, totalBytes, remainingSeconds) {
+            document.getElementById('receiverPercentText').innerText = `${progress}%`;
+            document.getElementById('receiverProgressBar').style.width = `${progress}%`;
+            document.getElementById('receiverSpeedText').innerText = `${speed} MB/s`;
+            
+            let downloadedBytes = Math.floor((progress / 100) * totalBytes);
+            document.getElementById('receiverDownloadedSize').innerText = `${formatBytes(downloadedBytes)} / ${formatBytes(totalBytes)}`;
+            document.getElementById('receiverTimeRemaining').innerText = `Est. remaining: ${remainingSeconds}s`;
+        }
+
+        function completeReceiverDownload(fileName, totalBytes) {
+            document.getElementById('receiverPercentText').innerText = `100%`;
+            document.getElementById('receiverProgressBar').style.width = `100%`;
+            document.getElementById('receiverDownloadedSize').innerText = `${formatBytes(totalBytes)} / ${formatBytes(totalBytes)}`;
+            document.getElementById('receiverSpeedText').innerText = `Completed`;
+            document.getElementById('receiverTimeRemaining').innerText = `Transfer finished successfully!`;
+            document.getElementById('saveDownloadBtn').classList.remove('hidden');
+            showToast('File Received!', `Successfully received ${fileName}`, 'download');
+        }
+
+        function triggerFileDownload() {
+            if (!completedFileBlobUrl) return;
+            const a = document.createElement('a');
+            a.href = completedFileBlobUrl;
+            a.download = completedFileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast('Download Triggered', 'File saved to your downloads folder.', 'circle-check');
+        }
+
+        // Utility: Format Bytes
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
+        // Toast Notification Function
+        function showToast(title, message, iconName = 'bell') {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastMessage').innerText = message;
+            document.getElementById('toastIcon').innerHTML = `<i class="fa-solid fa-${iconName}"></i>`;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
