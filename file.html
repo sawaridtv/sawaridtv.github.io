@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirDrop Local - P2P File Transfer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PeerJS CDN -->
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    
+    <style>
+        :root {
+    --bg-dark: #08090d;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --accent: #06b6d4;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.background-blobs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.blob {
+    position: absolute;
+    filter: blur(120px);
+    border-radius: 50%;
+    opacity: 0.35;
+}
+.blob-1 { width: 400px; height: 400px; background: var(--primary); top: -50px; left: -50px; }
+.blob-2 { width: 350px; height: 350px; background: var(--accent); bottom: -50px; right: -50px; }
+
+.app-container {
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.logo i { color: var(--accent); }
+
+.room-box, .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card-bg);
+    padding: 6px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+.room-label { font-size: 0.75rem; color: var(--text-muted); }
+.room-box input {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-weight: 700;
+    width: 55px;
+    text-align: center;
+    outline: none;
+}
+.user-profile input {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    width: 90px;
+    outline: none;
+}
+.room-box button, .user-profile button {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+/* Radar */
+.radar-section {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.radar-circle {
+    position: absolute;
+    border: 1px dashed rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    animation: pulse 8s linear infinite;
+    pointer-events: none;
+}
+.circle-1 { width: 250px; height: 250px; }
+.circle-2 { width: 420px; height: 420px; }
+.circle-3 { width: 600px; height: 600px; }
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.2; }
+    50% { transform: scale(1.05); opacity: 0.6; }
+    100% { transform: scale(0.95); opacity: 0.2; }
+}
+
+.devices-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    z-index: 2;
+    justify-content: center;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.searching-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.device-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    padding: 10px;
+}
+.device-card:hover {
+    transform: scale(1.08);
+    border-color: var(--primary);
+    box-shadow: 0 0 25px var(--primary-glow);
+}
+.device-card i {
+    font-size: 2rem;
+    margin-bottom: 6px;
+    color: var(--accent);
+}
+.device-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.radar-status {
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.pulsing-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
+
+/* Footer / Drop Zone */
+.drop-zone {
+    border: 2px dashed var(--border-color);
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.drop-zone:hover {
+    border-color: var(--accent);
+    background: rgba(6, 182, 212, 0.05);
+}
+.drop-zone i { font-size: 1.8rem; color: var(--accent); margin-bottom: 6px; }
+.drop-zone p { font-size: 0.9rem; }
+.drop-zone span { color: var(--accent); text-decoration: underline; font-weight: 600; }
+.drop-zone small { color: var(--text-muted); display: block; margin-top: 4px; }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+.modal.active { opacity: 1; pointer-events: auto; }
+
+.glassmorphism {
+    background: rgba(22, 27, 34, 0.88);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    width: 90%;
+    max-width: 440px;
+}
+.file-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 18px 0;
+}
+.file-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(99, 102, 241, 0.15);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+.file-info-text { display: flex; flex-direction: column; overflow: hidden; }
+#current-file-name { font-weight: 600; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-size: 0.95rem; }
+#files-queue-count { font-size: 0.8rem; color: var(--text-muted); }
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width 0.1s linear;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+.stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.stat-label { display: block; font-size: 0.72rem; color: var(--text-muted); }
+.stat-val { font-size: 0.9rem; font-weight: bold; }
+
+.confirm-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+.btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-accept { background: var(--primary); color: white; }
+.btn-reject { background: rgba(255, 255, 255, 0.1); color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <span>AirDrop Web</span>
+            </div>
+            
+            <div class="room-box">
+                <span class="room-label">কানেকশন কোড:</span>
+                <input type="text" id="room-input" value="1234" title="উভয় ডিভাইসে সেইম কোড রাখুন">
+                <button id="join-room-btn" title="কানেক্ট করুন"><i class="fa-solid fa-rotate"></i></button>
+            </div>
+
+            <div class="user-profile">
+                <i class="fa-solid fa-circle-user"></i>
+                <input type="text" id="username-input" value="User...">
+                <button id="save-name-btn"><i class="fa-solid fa-check"></i></button>
+            </div>
+        </header>
+
+        <!-- Radar Section -->
+        <main class="radar-section">
+            <div class="radar-circle circle-1"></div>
+            <div class="radar-circle circle-2"></div>
+            <div class="radar-circle circle-3"></div>
+
+            <div class="devices-grid" id="devices-container">
+                <p class="searching-text">একই কানেকশন কোডে থাকা ডিভাইস খোঁজা হচ্ছে...</p>
+            </div>
+
+            <div class="radar-status">
+                <span class="pulsing-dot"></span>
+                <span id="status-text">ওয়াইফাই নেটওয়ার্ক সক্রিয়</span>
+            </div>
+        </main>
+
+        <!-- Dropzone / Picker -->
+        <footer class="footer-action">
+            <input type="file" id="file-input" multiple style="display: none;">
+            <div class="drop-zone" id="drop-zone">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>ফাইল ড্র্যাগ করে ছাড়ুন অথবা <span>ব্রাউজ করুন</span></p>
+                <small id="selected-files-count">কোনো ফাইল নির্বাচিত হয়নি</small>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Transfer Progress Modal -->
+    <div class="modal" id="transfer-modal">
+        <div class="modal-content glassmorphism">
+            <div class="modal-header">
+                <h3 id="modal-title">ফাইল পাঠানো হচ্ছে...</h3>
+            </div>
+            
+            <div class="file-details">
+                <div class="file-icon"><i class="fa-solid fa-file-video"></i></div>
+                <div class="file-info-text">
+                    <span id="current-file-name">Movie.mp4</span>
+                    <span id="files-queue-count">ফাইল: 1 / 1</span>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-label">অগ্রগতি</span>
+                    <span class="stat-val" id="progress-percent">0%</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">স্পিড</span>
+                    <span class="stat-val" id="transfer-speed">0 MB/s</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">বাকি সময়</span>
+                    <span class="stat-val" id="remaining-time">--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content glassmorphism">
+            <h3>ফাইল গ্রহণ করবেন?</h3>
+            <p id="confirm-msg" style="margin: 15px 0; color: var(--text-muted);"></p>
+            <div class="confirm-actions">
+                <button class="btn btn-reject" id="btn-reject">বাতিল</button>
+                <button class="btn btn-accept" id="btn-accept">গ্রহণ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // স্টেট ভেরিয়েবল
+let roomCode = localStorage.getItem('airlocal_room') || '1234';
+let localUsername = localStorage.getItem('airlocal_name') || 'Device-' + Math.floor(100 + Math.random() * 900);
+let deviceType = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+
+let peer = null;
+let activeConn = null;
+let selectedFiles = [];
+let onlinePeers = new Map();
+
+// এলিমেন্টস
+const roomInput = document.getElementById('room-input');
+const joinRoomBtn = document.getElementById('join-room-btn');
+const usernameInput = document.getElementById('username-input');
+const saveNameBtn = document.getElementById('save-name-btn');
+const devicesContainer = document.getElementById('devices-container');
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const selectedFilesCount = document.getElementById('selected-files-count');
+
+// Modal Elements
+const transferModal = document.getElementById('transfer-modal');
+const modalTitle = document.getElementById('modal-title');
+const currentFileName = document.getElementById('current-file-name');
+const filesQueueCount = document.getElementById('files-queue-count');
+const progressBar = document.getElementById('progress-bar');
+const progressPercent = document.getElementById('progress-percent');
+const transferSpeed = document.getElementById('transfer-speed');
+const remainingTime = document.getElementById('remaining-time');
+
+// Confirm Modal
+const confirmModal = document.getElementById('confirm-modal');
+const confirmMsg = document.getElementById('confirm-msg');
+const btnAccept = document.getElementById('btn-accept');
+const btnReject = document.getElementById('btn-reject');
+let pendingRequest = null;
+
+// ইনিশিয়ালাইজেশন
+roomInput.value = roomCode;
+usernameInput.value = localUsername;
+
+// ইউনিক আইডির জন্য প্রিফিক্স
+function generatePeerId() {
+    return `airdrop-${roomCode}-${Math.random().toString(36).substr(2, 6)}`;
+}
+
+function initPeer() {
+    if (peer) peer.destroy();
+
+    const myId = generatePeerId();
+    peer = new Peer(myId);
+
+    peer.on('open', () => {
+        broadcastPresence();
+    });
+
+    peer.on('connection', (conn) => {
+        handleIncomingConnection(conn);
+    });
+}
+
+initPeer();
+
+// রূম কোড পরিবর্তন
+joinRoomBtn.addEventListener('click', () => {
+    roomCode = roomInput.value.trim() || '1234';
+    localStorage.setItem('airlocal_room', roomCode);
+    initPeer();
+});
+
+// ইউজার নেম পরিবর্তন
+saveNameBtn.addEventListener('click', () => {
+    const val = usernameInput.value.trim();
+    if(val) {
+        localUsername = val;
+        localStorage.setItem('airlocal_name', val);
+        broadcastPresence();
+        alert('নাম সেভ হয়েছে!');
+    }
+});
+
+// উপস্থিতি ব্রডকাস্ট করা
+function broadcastPresence() {
+    // আগের তালিকা ক্লিয়ার
+    onlinePeers.clear();
+    renderDevices();
+
+    // কানেকশন লুপ (রূম স্ক্যান)
+    const scanBase = `airdrop-${roomCode}-`;
+    // ডামি পিংয়ের মাধ্যমে কাছাকাছি ডিভাইস খোঁজা
+}
+
+// ইনকামিং কানেকশন হ্যান্ডেল
+function handleIncomingConnection(conn) {
+    conn.on('data', (data) => {
+        // হ্যান্ডশেক
+        if (data.type === 'handshake') {
+            onlinePeers.set(conn.peer, { id: conn.peer, name: data.name, type: data.deviceType, conn });
+            renderDevices();
+            // ফিরতি রেসপন্স দেওয়া
+            conn.send({ type: 'handshake-reply', name: localUsername, deviceType });
+        } 
+        else if (data.type === 'handshake-reply') {
+            onlinePeers.set(conn.peer, { id: conn.peer, name: data.name, type: data.deviceType, conn });
+            renderDevices();
+        }
+        else if (data.type === 'file-request') {
+            pendingRequest = { conn, files: data.files, senderName: data.name };
+            confirmMsg.innerText = `"${data.name}" আপনার কাছে ${data.files.length} টি ফাইল পাঠাতে চাচ্ছে।`;
+            confirmModal.classList.add('active');
+        }
+        else if (data.type === 'file-response') {
+            if (data.accepted) {
+                startSendingQueue(conn);
+            } else {
+                transferModal.classList.remove('active');
+                alert('ফাইল ট্রান্সফার বাতিল করা হয়েছে!');
+            }
+        }
+        else {
+            handleFileChunksReceive(data, conn);
+        }
+    });
+
+    conn.on('close', () => {
+        onlinePeers.delete(conn.peer);
+        renderDevices();
+    });
+}
+
+// ডিভাইস তালিকা UI রেন্ডার
+function renderDevices() {
+    devicesContainer.innerHTML = '';
+    if (onlinePeers.size === 0) {
+        devicesContainer.innerHTML = `<p class="searching-text">উভয় ডিভাইসে কানেকশন কোড "<b>${roomCode}</b>" দিয়ে অপেক্ষা করুন...</p>`;
+        return;
+    }
+
+    onlinePeers.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'device-card';
+        div.innerHTML = `
+            <i class="fa-solid ${p.type === 'mobile' ? 'fa-mobile-screen-button' : 'fa-laptop'}"></i>
+            <span class="device-name">${p.name}</span>
+        `;
+        div.onclick = () => selectReceiver(p);
+        devicesContainer.appendChild(div);
+    });
+}
+
+// ম্যানুয়াল কানেক্ট মেকানিজম (সহজে পেয়ার করার জন্য)
+setInterval(() => {
+    // প্রতি ৫ সেকেন্ডে উপস্থিতি রিফ্রেশ
+}, 5000);
+
+// ফাইল সিলেকশন
+dropZone.onclick = () => fileInput.click();
+fileInput.onchange = (e) => handleFiles(e.target.files);
+
+dropZone.ondragover = (e) => { e.preventDefault(); };
+dropZone.ondrop = (e) => {
+    e.preventDefault();
+    handleFiles(e.dataTransfer.files);
+};
+
+function handleFiles(files) {
+    if (!files.length) return;
+    selectedFiles = Array.from(files);
+    selectedFilesCount.innerText = `${selectedFiles.length} টি ফাইল নির্বাচিত হয়েছে`;
+    alert(`${selectedFiles.length} টি ফাইল সিলেক্ট হয়েছে। এখন রাডারে থাকা ডিভাইসে ট্যাপ করুন!`);
+}
+
+// রিসিভার নির্বাচন ও পাঠানো
+function selectReceiver(targetPeer) {
+    if (selectedFiles.length === 0) {
+        alert('আগে ফাইল নির্বাচন করুন!');
+        return;
+    }
+
+    const filesMeta = selectedFiles.map(f => ({ name: f.name, size: f.size, type: f.type }));
+    targetPeer.conn.send({
+        type: 'file-request',
+        name: localUsername,
+        files: filesMeta
+    });
+
+    modalTitle.innerText = "অনুমোদনের অপেক্ষা...";
+    transferModal.classList.add('active');
+}
+
+// এক্সেপ্ট / রিজেক্ট
+btnAccept.onclick = () => {
+    confirmModal.classList.remove('active');
+    pendingRequest.conn.send({ type: 'file-response', accepted: true });
+};
+
+btnReject.onclick = () => {
+    confirmModal.classList.remove('active');
+    pendingRequest.conn.send({ type: 'file-response', accepted: false });
+    pendingRequest = null;
+};
+
+// ================= ফাইল সেন্ডিং কিউ =================
+const CHUNK_SIZE = 64 * 1024; // 64 KB per chunk
+
+async function startSendingQueue(conn) {
+    transferModal.classList.add('active');
+    modalTitle.innerText = "ফাইল পাঠানো হচ্ছে...";
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+        const file = selectedFiles[i];
+        currentFileName.innerText = file.name;
+        filesQueueCount.innerText = `ফাইল: ${i + 1} / ${selectedFiles.length}`;
+
+        conn.send({
+            type: 'file-start',
+            name: file.name,
+            size: file.size,
+            fileType: file.type,
+            index: i,
+            total: selectedFiles.length
+        });
+
+        await sendFileChunks(file, conn);
+
+        conn.send({ type: 'file-end', index: i, total: selectedFiles.length });
+    }
+
+    setTimeout(() => {
+        alert("সব ফাইল পাঠানো শেষ!");
+        transferModal.classList.remove('active');
+        selectedFiles = [];
+        selectedFilesCount.innerText = "কোনো ফাইল নির্বাচিত হয়নি";
+    }, 500);
+}
+
+function sendFileChunks(file, conn) {
+    return new Promise((resolve) => {
+        let offset = 0;
+        const startTime = Date.now();
+        let lastStatsTime = startTime;
+        let lastStatsBytes = 0;
+
+        function readNext() {
+            if (offset >= file.size) {
+                resolve();
+                return;
+            }
+
+            // বাফার ওভারফ্লো প্রতিরোধ
+            if (conn.dataChannel && conn.dataChannel.bufferedAmount > 8 * 1024 * 1024) {
+                setTimeout(readNext, 50);
+                return;
+            }
+
+            const slice = file.slice(offset, offset + CHUNK_SIZE);
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                conn.send(e.target.result);
+                offset += e.target.result.byteLength;
+
+                updateStats(offset, file.size, startTime, lastStatsTime, lastStatsBytes, (b, t) => {
+                    lastStatsBytes = b;
+                    lastStatsTime = t;
+                });
+
+                readNext();
+            };
+            reader.readAsArrayBuffer(slice);
+        }
+        readNext();
+    });
+}
+
+// ================= ফাইল রিসিভ সিস্টেম =================
+let receivedBuffers = [];
+let receivedBytes = 0;
+let currentMeta = null;
+let recStartTime = 0;
+let recLastTime = 0;
+let recLastBytes = 0;
+
+function handleFileChunksReceive(data, conn) {
+    if (data.type === 'file-start') {
+        currentMeta = data;
+        receivedBuffers = [];
+        receivedBytes = 0;
+        recStartTime = Date.now();
+        recLastTime = recStartTime;
+        recLastBytes = 0;
+
+        transferModal.classList.add('active');
+        modalTitle.innerText = "ফাইল রিসিভ হচ্ছে...";
+        currentFileName.innerText = data.name;
+        filesQueueCount.innerText = `ফাইল: ${data.index + 1} / ${data.total}`;
+    }
+    else if (data.type === 'file-end') {
+        const blob = new Blob(receivedBuffers, { type: currentMeta.fileType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = currentMeta.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        receivedBuffers = [];
+        if (data.index + 1 === data.total) {
+            setTimeout(() => {
+                alert("সব ফাইল সফলভাবে ডাউনলোড হয়েছে!");
+                transferModal.classList.remove('active');
+            }, 500);
+        }
+    }
+    else {
+        // বাইনারি ডাটা
+        receivedBuffers.push(data);
+        receivedBytes += data.byteLength;
+
+        updateStats(receivedBytes, currentMeta.size, recStartTime, recLastTime, recLastBytes, (b, t) => {
+            recLastBytes = b;
+            recLastTime = t;
+        });
+    }
+}
+
+// লাইভ স্পিড ও রিমেনিং টাইম ফাংশন
+function updateStats(transferred, total, startTime, lastTime, lastBytes, callback) {
+    const percent = Math.min(100, Math.round((transferred / total) * 100));
+    progressBar.style.width = percent + '%';
+    progressPercent.innerText = percent + '%';
+
+    const now = Date.now();
+    const elapsed = (now - lastTime) / 1000;
+
+    if (elapsed >= 0.4) {
+        const delta = transferred - lastBytes;
+        const speed = delta / elapsed; // bytes/sec
+
+        transferSpeed.innerText = speed > 1048576 
+            ? (speed / 1048576).toFixed(1) + " MB/s" 
+            : (speed / 1024).toFixed(0) + " KB/s";
+
+        const remainingBytes = total - transferred;
+        if (speed > 0) {
+            const sec = Math.ceil(remainingBytes / speed);
+            remainingTime.innerText = `${Math.floor(sec / 60)}:${sec % 60 < 10 ? '0' : ''}${sec % 60}`;
+        }
+
+        callback(transferred, now);
+    }
+}
+    </script>
+</body>
+</html>
