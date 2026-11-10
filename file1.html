@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirWave — Ultra-Fast Local Wi-Fi P2P File Transfer</title>
-    <!-- Tailwind CSS CDN -->
+    <title>AirWave — Ultra-Fast Universal P2P File Transfer</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,346 +12,211 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#090d16',
-                        cardBg: '#111827',
-                        cardHover: '#1f2937',
+                        darkBg: '#0b0f19',
+                        cardBg: '#131b2e',
                         accentPurple: '#8b5cf6',
                         accentBlue: '#3b82f6',
-                        accentPink: '#ec4899',
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 4s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-8px)' },
-                        }
+                        accentEmerald: '#10b981',
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- PeerJS for WebRTC Direct Connectivity -->
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <!-- QRCode Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #090d16;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f19;
             color: #f3f4f6;
-            overflow-x: hidden;
         }
         .glass-panel {
-            background: rgba(17, 24, 39, 0.75);
+            background: rgba(19, 27, 46, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .glass-card {
-            background: rgba(31, 41, 55, 0.5);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .glow-effect {
-            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
-        }
-        .glow-blue {
-            box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.3);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #090d16;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4b5563;
+        .glow-purple {
+            box-shadow: 0 0 35px -5px rgba(139, 92, 246, 0.3);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white relative">
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-600 selection:text-white">
 
-    <!-- Background Ambient Glow Orbs -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
-
-    <!-- Header / Navbar -->
-    <header class="w-full border-b border-gray-800/60 glass-panel sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo & Brand -->
+    <!-- Top Navigation -->
+    <header class="w-full glass-panel border-b border-gray-800/80 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="location.reload()">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center glow-effect transform transition hover:scale-105 active:scale-95">
-                    <i class="fa-solid fa-wifi text-white text-xl animate-float"></i>
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center shadow-lg text-white font-bold">
+                    <i class="fa-solid fa-bolt text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-200 to-purple-400 bg-clip-text text-transparent">AirWave</h1>
-                    <p class="text-xs text-gray-400 font-medium flex items-center gap-1.5">
-                        <span id="networkStatusDot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 
-                        <span id="localIpBadge">IP: Detecting...</span>
+                    <h1 class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-200 to-purple-400 bg-clip-text text-transparent">AirWave P2P</h1>
+                    <p class="text-xs text-gray-400 flex items-center gap-1.5 font-medium">
+                        <span id="connIndicator" class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span id="networkStatus">Initializing P2P Node...</span>
                     </p>
                 </div>
             </div>
 
-            <!-- Profile & Connection Status -->
-            <div class="flex items-center space-x-3">
-                <button onclick="openNicknameModal()" class="glass-card px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-800 transition flex items-center space-x-2 border border-gray-700/50 group active:scale-95">
-                    <div class="w-7 h-7 rounded-lg bg-purple-600/30 text-purple-400 flex items-center justify-center font-bold text-xs group-hover:bg-purple-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <span id="displayNickname" class="text-gray-200">My Device</span>
-                    <i class="fa-solid fa-pen text-xs text-gray-400 ml-1"></i>
+            <!-- Nickname & Quick Actions -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <button onclick="showQRCodeModal()" class="px-3.5 py-2 rounded-xl bg-gray-800/80 hover:bg-gray-700 border border-gray-700/60 text-xs font-semibold flex items-center gap-2 transition active:scale-95">
+                    <i class="fa-solid fa-qrcode text-purple-400"></i>
+                    <span class="hidden sm:inline">Connect Mobile</span>
                 </button>
-
-                <!-- Mode Switcher Tabs -->
-                <div class="hidden sm:flex bg-gray-900/80 p-1 rounded-xl border border-gray-800">
-                    <button id="tabSender" onclick="switchMode('sender')" class="px-4 py-1.5 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg">
-                        <i class="fa-solid fa-paper-plane mr-1.5"></i> Sender
-                    </button>
-                    <button id="tabReceiver" onclick="switchMode('receiver')" class="px-4 py-1.5 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white">
-                        <i class="fa-solid fa-download mr-1.5"></i> Receiver
-                    </button>
+                <div class="glass-panel px-3.5 py-2 rounded-xl border border-gray-700/60 text-xs font-semibold flex items-center gap-2">
+                    <i id="deviceTypeIcon" class="fa-solid fa-laptop text-blue-400"></i>
+                    <span id="myDeviceName" class="text-gray-200">Detecting...</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Main Container -->
+    <main class="max-w-6xl w-full mx-auto px-4 py-8 flex-grow space-y-8">
 
-        <!-- Mobile Mode Switcher Banner -->
-        <div class="sm:hidden flex bg-gray-900/80 p-1.5 rounded-xl border border-gray-800 mb-6">
-            <button id="mobileTabSender" onclick="switchMode('sender')" class="flex-1 py-2 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg text-center">
-                <i class="fa-solid fa-paper-plane mr-1.5"></i> Sender Mode
-            </button>
-            <button id="mobileTabReceiver" onclick="switchMode('receiver')" class="flex-1 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white text-center">
-                <i class="fa-solid fa-download mr-1.5"></i> Receiver Mode
-            </button>
-        </div>
-
-        <!-- ================= SENDER VIEW ================= -->
-        <div id="senderContainer" class="space-y-8 transition-all duration-300">
-            <!-- Top Banner / Connection Bar -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div class="absolute right-0 top-0 w-80 h-80 bg-gradient-to-bl from-purple-500/10 to-transparent pointer-events-none rounded-bl-full"></div>
+        <!-- ID Card & Quick Connect Box -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left: Device ID Card -->
+            <div class="lg:col-span-6 glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-60 h-60 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div>
-                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 inline-flex items-center gap-1.5 mb-3">
-                        <i class="fa-solid fa-bolt"></i> P2P Local Wi-Fi Streaming
-                    </span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1">Send files directly across devices</h2>
-                    <p class="text-gray-400 text-sm">Connect to a receiver via 4-digit ID or scan local peers on your Wi-Fi router network.</p>
-                </div>
-
-                <!-- Manual Connection Box -->
-                <div class="glass-card p-4 rounded-2xl border border-gray-700/60 w-full md:w-auto flex flex-col sm:flex-row items-center gap-3">
-                    <div>
-                        <span class="block text-[10px] uppercase font-bold text-gray-400 mb-1">Target Device ID / Code</span>
-                        <div class="flex items-center space-x-2">
-                            <input type="text" id="targetIdInput" placeholder="4 Digits" maxlength="4" class="w-32 bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white text-sm font-bold tracking-widest text-center focus:outline-none focus:border-purple-500 transition">
-                            <button onclick="connectToTargetPeer()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs transition shadow-lg glow-effect flex items-center gap-1.5 active:scale-95">
-                                <i class="fa-solid fa-link"></i> Connect
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+                            Your Device Code
+                        </span>
+                        <span class="text-xs text-gray-400">Share with other device</span>
                     </div>
+                    <div class="flex items-center space-x-4 my-2">
+                        <span id="myPeerId" class="text-4xl sm:text-5xl font-black tracking-widest text-white font-mono">-----</span>
+                        <button onclick="copyMyCode()" class="p-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition" title="Copy Code">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">
+                        Open <strong class="text-gray-300">AirWave</strong> on another phone, tablet, or PC and enter this code or scan the QR code.
+                    </p>
+                </div>
+                <div class="pt-6 mt-6 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+                    <span>Both devices can send & receive instantly</span>
+                    <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-shield-halved"></i> Direct P2P Encryption
+                    </span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Left Column: Drag & Drop + Dynamic File Queue -->
-                <div class="lg:col-span-7 space-y-6">
-                    <!-- Dropzone -->
-                    <div id="dropzone" 
-                         ondragover="handleDragOver(event)" 
-                         ondragleave="handleDragLeave(event)" 
-                         ondrop="handleFileDrop(event)"
-                         onclick="document.getElementById('fileInput').click()"
-                         class="border-2 border-dashed border-gray-700 hover:border-purple-500/70 bg-gray-900/40 hover:bg-gray-900/70 rounded-3xl p-8 sm:p-12 text-center cursor-pointer transition-all duration-300 group relative">
-                        
-                        <input type="file" id="fileInput" multiple class="hidden" onchange="handleFileSelect(event)">
-                        
-                        <div class="w-20 h-20 mx-auto rounded-3xl bg-purple-600/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-1 group-hover:text-purple-300 transition">Drag & Drop files or browse</h3>
-                        <p class="text-xs text-gray-400 mb-4">Add movies, pictures, zips, or multiple files anytime (even during transfers!)</p>
-                        <span class="inline-flex items-center text-xs font-semibold px-4 py-2 rounded-xl bg-gray-800 text-gray-300 border border-gray-700 group-hover:bg-purple-600 group-hover:text-white transition shadow-sm">
-                            <i class="fa-solid fa-folder-open mr-2"></i> Browse Files
-                        </span>
-                    </div>
+            <!-- Right: Connect to Target Device -->
+            <div class="lg:col-span-6 glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+                        Connect to Peer
+                    </span>
+                    <h3 class="text-lg font-bold text-white mt-3">Enter Remote Device Code</h3>
+                    <p class="text-xs text-gray-400 mt-1">Connect directly over your local Wi-Fi router network.</p>
 
-                    <!-- File Queue List -->
-                    <div class="glass-panel rounded-3xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-2">
-                                <h4 class="font-bold text-white text-base">File Queue</h4>
-                                <span id="fileCountBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-800 text-gray-300 border border-gray-700">0 files</span>
-                            </div>
-                            <button onclick="clearFileQueue()" class="text-xs text-red-400 hover:text-red-300 font-semibold transition flex items-center gap-1">
-                                <i class="fa-solid fa-trash-can"></i> Clear All
-                            </button>
-                        </div>
-
-                        <div id="fileQueueList" class="space-y-3 max-h-72 overflow-y-auto pr-1">
-                            <!-- Empty State -->
-                            <div id="emptyQueueState" class="text-center py-10 text-gray-500">
-                                <i class="fa-regular fa-folder-open text-3xl mb-2 opacity-40"></i>
-                                <p class="text-xs font-medium">No files in queue</p>
-                            </div>
-                        </div>
+                    <div class="flex items-center space-x-3 mt-6">
+                        <input type="text" id="targetPeerIdInput" placeholder="e.g. 58392" maxlength="6"
+                               class="flex-1 bg-gray-900 border border-gray-700/80 rounded-2xl px-4 py-3.5 text-white font-mono text-center text-lg tracking-widest uppercase focus:outline-none focus:border-purple-500 transition">
+                        <button id="connectBtn" onclick="initiateConnection()" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold text-sm shadow-lg glow-purple transition active:scale-95 flex items-center gap-2">
+                            <i class="fa-solid fa-link"></i> Connect
+                        </button>
                     </div>
                 </div>
 
-                <!-- Right Column: Nearby Receivers & Status Control -->
-                <div class="lg:col-span-5 space-y-6">
-                    <!-- Nearby Receivers Panel -->
-                    <div class="glass-panel rounded-3xl p-6 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="font-bold text-white text-base flex items-center gap-2">
-                                    <i class="fa-solid fa-radar text-purple-400 animate-spin-slow"></i> Nearby Receivers
-                                </h4>
-                                <button onclick="scanLocalPeers()" class="text-xs text-purple-400 hover:text-purple-300 font-semibold transition flex items-center gap-1 active:scale-95">
-                                    <i class="fa-solid fa-rotate-right"></i> Refresh Scan
-                                </button>
-                            </div>
-                            <p class="text-xs text-gray-400 mb-4">Active devices on your local network broadcasting AirWave.</p>
-
-                            <!-- Receiver Devices List (ZERO hardcoded dummy devices) -->
-                            <div id="receiverDevicesList" class="space-y-3 mb-6 max-h-56 overflow-y-auto pr-1">
-                                <div id="noReceiversPlaceholder" class="text-center py-8 text-gray-500 text-xs">
-                                    <i class="fa-solid fa-wifi text-2xl mb-2 opacity-30"></i>
-                                    <p>No active receivers detected on network.</p>
-                                    <p class="text-[10px] text-gray-400 mt-1">Open AirWave in Receiver mode on another device or enter 4-digit ID.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Send Action Button -->
-                        <div class="pt-4 border-t border-gray-800">
-                            <button id="sendBtn" onclick="startSequentialTransfer()" disabled
-                                class="w-full py-4 rounded-2xl font-bold text-sm bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-xl glow-effect hover:opacity-95 active:scale-95 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-paper-plane"></i> Send Files Sequentially
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Live Active Transfer Card (Sender) -->
-                    <div id="senderActiveTransferCard" class="glass-panel rounded-3xl p-6 hidden border border-purple-500/30">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
-                                <i class="fa-solid fa-circle-notch animate-spin"></i> Streaming Live P2P
-                            </span>
-                            <span id="senderTransferPercent" class="text-xs font-extrabold text-white">0%</span>
-                        </div>
-                        <div class="mb-3">
-                            <div class="flex justify-between text-xs text-gray-300 mb-1">
-                                <span id="senderCurrentFileName" class="truncate max-w-[180px]">file.mp4</span>
-                                <span id="senderTransferSpeed">0 MB/s</span>
-                            </div>
-                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5 border border-gray-700/50">
-                                <div id="senderProgressBar" class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-200" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center text-xs text-gray-400 pt-2 border-t border-gray-800">
-                            <span id="senderTimeRemaining">Est. remaining: Calculating...</span>
-                            <button onclick="cancelTransfer()" class="text-red-400 hover:text-red-300 font-semibold">Cancel</button>
-                        </div>
-                    </div>
+                <div id="connectionStatusBanner" class="mt-4 p-3.5 rounded-xl bg-gray-900/60 border border-gray-800 text-xs text-gray-400 flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                        <span id="activePeerDot" class="w-2 h-2 rounded-full bg-gray-600"></span>
+                        <span id="activePeerText">No remote device connected</span>
+                    </span>
+                    <span id="peerDeviceInfoBadge" class="text-[11px] font-mono text-gray-500">Standby</span>
                 </div>
             </div>
         </div>
 
-        <!-- ================= RECEIVER VIEW ================= -->
-        <div id="receiverContainer" class="space-y-8 hidden transition-all duration-300">
-            <!-- Top Banner -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden">
-                <div class="absolute right-0 top-0 w-80 h-80 bg-gradient-to-bl from-blue-500/10 to-transparent pointer-events-none rounded-bl-full"></div>
-                <div class="max-w-2xl">
-                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 inline-flex items-center gap-1.5 mb-4">
-                        <i class="fa-solid fa-tower-broadcast"></i> Ready to Receive on Local Network
+        <!-- File Sender & Transfer Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- File Drag & Drop Zone -->
+            <div class="lg:col-span-7 space-y-4">
+                <div id="dropzone"
+                     ondragover="handleDragOver(event)"
+                     ondragleave="handleDragLeave(event)"
+                     ondrop="handleFileDrop(event)"
+                     onclick="triggerFileInput()"
+                     class="glass-panel border-2 border-dashed border-gray-700 hover:border-purple-500/80 rounded-3xl p-8 sm:p-12 text-center cursor-pointer transition-all duration-300 group">
+                    <input type="file" id="fileSelector" multiple class="hidden" onchange="handleFileSelect(event)">
+                    
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-600/10 border border-purple-500/30 text-purple-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition shadow-lg">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-purple-300 transition">Choose files or drag & drop here</h4>
+                    <p class="text-xs text-gray-400 mt-1">Send Photos, Videos, Documents, Archives (Unlimited size)</p>
+                    <span class="inline-block mt-4 text-xs font-semibold px-4 py-2 rounded-xl bg-gray-800 text-gray-300 group-hover:bg-purple-600 group-hover:text-white transition">
+                        Browse Files
                     </span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">Waiting for incoming files</h2>
-                    <p class="text-gray-400 text-sm sm:text-base">Share your 4-digit Device ID with the sender so they can connect instantly over your Wi-Fi network.</p>
+                </div>
+
+                <!-- Selected Files Staging List -->
+                <div class="glass-panel rounded-2xl p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <h5 class="text-xs font-bold uppercase tracking-wider text-gray-400">Queued For Sending (<span id="queueCount">0</span>)</h5>
+                        <button onclick="clearQueue()" class="text-xs text-red-400 hover:text-red-300">Clear</button>
+                    </div>
+                    <div id="fileQueueContainer" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                        <p id="emptyQueueMsg" class="text-xs text-gray-500 py-3 text-center">No files selected</p>
+                    </div>
+                    <button id="sendActionBtn" onclick="startSendingFiles()" disabled class="w-full mt-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-purple-600 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-purple-500 transition shadow-lg active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Send Queued Files Now
+                    </button>
                 </div>
             </div>
 
-            <!-- Receiver Status & Incoming Transfer Box -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Left: Device ID Card -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="glass-panel rounded-3xl p-8 text-center space-y-6">
-                        <div class="flex justify-between items-center bg-gray-900/60 p-3 rounded-2xl border border-gray-800">
-                            <span class="text-xs font-semibold text-gray-400 flex items-center gap-1.5">
-                                <span id="pairingStatusDot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> 
-                                <span id="pairingStatusText">Ready & Discoverable</span>
-                            </span>
-                            <span id="receiverLocalIpDisplay" class="text-xs font-mono text-blue-400">IP: Detecting...</span>
+            <!-- Live Transfer Monitor (Both Send & Receive) -->
+            <div class="lg:col-span-5 space-y-4">
+                <div class="glass-panel rounded-3xl p-6 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-arrow-right-arrow-left text-purple-400"></i> Active Transfer Stream
+                            </h4>
+                            <span id="transferTypeBadge" class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-gray-800 text-gray-400">Idle</span>
                         </div>
 
-                        <div class="py-4">
-                            <span class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">YOUR DEVICE ID</span>
-                            <div id="myDeviceId" class="text-5xl font-black tracking-widest bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                                4819
+                        <!-- Progress Display -->
+                        <div id="progressSection" class="hidden space-y-4 bg-gray-900/60 p-5 rounded-2xl border border-gray-800">
+                            <div class="flex justify-between items-center">
+                                <span id="currentFileName" class="text-xs font-bold text-white truncate max-w-[200px]">file.bin</span>
+                                <span id="progressPercent" class="text-xs font-extrabold text-purple-400">0%</span>
                             </div>
-                            <p class="text-xs text-gray-500 mt-2">Give this 4-digit code to the sender device</p>
+
+                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5">
+                                <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-150" style="width: 0%"></div>
+                            </div>
+
+                            <div class="flex justify-between text-[11px] text-gray-400">
+                                <span id="transferredBytesText">0 MB / 0 MB</span>
+                                <span id="transferSpeedText">0 MB/s</span>
+                            </div>
                         </div>
 
-                        <div class="pt-4 border-t border-gray-800">
-                            <h3 id="receiverDeviceNameCard" class="text-base font-bold text-white">Mobile-Swarid</h3>
-                            <p class="text-xs text-gray-400 mt-0.5">Listening on local Wi-Fi subnet (WebRTC P2P DataChannel)</p>
+                        <div id="idleTransferPlaceholder" class="text-center py-12 text-gray-500 text-xs">
+                            <i class="fa-solid fa-arrows-rotate text-3xl mb-2 opacity-30"></i>
+                            <p>Ready to stream data</p>
+                            <p class="text-[10px] text-gray-600 mt-0.5">Connect to a device and choose files to begin</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Right: Incoming Requests & Downloads -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="glass-panel rounded-3xl p-6">
-                        <h4 class="font-bold text-white text-base mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-download text-blue-400"></i> Incoming Transfer Stream
-                        </h4>
-
-                        <!-- No Incoming Request State -->
-                        <div id="receiverIdleState" class="text-center py-14 text-gray-500">
-                            <i class="fa-regular fa-clock text-4xl mb-3 opacity-30"></i>
-                            <p class="text-sm font-medium text-gray-400">No active transfers right now</p>
-                            <p class="text-xs text-gray-500 mt-1">Waiting for sender to initiate connection...</p>
-                        </div>
-
-                        <!-- Active Incoming Transfer UI -->
-                        <div id="receiverActiveCard" class="hidden space-y-5 bg-gray-900/60 p-6 rounded-2xl border border-blue-500/30">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-xs font-bold text-blue-400 uppercase">Receiving from <span id="incomingSenderName">Desktop</span></span>
-                                    <h5 id="incomingFileName" class="text-base font-bold text-white truncate max-w-[240px] sm:max-w-xs mt-0.5">movie.mp4</h5>
-                                </div>
-                                <span id="receiverPercentText" class="text-lg font-extrabold text-white">0%</span>
-                            </div>
-
-                            <!-- Progress Bar -->
-                            <div>
-                                <div class="flex justify-between text-xs text-gray-400 mb-1.5">
-                                    <span id="receiverDownloadedSize">0 MB / 0 MB</span>
-                                    <span id="receiverSpeedText">0 MB/s</span>
-                                </div>
-                                <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden p-0.5 border border-gray-700">
-                                    <div id="receiverProgressBar" class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-200" style="width: 0%"></div>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-800">
-                                <span id="receiverTimeRemaining">Est. remaining: Calculating...</span>
-                                <button id="saveDownloadBtn" onclick="triggerFileDownload()" class="hidden px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition shadow-md active:scale-95">
-                                    <i class="fa-solid fa-download mr-1"></i> Save File
-                                </button>
-                            </div>
+                    <!-- Received Files List -->
+                    <div class="pt-4 border-t border-gray-800">
+                        <h5 class="text-xs font-bold text-gray-400 mb-2">Received Downloads</h5>
+                        <div id="receivedFilesContainer" class="space-y-2 max-h-36 overflow-y-auto">
+                            <p id="noReceivedFilesText" class="text-xs text-gray-600">No incoming files yet</p>
                         </div>
                     </div>
                 </div>
@@ -361,493 +226,422 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full border-t border-gray-800/60 glass-panel py-6 mt-12 text-center text-xs text-gray-500">
-        <p>AirWave Local P2P File Transfer &bull; Secure Wi-Fi Browser-to-Browser Streaming &bull; No Internet Required</p>
+    <footer class="glass-panel border-t border-gray-800/80 py-4 text-center text-xs text-gray-500">
+        AirWave P2P &bull; High-speed browser streaming &bull; Direct LAN WebRTC connection &bull; Open Source
     </footer>
 
-    <!-- Nickname Customization Modal -->
-    <div id="nicknameModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
-        <div class="glass-panel w-full max-w-md p-6 sm:p-8 rounded-3xl border border-gray-700 shadow-2xl space-y-6 mx-4">
-            <div class="flex items-center justify-between">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-user-pen text-purple-400"></i> Edit Device Nickname
-                </h3>
-                <button onclick="closeNicknameModal()" class="text-gray-400 hover:text-white transition">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            <p class="text-xs text-gray-400">Customize the name that other devices will see on your local network.</p>
-            <div>
-                <label class="block text-xs font-semibold text-gray-300 mb-2">Device Name / Nickname</label>
-                <input type="text" id="nicknameInput" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition" placeholder="e.g. My iPhone / Gaming PC">
-            </div>
-            <div class="flex justify-end space-x-3 pt-2">
-                <button onclick="closeNicknameModal()" class="px-5 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-semibold transition">Cancel</button>
-                <button onclick="saveNickname()" class="px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition shadow-lg glow-effect">Save Nickname</button>
-            </div>
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4">
+        <div class="glass-panel w-full max-w-sm p-6 rounded-3xl border border-gray-700 text-center space-y-4">
+            <h3 class="text-base font-bold text-white">Scan from Phone / Tablet</h3>
+            <p class="text-xs text-gray-400">Scan this QR code with your mobile camera to open AirWave and connect instantly.</p>
+            <div class="bg-white p-4 rounded-2xl inline-block mx-auto" id="qrcodeCanvas"></div>
+            <button onclick="closeQRCodeModal()" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-white text-xs font-semibold transition">
+                Close
+            </button>
         </div>
     </div>
 
-    <!-- Toast Notification Box -->
-    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 glass-panel border border-purple-500/40 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3 max-w-sm">
-        <div id="toastIcon" class="w-8 h-8 rounded-xl bg-purple-600/30 text-purple-400 flex items-center justify-center text-sm">
-            <i class="fa-solid fa-bell"></i>
-        </div>
-        <div>
-            <h5 id="toastTitle" class="text-xs font-bold text-white">Notification</h5>
-            <p id="toastMessage" class="text-xs text-gray-300">Action completed successfully.</p>
-        </div>
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-purple-500/40 px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0">
+        <i id="toastIcon" class="fa-solid fa-circle-info text-purple-400"></i>
+        <span id="toastMsg" class="text-xs font-semibold text-white">Notification</span>
     </div>
 
-    <!-- JavaScript Application Logic -->
+    <!-- Application Script -->
     <script>
-        // App Core State & BroadcastChannel for local cross-tab / cross-device Wi-Fi simulation or real sync
-        let userNickname = localStorage.getItem('airwave_nickname') || ('Device-' + Math.floor(100 + Math.random() * 900));
-        let myDeviceIdCode = localStorage.getItem('airwave_device_id') || Math.floor(1000 + Math.random() * 9000).toString();
-        localStorage.setItem('airwave_device_id', myDeviceIdCode);
-
-        let currentMode = 'sender';
-        let fileQueue = [];
-        let discoveredPeers = [];
-        let selectedPeerId = null;
-        let localIpAddress = 'Detecting...';
-
-        const broadcastChannel = new BroadcastChannel('airwave_local_p2p_channel');
-
-        window.onload = function() {
-            document.getElementById('displayNickname').innerText = userNickname;
-            document.getElementById('nicknameInput').value = userNickname;
-            document.getElementById('receiverDeviceNameCard').innerText = userNickname;
-            document.getElementById('myDeviceId').innerText = myDeviceIdCode;
-
-            // Detect Real Local IP via WebRTC candidates
-            detectLocalIP();
-
-            // Broadcast presence on local network channel
-            broadcastPresence();
-            setInterval(broadcastPresence, 3000);
-
-            // Listen for peer broadcasts on local channel
-            broadcastChannel.onmessage = (event) => {
-                const data = event.data;
-                if (data && data.type === 'ANNOUNCE_PEER') {
-                    if (data.deviceId !== myDeviceIdCode) {
-                        registerDiscoveredPeer({
-                            id: data.deviceId,
-                            name: data.nickname,
-                            ip: data.ip,
-                            type: data.type || 'desktop',
-                            status: 'Ready'
-                        });
-                    }
-                } else if (data && data.type === 'FILE_TRANSFER_REQUEST' && data.targetId === myDeviceIdCode) {
-                    triggerReceiverIncomingSimulation(data.senderName, data.fileName, data.fileSize);
-                }
-            };
-        };
-
-        // Real Local IP Detection via WebRTC RTCPeerConnection
-        function detectLocalIP() {
-            try {
-                const pc = new RTCPeerConnection({ iceServers: [] });
-                pc.createDataChannel('');
-                pc.createOffer().then(offer => pc.setLocalDescription(offer)).catch(() => {});
-                pc.onicecandidate = (event) => {
-                    if (!event || !event.candidate) return;
-                    const candidateStr = event.candidate.candidate;
-                    const ipMatch = candidateStr.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/);
-                    if (ipMatch) {
-                        localIpAddress = ipMatch[1];
-                        document.getElementById('localIpBadge').innerText = `IP: ${localIpAddress}`;
-                        document.getElementById('receiverLocalIpDisplay').innerText = `IP: ${localIpAddress}`;
-                    }
-                };
-            } catch (e) {
-                localIpAddress = '192.168.1.50';
-                document.getElementById('localIpBadge').innerText = `IP: ${localIpAddress}`;
-                document.getElementById('receiverLocalIpDisplay').innerText = `IP: ${localIpAddress}`;
-            }
-        }
-
-        // Broadcast presence
-        function broadcastPresence() {
-            broadcastChannel.postMessage({
-                type: 'ANNOUNCE_PEER',
-                deviceId: myDeviceIdCode,
-                nickname: userNickname,
-                ip: localIpAddress,
-                type: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
-            });
-        }
-
-        // Register peer dynamically (Zero hardcoded mock devices)
-        function registerDiscoveredPeer(peer) {
-            const existingIndex = discoveredPeers.findIndex(p => p.id === peer.id);
-            if (existingIndex >= 0) {
-                discoveredPeers[existingIndex] = peer;
-            } else {
-                discoveredPeers.push(peer);
-            }
-            renderDiscoveredPeers();
-        }
-
-        function scanLocalPeers() {
-            showToast('Scanning Wi-Fi...', 'Searching active AirWave receivers on network subnet.', 'radar');
-            broadcastPresence();
-            setTimeout(() => {
-                renderDiscoveredPeers();
-                showToast('Scan Complete', `Found ${discoveredPeers.length} active device(s).`, 'circle-check');
-            }, 800);
-        }
-
-        function renderDiscoveredPeers() {
-            const container = document.getElementById('receiverDevicesList');
-            if (discoveredPeers.length === 0) {
-                container.innerHTML = `
-                    <div id="noReceiversPlaceholder" class="text-center py-8 text-gray-500 text-xs">
-                        <i class="fa-solid fa-wifi text-2xl mb-2 opacity-30"></i>
-                        <p>No active receivers detected on network.</p>
-                        <p class="text-[10px] text-gray-400 mt-1">Open AirWave in Receiver mode on another device or enter 4-digit ID.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            let html = '';
-            discoveredPeers.forEach(peer => {
-                const isSelected = selectedPeerId === peer.id;
-                let icon = peer.type === 'mobile' ? 'fa-mobile-screen-button' : 'fa-laptop';
-                html += `
-                    <div onclick="selectPeer('${peer.id}')" class="flex items-center justify-between p-3.5 rounded-2xl cursor-pointer transition border ${isSelected ? 'bg-purple-600/20 border-purple-500/80 glow-effect' : 'bg-gray-900/60 border-gray-800 hover:bg-gray-800/50'}">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-xl ${isSelected ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-300'} flex items-center justify-center text-base transition">
-                                <i class="fa-solid ${icon}"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-bold text-white">${peer.name} <span class="text-[10px] text-purple-400 font-mono">(ID: ${peer.id})</span></h5>
-                                <p class="text-[10px] text-gray-400">IP: ${peer.ip} &bull; <span class="text-emerald-400">${peer.status}</span></p>
-                            </div>
-                        </div>
-                        <div class="w-5 h-5 rounded-full border ${isSelected ? 'bg-purple-600 border-purple-400 text-white flex items-center justify-center text-[10px]' : 'border-gray-700'}">
-                            ${isSelected ? '<i class="fa-solid fa-check"></i>' : ''}
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        function selectPeer(id) {
-            selectedPeerId = id;
-            renderDiscoveredPeers();
-            const peer = discoveredPeers.find(p => p.id === id);
-            const targetName = peer ? peer.name : id;
-            document.getElementById('targetIdInput').value = id;
-            showToast('Target Selected', `Connected to ${targetName}`, 'link');
-            setupWebRTCConnection(id);
-        }
-
-        function connectToTargetPeer() {
-            const targetId = document.getElementById('targetIdInput').value.trim();
-            if (!targetId || targetId.length !== 4) {
-                showToast('Error', 'Please enter a valid 4-digit Device ID.', 'triangle-exclamation');
-                return;
-            }
-            selectedPeerId = targetId;
-            showToast('Connecting...', `Establishing direct link to ID: ${targetId}`, 'link');
-            setupWebRTCConnection(targetId);
-        }
-
-        function setupWebRTCConnection(peerId) {
-            document.getElementById('pairingStatusDot').className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
-            document.getElementById('pairingStatusText').innerText = `Connected (${peerId})`;
-            if (fileQueue.length > 0) {
-                document.getElementById('sendBtn').disabled = false;
-            }
-            showToast('P2P Linked', `Secure local channel established with ID ${peerId}`, 'circle-check');
-        }
-
-        // Switch Sender / Receiver Modes
-        function switchMode(mode) {
-            currentMode = mode;
-            const senderContainer = document.getElementById('senderContainer');
-            const receiverContainer = document.getElementById('receiverContainer');
-            
-            const tabSender = document.getElementById('tabSender');
-            const tabReceiver = document.getElementById('tabReceiver');
-            const mobileTabSender = document.getElementById('mobileTabSender');
-            const mobileTabReceiver = document.getElementById('mobileTabReceiver');
-
-            if (mode === 'sender') {
-                senderContainer.classList.remove('hidden');
-                receiverContainer.classList.add('hidden');
-
-                tabSender.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg";
-                tabReceiver.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white";
-                mobileTabSender.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition bg-purple-600 text-white shadow-lg text-center";
-                mobileTabReceiver.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white text-center";
-                showToast('Sender Mode', 'Ready to select files and send.', 'plane');
-            } else {
-                senderContainer.classList.add('hidden');
-                receiverContainer.classList.remove('hidden');
-
-                tabReceiver.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition bg-blue-600 text-white shadow-lg";
-                tabSender.className = "px-4 py-1.5 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white";
-                mobileTabReceiver.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition bg-blue-600 text-white shadow-lg text-center";
-                mobileTabSender.className = "flex-1 py-2 rounded-lg text-xs font-semibold transition text-gray-400 hover:text-white text-center";
-                showToast('Receiver Mode', `Listening with ID: ${myDeviceIdCode}`, 'download');
-            }
-        }
-
-        // Nickname configuration
-        function openNicknameModal() { document.getElementById('nicknameModal').classList.remove('hidden'); }
-        function closeNicknameModal() { document.getElementById('nicknameModal').classList.add('hidden'); }
-        function saveNickname() {
-            const val = document.getElementById('nicknameInput').value.trim();
-            if (val) {
-                userNickname = val;
-                localStorage.setItem('airwave_nickname', userNickname);
-                document.getElementById('displayNickname').innerText = userNickname;
-                document.getElementById('receiverDeviceNameCard').innerText = userNickname;
-                closeNicknameModal();
-                broadcastPresence();
-                showToast('Updated', `Device name set to "${userNickname}"`, 'user');
-            }
-        }
-
-        // Drag & Drop & File Queue Management
-        function handleDragOver(e) { e.preventDefault(); e.stopPropagation(); e.currentTarget.classList.add('border-purple-500', 'bg-gray-900/80'); }
-        function handleDragLeave(e) { e.preventDefault(); e.stopPropagation(); e.currentTarget.classList.remove('border-purple-500', 'bg-gray-900/80'); }
-        function handleFileDrop(e) {
-            e.preventDefault(); e.stopPropagation();
-            e.currentTarget.classList.remove('border-purple-500', 'bg-gray-900/80');
-            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-                addFilesToQueue(e.dataTransfer.files);
-            }
-        }
-        function handleFileSelect(e) {
-            if (e.target.files && e.target.files.length > 0) {
-                addFilesToQueue(e.target.files);
-            }
-        }
-
-        function addFilesToQueue(files) {
-            for (let i = 0; i < files.length; i++) {
-                fileQueue.push(files[i]);
-            }
-            renderFileQueue();
-            showToast('Files Added', `${files.length} file(s) added to queue.`, 'folder-plus');
-        }
-
-        function removeFileFromQueue(index) {
-            fileQueue.splice(index, 1);
-            renderFileQueue();
-        }
-
-        function clearFileQueue() {
-            fileQueue = [];
-            renderFileQueue();
-            showToast('Queue Cleared', 'All files removed.', 'trash');
-        }
-
-        function renderFileQueue() {
-            const list = document.getElementById('fileQueueList');
-            const emptyState = document.getElementById('emptyQueueState');
-            const badge = document.getElementById('fileCountBadge');
-            const sendBtn = document.getElementById('sendBtn');
-
-            badge.innerText = `${fileQueue.length} files`;
-            if (fileQueue.length === 0) {
-                emptyState.classList.remove('hidden');
-                list.innerHTML = '';
-                list.appendChild(emptyState);
-                sendBtn.disabled = true;
-                return;
-            }
-
-            emptyState.classList.add('hidden');
-            let html = '';
-            fileQueue.forEach((file, index) => {
-                const sizeStr = formatBytes(file.size);
-                const ext = file.name.split('.').pop().toLowerCase();
-                let icon = 'fa-file text-gray-400';
-                if(['mp4', 'mkv', 'mov'].includes(ext)) icon = 'fa-file-video text-purple-400';
-                else if(['jpg', 'png', 'webp'].includes(ext)) icon = 'fa-file-image text-blue-400';
-                else if(['zip', 'rar'].includes(ext)) icon = 'fa-file-zipper text-yellow-400';
-
-                html += `
-                    <div class="flex items-center justify-between p-3 rounded-2xl bg-gray-900/60 border border-gray-800">
-                        <div class="flex items-center space-x-3 overflow-hidden">
-                            <div class="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center text-lg flex-shrink-0">
-                                <i class="fa-solid ${icon}"></i>
-                            </div>
-                            <div class="overflow-hidden">
-                                <h5 class="text-xs font-bold text-white truncate">${file.name}</h5>
-                                <p class="text-[10px] text-gray-400">${sizeStr}</p>
-                            </div>
-                        </div>
-                        <button onclick="removeFileFromQueue(${index})" class="text-gray-500 hover:text-red-400 p-1.5 transition">
-                            <i class="fa-solid fa-xmark text-xs"></i>
-                        </button>
-                    </div>
-                `;
-            });
-            list.innerHTML = html;
-            if (selectedPeerId) {
-                sendBtn.disabled = false;
-            }
-        }
-
-        // Sequential Multi-File Transfer Engine with dynamic runtime additions
+        // State variables
+        let myPeer = null;
+        let myCode = '';
+        let activeConnection = null;
+        let queuedFiles = [];
         let isTransferring = false;
-        let activeInterval = null;
 
-        function startSequentialTransfer() {
-            if (fileQueue.length === 0 || !selectedPeerId) return;
-            isTransferring = true;
-            document.getElementById('sendBtn').disabled = true;
-            document.getElementById('senderActiveTransferCard').classList.remove('hidden');
+        // Detect Platform & Friendly Name
+        function detectDeviceName() {
+            const ua = navigator.userAgent;
+            let name = 'Desktop PC';
+            let icon = 'fa-laptop';
 
-            // Notify receiver via channel
-            broadcastChannel.postMessage({
-                type: 'FILE_TRANSFER_REQUEST',
-                targetId: selectedPeerId,
-                senderName: userNickname,
-                fileName: fileQueue[0].name,
-                fileSize: fileQueue[0].size
+            if (/iPhone/i.test(ua)) { name = 'Apple iPhone'; icon = 'fa-mobile-screen-button'; }
+            else if (/iPad/i.test(ua)) { name = 'Apple iPad'; icon = 'fa-tablet-screen-button'; }
+            else if (/Android/i.test(ua)) { name = 'Android Device'; icon = 'fa-mobile-screen-button'; }
+            else if (/Macintosh/i.test(ua)) { name = 'MacBook / Mac'; icon = 'fa-laptop'; }
+            else if (/Windows/i.test(ua)) { name = 'Windows PC'; icon = 'fa-desktop'; }
+            else if (/Linux/i.test(ua)) { name = 'Linux Machine'; icon = 'fa-desktop'; }
+            else if (/SmartTV|TV/i.test(ua)) { name = 'Smart TV'; icon = 'fa-tv'; }
+
+            document.getElementById('myDeviceName').innerText = name;
+            document.getElementById('deviceTypeIcon').className = `fa-solid ${icon} text-blue-400`;
+            return name;
+        }
+
+        // Initialize PeerJS Node
+        function initPeerNode() {
+            // Generate clean random 5-digit ID
+            myCode = Math.floor(10000 + Math.random() * 90000).toString();
+            document.getElementById('myPeerId').innerText = myCode;
+
+            // Connect to free public WebRTC signaling
+            myPeer = new Peer('airwave-' + myCode, {
+                debug: 1,
+                config: {
+                    iceServers: [
+                        { urls: 'stun:stun.l.google.com:19302' },
+                        { urls: 'stun:global.stun.twilio.com:3478' }
+                    ]
+                }
             });
 
-            triggerReceiverIncomingSimulation(userNickname, fileQueue[0].name, fileQueue[0].size);
+            myPeer.on('open', (id) => {
+                document.getElementById('connIndicator').className = "w-2 h-2 rounded-full bg-emerald-500 animate-pulse";
+                document.getElementById('networkStatus').innerText = "Ready & Discoverable";
+                showToast("Connected to P2P network. Code: " + myCode);
 
-            let currentIndex = 0;
-
-            function processNextFileInQueue() {
-                if (currentIndex >= fileQueue.length) {
-                    clearInterval(activeInterval);
-                    document.getElementById('senderActiveTransferCard').classList.add('hidden');
-                    showToast('All Transfers Complete!', `Successfully sent all queued files.`, 'circle-check');
-                    fileQueue = [];
-                    renderFileQueue();
-                    isTransferring = false;
-                    return;
+                // Auto-connect if URL has ?connect=XXXXX
+                const urlParams = new URLSearchParams(window.location.search);
+                const remoteCode = urlParams.get('connect');
+                if (remoteCode && remoteCode !== myCode) {
+                    document.getElementById('targetPeerIdInput').value = remoteCode;
+                    setTimeout(() => initiateConnection(), 600);
                 }
+            });
 
-                let currentFile = fileQueue[currentIndex];
-                document.getElementById('senderCurrentFileName').innerText = currentFile.name;
+            // Listen for incoming peer connection
+            myPeer.on('connection', (conn) => {
+                setupConnectionHandlers(conn);
+            });
 
-                let sentBytes = 0;
-                let fileSize = currentFile.size;
+            myPeer.on('error', (err) => {
+                console.error("Peer Error:", err);
+                showToast("Network: " + err.type, true);
+            });
+        }
+
+        // Connect to Remote Peer
+        function initiateConnection() {
+            const target = document.getElementById('targetPeerIdInput').value.trim();
+            if (!target || target.length !== 5) {
+                showToast("Please enter a valid 5-digit Code", true);
+                return;
+            }
+            if (target === myCode) {
+                showToast("Cannot connect to your own device code", true);
+                return;
+            }
+
+            document.getElementById('connectBtn').disabled = true;
+            document.getElementById('activePeerText').innerText = `Connecting to ${target}...`;
+
+            const conn = myPeer.connect('airwave-' + target, {
+                reliable: true,
+                metadata: { deviceName: detectDeviceName() }
+            });
+
+            setupConnectionHandlers(conn);
+        }
+
+        // Bind WebRTC Connection Events
+        function setupConnectionHandlers(conn) {
+            activeConnection = conn;
+
+            conn.on('open', () => {
+                const remotePeerName = (conn.metadata && conn.metadata.deviceName) ? conn.metadata.deviceName : 'Remote Peer';
+                document.getElementById('activePeerDot').className = "w-2 h-2 rounded-full bg-emerald-500";
+                document.getElementById('activePeerText').innerText = `Connected: ${remotePeerName}`;
+                document.getElementById('peerDeviceInfoBadge').innerText = "Direct P2P Link";
+                document.getElementById('peerDeviceInfoBadge').className = "text-[11px] font-mono text-emerald-400 font-bold";
+                document.getElementById('connectBtn').disabled = false;
+
+                if (queuedFiles.length > 0) {
+                    document.getElementById('sendActionBtn').disabled = false;
+                }
+                showToast(`P2P link established with ${remotePeerName}!`);
+            });
+
+            conn.on('data', (data) => {
+                handleIncomingData(data);
+            });
+
+            conn.on('close', () => {
+                document.getElementById('activePeerDot').className = "w-2 h-2 rounded-full bg-red-500";
+                document.getElementById('activePeerText').innerText = "Device disconnected";
+                document.getElementById('peerDeviceInfoBadge').innerText = "Disconnected";
+                document.getElementById('peerDeviceInfoBadge').className = "text-[11px] font-mono text-red-400 font-bold";
+                document.getElementById('sendActionBtn').disabled = true;
+                activeConnection = null;
+                showToast("Peer disconnected", true);
+            });
+
+            conn.on('error', (err) => {
+                showToast("Connection error: " + err, true);
+            });
+        }
+
+        // Chunked Binary Data Stream Sender
+        const CHUNK_SIZE = 64 * 1024; // 64 KB chunks for safe buffer handling
+
+        async function startSendingFiles() {
+            if (!activeConnection || !activeConnection.open) {
+                showToast("No active device connected!", true);
+                return;
+            }
+            if (queuedFiles.length === 0 || isTransferring) return;
+
+            isTransferring = true;
+            document.getElementById('sendActionBtn').disabled = true;
+            document.getElementById('idleTransferPlaceholder').classList.add('hidden');
+            document.getElementById('progressSection').classList.remove('hidden');
+            document.getElementById('transferTypeBadge').innerText = "Sending";
+            document.getElementById('transferTypeBadge').className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-purple-600 text-white";
+
+            for (let i = 0; i < queuedFiles.length; i++) {
+                await sendSingleFile(queuedFiles[i], i + 1, queuedFiles.length);
+            }
+
+            isTransferring = false;
+            queuedFiles = [];
+            renderQueue();
+            showToast("All queued files sent successfully!");
+            setTimeout(() => {
+                document.getElementById('progressSection').classList.add('hidden');
+                document.getElementById('idleTransferPlaceholder').classList.remove('hidden');
+                document.getElementById('transferTypeBadge').innerText = "Idle";
+                document.getElementById('transferTypeBadge').className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-gray-800 text-gray-400";
+            }, 3000);
+        }
+
+        function sendSingleFile(file, currentIndex, totalFiles) {
+            return new Promise((resolve) => {
+                document.getElementById('currentFileName').innerText = `(${currentIndex}/${totalFiles}) ${file.name}`;
+
+                // Send Header First
+                activeConnection.send({
+                    type: 'FILE_HEADER',
+                    fileName: file.name,
+                    fileSize: file.size,
+                    fileType: file.type
+                });
+
+                let offset = 0;
                 let startTime = Date.now();
 
-                activeInterval = setInterval(() => {
-                    let chunkIncrement = Math.floor(fileSize / 12) + (Math.random() * 2500000);
-                    sentBytes += chunkIncrement;
-                    if (sentBytes >= fileSize) sentBytes = fileSize;
-
-                    let percent = Math.floor((sentBytes / fileSize) * 100);
-                    let elapsedSeconds = (Date.now() - startTime) / 1000;
-                    let speedMBs = elapsedSeconds > 0 ? ((sentBytes / (1024 * 1024)) / elapsedSeconds).toFixed(1) : '35.0';
-                    let remainingSecs = Math.max(1, Math.ceil((fileSize - sentBytes) / (parseFloat(speedMBs) * 1024 * 1024 || 1)));
-
-                    // Update Sender UI
-                    document.getElementById('senderTransferPercent').innerText = `${percent}%`;
-                    document.getElementById('senderProgressBar').style.width = `${percent}%`;
-                    document.getElementById('senderTransferSpeed').innerText = `${speedMBs} MB/s`;
-                    document.getElementById('senderTimeRemaining').innerText = `Est. remaining: ${remainingSecs}s (File ${currentIndex + 1} of ${fileQueue.length})`;
-
-                    // Update Receiver UI
-                    updateReceiverStreamProgress(percent, speedMBs, sentBytes, fileSize, remainingSecs);
-
-                    if (sentBytes >= fileSize) {
-                        clearInterval(activeInterval);
-                        completeReceiverFileDownload(currentFile.name, fileSize);
-                        currentIndex++;
-                        setTimeout(processNextFileInQueue, 600);
+                function readNextChunk() {
+                    if (offset >= file.size) {
+                        // Notify completion
+                        activeConnection.send({ type: 'FILE_END', fileName: file.name });
+                        resolve();
+                        return;
                     }
-                }, 200);
+
+                    const slice = file.slice(offset, offset + CHUNK_SIZE);
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        activeConnection.send({
+                            type: 'FILE_CHUNK',
+                            chunk: e.target.result
+                        });
+
+                        offset += e.target.result.byteLength;
+                        const percent = Math.min(100, Math.round((offset / file.size) * 100));
+                        const elapsed = (Date.now() - startTime) / 1000;
+                        const speed = elapsed > 0 ? (offset / (1024 * 1024) / elapsed).toFixed(1) : '0';
+
+                        // Update Sender UI
+                        document.getElementById('progressBar').style.width = `${percent}%`;
+                        document.getElementById('progressPercent').innerText = `${percent}%`;
+                        document.getElementById('transferredBytesText').innerText = `${formatBytes(offset)} / ${formatBytes(file.size)}`;
+                        document.getElementById('transferSpeedText').innerText = `${speed} MB/s`;
+
+                        // Prevent buffer overflow (WebRTC backpressure)
+                        if (activeConnection.dataChannel.bufferedAmount > 8 * 1024 * 1024) {
+                            setTimeout(readNextChunk, 50);
+                        } else {
+                            readNextChunk();
+                        }
+                    };
+
+                    reader.readAsArrayBuffer(slice);
+                }
+
+                readNextChunk();
+            });
+        }
+
+        // Receiver Binary Data Assembler
+        let incomingFileMetadata = null;
+        let incomingFileBuffer = [];
+        let receivedBytes = 0;
+        let incomingStartTime = 0;
+
+        function handleIncomingData(data) {
+            if (data.type === 'FILE_HEADER') {
+                incomingFileMetadata = data;
+                incomingFileBuffer = [];
+                receivedBytes = 0;
+                incomingStartTime = Date.now();
+
+                document.getElementById('idleTransferPlaceholder').classList.add('hidden');
+                document.getElementById('progressSection').classList.remove('hidden');
+                document.getElementById('currentFileName').innerText = `Receiving: ${data.fileName}`;
+                document.getElementById('transferTypeBadge').innerText = "Receiving";
+                document.getElementById('transferTypeBadge').className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-blue-600 text-white";
             }
+            else if (data.type === 'FILE_CHUNK') {
+                incomingFileBuffer.push(data.chunk);
+                receivedBytes += data.chunk.byteLength;
 
-            processNextFileInQueue();
+                if (incomingFileMetadata) {
+                    const percent = Math.min(100, Math.round((receivedBytes / incomingFileMetadata.fileSize) * 100));
+                    const elapsed = (Date.now() - incomingStartTime) / 1000;
+                    const speed = elapsed > 0 ? (receivedBytes / (1024 * 1024) / elapsed).toFixed(1) : '0';
+
+                    document.getElementById('progressBar').style.width = `${percent}%`;
+                    document.getElementById('progressPercent').innerText = `${percent}%`;
+                    document.getElementById('transferredBytesText').innerText = `${formatBytes(receivedBytes)} / ${formatBytes(incomingFileMetadata.fileSize)}`;
+                    document.getElementById('transferSpeedText').innerText = `${speed} MB/s`;
+                }
+            }
+            else if (data.type === 'FILE_END') {
+                const receivedBlob = new Blob(incomingFileBuffer, { type: incomingFileMetadata.fileType || 'application/octet-stream' });
+                saveReceivedFile(receivedBlob, incomingFileMetadata.fileName, incomingFileMetadata.fileSize);
+                
+                incomingFileMetadata = null;
+                incomingFileBuffer = [];
+                showToast("File received and ready to save!");
+            }
         }
 
-        function cancelTransfer() {
-            if (activeInterval) clearInterval(activeInterval);
-            document.getElementById('senderActiveTransferCard').classList.add('hidden');
-            document.getElementById('receiverActiveCard').classList.add('hidden');
-            document.getElementById('receiverIdleState').classList.remove('hidden');
-            if (fileQueue.length > 0 && selectedPeerId) document.getElementById('sendBtn').disabled = false;
-            isTransferring = false;
-            showToast('Cancelled', 'Transfer sequence aborted.', 'ban');
-        }
+        function saveReceivedFile(blob, fileName, size) {
+            const downloadUrl = URL.createObjectURL(blob);
+            const container = document.getElementById('receivedFilesContainer');
+            const noText = document.getElementById('noReceivedFilesText');
+            if (noText) noText.remove();
 
-        // Receiver Simulation Handlers
-        let activeFileBlobUrl = null;
-        let incomingFileName = '';
+            const item = document.createElement('div');
+            item.className = "flex items-center justify-between p-2.5 rounded-xl bg-gray-900 border border-gray-800";
+            item.innerHTML = `
+                <div class="overflow-hidden pr-2">
+                    <p class="text-xs font-bold text-white truncate">${fileName}</p>
+                    <p class="text-[10px] text-gray-400">${formatBytes(size)}</p>
+                </div>
+                <a href="${downloadUrl}" download="${fileName}" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1 shadow">
+                    <i class="fa-solid fa-download"></i> Save
+                </a>
+            `;
+            container.prepend(item);
 
-        function triggerReceiverIncomingSimulation(senderName, fileName, fileSize) {
-            document.getElementById('receiverIdleState').classList.add('hidden');
-            const card = document.getElementById('receiverActiveCard');
-            card.classList.remove('hidden');
-            document.getElementById('incomingSenderName').innerText = senderName;
-            document.getElementById('incomingFileName').innerText = fileName;
-            document.getElementById('saveDownloadBtn').classList.add('hidden');
-
-            const blobContent = "AirWave Local P2P Binary Stream Data Payload.";
-            const blob = new Blob([blobContent], { type: 'application/octet-stream' });
-            activeFileBlobUrl = URL.createObjectURL(blob);
-            incomingFileName = fileName;
-        }
-
-        function updateReceiverStreamProgress(percent, speed, received, total, remainingSecs) {
-            document.getElementById('receiverPercentText').innerText = `${percent}%`;
-            document.getElementById('receiverProgressBar').style.width = `${percent}%`;
-            document.getElementById('receiverSpeedText').innerText = `${speed} MB/s`;
-            document.getElementById('receiverDownloadedSize').innerText = `${formatBytes(received)} / ${formatBytes(total)}`;
-            document.getElementById('receiverTimeRemaining').innerText = `Est. remaining: ${remainingSecs}s`;
-        }
-
-        function completeReceiverFileDownload(fileName, totalSize) {
-            document.getElementById('receiverPercentText').innerText = '100%';
-            document.getElementById('receiverProgressBar').style.width = '100%';
-            document.getElementById('receiverDownloadedSize').innerText = `${formatBytes(totalSize)} / ${formatBytes(totalSize)}`;
-            document.getElementById('receiverSpeedText').innerText = 'Completed';
-            document.getElementById('receiverTimeRemaining').innerText = 'Ready to save!';
-            document.getElementById('saveDownloadBtn').classList.remove('hidden');
-            showToast('File Received!', `Successfully received ${fileName}`, 'download');
-        }
-
-        function triggerFileDownload() {
-            if (!activeFileBlobUrl) return;
+            // Auto-trigger native download on Android/PC
             const a = document.createElement('a');
-            a.href = activeFileBlobUrl;
-            a.download = incomingFileName;
+            a.href = downloadUrl;
+            a.download = fileName;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            showToast('Saved to Folder', 'File successfully downloaded.', 'circle-check');
         }
 
-        // Utility Formatters
-        function formatBytes(bytes, decimals = 2) {
-            if (bytes === 0) return '0 Bytes';
+        // File Selection & Drag-and-Drop
+        function triggerFileInput() { document.getElementById('fileSelector').click(); }
+        function handleFileSelect(e) { if (e.target.files) addFiles(e.target.files); }
+        function handleDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('border-purple-500'); }
+        function handleDragLeave(e) { e.preventDefault(); e.currentTarget.classList.remove('border-purple-500'); }
+        function handleFileDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('border-purple-500');
+            if (e.dataTransfer.files) addFiles(e.dataTransfer.files);
+        }
+
+        function addFiles(files) {
+            for (let f of files) queuedFiles.push(f);
+            renderQueue();
+            if (activeConnection && activeConnection.open) {
+                document.getElementById('sendActionBtn').disabled = false;
+            }
+            showToast(`${files.length} file(s) added to queue`);
+        }
+
+        function renderQueue() {
+            const container = document.getElementById('fileQueueContainer');
+            document.getElementById('queueCount').innerText = queuedFiles.length;
+
+            if (queuedFiles.length === 0) {
+                container.innerHTML = `<p id="emptyQueueMsg" class="text-xs text-gray-500 py-3 text-center">No files selected</p>`;
+                document.getElementById('sendActionBtn').disabled = true;
+                return;
+            }
+
+            container.innerHTML = '';
+            queuedFiles.forEach((f, idx) => {
+                const row = document.createElement('div');
+                row.className = "flex items-center justify-between p-2 rounded-xl bg-gray-900 border border-gray-800 text-xs";
+                row.innerHTML = `
+                    <span class="truncate max-w-[200px] text-gray-300 font-medium">${f.name}</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] text-gray-500">${formatBytes(f.size)}</span>
+                        <button onclick="removeQueuedFile(${idx})" class="text-gray-400 hover:text-red-400"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function removeQueuedFile(index) {
+            queuedFiles.splice(index, 1);
+            renderQueue();
+        }
+
+        function clearQueue() {
+            queuedFiles = [];
+            renderQueue();
+        }
+
+        // QR Code Modal & Helper
+        function showQRCodeModal() {
+            document.getElementById('qrModal').classList.remove('hidden');
+            const targetContainer = document.getElementById('qrcodeCanvas');
+            targetContainer.innerHTML = "";
+            const currentUrl = window.location.origin + window.location.pathname + `?connect=${myCode}`;
+            new QRCode(targetContainer, {
+                text: currentUrl,
+                width: 180,
+                height: 180,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+        function closeQRCodeModal() { document.getElementById('qrModal').classList.add('hidden'); }
+
+        function copyMyCode() {
+            navigator.clipboard.writeText(myCode);
+            showToast("Device code copied to clipboard!");
+        }
+
+        // Utilities
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
             const k = 1024;
-            const dm = decimals < 0 ? 0 : decimals;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            const sizes = ['B', 'KB', 'MB', 'GB'];
             const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
         }
 
-        function showToast(title, message, icon = 'bell') {
-            const toast = document.getElementById('toastNotification');
-            document.getElementById('toastTitle').innerText = title;
-            document.getElementById('toastMessage').innerText = message;
-            document.getElementById('toastIcon').innerHTML = `<i class="fa-solid fa-${icon}"></i>`;
-
-            toast.classList.remove('translate-y-24', 'opacity-0');
+        function showToast(msg, isError = false) {
+            const t = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            document.getElementById('toastIcon').className = isError ? "fa-solid fa-triangle-exclamation text-red-400" : "fa-solid fa-circle-check text-emerald-400";
+            t.classList.remove('translate-y-20', 'opacity-0');
             setTimeout(() => {
-                toast.classList.add('translate-y-24', 'opacity-0');
-            }, 3500);
+                t.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
         }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            detectDeviceName();
+            initPeerNode();
+        });
     </script>
 </body>
 </html>
