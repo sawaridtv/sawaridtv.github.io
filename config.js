@@ -5,7 +5,7 @@
         { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-SPORTS0.m3u', name: "Live Event", displayName: "Live Event" },
         { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-SPORTS1.m3u', name: "Sports", displayName: "Sports" },
         { url: 'https://iptv-org.github.io/iptv/countries/in.m3u', name: "ALL Channels", displayName: "Indian" },
-        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Channels Server 3" },
+        { url: 'https://raw.githubusercontent.com/sawaridtv/sawaridtv.github.io/main/SAWARID-LIVE_TV1.m3u', name: "ALL Channels", displayName: "Channels Server 1" },
         { url: 'https://walatv.pages.dev/channels.m3u', name: "ALL Channels", displayName: "Channels Server 2" },
       ];
 
