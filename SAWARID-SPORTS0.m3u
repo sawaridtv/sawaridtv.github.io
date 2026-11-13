@@ -54,19 +54,23 @@
 
 
 #EXTINF:-1 tvg-id="1090553595_ENG" tvg-name="4th ODI - 13 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028746/1794294832944627_NZvsIND_4th_ODI_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",4th ODI - 13 Nov 2026 [ENG]
-https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_1211/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794597602~acl=/*~id=17808715370969052186992876510465~hmac=d0b525343fbec5ea5d7d5b0ab81430176e1502945d28f62e8408cb684eb2eb28
+https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_1211/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
 
 
 #EXTINF:-1 tvg-id="1090553595_HIN" tvg-name="4th ODI - 13 Nov 2026 [HIN]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028746/1794294832944627_NZvsIND_4th_ODI_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",4th ODI - 13 Nov 2026 [HIN]
-https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_1211/HIN/std_lrh-800300010.m3u8?hdnea=exp=1794597602~acl=/*~id=17808715370969052186992876510465~hmac=d0b525343fbec5ea5d7d5b0ab81430176e1502945d28f62e8408cb684eb2eb28
+https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_1211/HIN/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
 
 
 #EXTINF:-1 tvg-id="1090553595_TAM" tvg-name="4th ODI - 13 Nov 2026 [TAM]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028746/1794294832944627_NZvsIND_4th_ODI_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",4th ODI - 13 Nov 2026 [TAM]
-https://sonyeventsglobal.akamaized.net/hls/live/2119951/cricodi_1211/TAM/std_lrh-800300010.m3u8?hdnea=exp=1794597602~acl=/*~id=17808715370969052186992876510465~hmac=d0b525343fbec5ea5d7d5b0ab81430176e1502945d28f62e8408cb684eb2eb28
+https://sonyeventsglobal.akamaized.net/hls/live/2119951/cricodi_1211/TAM/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
+
+
+#EXTINF:-1 tvg-id="1090553595_TEL" tvg-name="4th ODI - 13 Nov 2026 [TEL]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028746/1794294832944627_NZvsIND_4th_ODI_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",4th ODI - 13 Nov 2026 [TEL]
+https://sonyeventsglobal.akamaized.net/hls/live/2119941/cricodi_1211/TEL/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
 
 
 #EXTINF:-1 tvg-id="1090553595_KAN" tvg-name="4th ODI - 13 Nov 2026 [KAN]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028746/1794294832944627_NZvsIND_4th_ODI_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",4th ODI - 13 Nov 2026 [KAN]
-https://sonyeventsglobal.akamaized.net/hls/live/2119782/cricodi_1211/KAN/std_lrh-800300010.m3u8?hdnea=exp=1794597602~acl=/*~id=17808715370969052186992876510465~hmac=d0b525343fbec5ea5d7d5b0ab81430176e1502945d28f62e8408cb684eb2eb28
+https://sonyeventsglobal.akamaized.net/hls/live/2119782/cricodi_1211/KAN/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
 
 
 #EXTINF:-1 tvg-id="tapmad-19996" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17938582641020x576.jpg" group-title="SAWARID سواريد - Cricket", Pakistan vs Sri Lanka - 1st Test - Sri Lanka Tour of Pakistan 2026
@@ -94,7 +98,7 @@ https://tencent-cdn.tapmad.com/v1/01a145abfb3a1ea540a81c2b41b751/01a145ae0ac115f
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9daab9f2057ca46ae108997a0886b434:220b4c0284b9a045c49c8cf1ddbb49a8
-https://otte.cache.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/6learkrmkk/out/v1/ea7695de219f46d1bf645bd975854712/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/6learkrmkk/out/v1/ea7695de219f46d1bf645bd975854712/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HR66GSJV" tvg-name="Australia vs. England" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.8ee40271-9b85-436b-8026-581b63e3e4f9/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Australia vs. England
@@ -102,7 +106,7 @@ https://otte.cache.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/6learkrmkk/out/v1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=134ce834d4de77fd458c8b131c9e3986:f68411936eaaba7ffc6a0111c75292bb
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/zvm8yfmf1x/out/v1/5996ed4075494e359d7a1b5e66cc0547/cenc.mpd
+https://a96aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/zvm8yfmf1x/out/v1/5996ed4075494e359d7a1b5e66cc0547/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HLVY22CY" tvg-name="Sri Lanka tour of Pakistan 2026 - 1st Test - Pakistan vs Sri Lanka" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.c65dfbd7-e120-4b1a-ac5c-60c3981498b0/8/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Sri Lanka tour of Pakistan 2026 - 1st Test - Pakistan vs Sri Lanka
@@ -110,7 +114,7 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/zvm8yfmf
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5e8ebd9181946fbaa6e3dbf57be1e08c:7ac65a50bd9833f40eb8d383a5bf2beb
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/mg8j8enrjm/out/v1/709854ce369042edb21bbc912f26c2e3/cenc.mpd
+https://a96aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/mg8j8enrjm/out/v1/709854ce369042edb21bbc912f26c2e3/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HP83ZWBB" tvg-name="Afghanistan vs Zimbabwe in UAE 2026 - 2nd Test - Afghanistan vs Zimbabwe" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.c946453d-7025-4e95-9564-d2a336954242/3/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Afghanistan vs Zimbabwe in UAE 2026 - 2nd Test - Afghanistan vs Zimbabwe
@@ -118,7 +122,7 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/mg8j8enrjm/out/v1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b21487d48dba161df1dbcb2709e78ac5:495d4dfd655791c39933461c3751bde3
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/dnip3gefsa/out/v1/d07a14d5030a4c119f2adb15588cb7e2/cenc.mpd
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/dnip3gefsa/out/v1/d07a14d5030a4c119f2adb15588cb7e2/cenc.mpd
 
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand Vs India - PRIME ENG FHD
@@ -287,11 +291,11 @@ http://193.47.62.41/hls/vvvve.m3u8
 
 
 #EXTINF:-1 tvg-id="1090553604_ENG" tvg-name="DP World Tour Championship, Dubai - Day 2 - 13 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000028796/1794398866789427_DP_World_Tour_Championship_Dubai_day2_landscape_thumb.jpg" group-title="SAWARID سواريد - Golf",DP World Tour Championship, Dubai - Day 2 - 13 Nov 2026 [ENG]
-https://sonyeventsglobal.akamaized.net/hls/live/2018457/Golf_DPW1311/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794597602~acl=/*~id=17808715370969052186992876510465~hmac=d0b525343fbec5ea5d7d5b0ab81430176e1502945d28f62e8408cb684eb2eb28
+https://sonyeventsglobal.akamaized.net/hls/live/2018457/Golf_DPW1311/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
 
 
 #EXTINF:-1 tvg-id="1090553601_ENG" tvg-name="Philippine Open - Day 2 - 13 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027302/1792887693162295_ASIANTOUR2026_Philippine_Open_Day2_landscape_thumb.jpg" group-title="SAWARID سواريد - Golf",Philippine Open - Day 2 - 13 Nov 2026 [ENG]
-https://sonyeventsglobal.akamaized.net/hls/live/2094588/Golf_Phi1311/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794597602~acl=/*~id=17808715370969052186992876510465~hmac=d0b525343fbec5ea5d7d5b0ab81430176e1502945d28f62e8408cb684eb2eb28
+https://sonyeventsglobal.akamaized.net/hls/live/2094588/Golf_Phi1311/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794601259~acl=/*~id=50860081528869355650668895909955~hmac=ec719f543668359ef636b7c4ac43de6314510294f9c95aae5597e4b4cf506be5
 
 
 # 🆕 SAWARID سواريد - Golf 👉 Updateded Done ✅✅✅✅✅✅
@@ -426,7 +430,7 @@ http://193.47.62.55/hls/RGGG.m3u8
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=134ce834d4de77fd458c8b131c9e3986:f68411936eaaba7ffc6a0111c75292bb
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/zvm8yfmf1x/out/v1/5996ed4075494e359d7a1b5e66cc0547/cenc.mpd
+https://hls-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/zvm8yfmf1x/out/v1/5996ed4075494e359d7a1b5e66cc0547/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HNH5B25Z" tvg-name="India tour of New Zealand 2026 - 4th ODI - New Zealand vs India" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.42ad86af-a9b7-4eb6-9d8a-e503d08461a8/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",India tour of New Zealand 2026 - 4th ODI - New Zealand vs India
@@ -442,7 +446,7 @@ https://otte.cache.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/6learkrmkk/out/v1
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5e8ebd9181946fbaa6e3dbf57be1e08c:7ac65a50bd9833f40eb8d383a5bf2beb
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/mg8j8enrjm/out/v1/709854ce369042edb21bbc912f26c2e3/cenc.mpd
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/mg8j8enrjm/out/v1/709854ce369042edb21bbc912f26c2e3/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HP83ZWBB" tvg-name="Afghanistan vs Zimbabwe in UAE 2026 - 2nd Test - Afghanistan vs Zimbabwe" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.c946453d-7025-4e95-9564-d2a336954242/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Afghanistan vs Zimbabwe in UAE 2026 - 2nd Test - Afghanistan vs Zimbabwe
@@ -450,7 +454,7 @@ https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/mg8j8enr
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b21487d48dba161df1dbcb2709e78ac5:495d4dfd655791c39933461c3751bde3
-https://hls-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/dnip3gefsa/out/v1/d07a14d5030a4c119f2adb15588cb7e2/cenc.mpd
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/dnip3gefsa/out/v1/d07a14d5030a4c119f2adb15588cb7e2/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
