@@ -695,6 +695,51 @@ https://dash2.antik.sk/stream/nvidia_sport_1/playlist_cenc.mpd
 
 
 
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports",
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports",
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/jjgdkgB4/0-(1).png" group-title="All Sports", Unite8 Sports 1 HD
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=bdb87c44403941f3a47c6eba2e0bf945:27203f21df449d8dc970675b4105f837
+https://d1iwj24qiokrul.cloudfront.net/live/media/Unite8_Sports_1_HD/dash/Unite8_Sports_1_HD.mpd
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/T2Zh6s1k/image.png" group-title="All Sports", Unite8 Sports 2 HD
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=f90301523783443fadc8922c2580ce92:83c53f348588e35cdebcf49a1f23a1b6
+https://d1iwj24qiokrul.cloudfront.net/live/media/Unite8_Sports_2_HD/dash/Unite8_Sports_2_HD.mpd
+
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports",
+
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports",
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports",
+
+
+#EXTINF:-1 tvg-logo="" group-title="All Sports",
+
+
+
+
+
+
+
+
+
+
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/sXPmxYtS/Moto-GP.png" group-title="All Sports", MotoGP
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
