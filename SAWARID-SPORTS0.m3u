@@ -55,16 +55,21 @@
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/gJkp8k6X/image.png" group-title="SAWARID سواريد - Football", Bangladesh 🆚 Pakistan
 http://116.204.149.16/T_SportsFHD/index.m3u8
+https://live.bongobd.com/hls/v2.h9AhCNr2PAwf--A3Mc7_eA/1794670014/bongoiptv/SAFFmatch08_mid/chunks.m3u8|User-Agent=iPhone
 https://bdtop1.tvhunter.top/T-SPORTS-HD/index.m3u8
-https://m3u8-proxy-v1.jahinalamshamim.workers.dev/proxy?url=https://nkafmbewiff.gpcdn.net/tile_2/master.m3u8
-https://allinonereborn2.online/livtest3/stream_proxy.php?url=http://server1.ziboplay.co/T-SPORRTS-HD/index.m3u8?token=AKASH
-https://m3u8-proxy-v1.jahinalamshamim.workers.dev/proxy?url=https://live2.jorvakstreamcache.com/live/channel7.m3u8
-http://103.135.253.32:8080/T-SPORTS-FULL-HD/tracks-v1a1/mono.m3u8
-http://45.117.61.162/01_Tsports_HD/tracks-v1a1/mono.m3u8
+https://live2.jorvakstreamcache.com/live/channel19.m3u8?|Referer=https://xlz.domainkqt.cc/
+https://live05.wecile.app/live/18812304.m3u8
+https://live2.jorvakstreamcache.com/live/channel19.m3u8
+http://103.209.196.22:84/feed1001/index.m3u8
+#https://m3u8-proxy-v1.jahinalamshamim.workers.dev/proxy?url=https://nkafmbewiff.gpcdn.net/tile_2/master.m3u8
+#https://allinonereborn2.online/livtest3/stream_proxy.php?url=http://server1.ziboplay.co/T-SPORRTS-HD/index.m3u8?token=AKASH
+#https://m3u8-proxy-v1.jahinalamshamim.workers.dev/proxy?url=https://live2.jorvakstreamcache.com/live/channel7.m3u8
+#http://103.135.253.32:8080/T-SPORTS-FULL-HD/tracks-v1a1/mono.m3u8
+#http://45.117.61.162/01_Tsports_HD/tracks-v1a1/mono.m3u8
 
 
 #EXTINF:-1 tvg-id="1090553933_ENG" tvg-name="Kosovo vs Israel - 14 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027677/1793268731743871_UNL26_MD5_Kosovo-vs-Israel_live_landscape_thumb.jpg" group-title="SAWARID سواريد - Football",Kosovo vs Israel - 14 Nov 2026 [ENG]
-https://sonyeventsglobal.akamaized.net/hls/live/2094588/Footlive1411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794710035~acl=/*~id=92478907759220164081147769718961~hmac=ba261c1545344a4659cf333f46731dd7eaf9ab5e56b5fa31e9f98b5e0a8c71bd
+https://sonyeventsglobal.akamaized.net/hls/live/2094588/Footlive1411/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794710640~acl=/*~id=91015570813043225155207023974280~hmac=724f6b864a3572d91353bc7eeeebf043063f10130c9ceca9e90f21b7be9ef5f9
 
 
 #EXTINF:-1 tvg-id="tapmad-20073" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17942949441020x576.jpg" group-title="SAWARID سواريد - Football", Kosovo vs Israel - MATCHDAY 5 - UEFA Nations League 2026/27
