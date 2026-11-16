@@ -61,6 +61,10 @@ https://tencent-cdn.tapmad.com/v1/01a14a9fb90c15fc60e91e1786b061/01a14a9feb881ea
 https://serieAleague.akamaized.net/hls/live/2107107/A1@25853-tapmad/master.m3u8
 
 
+#EXTINF:-1 tvg-id="tapmad-19201" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17944777071020x576.jpg" group-title="SAWARID سواريد - Cricket", Sydney Thunder vs Melbourne Stars - Group Stage - Women's Big Bash League 2026
+https://tencent-cdn.tapmad.com/v1/01a14abbcff31ea540a81c2b41b760/01a14abc06421567ee931e109fa577/main.m3u8
+
+
 #EXTINF:-1 tvg-id="B0HP83ZWBB" tvg-name="Afghanistan vs Zimbabwe in UAE 2026 - 2nd Test - Afghanistan vs Zimbabwe" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.c946453d-7025-4e95-9564-d2a336954242/5/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket",Afghanistan vs Zimbabwe in UAE 2026 - 2nd Test - Afghanistan vs Zimbabwe
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
