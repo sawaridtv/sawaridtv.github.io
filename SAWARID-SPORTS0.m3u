@@ -53,67 +53,157 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Gambia%20Vs%20C%C3%B4te%20d%27Ivoire.jpg" group-title="SAWARID سواريد - Football", Gambia 🆚 Côte d'Ivoire - beIN ENGLISH FHD
+#EXTINF:-1 tvg-id="1090554645_ENG" tvg-name="Wales vs Portugal - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027861/1793276874509801_UNL26_MD6_Wales_vs_Portugal_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Wales 🆚 Portugal - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120306/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554644_ENG" tvg-name="Denmark vs Norway - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027760/1793276088016324_UNL26_MD6_Denmark_vs_Norway_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Denmark 🆚 Norway - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120304/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554647_ENG" tvg-name="Poland vs Sweden - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027838/1793278288283702_UNL26_MD6_Poland_vs_Sweden_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Poland 🆚 Sweden - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120300/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554646_ENG" tvg-name="Hungary vs Northern Ireland - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027786/1793277383846311_UNL26_MD6_Hungary_vs_Northern_Ireland_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Hungary 🆚 Northern Ireland - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120307/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554641_ENG" tvg-name="Israel vs Austria - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027800/1793274260999331_UNL26_MD6_Israel_vs_Austria_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Israel 🆚 Austria - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120299/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554642_ENG" tvg-name="Bosnia and Herzegovina vs Romania - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027750/179327471209337_UNL26_MD6_Bosnia_and_Herzegovina_vs_Romania_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Bosnia and Herzegovina 🆚 Romania - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120301/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554643_ENG" tvg-name="Ukraine vs Georgia - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027856/1793275459151772_UNL26_MD6_Ukraine_vs_Georgia_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Ukraine 🆚 Georgia - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120303/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="1090554648_ENG" tvg-name="Republic of Ireland vs Kosovo - 18 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000027853/1793278711572629_UNL26_MD6_Republic_of_Ireland_vs_Kosovo_landscape_thumb.jpg" group-title="SAWARID سواريد - Football", Republic of Ireland 🆚 Kosovo - 18 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2120308/footlive1711/ENG/std_lrh-800300010.m3u8?hdnea=exp=1794988479~acl=/*~id=07294637529149431614745601077317~hmac=6457c901f781f9339a8df98cbb2dc2ab9e2f2d384ab648503245cc8d3ee67053
+
+
+#EXTINF:-1 tvg-id="tapmad-20106" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948179961020x576.jpg" group-title="SAWARID سواريد - Football", Israel 🆚 Austria - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a14a4cd93615fc600b1e3e9683e8/01a14a5761541567ee931e109fa576/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20105" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948178901020x576.jpg" group-title="SAWARID سواريد - Football", Poland 🆚 Sweden - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a14abbcff31ea540a81c2b41b760/01a14abc06421567ee931e109fa577/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20104" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948177611020x576.jpg" group-title="SAWARID سواريد - Football", Hungary 🆚 Northern Ireland - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a145d823d515fc600b1e3e9683de/01a145dc15751ea540a81c2b41b754/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20103" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948166021020x576.jpg" group-title="SAWARID سواريد - Football", Ukraine 🆚 Georgia - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a145b15ce115fc600b1e3e9683db/01a145b24db11ea557841e1612cf4c/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20102" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948164641020x576.jpg" group-title="SAWARID سواريد - Football", Ireland 🆚 Kosovo - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a145abfb3a1ea540a81c2b41b751/01a145ae0ac115fc600b1e3e9683da/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20101" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948163451020x576.jpg" group-title="SAWARID سواريد - Football", Wales 🆚 Portugal - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a14ab8af8915fc600b1e3e9683f0/01a14ab953dd1ea540a81c2b41b75f/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20100" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948160471020x576.jpg" group-title="SAWARID سواريد - Football", Bosnia and Herzegovina 🆚 Romania - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a1456f124d15fc600b1e3e9683d7/01a145990eba15fc60e91e1786b054/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-20099" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17948157121020x576.jpg" group-title="SAWARID سواريد - Football", Denmark 🆚 Norway - MATCHDAY 6 - UEFA Nations League 2026/27
+https://tencent-cdn.tapmad.com/v1/01a14a9fb90c15fc60e91e1786b061/01a14a9feb881ea540a81c2b41b75e/main.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Liberia%20Vs%20Cabo%20Verde.jpg" group-title="SAWARID سواريد - Football", Liberia 🆚 Cabo Verde - HD QUALITY +
+http://162.251.160.53:8089/prime_us_b0hqdrwghb/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Mauritania%20Vs%20Burkina%20Faso.jpg" group-title="SAWARID سواريد - Football", Mauritania 🆚 Burkina Faso - HD QUALITY +
+http://162.251.160.53:8089/prime_us_b0hpkt39tv/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Botswana%20Vs%20Uganda.jpg" group-title="SAWARID سواريد - Football", Botswana 🆚 Uganda - HD QUALITY +
+http://162.251.160.53:8089/prime_us_b0hf5v597h/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Congo%20Republic%20Vs%20Comoros.jpg" group-title="SAWARID سواريد - Football", Congo Republic 🆚 Comoros - HD QUALITY +
+http://162.251.160.53:8089/prime_us_b0hqjq4mf4/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Hungary%20Vs%20Northern%20Ireland.jpg" group-title="SAWARID سواريد - Football", Hungary 🆚 Northern Ireland - FOX2 SPORTS FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=09453ce820d65fbc675de3185f9e454c:98cff9600995fa381c76fdacf3c7edae
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/awxnrqkbo5/out/v1/716529a4091947b0877e6cb80dbd6ccb/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Hungary%20Vs%20Northern%20Ireland.jpg" group-title="SAWARID سواريد - Football", Hungary 🆚 Northern Ireland - Sport3 Tv BR FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=902e5ec0e3d05e665daa32fc23f4f59e:7b2322a273843921a43e2c61dac7cae3
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/6otiglnptp/out/v1/add7499679b0422cb6791f7701f95ecc/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Ireland%20Vs%20Kosovo.jpg" group-title="SAWARID سواريد - Football", Ireland 🆚 Kosovo - HD QUALITY +
+http://162.251.160.53:8089/698/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Ukraine%20Vs%20Georgia.jpg" group-title="SAWARID سواريد - Football", Ukraine 🆚 Georgia - HD QUALITY +
+http://162.251.160.53:8089/355/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Denmark%20Vs%20Norway.jpg" group-title="SAWARID سواريد - Football", Denmark 🆚 Norway - BeIN2 SPORTS FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=0b42be2664d7e811d04f3e504e0924c5:ae24090123b8c72ac5404dc152847cb8
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/8m8cd46i1t/out/v1/83985c68e4174e90a58a1f2c024be4c9/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Denmark%20Vs%20Norway.jpg" group-title="SAWARID سواريد - Football", Denmark 🆚 Norway - FOX1 SPORTS FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=5466ebd70704bdeb657f0abf3c5ca4ef:bdd79b72d8e48ed483aa623cc38a8a16
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/fsu3wl2rwb/out/v1/be61206c04e643349d53fb22301f3b50/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Denmark%20Vs%20Norway.jpg" group-title="SAWARID سواريد - Football", Denmark 🆚 Norway - SPORT1 CZ FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_sport_1/playlist_cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Wales%20Vs%20Portugal.jpg" group-title="SAWARID سواريد - Football", Wales 🆚 Portugal - BEIN3 SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=7995c724a13748ed970840a8ab5bb9b3:67bdaf1e2175b9ff682fcdf0e2354b1e
 https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/q4u5nwaogz/out/v1/18de6d3e65934f3a8de4358e69eab86c/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Gambia%20Vs%20C%C3%B4te%20d%27Ivoire.jpg" group-title="SAWARID سواريد - Football", Gambia 🆚 Côte d'Ivoire - beIN SPORTS FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Wales%20Vs%20Portugal.jpg" group-title="SAWARID سواريد - Football", Wales 🆚 Portugal - SPORT2 TV CZ FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=27759a440e8ad821b800b3de00cd5851:1b8743adee559f27845f55e8b4d639fe
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/katdnhkzqv/out/v1/2469724fa7754a4da6861d8ba80de958/cenc.mpd?
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_sport2/playlist_cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Gambia%20Vs%20C%C3%B4te%20d%27Ivoire.jpg" group-title="SAWARID سواريد - Football", Gambia 🆚 Côte d'Ivoire - HD QUALITY +
-https://www.rtmpcdn.com/live/345a6ca0-7a8c-42f2-829c-40fcbfce3b22.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Israel%20Vs%20Austria.jpg" group-title="SAWARID سواريد - Football", Israel 🆚 Austria - HD QUALITY +
+http://162.251.160.53:8089/711/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Togo%20Vs%20Algeria.jpg" group-title="SAWARID سواريد - Football", Togo 🆚 Algeria - beIN ENGLISH FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Poland%20Vs%20Sweden.jpg" group-title="SAWARID سواريد - Football", Poland 🆚 Sweden - SPORTV2 BR FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0b42be2664d7e811d04f3e504e0924c5:ae24090123b8c72ac5404dc152847cb8
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/8m8cd46i1t/out/v1/83985c68e4174e90a58a1f2c024be4c9/cenc.mpd?
+#KODIPROP:inputstream.adaptive.license_key=9009b7189e3e68cc09d17811f2beb55a:dd3f96a94c909da48ff40c92aabf8cf3
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/4yiko4it8k/out/v1/b77dd424c745443aba2f3f88d418f797/cenc-sd.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Togo%20Vs%20Algeria.jpg" group-title="SAWARID سواريد - Football", Togo 🆚 Algeria - HD QUALITY +
-https://www.rtmpcdn.com/live/92f14f98-fc9b-4764-a9b9-2e823f7c8029.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Poland%20Vs%20Sweden.jpg" group-title="SAWARID سواريد - Football", Poland 🆚 Sweden - HD QUALITY +
+http://162.251.160.53:8089/800/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Kenya%20Vs%20South%20Africa.jpg" group-title="SAWARID سواريد - Football", Kenya 🆚 South Africa - beIN SPORTS FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=74cbe15488783fab07ff8c702fabafcd:bb607803a49c2d6104f845e7886c971c
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/e3ozww2yny/out/v1/3a16d07c2cc0444bb8ea10d0483d1ced/cenc.mpd?
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Bosnia%20%26%20Herzegovina%20Vs%20Romania.jpg" group-title="SAWARID سواريد - Football", Bosnia & Herzegovina 🆚 Romania - HD QUALITY +
+http://162.251.160.53:8089/469/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Kenya%20Vs%20South%20Africa.jpg" group-title="SAWARID سواريد - Football", Kenya 🆚 South Africa - HD QUALITY
-https://www.rtmpcdn.com/live/452f0645-0606-43ae-8692-9948da007c23.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Libya%20Vs%20Tunisia.jpg" group-title="SAWARID سواريد - Football", Libya 🆚 Tunisia - HD QUALITY +
-https://www.rtmpcdn.com/live/8bc39f53-705d-4846-9657-f661e6d41d29.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Guinea-Bissau%20Vs%20Madagascar.jpg" group-title="SAWARID سواريد - Football", Guinea-Bissau 🆚 Madagascar - HD QUALITY +
-https://www.rtmpcdn.com/live/f1672970-f83d-4ed6-8c96-4db04cac96b2.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Sierra%20Leone%20Vs%20DR%20Congo.jpg" group-title="SAWARID سواريد - Football", Sierra Leone 🆚 DR Congo - beIN SPORTS FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=4fce30c060b7b0464ab765e24fee5ecc:65d612238736eec3794c7e75a6fd362c
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/n7hbpksb18/out/v1/be5403be4a674a7da8b3c81b1fe79692/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Sierra%20Leone%20Vs%20DR%20Congo.jpg" group-title="SAWARID سواريد - Football", Sierra Leone 🆚 DR Congo - HD QUALITY +
-https://www.rtmpcdn.com/live/5905dc85-a3e6-46d6-ad51-e26a7d93302b.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Saudi%20Arabia%20Vs%20Uzbekistan.jpg" group-title="SAWARID سواريد - Football", Saudi Arabia 🆚 Uzbekistan - DISNEY HD
-https://www.rtmpcdn.com/live/f9223cd3-8aee-4d4a-ae67-2bc407aaf2cc.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Niger%20Vs%20Morocco.jpg" group-title="SAWARID سواريد - Football", Niger 🆚 Morocco - HD QUALITY +
+http://162.251.160.53:8089/prime_us_b0hhs8bg9y/index.m3u8
 
 
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
@@ -123,57 +213,6 @@ https://www.rtmpcdn.com/live/f9223cd3-8aee-4d4a-ae67-2bc407aaf2cc.m3u8
 
 
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Cricket 🟢🟢🟢🟢🟢🟢
-
-
-#EXTINF:-1 tvg-id="B0HLLR5WZX" tvg-name="Abu Dhabi T10 League 2026 - 25th Match - UAE Bulls vs Royal Desert Champions" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.e6a63c27-a438-4b01-a58e-153abafd8167/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket", Abu Dhabi T10 League 2026 - 25th Match - UAE Bulls 🆚 Royal Desert Champions
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=d57defa12fc43c991a7f82fc57f8212f:915269b352069f2dfa826a64a0905681
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/fehi3mxtqo/out/v1/c7ace340dfab4a1fa798cc693914ddbe/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - FANCODE FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=82dfca238e8c4b430a3269db71965db9:a00b28caf4ac628e77a553d440c0ddca
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/b3b3fkmrbl/out/v1/1084d5c9a97a4c5b9f9554c88f486646/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - NPL LIVE FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=82dfca238e8c4b430a3269db71965db9:a00b28caf4ac628e77a553d440c0ddca
-https://ott-lb.nettv.com.np/npl/live_match/index.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - STAR SPORTS HD
-http://line.tivi-ott.net/play/live.php?mac=00:1B:79:F9:2A:14&stream=373201&extension=m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - SD SERVER
-http://162.251.160.53:8089/NPLT20/index.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - FANCODE SD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=286eb7dc538143790fa9913639531920:e3f5cb08d14d9e9c08438c673819540f
-https://abfjk4haaaaaaaamkitc5445rybm6.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash-sd/enc/iwpchve3wl/out/v1/946019f85dc64ae99ff9ce64a9727a62/cenc-sd.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - FANCODE2 FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=1994b1df7dfd2e8a8d7b9bf3fb900285:22a1444b3da18e139191665b3d652835
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - STAR SPORTS HD
-https://flussonic.defineatoz.com/starsportsselect2sw/tracks-v1a1/mono.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NPL%20Vs%20NPL.jpg" group-title="SAWARID سواريد - Cricket", NPL 🆚 NPL - FANCODE (IND)
-#EXTVLCOPT:http-referrer=https://fancode.com/
-#EXTVLCOPT:http-user-agent=ReactNativeVideo/9.11.1 (Linux;Android 13) AndroidXMedia3/1.6.1
-https://dai-fancode.pages.dev/mumbai/4250355_english_hls_7b5a55758122143_1ta-di_h264/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/ABU%20DHABI%20T10%20LEAGUE%20Vs%20ABU%20DHABI%20T10%20LEAGUE.jpg" group-title="SAWARID سواريد - Cricket", ABU DHABI T10 LEAGUE 🆚 ABU DHABI T10 LEAGUE - WILLOW FHD
@@ -209,10 +248,32 @@ https://live.msnetworks.net/a-sports/master.m3u8
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Basketball 🟢🟢🟢🟢🟢🟢
 
 
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Maccabi%20Tel%20Aviv%20Vs%20Olympiacos%20BC.jpg" group-title="SAWARID سواريد - Basketball", Maccabi Tel Aviv 🆚 Olympiacos BC - HD QUALITY
+https://www.rtmpcdn.com/live/82d95ec8-ca83-432b-82e2-0242f3742306.m3u8
+
+
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Kauno%20%C5%BDalgiris%20Vs%20Bayern%20M%C3%BCnchen.jpg" group-title="SAWARID سواريد - Basketball", Kauno Žalgiris 🆚 Bayern München - D SPORTS2+ FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=03f12d6a3dbfd3a6fa7dd7f6417e0c11:ea07b87acdf2e45be824cde4a1cf3504
 https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/rgilyeubta/out/v1/09a67027b18f4fd78aaa3794a2aacfe8/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Bar%C3%A7a%20Basket%20Vs%20Paris%20Basketball.jpg" group-title="SAWARID سواريد - Basketball", Barça Basket 🆚 Paris Basketball - D SPORTS ++ FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=83f81c4cc1443991543de4e22eea7586:ddfd7ca653d6f35543d8edb3c688e20f
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ud6bnhthpj/out/v1/2639a2f4480f4269953de466d5f46463/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Virtus%20Bologna%20Vs%20Panathinaikos%20BC.jpg" group-title="SAWARID سواريد - Basketball", Virtus Bologna 🆚 Panathinaikos BC - D SPORTS2+ FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=03f12d6a3dbfd3a6fa7dd7f6417e0c11:ea07b87acdf2e45be824cde4a1cf3504
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/rgilyeubta/out/v1/09a67027b18f4fd78aaa3794a2aacfe8/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Virtus%20Bologna%20Vs%20Panathinaikos%20BC.jpg" group-title="SAWARID سواريد - Basketball", Virtus Bologna 🆚 Panathinaikos BC - D SPORTS ++ FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=83f81c4cc1443991543de4e22eea7586:ddfd7ca653d6f35543d8edb3c688e20f
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ud6bnhthpj/out/v1/2639a2f4480f4269953de466d5f46463/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Basketball 👉 Updateded Done ✅✅✅✅✅✅
@@ -253,6 +314,12 @@ https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/3eyutz3sbr/
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/GOLF%20EVENTO%20Vs%20GOLF%20EVENTO.jpg" group-title="SAWARID سواريد - Other", GOLF EVENTO 🆚 GOLF EVENTO - Golf Channel - HD
 https://dash3.antik.sk/live/test_golf_channel/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/DARTS%20PDC%20Vs%20DARTS%20PDC.jpg" group-title="SAWARID سواريد - Other", DARTS PDC 🆚 DARTS PDC - NOVA2 SPORTS FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_nova_sport2/playlist_cenc.mpd
 
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/TENNIS%20%20EVENTO%20Vs%20TENNIS%20%20EVENTO.jpg" group-title="SAWARID سواريد - Other", TENNIS | EVENTO 🆚 TENNIS | EVENTO - SKY SPORT TENNIS FHD
@@ -345,20 +412,12 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/lsibpqruq1/out/v1
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Prime Video Sports 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="B0HNG5W996" tvg-name="ECHL Hockey: Adirondack Thunder vs Reading Royals" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.993500ba-07e1-4385-9d82-4f0a24c48ff5/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports", ECHL Hockey: Adirondack Thunder 🆚 Reading Royals
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=b74568d74a6d7f5d2a07d903f820cdb1:ea92e2f4ec746aa5e64fd9c4fc6ed3e9
-https://hls-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/n0gubjzzdn/out/v1/4a96409cca884f9780798b74a4a90017/cenc.mpd
-
-
 #EXTINF:-1 tvg-id="B0HPZWB8SG" tvg-name="Triton Poker Series Cyprus-$25K NLH Titi Poker" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.52bd3e5a-937d-408e-9d9f-6a2bd46dcdfd/6/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Triton Poker Series Cyprus-$25K NLH Titi Poker
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=0bd0136d2728be3d6506cfe054a3fd59:27ae4995704be63440c0dcb001b2abbd
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/znpxp4vhyl/out/v1/2a14edb0fa434870a70679d37f5f013c/cenc.mpd
+https://hls-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/znpxp4vhyl/out/v1/2a14edb0fa434870a70679d37f5f013c/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HPZN6W1P" tvg-name="Helsinki-ATP Early Rounds" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.2da80589-1a27-4e3f-bf0b-4f90cfeac0fb/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Helsinki-ATP Early Rounds
@@ -366,15 +425,15 @@ https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/znpxp4vhyl/
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HLLR5WZX" tvg-name="Abu Dhabi T10 League 2026 - 25th Match - UAE Bulls vs Royal Desert Champions" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.e6a63c27-a438-4b01-a58e-153abafd8167/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports", Abu Dhabi T10 League 2026 - 25th Match - UAE Bulls 🆚 Royal Desert Champions
+#EXTINF:-1 tvg-id="B0HNS8499H" tvg-name="Israel vs. Austria" tvg-logo="https://images-na.ssl-images-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.a81a5468-3e6e-48ba-be1f-4c7259229c3b/3/BOXART-16X9/en-US/1920x1080._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMpng_.png" group-title="SAWARID سواريد - Prime Video Sports",Israel vs. Austria
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=d57defa12fc43c991a7f82fc57f8212f:915269b352069f2dfa826a64a0905681
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/fehi3mxtqo/out/v1/c7ace340dfab4a1fa798cc693914ddbe/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=fa5e8db5359fc7d1f15207d5de2a3ac4:78a6c0a41972dfdba2145ae0ad4bd681
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/y3mtc7phj2/out/v1/a48ab8dfd51c4d1f9a08774b3cd4c49e/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
