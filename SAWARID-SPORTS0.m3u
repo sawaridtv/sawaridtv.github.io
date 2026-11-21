@@ -53,83 +53,36 @@
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Football 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="tapmad-20262" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17951590201020x576.jpg" group-title="SAWARID سواريد - Football", Al-Ahli 🆚 Al-Nassr - MATCHDAY 9 - Saudi Pro League 2026/27
-https://t-prod-bd.tapmad.com/v1/01a1456f124d15fc600b1e3e9683d7/01a145990eba15fc60e91e1786b054/main.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Arminia%20Bielefeld%20Vs%201.%20FC%20Magdeburg.jpg" group-title="SAWARID سواريد - Football", Arminia Bielefeld 🆚 1. FC Magdeburg - FOX2 SPORTS FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=09453ce820d65fbc675de3185f9e454c:98cff9600995fa381c76fdacf3c7edae
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/awxnrqkbo5/out/v1/716529a4091947b0877e6cb80dbd6ccb/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Arminia%20Bielefeld%20Vs%201.%20FC%20Magdeburg.jpg" group-title="SAWARID سواريد - Football", Arminia Bielefeld 🆚 1. FC Magdeburg - TV QUALITY
-http://162.251.160.53:8089/671/index.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Arminia%20Bielefeld%20Vs%201.%20FC%20Magdeburg.jpg" group-title="SAWARID سواريد - Football", Arminia Bielefeld 🆚 1. FC Magdeburg - HD QUALITY
-#EXTVLCOPT:http-referrer=https://xlz.domainkqt.cc/
-https://live2.jorvakstreamcache.com/live/channel4.m3u8?
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Darmstadt%2098%20Vs%201.%20FC%20Heidenheim.jpg" group-title="SAWARID سواريد - Football", Darmstadt 98 🆚 1. FC Heidenheim - BEIN3 SPORTS FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=7995c724a13748ed970840a8ab5bb9b3:67bdaf1e2175b9ff682fcdf0e2354b1e
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/q4u5nwaogz/out/v1/18de6d3e65934f3a8de4358e69eab86c/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Darmstadt%2098%20Vs%201.%20FC%20Heidenheim.jpg" group-title="SAWARID سواريد - Football", Darmstadt 98 🆚 1. FC Heidenheim - HD QUALITY
-#EXTVLCOPT:http-referrer=https://xlz.domainkqt.cc/
-https://live2.jorvakstreamcache.com/live/channel9.m3u8?
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Al-Ahli%20Vs%20Al-Nassr.jpg" group-title="SAWARID سواريد - Football", Al-Ahli 🆚 Al-Nassr - FOX DEPORTES FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/V%C3%A9lez%20Sarsfield%20Vs%20Club%20Atl%C3%A9tico%20Belgrano.jpg" group-title="SAWARID سواريد - Football", Vélez Sarsfield 🆚 Club Atlético Belgrano - FOX DEPORTES FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=d1a163914db8ffad2c3e94f979896a0d:9728800a3959aafdd5b0bcfbf3768811
 https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/vkpoljjpkj/out/v1/502bcf68b3514cd28a220e6f0a43816f/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Al-Ahli%20Vs%20Al-Nassr.jpg" group-title="SAWARID سواريد - Football", Al-Ahli 🆚 Al-Nassr - SportDigital FussBall
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/UCF%20Knights%20Vs%20Iowa%20State%20Cyclones.jpg" group-title="SAWARID سواريد - Football", UCF Knights 🆚 Iowa State Cyclones - FOX1 SPORTS FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0ad4080cdff8c60b1233b22087f0b340:285f129c5eca01dd08a5d5a14ad801c8
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ssdefyhkkr/out/v1/cf01290cb7f64525bdf861580a016ca8/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=5466ebd70704bdeb657f0abf3c5ca4ef:bdd79b72d8e48ed483aa623cc38a8a16
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/fsu3wl2rwb/out/v1/be61206c04e643349d53fb22301f3b50/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Al-Ahli%20Vs%20Al-Nassr.jpg" group-title="SAWARID سواريد - Football", Al-Ahli 🆚 Al-Nassr - HD QUALITY
-https://www.rtmpcdn.com/live/5fd1541a-8e63-490b-8e8b-87dbcc668297.m3u8
-
-
-#EXTINF:-1 tvg-logo="http://api.sofascore.com/api/v1/unique-tournament/2353/image/dark" group-title="SAWARID سواريد - Football", Azam 🆚 Singida Black Stars - Link 1
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V2UUI35.39-21-7-5-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.199 Mobile Safari/537.36
-http://193.47.62.41/hls/DADADAAAAAQ.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Bayern%20M%C3%BCnchen%20Vs%201.%20FC%20K%C3%B6ln.jpg" group-title="SAWARID سواريد - Football", FC Bayern München 🆚 1. FC Köln - BeIN2 SPORTS FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0b42be2664d7e811d04f3e504e0924c5:ae24090123b8c72ac5404dc152847cb8
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/8m8cd46i1t/out/v1/83985c68e4174e90a58a1f2c024be4c9/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Bayern%20M%C3%BCnchen%20Vs%201.%20FC%20K%C3%B6ln.jpg" group-title="SAWARID سواريد - Football", FC Bayern München 🆚 1. FC Köln - SKY TOP EVENT FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Duke%20Blue%20Devils%20Vs%20Clemson%20Tigers.jpg" group-title="SAWARID سواريد - Football", Duke Blue Devils 🆚 Clemson Tigers - TSN3 SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=368bd4ebe301406897324bc777650411:69d27c2c2b7de927d67aacc973259901
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/gjsukewpxp/out/v1/ef14aacf858248839b9867eec5caf563/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=d3250252765347a0c2603c6cb4869f8c:0c19319460da7e9ed816db46ce839b37
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/lsibpqruq1/out/v1/748887d614a84913ba8bcdf3c82823e6/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Pogo%C5%84%20Szczecin%20Vs%20%C5%9Al%C4%85sk%20Wroc%C5%82aw.jpg" group-title="SAWARID سواريد - Football", Pogoń Szczecin 🆚 Śląsk Wrocław - SportDigital FussBall
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Duke%20Blue%20Devils%20Vs%20Clemson%20Tigers.jpg" group-title="SAWARID سواريد - Football", Duke Blue Devils 🆚 Clemson Tigers - TSN4 SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0ad4080cdff8c60b1233b22087f0b340:285f129c5eca01dd08a5d5a14ad801c8
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ssdefyhkkr/out/v1/cf01290cb7f64525bdf861580a016ca8/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=abc5b2883121012850ebda05b528c5ec:e5250924f4b738905f7163a0134587a7
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Andorra%20Vs%20Legan%C3%A9s.jpg" group-title="SAWARID سواريد - Football", FC Andorra 🆚 Leganés - LaLiga Hypermotion
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Duke%20Blue%20Devils%20Vs%20Clemson%20Tigers.jpg" group-title="SAWARID سواريد - Football", Duke Blue Devils 🆚 Clemson Tigers - NOVA1 SPORTS FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a88617e904504ee291f49f0e60a51d49:17f92d59fde3b6d2bf4ffb48e8ca720a
-https://cache07.zapitv.com/live/eds_c2/HYPERMOTION1/dash_live_ez/HYPERMOTION1.mpd
+#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
+https://dash2.antik.sk/stream/nvidia_nova_sport1/playlist_cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Football 👉 Updateded Done ✅✅✅✅✅✅
@@ -141,36 +94,72 @@ https://cache07.zapitv.com/live/eds_c2/HYPERMOTION1/dash_live_ez/HYPERMOTION1.mp
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Cricket 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-id="B0HS7B18QQ" tvg-name="Abu Dhabi T10 League 2026 - Qualifier - Arabian Aces vs UAE Bulls" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.3cfb0948-d4fd-4f83-972e-bd07f74f613e/2/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket", Abu Dhabi T10 League 2026 - Qualifier - Arabian Aces 🆚 UAE Bulls
+#EXTINF:-1 tvg-id="1090555319_ENG" tvg-name="1st Test - Day 3 - 21 Nov 2026 [ENG]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000029396/1795086043304996_NZvsIND_1st_Test_Day3_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",1st Test - Day 3 - 21 Nov 2026 [ENG]
+https://sonyeventsglobal.akamaized.net/hls/live/2119931/cricodi_2011/ENG/std_lrh-800300010.m3u8?hdnea=exp=1795262886~acl=/*~id=16194205795955365227123763499578~hmac=a513c461c0fdb721119a5917d0af4e8b4f1593bf6c80707b5436a238396806cc
+
+
+#EXTINF:-1 tvg-id="1090555319_HIN" tvg-name="1st Test - Day 3 - 21 Nov 2026 [HIN]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000029396/1795086043304996_NZvsIND_1st_Test_Day3_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",1st Test - Day 3 - 21 Nov 2026 [HIN]
+https://sonyeventsglobal.akamaized.net/hls/live/2119921/cricodi_2011/HIN/std_lrh-800300010.m3u8?hdnea=exp=1795262886~acl=/*~id=16194205795955365227123763499578~hmac=a513c461c0fdb721119a5917d0af4e8b4f1593bf6c80707b5436a238396806cc
+
+
+#EXTINF:-1 tvg-id="1090555319_TAM" tvg-name="1st Test - Day 3 - 21 Nov 2026 [TAM]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000029396/1795086043304996_NZvsIND_1st_Test_Day3_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",1st Test - Day 3 - 21 Nov 2026 [TAM]
+https://sonyeventsglobal.akamaized.net/hls/live/2119951/cricodi_2011/TAM/std_lrh-800300010.m3u8?hdnea=exp=1795262886~acl=/*~id=16194205795955365227123763499578~hmac=a513c461c0fdb721119a5917d0af4e8b4f1593bf6c80707b5436a238396806cc
+
+
+#EXTINF:-1 tvg-id="1090555319_TEL" tvg-name="1st Test - Day 3 - 21 Nov 2026 [TEL]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000029396/1795086043304996_NZvsIND_1st_Test_Day3_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",1st Test - Day 3 - 21 Nov 2026 [TEL]
+https://sonyeventsglobal.akamaized.net/hls/live/2119941/cricodi_2011/TEL/std_lrh-800300010.m3u8?hdnea=exp=1795262886~acl=/*~id=16194205795955365227123763499578~hmac=a513c461c0fdb721119a5917d0af4e8b4f1593bf6c80707b5436a238396806cc
+
+
+#EXTINF:-1 tvg-id="1090555319_KAN" tvg-name="1st Test - Day 3 - 21 Nov 2026 [KAN]" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000029396/1795086043304996_NZvsIND_1st_Test_Day3_landscape_thumb.jpg" group-title="SAWARID سواريد - Cricket",1st Test - Day 3 - 21 Nov 2026 [KAN]
+https://sonyeventsglobal.akamaized.net/hls/live/2119782/cricodi_2011/KAN/std_lrh-800300010.m3u8?hdnea=exp=1795262886~acl=/*~id=16194205795955365227123763499578~hmac=a513c461c0fdb721119a5917d0af4e8b4f1593bf6c80707b5436a238396806cc
+
+
+#EXTINF:-1 tvg-id="tapmad-19065" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17945538171020x576.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - 1st Test - India Tour of New Zealand 2026 - Server 1
+https://tencent-cdn.tapmad.com/v1/01a14a9fb90c15fc60e91e1786b061/01a14a9feb881ea540a81c2b41b75e/main.m3u8
+
+
+#EXTINF:-1 tvg-id="tapmad-19065" tvg-logo="https://d34080pnh6e62j.cloudfront.net/images/channels/mobile_large/17945538171020x576.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - 1st Test - India Tour of New Zealand 2026 - Server 2
+https://tencent-cdn.tapmad.com/v1/01a14ab8af8915fc600b1e3e9683f0/01a14ab953dd1ea540a81c2b41b75f/main.m3u8
+
+
+#EXTINF:-1 tvg-id="B0HM4ZHT1F" tvg-name="India tour of New Zealand 2026 - 1st Test - New Zealand vs India" tvg-logo="https://m.media-amazon.com/images/S/le-target-images-prod/amzn1.dv.gti.04f62072-bc1e-42be-b0f9-2370ad69f513/9/BOXART-16X9/en-US._UR1920,1080_.jpeg" group-title="SAWARID سواريد - Cricket", India tour of New Zealand 2026 - 1st Test - New Zealand 🆚 India
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=b523235faf497e1ce0967946ba01a9c3:1697e8dd99cd9cd940f463f4fdc7385f
-https://ss-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/ciluyzixht/out/v1/b3ec24213f4b40be9c5644b6eed1774b/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=a478f5af8b826d44778571031c84e257:ceabaa285b51b50a60cf5240715a6f28
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/roxefgx3by/out/v1/626d780fa151471cab6d83b9fcb731e8/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/ABU%20DHABI%20T10%20LEAGUE%20Vs%20ABU%20DHABI%20T10%20LEAGUE.jpg" group-title="SAWARID سواريد - Cricket", ABU DHABI T10 LEAGUE 🆚 ABU DHABI T10 LEAGUE - WILLOW FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - WILLOW FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=7e762ae016686583246f1959850eea6e:7ea4fb4356c76bf242b3189458ecea2e
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ekkbhu8smy/out/v1/86d8291f825543f8ba6f2373474aac78/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=766c7943cfc3e9d982ff49ca5e16bb90:f715c4b43971ca6990af7eff70f021b0
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/cq1jp64r6p/out/v1/c500a59e5a174e4681c5c88d8d8b3b4d/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/ABU%20DHABI%20T10%20LEAGUE%20Vs%20ABU%20DHABI%20T10%20LEAGUE.jpg" group-title="SAWARID سواريد - Cricket", ABU DHABI T10 LEAGUE 🆚 ABU DHABI T10 LEAGUE - PREMIER1 SPORTS FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - PRIME ENG FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=ebc640cb03dbdf8677190f7e4b2e96b0:7ab2c0204d41d1eefeca0cc04622c4cc
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/2crmhngewx/out/v1/7005e762d047462aa11136773a136dfa/cenc.mpd?
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - PRIME HINDI FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=080deb5f5141f1274093066904865667:af9d012f808345520ac2d3b2cc9026de
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/m0edrlrm8n/out/v1/769e4d71dfec4c4cb8189a0bf5051266/cenc.mpd?
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - TNT1UK SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=1a5df53609ebc9857898c490f4724918:77f62980d582ec541280796acf8b2d19
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bcj3iscpd6/out/v1/fcd137b391214f7cb99dd4d7be90ca87/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=69a5aa835a061ce64a630d1046727e40:d02feac8a999bd06bf4059bf33411749
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/rhf2dwosdt/out/v1/ee550d2a68d846c797e6ce4de2e8b76d/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/ABU%20DHABI%20T10%20LEAGUE%20Vs%20ABU%20DHABI%20T10%20LEAGUE.jpg" group-title="SAWARID سواريد - Cricket", ABU DHABI T10 LEAGUE 🆚 ABU DHABI T10 LEAGUE - PREMIERE2 SPORTS FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20Zealand%20Vs%20India.jpg" group-title="SAWARID سواريد - Cricket", New Zealand 🆚 India - TNT2UK SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=1a5df53609ebc9857898c490f4724918:77f62980d582ec541280796acf8b2d19
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bcj3iscpd6/out/v1/fcd137b391214f7cb99dd4d7be90ca87/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/ABU%20DHABI%20T10%20LEAGUE%20Vs%20ABU%20DHABI%20T10%20LEAGUE.jpg" group-title="SAWARID سواريد - Cricket", ABU DHABI T10 LEAGUE 🆚 ABU DHABI T10 LEAGUE - WILLOW ALT
-https://live.msnetworks.net/a-sports/master.m3u8
+#KODIPROP:inputstream.adaptive.license_key=f3df7843080ae743bf865dc5fdf64c68:567c863bc12eb74788ea74888c042e1b
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/puehlftk5j/out/v1/f7f0da1ee112481ca0024e6d4dd97f4a/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Cricket 👉 Updateded Done ✅✅✅✅✅✅
@@ -182,23 +171,18 @@ https://live.msnetworks.net/a-sports/master.m3u8
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Basketball 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Bar%C3%A7a%20Basket%20Vs%20KK%20Crvena%20zvezda.jpg" group-title="SAWARID سواريد - Basketball", Barça Basket 🆚 KK Crvena zvezda - D SPORTS + FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Brooklyn%20Nets%20Vs%20Orlando%20Magic.jpg" group-title="SAWARID سواريد - Basketball", Brooklyn Nets 🆚 Orlando Magic - TSN1 SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=14eeabf30c14b7fbf3008c03099ce011:17d2ac8dbc5429bd70af3433aa12158d
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/w0rehjjrwe/out/v1/69a2a7041395406b970598f61680e7cf/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Bar%C3%A7a%20Basket%20Vs%20KK%20Crvena%20zvezda.jpg" group-title="SAWARID سواريد - Basketball", Barça Basket 🆚 KK Crvena zvezda - D SPORTS2+ FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Brooklyn%20Nets%20Vs%20Orlando%20Magic.jpg" group-title="SAWARID سواريد - Basketball", Brooklyn Nets 🆚 Orlando Magic - TSN5 SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=03f12d6a3dbfd3a6fa7dd7f6417e0c11:ea07b87acdf2e45be824cde4a1cf3504
-https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/rgilyeubta/out/v1/09a67027b18f4fd78aaa3794a2aacfe8/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Bar%C3%A7a%20Basket%20Vs%20KK%20Crvena%20zvezda.jpg" group-title="SAWARID سواريد - Basketball", Barça Basket 🆚 KK Crvena zvezda - D SPORTS ++ FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=83f81c4cc1443991543de4e22eea7586:ddfd7ca653d6f35543d8edb3c688e20f
-https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ud6bnhthpj/out/v1/2639a2f4480f4269953de466d5f46463/cenc.mpd
+#KODIPROP:inputstream.adaptive.license_key=385ceb9714b75e0cef61254f80b31002:18dce92a2891fee68d21ede5173230f8
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cscevwljkq/out/v1/972185041b244140860b7d56398e9aaf/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Basketball 👉 Updateded Done ✅✅✅✅✅✅
@@ -210,25 +194,68 @@ https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ud6bnhthpj/
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Boxing 🟢🟢🟢🟢🟢🟢
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/One%20Friday%20Fights%20Vs%20One%20Friday%20Fights.jpg" group-title="SAWARID سواريد - Boxing", One Friday Fights 🆚 One Friday Fights - Server 1
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=308006101c8fd0262c0f529319b9c127:37683aadc75b1450efa82d62c647984d
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/kkfdbi2d1c/out/v1/a5b9b32dafd5499688240287ef8c9b90/cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/One%20Friday%20Fights%20Vs%20One%20Friday%20Fights.jpg" group-title="SAWARID سواريد - Boxing", One Friday Fights 🆚 One Friday Fights - Server 2
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=60dc08aae52f4c0b806a8e43f24a12c8:30d5b579966d822b215ec51a91d8a271
-https://tglmp02.akamaized.net/out/v1/3170252e3fb0453085f2f4b0f8401a6b/manifest.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/One%20Friday%20Fights%20Vs%20One%20Friday%20Fights.jpg" group-title="SAWARID سواريد - Boxing", One Friday Fights 🆚 One Friday Fights - Server 3
-https://fastly.live.brightcove.com/1850722103624061910/ap-southeast-1/6195549636001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiaTE3dzIxLmVncmVzcy5zYjBmOGsiLCJhY2NvdW50X2lkIjoiNjE5NTU0OTYzNjAwMSIsImVobiI6ImZhc3RseS5saXZlLmJyaWdodGNvdmUuY29tIiwiaXNzIjoiYmxpdmUtcGxheWJhY2stc291cmNlLWFwaSIsInN1YiI6InBhdGhtYXB0b2tlbiIsImF1ZCI6WyI2MTk1NTQ5NjM2MDAxIl0sImp0aSI6IjE4NTA3MjIxMDM2MjQwNjE5MTAifQ.MQrZwY5puqZGRgWL843gOZ-Y7i2jUGB5McfZKwoOB1I/playlist-hls.m3u8
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/One%20Friday%20Fights%20Vs%20One%20Friday%20Fights.jpg" group-title="SAWARID سواريد - Boxing", One Friday Fights 🆚 One Friday Fights - MMA Fighting
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE SMACK+ HD
 #EXTVLCOPT:http-referrer=https://gooz.aapmains.net
-https://chatgpt.hereisman.net/playlist/59937/load-playlist?&.m3u8
+https://chatgpt.hereisman.net/playlist/58881/load-playlist?&.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE SMACK
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+https://chatgpt.hereisman.net/playlist/58881/load-playlist?&.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE HD 2
+https://admin2.formaturamaxi.com.br/wwe.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE LIVE FHD
+https://jellyfin.fromthyheart.site/dailymotion/live/playlist/1.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - HD QUALITY SMACK
+https://admin2.formaturamaxi.com.br/wwe.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE LIVE FHD4
+https://ubuntu.fromthyheart.site/dailymotion/live/playlist/4.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - STREAM HD QUALITY
+https://jellyfin.fromthyheart.site/dailymotion/live/playlist/5.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - HD QUALITY SMK
+https://plex.fromthyheart.site/dailymotion/live/playlist/5.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - SmackDown HD
+https://raw.githubusercontent.com/athenapanda26/hls/refs/heads/main/smack.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE LIVE FHD5
+https://ubuntu.fromthyheart.site/dailymotion/live/playlist/5.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE LIVE FHD6
+https://ubuntu.fromthyheart.site/dailymotion/live/playlist/6.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - SPORT CAST FHD5
+https://melancholy.fromthyheart.site/dailymotion/live/playlist/5.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE LIVE FHD1
+https://acumen.loreofeldenring.site/dailymotion/live/playlist/1.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - WWE LIVE FHD5
+https://ubuntu.fromthyheart.site/dailymotion/live/playlist/5.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SmackDown%20Vs%20SmackDown.jpg" group-title="SAWARID سواريد - Boxing", SmackDown 🆚 SmackDown - USA TV (US VPN)
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=58551b13211b37d5b325d67e5c6cabef:3b4c3f8b4236fc57d66cdb54a606fe41
+https://g001-sle-us-cmaf-prd-ak.pcdn03.cssott.com/Content/CMAF_OS1-CTR-4s-v2/Live/channel(12010340-12010340-4445585a62764)/master_2hr.mpd
 
 
 # 🆕 SAWARID سواريد - Boxing 👉 Updateded Done ✅✅✅✅✅✅
@@ -279,6 +306,66 @@ https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_spotv2hd.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=368bd4ebe301406897324bc777650411:69d27c2c2b7de927d67aacc973259901
 https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/gjsukewpxp/out/v1/ef14aacf858248839b9867eec5caf563/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - TSN5 SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=385ceb9714b75e0cef61254f80b31002:18dce92a2891fee68d21ede5173230f8
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cscevwljkq/out/v1/972185041b244140860b7d56398e9aaf/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - FANCODE FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=1994b1df7dfd2e8a8d7b9bf3fb900285:22a1444b3da18e139191665b3d652835
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - SKY SPORT F1 FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=0d7d09d646a2a4edd51b87563abe77a3:a1e63461298a129daa947f42cbad4aa2
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/l1pw9fzori/out/v1/68469cf8a4ba49608a0e0fab18d45aee/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - FORMULA TV HD
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+https://chatgpt.hereisman.net/playlist/60456/load-playlist-multi?
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - SPORTSCAST FHD
+https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/0a4b8981-9dac-4551-bdfe-b23d10b10693/master.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - SporTV3 BR FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=902e5ec0e3d05e665daa32fc23f4f59e:7b2322a273843921a43e2c61dac7cae3
+https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/6otiglnptp/out/v1/add7499679b0422cb6791f7701f95ecc/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - CANAL MX FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=d695093ea3e66d75a4d213a3e2cbf360:01be3f645e89a067d2786c295f68dde4
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ntkdl68eob/out/v1/bd5dfb7676994383881bc6e71877d29d/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - TSN2 SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=85b277daf5aae05833fe43a68f587968:d52d7e9bc0bcd98787efd547ac91eca0
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cjglydxghe/out/v1/8977baf175da4b94873194613dd3fe55/cenc.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - SKY F1 (ITALY)
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=1118d83348830358060d408a72f56f29:648378946f2f70f43af47ff9bf3e329b
+https://g006-lin-it-cmaf-prd-ak.pcdn07.cssott02.com/v~a-0-0_e~1791804090_s~35174801-9c9a-4ac6-8180-bcceaba6c98a_u~fe3b84cbbdf5bc565dd1012e5306ba8dc943c4ee57b1c5b2555a972552c5c85df5468f3aaf797d103da27a492f48c64a_l~70_x~743ee2be13010752947f25f2eda5b1b044b9c8690dcbb5f1493a82650dd39ca2/nowitlin2/Content/CMAF_CTR_H1/Live/channel(GmNkZkEhHwZyLEqoafQKOFLW)/master_2hr-all.mpd
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="SAWARID سواريد - Motorsports", Formula 1 🆚 Formula 1 - SKY TOP EVENT FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=368bd4ebe301406897324bc777650411:69d27c2c2b7de927d67aacc973259901
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/dg9oi3org7/out/v1/e75b690762ba4c4ca72bf30703a4473e/cenc.mpd
 
 
 # 🆕 SAWARID سواريد - Motorsports 👉 Updateded Done ✅✅✅✅✅✅
@@ -402,18 +489,6 @@ https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/q4u5nwaogz/out/v1
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/lsibpqruq1/out/v1/748887d614a84913ba8bcdf3c82823e6/cenc.mpd
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/DARTS%20PDC%20Vs%20DARTS%20PDC.jpg" group-title="SAWARID سواريد - Other", DARTS PDC 🆚 DARTS PDC - NOVA2 SPORTS FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d
-https://dash2.antik.sk/stream/nvidia_nova_sport2/playlist_cenc.mpd
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/DARTS%20PDC%20Vs%20DARTS%20PDC.jpg" group-title="SAWARID سواريد - Other", DARTS PDC 🆚 DARTS PDC - SPORT 1 DE - FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=98f2ab49605f0469a4b97de40277fca0:7ed06b6908edc372f2cb8ef2df2615d0
-https://ac-009.live.p7s1video.net/181aa0bf/t_009/sport1-de/cenc-default.mpd
-
-
 # 🆕 SAWARID سواريد - Other 👉 Updateded Done ✅✅✅✅✅✅
 
 
@@ -421,6 +496,30 @@ https://ac-009.live.p7s1video.net/181aa0bf/t_009/sport1-de/cenc-default.mpd
 
 
 # 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Prime Video Sports 🟢🟢🟢🟢🟢🟢
+
+
+#EXTINF:-1 tvg-id="B0HQQTY48K" tvg-name="Amari Jones vs. DeAundre Pettus" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.95ec758d-6ca3-46a6-9f2e-849e399986de/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Amari Jones vs. DeAundre Pettus
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=99f2d8b38451875101393cfda6cc5e77:3d32bdfa5fe52cf74567eb20716b5a65
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/qkvxe8ubng/out/v1/dcedefedc735415a9f9d36d3d3016629/cenc.mpd
+
+
+#EXTINF:-1 tvg-id="B0HRK4J7ZP" tvg-name="West Texas A&M at UCCS" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.2e6738a1-c006-46a9-9816-85aa9f5fbf57/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",West Texas A&M at UCCS
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=6670dbc6eb97a1c7fc6395d952fb00b7:72a3574c534811db5a4804695a184221
+https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ed2ez0prtb/out/v1/811d58e2ba00485eb2a4d5724a2ba196/cenc.mpd
+
+
+#EXTINF:-1 tvg-id="B0HM4ZHT1F" tvg-name="India tour of New Zealand 2026 - 1st Test - New Zealand vs India" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.04f62072-bc1e-42be-b0f9-2370ad69f513/9/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports", India tour of New Zealand 2026 - 1st Test - New Zealand 🆚 India
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=a478f5af8b826d44778571031c84e257:ceabaa285b51b50a60cf5240715a6f28
+https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/roxefgx3by/out/v1/626d780fa151471cab6d83b9fcb731e8/cenc.mpd
 
 
 #EXTINF:-1 tvg-id="B0HJLCBWN4" tvg-name="PPA Tour: Daytona Beach Open-Quarterfinals" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.e322e61f-0a56-4f25-a7c8-d23637639de5/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",PPA Tour: Daytona Beach Open-Quarterfinals
@@ -431,68 +530,4 @@ https://ac-009.live.p7s1video.net/181aa0bf/t_009/sport1-de/cenc-default.mpd
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/can8dnk7we/out/v1/d6c56496531749a6989b78ab18c67557/cenc.mpd
 
 
-#EXTINF:-1 tvg-id="B0HQ7Q1CT9" tvg-name="United States Fencing Tournament" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.c8abf242-699a-458e-9db3-b50b75dd9844/1/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",United States Fencing Tournament
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=ad6e7091d1d36a16d5475bdb2d900888:8c67e6b1e4bcf1ee1f12167526ef2503
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/qy6usrjqzw/out/v1/48d0ffdc0c354fc8bf9b565c245d0f07/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HPNXLKT1" tvg-name="Triton Poker Series Cyprus-$200K Triton Invitational" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.ad6cae6a-86ef-41af-b896-0cd39a632086/4/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Triton Poker Series Cyprus-$200K Triton Invitational
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=0bd0136d2728be3d6506cfe054a3fd59:27ae4995704be63440c0dcb001b2abbd
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/znpxp4vhyl/out/v1/2a14edb0fa434870a70679d37f5f013c/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HQZPHCDH" tvg-name="Challenger Tour Live: Helsinki-ATP Quarterfinals" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.6946ed22-48af-4f11-a1d1-38a0bf0ea9dd/7/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Challenger Tour Live: Helsinki-ATP Quarterfinals
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=59f50679c9e60963bd0cb6640992aaaa:8685817c4d31f322e08940feeae2855a
-https://hls-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/k653vm77p0/out/v1/313a4febbed346d298f7c1c281a00f6d/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HRBY9DQQ" tvg-name="Repsol Grand Prix of Portugal, Practice" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.8b7fb58b-829b-4f91-a1ea-feb1f021a1d2/5/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/a-f/freewithads/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1578,847,263,156_kv053498f62d21803ffcbf28da234cfe9f_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports",Repsol Grand Prix of Portugal, Practice
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=e03f302ec4dabcccca82cc9f76731ec9:53ea1027d2bf2893a552cf15bc0366de
-https://ABAGKU5AAAAAAAAMGTQJ6SNBLMLLP.ta-enf.emt-cf.live.pv-cdn.net/$T$2D3RhEOhAQWhBFgkYzQ1OWU1YmItZDgxMS00NGM2LTgwYzQtNTNkZDc3NTIwODk5WIymAWpwcmltZXZpZGVvBBprFBJ7BhprAEv7A2pjbG91ZGZyb250AngoZmlkOjAxYTFmOTI4LWNkZjYtNzAzOC1hMDljLWZkMmYyM2FjOGQzZRkBOKEFoQJ4My9ueWZsYm9lZzRiL291dC92MS84MTk3YzhlMDU1Yzk0YTg2ODYyMzY1M2FjNTVjMTBiZlgg5sirFH7Kwt9ScXvpLcJuESESxo1WVU25NfN-dnQA9Mg/CMH/c1018b7fd2574de2b5dbed71665bc922/v1/dash/590183725645/imdb_amagi_amzn1_dv_live_csid_5357cf2a-51c8-4fa5-b996-cd307e0b7edc_us-east-1_cmh_dash_h264/startover/clients/dash/manipulated-manifest-iad-prod/enc/nyflboeg4b/out/v1/8197c8e055c94a868623653ac55c10bf/a2e0d7ce-4d15-428d-8c88-b996cf1814be-cenc.mpd?aws.sessionId=ea60c5de-a1f0-4da9-a8ae-65bcddfa5b33
-
-
-#EXTINF:-1 tvg-id="B0HHN8W74B" tvg-name="ACC Mens Asia Cup Rising Stars 2026 - 4th Match - India A vs Nepal" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.5ae8f596-1a68-4215-9ca8-ae5fd1d94925/3/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports", ACC Mens Asia Cup Rising Stars 2026 - 4th Match - India A 🆚 Nepal
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=91ffd985da527c7d77ecc801128d11cc:3bb5d51b2fef3b50c43d0cc12455eaf7
-https://dash-ott.bia-cf.live.pv-cdn.net/pdx-nitro/live/clients/dash/enc/myvotpnueo/out/v1/31f5a50cbd8041308c560355044e0b03/cenc.mpd
-
-
-#EXTINF:-1 tvg-id="B0HS7B18QQ" tvg-name="Abu Dhabi T10 League 2026 - Qualifier - Arabian Aces vs UAE Bulls" tvg-logo="https://images-na.ssl-images-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/S/le-target-images-prod/amzn1.dv.gti.3cfb0948-d4fd-4f83-972e-bd07f74f613e/2/BOXART-16X9/en-US._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/s-z/willowtv/logos/channels-logo-white-stacked.png%7C0,0,1920,1080+0,0,1920,1080+1724,885,117,117_kvebed36e78eaa0330f200bb6045a52aca_SX624_FMjpg_.jpeg" group-title="SAWARID سواريد - Prime Video Sports", Abu Dhabi T10 League 2026 - Qualifier - Arabian Aces 🆚 UAE Bulls
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=b523235faf497e1ce0967946ba01a9c3:1697e8dd99cd9cd940f463f4fdc7385f
-https://dash-ott.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/ciluyzixht/out/v1/b3ec24213f4b40be9c5644b6eed1774b/cenc.mpd
-
-
 # 🆕 SAWARID سواريد - Prime Video Sports 👉 Updateded Done ✅✅✅✅✅✅
-
-
-# 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
-
-
-# 🟢🟢🟢🟢🟢🟢 SAWARID سواريد - Rugby 🟢🟢🟢🟢🟢🟢
-
-
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Romania%20Vs%20Canada.jpg" group-title="SAWARID سواريد - Rugby", Romania 🆚 Canada - TSN4 SPORTS FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=abc5b2883121012850ebda05b528c5ec:e5250924f4b738905f7163a0134587a7
-https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd
-
-
-# 🆕 SAWARID سواريد - Rugby 👉 Updateded Done ✅✅✅✅✅✅
